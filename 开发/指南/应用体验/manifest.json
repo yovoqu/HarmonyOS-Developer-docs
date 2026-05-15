@@ -1,0 +1,378 @@
+[
+  {
+    "section": "应用体验建议",
+    "slug": "experience-suggestions-overview",
+    "name": "体验建议概述",
+    "file": "应用体验建议/应用体验/体验建议概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/experience-suggestions-overview",
+    "title": "体验建议概述"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "compatibility-overview",
+    "name": "概述",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/compatibility-overview",
+    "title": "概述"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "general-specifications",
+    "name": "通用规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/通用规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/general-specifications",
+    "title": "通用规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "app-specifications",
+    "name": "应用规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/应用规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-specifications",
+    "title": "应用规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "atomic-specifications",
+    "name": "元服务规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/元服务规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/atomic-specifications",
+    "title": "元服务规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "widget-specifications",
+    "name": "卡片规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/卡片规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/widget-specifications",
+    "title": "卡片规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "distributed-capability-specification",
+    "name": "自由流转规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/自由流转规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/distributed-capability-specification",
+    "title": "自由流转规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "audio-specification",
+    "name": "音频规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/音频规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-specification",
+    "title": "音频规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "display-specification",
+    "name": "显示规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/显示规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/display-specification",
+    "title": "显示规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "protocol-specification",
+    "name": "协议规格",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/系统特性与基础功能/协议规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/protocol-specification",
+    "title": "协议规格"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "os-compatible",
+    "name": "OS兼容",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/基础兼容性/OS兼容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/os-compatible",
+    "title": "OS兼容"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "upgrade-compatible",
+    "name": "升级兼容",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/基础兼容性/升级兼容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/upgrade-compatible",
+    "title": "升级兼容"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "device-compatible",
+    "name": "设备兼容",
+    "file": "应用体验建议/应用体验/应用基础功能和兼容性体验建议/基础兼容性/设备兼容.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/device-compatible",
+    "title": "设备兼容"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "experience-suggestions-stability",
+    "name": "应用稳定性体验建议",
+    "file": "应用体验建议/应用体验/应用稳定性体验建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/experience-suggestions-stability",
+    "title": "应用稳定性体验建议"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-overview",
+    "name": "概述",
+    "file": "应用体验建议/应用体验/应用性能体验建议/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-overview",
+    "title": "概述"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-delay",
+    "name": "时延",
+    "file": "应用体验建议/应用体验/应用性能体验建议/时延.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-delay",
+    "title": "时延"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-frame-rate",
+    "name": "帧率",
+    "file": "应用体验建议/应用体验/应用性能体验建议/帧率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-frame-rate",
+    "title": "帧率"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-content-display",
+    "name": "内容显示",
+    "file": "应用体验建议/应用体验/应用性能体验建议/内容显示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-content-display",
+    "title": "内容显示"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-memory-usage",
+    "name": "内存占用",
+    "file": "应用体验建议/应用体验/应用性能体验建议/内存占用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-memory-usage",
+    "title": "内存占用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "performance-cpu-usage",
+    "name": "CPU占用",
+    "file": "应用体验建议/应用体验/应用性能体验建议/CPU占用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-cpu-usage",
+    "title": "CPU占用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "app-power-experience-standards-overview",
+    "name": "概述",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-power-experience-standards-overview",
+    "title": "概述"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-background-task",
+    "name": "后台任务使用",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/后台场景/后台任务使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-background-task",
+    "title": "后台任务使用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-background-hardware",
+    "name": "后台硬件资源使用",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/后台场景/后台硬件资源使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-background-hardware",
+    "title": "后台硬件资源使用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-background-software",
+    "name": "后台软件资源使用",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/后台场景/后台软件资源使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-background-software",
+    "title": "后台软件资源使用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-foreground-frame-rate",
+    "name": "前台帧率",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/前台场景/前台帧率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-foreground-frame-rate",
+    "title": "前台帧率"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-foreground-render",
+    "name": "前台绘制渲染",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/前台场景/前台绘制渲染.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-foreground-render",
+    "title": "前台绘制渲染"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-foreground-resource",
+    "name": "前台资源使用",
+    "file": "应用体验建议/应用体验/应用功耗体验建议/前台场景/前台资源使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-foreground-resource",
+    "title": "前台资源使用"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-privacy-overview",
+    "name": "概述",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-privacy-overview",
+    "title": "概述"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-base",
+    "name": "组件安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/组件安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-base",
+    "title": "组件安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-debug",
+    "name": "WebView安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/WebView安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-debug",
+    "title": "WebView安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-release",
+    "name": "存储安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/存储安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-release",
+    "title": "存储安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-update",
+    "name": "配置安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/配置安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-update",
+    "title": "配置安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-maintain",
+    "name": "签名安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/签名安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-maintain",
+    "title": "签名安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-security-realize",
+    "name": "实现安全",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/安全/实现安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-security-realize",
+    "title": "实现安全"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-policy",
+    "name": "通知",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/通知.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-policy",
+    "title": "通知"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-user-consent",
+    "name": "选择和同意",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/选择和同意.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-user-consent",
+    "title": "选择和同意"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-collect-use",
+    "name": "收集",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/收集.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-collect-use",
+    "title": "收集"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-permission",
+    "name": "数据主体访问",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/数据主体访问.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-permission",
+    "title": "数据主体访问"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-ad-identifier",
+    "name": "向第三方披露",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/向第三方披露.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-ad-identifier",
+    "title": "向第三方披露"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-privacy-deregister",
+    "name": "隐私保护能力",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/隐私/隐私保护能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-privacy-deregister",
+    "title": "隐私保护能力"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-notice",
+    "name": "恶意弹窗",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/恶意弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-notice",
+    "title": "恶意弹窗"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-mislead",
+    "name": "隐藏误导",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/隐藏误导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-mislead",
+    "title": "隐藏误导"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-occupy",
+    "name": "恶意霸屏",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/恶意霸屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-occupy",
+    "title": "恶意霸屏"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-retain",
+    "name": "保活拉活",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/保活拉活.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-retain",
+    "title": "保活拉活"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-tampering",
+    "name": "伪造篡改",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/伪造篡改.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-tampering",
+    "title": "伪造篡改"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "standard-pure-others",
+    "name": "其他",
+    "file": "应用体验建议/应用体验/应用安全隐私体验建议/纯净/其他.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/standard-pure-others",
+    "title": "其他"
+  },
+  {
+    "section": "应用体验建议",
+    "slug": "experience-suggestions-ux",
+    "name": "应用UX体验建议",
+    "file": "应用体验建议/应用体验/应用UX体验建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/experience-suggestions-ux",
+    "title": "应用UX体验建议"
+  }
+]
