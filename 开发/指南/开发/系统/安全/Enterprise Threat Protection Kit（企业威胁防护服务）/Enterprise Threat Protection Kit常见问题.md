@@ -1,0 +1,9 @@
+# Enterprise Threat Protection Kit常见问题
+
+更新时间：2026-04-30 02:41:24
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terprisethreatprotection-virusremediation-question
+
+## Enterprise Threat Protection Kit权限获取失败
+
+**问题现象** DevEco Studio编译不通过，报错：install failed due to grant request permissions failed。 **解决措施** 请检查开发环境配置是否符合[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-prepare)文档中列出的要求。  如还未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题，华为支持人员会及时处理。

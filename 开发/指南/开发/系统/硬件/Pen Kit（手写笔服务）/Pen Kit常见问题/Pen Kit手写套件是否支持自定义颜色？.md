@@ -1,0 +1,7 @@
+# Pen Kit手写套件是否支持自定义颜色？
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pen-faq-3
+
+工具栏支持100+种颜色选择以及全局取色，暂不支持自定义颜色。
