@@ -1,0 +1,7 @@
+# 超分和自适应VRS特性是否可以同时使用
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-faq-2
+
+可以同时使用，用户可根据实际应用选择超分和自适应VRS的使用顺序。
