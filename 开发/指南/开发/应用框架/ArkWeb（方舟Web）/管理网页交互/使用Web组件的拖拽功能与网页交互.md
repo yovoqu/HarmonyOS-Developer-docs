@@ -1,0 +1,334 @@
+# 使用Web组件的拖拽功能与网页交互
+
+更新时间：2026-04-30 02:41:24
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-drag
+
+ArkWeb的拖拽功能使应用能够在网页中实现元素的拖放，用户可以长按可拖拽的元素，将其拖至可放置的元素上，然后松手完成放置。ArkWeb在网页内容中的拖拽功能满足H5标准。
+
+
+## 将网页内容拖拽至其他应用
+
+ArkWeb目前支持以下四种数据格式。应用按照 H5 标准设置这些格式的拖拽数据，即可将内容拖拽到其他应用中。
+| 数据格式 | 说明 |
+| --- | --- |
+| text/plain | 文本 |
+| text/uri-list | 链接 |
+| text/html | HTML格式 |
+| Files | 文件 |
+
+
+## 拖拽事件通知
+
+ArkWeb拖拽不同于ArkUI的组件级拖拽，主要针对网页内容的拖拽，因此仅支持部分拖拽事件的监听方法。
+| 监听方法 | 说明 |
+| --- | --- |
+| [onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart) | 不建议使用此方法，否则会影响Web组件的拖拽行为，造成拖拽逻辑不符合预期，如无法触发H5拖拽事件监听，预览图无法创建或预览图错误，拖拽数据无法预置等。 |
+| [onDragEnter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragenter) | 拖拽的元素进入Web区域。 |
+| [onDragMove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragmove) | 拖拽的元素在Web区域移动。 |
+| [onDragLeave](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragleave) | 拖拽的元素离开Web区域。 |
+| [onDrop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondrop15) | 拖拽的元素落入Web区域。 |
+| [onDragEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragend10) | 由Web发起的拖拽元素结束拖拽。 |
+
+
+## 在ArkTS侧实现拖拽相关逻辑
+
+在多数情况下，应用在H5端实现的拖拽功能能够满足需求。如有需要，请参考以下案例，实现在ArkTS端进行拖拽数据读取等操作。 [建立应用侧与前端页面数据通道](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-app-page-data-channel)。 在onDrop方法中，做简单逻辑，例如暂存一些关键数据。 在ArkTS侧接收消息的方法中，添加应用处理逻辑，可以进行耗时任务。 由于ArkTS侧的onDrop方法会早于H5中放置事件的处理方法（H5示例中的droppable.addEventListener('drop')）执行，若在onDrop方法中进行页面跳转等操作，将导致H5中的drop方法无法正确执行，产生不符合预期的结果。因此，应建立双向通信机制，在H5中的drop方法执行完毕后，通知ArkTS侧执行相应的业务逻辑，以确保业务逻辑的预期执行。
+```text
+import { webview } from '@kit.ArkWeb'
+import { unifiedDataChannel, uniformTypeDescriptor } from '@kit.ArkData';
+
+@Entry
+@Component
+struct DragDrop {
+  private controller: webview.WebviewController = new webview.WebviewController()
+  @State ports: Array = []
+  @State dragData: Array = []
+
+  build() {
+    Column() {
+      Web({
+        src: $rawfile('drag.html'),
+        controller: this.controller,
+      }).onPageEnd((event) => {
+        // 注册通信端口
+        this.ports = this.controller.createWebMessagePorts();
+        this.ports[1].onMessageEvent((result: webview.WebMessage) => {
+          // ArkTS收到html传来的数据后的处理，可以先打日志确认下消息，双端的消息格式可以自己约定，能唯一识别就行
+          console.info('ETS receive Message: typeof (result) = ' + typeof (result) + ';' + result);
+          // 这里添加result中消息接收到后的处理,可进行耗时任务
+        });
+        console.info('ETS postMessage set h5port ');
+        // 完成通信端口注册后，向前端发送注册完成消息，完成双向的端口绑定
+        this.controller.postMessage('__init_port__', [this.ports[0]], '*');
+      })// onDrop 可做简单逻辑，例如暂存一些关键数据
+        .onDrop((dragEvent: DragEvent) => {
+          console.info('ETS onDrop!')
+          let data: UnifiedData = dragEvent.getData();
+          if(!data) {
+            return false;
+          }
+          let uriArr: unifiedDataChannel.UnifiedRecord[] = data.getRecords();
+          if (!uriArr || uriArr.length H5示例:
+```text
+
+
+H5 拖拽 Demo
+
+
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+
+.draggable {
+width: 100px;
+height: 100px;
+background-color: #4CAF50;
+color: white;
+text-align: center;
+line-height: 100px;
+margin-bottom: 20px;
+cursor: grab;
+}
+
+.droppable {
+width: 300px;
+height: 150px;
+border: 2px dashed #999;
+background-color: #f0f0f0;
+text-align: center;
+line-height: 150px;
+font-size: 16px;
+}
+
+.success {
+background-color: #4CAF50;
+color: white;
+}
+
+
+H5 拖拽 Demo
+
+可拖拽元素
+
+请将方块拖到这里
+
+
+const draggable = document.getElementById('draggable');
+const droppable = document.getElementById('droppable');
+
+// 拖拽开始事件
+draggable.addEventListener('dragstart', function (e) {
+e.dataTransfer.setData('text/plain', this.id);
+this.style.opacity = '0.4';
+});
+
+// 拖拽结束事件
+draggable.addEventListener('dragend', function (e) {
+this.style.opacity = '1';
+});
+
+// 拖入目标区域时触发
+droppable.addEventListener('dragover', function (e) {
+e.preventDefault(); // 必须调用，否则无法触发 drop 事件
+});
+
+// 放置事件
+droppable.addEventListener('drop', function (e) {
+e.preventDefault();
+const data = e.dataTransfer.getData('text/plain');
+// 传入ArkTS
+PostMsgToArkTS(data);
+const draggableEl = document.getElementById(data);
+this.appendChild(draggableEl);
+this.classList.add('success');
+this.textContent = "放置成功！";
+});
+
+// scriptproxy端口在js侧设置
+var h5Port;
+window.addEventListener('message', function (event) {
+console.info("H5 receive settingPort message");
+if (event.data == '__init_port__') {
+if (event.ports[0] != null) {
+console.info("H5 set h5Port " + event.ports[0]);
+h5Port = event.ports[0];
+}
+}
+});
+
+// 通过scriptproxy方式,发送数据到ArkTS侧的实现
+function PostMsgToArkTS(data) {
+console.info("H5 PostMsgToArkTS, h5Port " + h5Port);
+if (h5Port) {
+h5Port.postMessage(data);
+} else {
+console.error("h5Port is null, Please initialize first");
+}
+}
+
+
+```
+
+     ![](assets/使用Web组件的拖拽功能与网页交互/file-20260514130840810-0.gif)     日志打印：     ![](assets/使用Web组件的拖拽功能与网页交互/file-20260514130840810-1.png)
+
+## 常见问题
+
+
+## 为什么H5设置的拖拽事件没有触发？
+
+     请检查相关CSS资源是否正常设置，因为有些网页UA做了判断，针对特定设备的UA才会进行CSS样式设置。可以考虑在Web组件设置自定义UA解决这种问题，例如：
+```text
+import { webview } from '@kit.ArkWeb'
+
+@Entry
+@Component
+struct Index {
+private webController: webview.WebviewController = new webview.WebviewController()
+build(){
+Column() {
+Web({
+src: 'example.com',
+controller: this.webController,
+}).onControllerAttached(() => {
+// 特定UA
+let customUA = 'android'
+this.webController.setCustomUserAgent(this.webController.getUserAgent() + customUA)
+})
+}
+}
+}
+```
+
+
+## 如何禁用web组件拖拽能力
+
+     在未进行特殊配置的情况下，web组件默认支持拖拽功能。如果不需要拖拽功能，可以参考以下示例禁用拖拽。     禁用拖拽方式主要分为两类：           网页侧通过W3C CSS、JS进行拦截/禁用。      应用侧通过Web组件runJavaScriptExt接口注入JS进行拦截/禁用。          H5示例1:
+```text
+
+
+w3c通用属性/方法禁用拖拽
+
+
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+.normal {
+width: 100px;
+height: 100px;
+margin-bottom: 40px;
+}
+.undraggable {
+width: 100px;
+height: 100px;
+margin-bottom: 40px;
+-webkit-user-drag: none;
+}
+
+
+w3c通用属性/方法禁用拖拽
+
+
+draggable设置禁用拖拽
+![图片](./any-pic.png)
+
+
+-webkit-user-drag设置禁用拖拽
+![图片](./any-pic.png)
+
+
+ondragstart设置禁用拖拽
+
+![图片](./any-pic.png)
+
+此段文本用于验证ondragstart脚本对选中文本的禁用拖拽效果
+
+
+function dragstartHandler(event) {
+console.info('forbid drag when drag start');
+event.preventDefault();
+}
+
+
+```
+
+     ![](assets/使用Web组件的拖拽功能与网页交互/file-20260514130840810-2.gif)     html示例2:
+```text
+
+
+runJavascriptExt注入js禁用拖拽
+
+
+body {
+font-family: Arial, sans-serif;
+padding: 20px;
+}
+.normal {
+width: 100px;
+height: 100px;
+margin-bottom: 40px;
+}
+
+
+runJavascriptExt注入js禁用拖拽
+
+
+![图片](./any-pic.png)
+
+此段文本用于验证runJavascriptExt注入js对选中文本的禁止拖拽效果
+
+
+```
+
+     ![](assets/使用Web组件的拖拽功能与网页交互/file-20260514130840810-3.gif)     ArkTS示例:
+```text
+import { webview } from '@kit.ArkWeb';
+
+@Entry
+@Component
+struct Index {
+webViewController: webview.WebviewController = new webview.WebviewController();
+
+build() {
+Column() {
+Button('w3cDemoPage')
+.onClick(() => {
+this.webViewController.loadUrl(\$rawfile('w3c-forbid.html'));
+})
+Button('runJsDemoPage')
+.onClick(() => {
+this.webViewController.loadUrl(\$rawfile('runJs-forbid.html'));
+})
+Button('runJsForbidDrag')
+.onClick(() => {
+try {
+// 使用runJavaScriptExt执行脚本添加dragstart事件监听器去禁用拖拽
+this.webViewController.runJavaScriptExt(
+'window.addEventListener(\'dragstart\', (ev) => {\n' +
+'ev.preventDefault();\n' +
+'});',
+(error, result) => {
+if (error) {
+console.error(`run JavaScript error, ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`)
+return;
+}
+});
+} catch (resError) {
+console.error(`ErrorCode: ${(resError as BusinessError).code},  Message: ${(resError as BusinessError).message}`);
+}
+})
+Web({
+src: \$rawfile('w3c-forbid.html'),
+controller: this.webViewController
+})
+.domStorageAccess(true)
+.javaScriptAccess(true)
+.fileAccess(true)
+}
+.height('100%')
+.width('100%')
+}
+}
+```
