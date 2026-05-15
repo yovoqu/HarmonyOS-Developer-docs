@@ -1,0 +1,254 @@
+[
+  {
+    "section": "组件封装与复用",
+    "slug": "bpta-ui-dynamic-operations",
+    "name": "组件动态创建",
+    "file": "组件封装与复用/组件动态创建.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-dynamic-operations"
+  },
+  {
+    "section": "组件封装与复用",
+    "slug": "bpta-ui-component-encapsulation",
+    "name": "组件封装",
+    "file": "组件封装与复用/组件封装.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-component-encapsulation"
+  },
+  {
+    "section": "组件封装与复用",
+    "slug": "bpta-component-reuse",
+    "name": "组件复用",
+    "file": "组件封装与复用/组件复用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-reuse"
+  },
+  {
+    "section": "组件封装与复用",
+    "slug": "bpta-component-reuse-issue-diagnosis-and-analysis",
+    "name": "组件复用问题诊断分析",
+    "file": "组件封装与复用/组件复用问题诊断分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-reuse-issue-diagnosis-and-analysis"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-text-expand-collapse",
+    "name": "文本展开折叠",
+    "file": "布局与弹窗/文本展开折叠.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-text-expand-collapse"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-improve-layout-performance",
+    "name": "布局优化指导",
+    "file": "布局与弹窗/布局优化指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve-layout-performance"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-common-list-flows",
+    "name": "常见列表流",
+    "file": "布局与弹窗/常见列表流.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-flows"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-grid-drag-swap",
+    "name": "Grid网格元素拖拽交换",
+    "file": "布局与弹窗/Grid网格元素拖拽交换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-grid-drag-swap"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-carousel-graphic-works",
+    "name": "使用Swiper组件实现轮播图",
+    "file": "布局与弹窗/使用Swiper组件实现轮播图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-carousel-graphic-works"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-picture-preview",
+    "name": "图片预览器",
+    "file": "布局与弹窗/图片预览器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-picture-preview"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-customdialog-selection-and-development",
+    "name": "自定义弹窗选型与开发",
+    "file": "布局与弹窗/自定义弹窗选型与开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-customdialog-selection-and-development"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-comment-reply-pop-up-window",
+    "name": "评论回复弹窗",
+    "file": "布局与弹窗/评论回复弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-comment-reply-pop-up-window"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-hadss_dialoghub",
+    "name": "基于DialogHub的通用弹窗",
+    "file": "布局与弹窗/基于DialogHub的通用弹窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hadss_dialoghub"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-waterflow-based-on-scrollcomponents",
+    "name": "基于ScrollComponents实现瀑布流",
+    "file": "布局与弹窗/基于ScrollComponents实现瀑布流.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-waterflow-based-on-scrollcomponents"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-waterflow-operations",
+    "name": "常见瀑布流操作",
+    "file": "布局与弹窗/常见瀑布流操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-waterflow-operations"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-grid-based-on-scrollcomponents",
+    "name": "基于ScrollComponents实现网格",
+    "file": "布局与弹窗/基于ScrollComponents实现网格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-grid-based-on-scrollcomponents"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-list-based-on-scrollcomponents",
+    "name": "基于ScrollComponents实现长列表",
+    "file": "布局与弹窗/基于ScrollComponents实现长列表.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-list-based-on-scrollcomponents"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-development-scenarios-for-tabs",
+    "name": "Tabs选项卡常见开发场景",
+    "file": "布局与弹窗/Tabs选项卡常见开发场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-development-scenarios-for-tabs"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-common-list-operations",
+    "name": "常见列表操作",
+    "file": "布局与弹窗/常见列表操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-list-operations"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-dialog-encapsulation",
+    "name": "弹窗组件封装",
+    "file": "布局与弹窗/弹窗组件封装.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dialog-encapsulation"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-rich-text-display",
+    "name": "富文本显示的选型与开发",
+    "file": "布局与弹窗/富文本显示的选型与开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-rich-text-display"
+  },
+  {
+    "section": "布局与弹窗",
+    "slug": "bpta-rich-text-editor",
+    "name": "实现富文本编辑器",
+    "file": "布局与弹窗/实现富文本编辑器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-rich-text-editor"
+  },
+  {
+    "section": "声明式语法",
+    "slug": "bpta-status-management",
+    "name": "状态管理最佳实践",
+    "file": "声明式语法/状态管理最佳实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management"
+  },
+  {
+    "section": "声明式语法",
+    "slug": "bpta-redundancy-refresh-guide",
+    "name": "组件冗余刷新解决方案",
+    "file": "声明式语法/组件冗余刷新解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-redundancy-refresh-guide"
+  },
+  {
+    "section": "声明式语法",
+    "slug": "bpta-global-state-management-state-store",
+    "name": "基于StateStore的全局状态管理",
+    "file": "声明式语法/基于StateStore的全局状态管理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-global-state-management-state-store"
+  },
+  {
+    "section": "手势与导航",
+    "slug": "bpta-multi-tab-practice",
+    "name": "常见导航样式案例",
+    "file": "手势与导航/常见导航样式案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-tab-practice"
+  },
+  {
+    "section": "手势与导航",
+    "slug": "bpta-hmrouter",
+    "name": "基于HMRouter的页面跳转",
+    "file": "手势与导航/基于HMRouter的页面跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmrouter"
+  },
+  {
+    "section": "手势与导航",
+    "slug": "bpta-gestures-practice",
+    "name": "手势事件冲突解决方案",
+    "file": "手势与导航/手势事件冲突解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-gestures-practice"
+  },
+  {
+    "section": "动画与转场",
+    "slug": "bpta-fair-use-animation",
+    "name": "动画使用指导",
+    "file": "动画与转场/动画使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fair-use-animation"
+  },
+  {
+    "section": "动画与转场",
+    "slug": "bpta-page-transition",
+    "name": "页面间转场",
+    "file": "动画与转场/页面间转场.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-page-transition"
+  },
+  {
+    "section": "动画与转场",
+    "slug": "bpta-one-shot-to-the-end",
+    "name": "一镜到底动效",
+    "file": "动画与转场/一镜到底动效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-one-shot-to-the-end"
+  },
+  {
+    "section": "主题与样式",
+    "slug": "bpta-dark-mode-adaptation",
+    "name": "深色模式适配",
+    "file": "主题与样式/深色模式适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dark-mode-adaptation"
+  },
+  {
+    "section": "主题与样式",
+    "slug": "bpta-page-brightness-settings",
+    "name": "页面亮度设置",
+    "file": "主题与样式/页面亮度设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-page-brightness-settings"
+  },
+  {
+    "section": "主题与样式",
+    "slug": "bpta-custom-font-settings",
+    "name": "自定义字体设置",
+    "file": "主题与样式/自定义字体设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-font-settings"
+  },
+  {
+    "section": "主题与样式",
+    "slug": "bpta-implementing-image-filters",
+    "name": "基于colorFilter实现图片滤镜效果",
+    "file": "主题与样式/基于colorFilter实现图片滤镜效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-filters"
+  },
+  {
+    "section": "主题与样式",
+    "slug": "bpta-implementing-image-resizable",
+    "name": "基于resizable实现图片拉伸效果",
+    "file": "主题与样式/基于resizable实现图片拉伸效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable"
+  }
+]
