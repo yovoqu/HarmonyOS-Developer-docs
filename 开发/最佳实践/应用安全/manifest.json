@@ -1,0 +1,72 @@
+[
+  {
+    "section": "应用安全",
+    "slug": "bpta-app-privacy-protection",
+    "name": "应用隐私保护",
+    "file": "应用安全/应用隐私保护.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-privacy-protection"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-app-data-security",
+    "name": "应用数据安全",
+    "file": "应用安全/应用数据安全.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-data-security"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-harmony-application-security",
+    "name": "应用安全编码实践",
+    "file": "应用安全/应用安全编码实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-harmony-application-security"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-app-asset-protection-design",
+    "name": "应用资产保护设计",
+    "file": "应用安全/应用资产保护设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-asset-protection-design"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-app-code-ob",
+    "name": "应用代码混淆",
+    "file": "应用安全/应用代码混淆.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-code-ob"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-permission-application",
+    "name": "应用权限申请",
+    "file": "应用安全/应用权限申请.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-permission-application"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-network-ca-security",
+    "name": "网络连接安全配置",
+    "file": "应用安全/网络连接安全配置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-ca-security"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-cross-platform-compatibility",
+    "name": "加解密跨平台数据兼容性",
+    "file": "应用安全/加解密跨平台数据兼容性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-platform-compatibility"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-recommended-use-of-device-id",
+    "name": "设备标识使用推荐",
+    "file": "应用安全/设备标识使用推荐.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-recommended-use-of-device-id"
+  },
+  {
+    "section": "应用安全",
+    "slug": "bpta-arkweb-component-security",
+    "name": "ArkWeb组件安全开发",
+    "file": "应用安全/ArkWeb组件安全开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkweb-component-security"
+  }
+]
