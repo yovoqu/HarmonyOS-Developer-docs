@@ -1,0 +1,29 @@
+# C API兼容性保护
+
+更新时间：2026-04-30 07:49:00
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/c-api-compatibility-warning-elim
+
+## 通过dlopen加载动态库，调用dlsym接口查询的方式，判断API兼容性
+
+
+示例如下：
+
+
+```text
+void *handle = NULL; // 库的句柄
+Location_ResultCode (*OH_Location_StartLocating_Test)(const Location_RequestConfig *); // 函数指针
+OH_Location_StartLocating_Test = NULL;
+handle = dlopen("liblocation_ndk.so", RTLD_LAZY);
+if (handle != NULL) {
+OH_Location_StartLocating_Test =
+(Location_ResultCode(*)(const Location_RequestConfig *))dlsym(handle, "OH_Location_StartLocating");
+if (OH_Location_StartLocating_Test != NULL) {
+OH_LOG_INFO(LOG_APP, "OH_Location_StartLocating != NULL");
+} else {
+OH_LOG_INFO(LOG_APP, "OH_Location_StartLocating = NULL");
+}
+} else {
+OH_LOG_INFO(LOG_APP, "handle = NULL");
+}
+```
