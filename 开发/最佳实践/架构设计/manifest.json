@@ -1,0 +1,30 @@
+[
+  {
+    "section": "概览",
+    "slug": "bpta-best-practices-overview",
+    "name": "最佳实践概览",
+    "file": "概览/最佳实践概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-overview"
+  },
+  {
+    "section": "应用架构",
+    "slug": "bpta-app-architecture-overview",
+    "name": "架构概览",
+    "file": "应用架构/架构概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-architecture-overview"
+  },
+  {
+    "section": "应用架构",
+    "slug": "bpta-layered-architecture-design",
+    "name": "分层架构设计",
+    "file": "应用架构/分层架构设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-layered-architecture-design"
+  },
+  {
+    "section": "应用架构",
+    "slug": "bpta-modular-design",
+    "name": "模块化设计",
+    "file": "应用架构/模块化设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-modular-design"
+  }
+]
