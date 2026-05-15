@@ -1,0 +1,122 @@
+[
+  {
+    "section": "应用测试",
+    "slug": "app-testing-overview",
+    "name": "HarmonyOS 开发者测试服务概述",
+    "file": "应用测试/测试/HarmonyOS 开发者测试服务概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-testing-overview",
+    "title": "HarmonyOS 开发者测试服务概述"
+  },
+  {
+    "section": "应用测试",
+    "slug": "unittest-guidelines",
+    "name": "单元测试框架使用指导",
+    "file": "应用测试/测试/单元测试和UI测试/自动化测试框架使用指导/单元测试框架使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unittest-guidelines",
+    "title": "单元测试框架使用指导"
+  },
+  {
+    "section": "应用测试",
+    "slug": "uitest-guidelines",
+    "name": "UI测试框架使用指导",
+    "file": "应用测试/测试/单元测试和UI测试/自动化测试框架使用指导/UI测试框架使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uitest-guidelines",
+    "title": "UI测试框架使用指导"
+  },
+  {
+    "section": "应用测试",
+    "slug": "perftest-guideline",
+    "name": "白盒性能测试框架使用指导",
+    "file": "应用测试/测试/单元测试和UI测试/自动化测试框架使用指导/白盒性能测试框架使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/perftest-guideline",
+    "title": "白盒性能测试框架使用指导"
+  },
+  {
+    "section": "应用测试",
+    "slug": "hypium-python-guidelines",
+    "name": "应用UI测试（基于Python）",
+    "file": "应用测试/测试/单元测试和UI测试/应用UI测试（基于Python）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines",
+    "title": "应用UI测试（基于Python）"
+  },
+  {
+    "section": "应用测试",
+    "slug": "hypium-perf-python-guidelines",
+    "name": "自定义性能脚本测试（基于Python）",
+    "file": "应用测试/测试/单元测试和UI测试/自定义性能脚本测试（基于Python）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-perf-python-guidelines",
+    "title": "自定义性能脚本测试（基于Python）"
+  },
+  {
+    "section": "应用测试",
+    "slug": "smartperf-guidelines",
+    "name": "HiSmartPerf Device性能使用指导",
+    "file": "应用测试/测试/专项测试/命令行工具/HiSmartPerf Device性能使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/smartperf-guidelines",
+    "title": "HiSmartPerf Device性能使用指导"
+  },
+  {
+    "section": "应用测试",
+    "slug": "wukong-guidelines",
+    "name": "wukong稳定性工具使用指导",
+    "file": "应用测试/测试/专项测试/命令行工具/wukong稳定性工具使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/wukong-guidelines",
+    "title": "wukong稳定性工具使用指导"
+  },
+  {
+    "section": "应用测试",
+    "slug": "get-familiar",
+    "name": "快速上手",
+    "file": "应用测试/测试/专项测试/DevEco Testing/快速上手.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/get-familiar",
+    "title": "快速上手"
+  },
+  {
+    "section": "应用测试",
+    "slug": "specialized-testing",
+    "name": "专项测试",
+    "file": "应用测试/测试/专项测试/DevEco Testing/专项测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing",
+    "title": "专项测试"
+  },
+  {
+    "section": "应用测试",
+    "slug": "publish-testing",
+    "name": "上架预检",
+    "file": "应用测试/测试/专项测试/DevEco Testing/上架预检.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/publish-testing",
+    "title": "上架预检"
+  },
+  {
+    "section": "应用测试",
+    "slug": "exploratory-testing",
+    "name": "探索测试",
+    "file": "应用测试/测试/专项测试/DevEco Testing/探索测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/exploratory-testing",
+    "title": "探索测试"
+  },
+  {
+    "section": "应用测试",
+    "slug": "regression-test",
+    "name": "回归测试",
+    "file": "应用测试/测试/专项测试/DevEco Testing/回归测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/regression-test",
+    "title": "回归测试"
+  },
+  {
+    "section": "应用测试",
+    "slug": "tool",
+    "name": "实用工具",
+    "file": "应用测试/测试/专项测试/DevEco Testing/实用工具.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/tool",
+    "title": "实用工具"
+  },
+  {
+    "section": "应用测试",
+    "slug": "faq",
+    "name": "常见问题",
+    "file": "应用测试/测试/专项测试/DevEco Testing/常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/faq",
+    "title": "常见问题"
+  }
+]
