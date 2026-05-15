@@ -1,0 +1,37 @@
+# OH_NativeBuffer_Cta861
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer-cta861
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```text
+typedef struct OH_NativeBuffer_Cta861 {...} OH_NativeBuffer_Cta861
+```
+
+
+## 概述
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+表示CTA-861.3静态元数据。
+
+**起始版本：** 12
+
+**相关模块：** [OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer)
+
+**所在头文件：** [buffer_common.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-buffer-common-h)
+
+
+## 汇总
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+### 成员变量
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+| 名称 | 描述 |
+| --- | --- |
+| float maxContentLightLevel | 最大内容亮度水平。 |
+| float maxFrameAverageLightLevel | 最大的帧平均亮度水平。 |

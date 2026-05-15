@@ -1,0 +1,339 @@
+# @ohos.test.PerfTest
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-perftest
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+PerfTest提供白盒性能测试能力，供开发者在测试场景使用，支持对指定代码段或指定场景的性能数据测试，支持自动化执行测试代码段，并采集耗时、CPU、内存、时延、帧率等性能数据。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+
+```ts
+import {
+  PerfMetric,
+  PerfTest,
+  PerfTestStrategy,
+  PerfMeasureResult,
+} from '@kit.TestKit';
+```
+
+
+## PerfMetric
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+框架支持采集的性能指标。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| DURATION | 0 | 代码段执行耗时，单位：ms。 |
+| CPU_LOAD | 1 | 应用进程CPU负载，取值为百分比。 |
+| CPU_USAGE | 2 | 应用进程CPU使用率，取值为百分比。 |
+| MEMORY_RSS | 3 | 代码段单次执行结束时，应用进程占用物理内存（含共享库），单位：KB。 |
+| MEMORY_PSS | 4 | 代码段单次执行结束时，应用进程占用物理内存（不含共享库），单位：KB。 |
+| APP_START_RESPONSE_TIME | 5 | 应用启动的响应时延，单位：ms。 |
+| APP_START_COMPLETE_TIME | 6 | 应用启动的完成时延，单位：ms。 |
+| PAGE_SWITCH_COMPLETE_TIME | 7 | 应用内页面切换的完成时延，单位：ms。 |
+| LIST_SWIPE_FPS | 8 | 应用内列表滑动的帧率，单位：fps。 |
+
+
+## PerfTestStrategy
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+性能测试执行策略。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| metrics | Array&lt;[PerfMetric](#perfmetric)&gt; | 否 | 否 | 被测性能指标列表。 |
+| actionCode | Callback&lt;Callback&lt;boolean&gt;&gt; | 否 | 否 | 测试代码段。 |
+| resetCode | Callback&lt;Callback&lt;boolean&gt;&gt; | 否 | 是 | 测试结束环境重置代码段。默认为空，框架运行时不执行此代码段。 |
+| bundleName | string | 否 | 是 | 被测应用包名。默认为""，框架运行时测试当前测试应用的性能数据。 |
+| iterations | number | 否 | 是 | 测试迭代执行次数，默认值为5。 |
+| timeout | number | 否 | 是 | 单次代码段（actionCode/resetCode）执行的超时时间，默认值为10000ms。 |
+
+
+> [!NOTE]
+> 属性actionCode和resetCode的入参类型为回调函数"Callback<boolean>"。在代码段中需要主动调用此回调函数，通知框架代码段执行完成，否则会导致代码段执行超时。
+> 其中，回调函数的参数为boolean类型，true代表代码段执行符合预期，false代表代码段执行不符合预期。[代码示例](#create)。
+
+
+## PerfMeasureResult
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+性能指标对应测量结果数据。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| metric | [PerfMetric](#perfmetric) | 是 | 否 | 被测性能指标。 |
+| roundValues | Array&lt;number&gt; | 是 | 否 | 被测性能指标的各轮测量数据值。当数据采集失败时返回-1。 |
+| maximum | number | 是 | 否 | 各轮测量数据最大值（剔除为-1的数据后计算）。 |
+| minimum | number | 是 | 否 | 各轮测量数据最小值（剔除为-1的数据后计算）。 |
+| average | number | 是 | 否 | 各轮测量数据平均值（剔除为-1的数据后计算）。 |
+
+
+## PerfTest
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
+
+
+### create
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+static create(strategy: PerfTestStrategy): PerfTest
+
+静态方法，构造一个PerfTest对象，并返回该对象。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| strategy | [PerfTestStrategy](#perfteststrategy) | 是 | 性能测试执行策略。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [PerfTest](#perftest) | 返回构造的PerfTest对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[perftest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 32400001 | Initialization failed. |
+| 32400002 | Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist. |
+| 32400003 | Parameter verification failed. |
+| 32400007 | The API does not support concurrent calls. |
+
+
+**示例：**
+
+
+```ts
+import { PerfMetric, PerfTest, PerfTestStrategy } from '@kit.TestKit';
+
+async function demo() {
+  let metrics: Array<PerfMetric> = [PerfMetric.DURATION];
+  let num = 0;
+  let actionCode = async (finish: Callback<boolean>) => {
+    // 定义测试代码段，入参类型'Callback<boolean>'，命名为finish
+    for (let index = 0; index < 10000; index++) {
+      num++;
+    }
+    finish(true); // 调用finish回调函数，通知代码段执行结束，且执行符合预期
+  };
+  let resetCode = async (finish: Callback<boolean>) => {
+    // 定义测试结束环境重置代码段
+    num = 0;
+    finish(true);
+  };
+  let perfTestStrategy: PerfTestStrategy = {
+    metrics: metrics,
+    actionCode: actionCode,
+    resetCode: resetCode,
+    timeout: 30000,
+    iterations: 10,
+  };
+  let perfTest: PerfTest = PerfTest.create(perfTestStrategy); // 构造一个PerfTest对象，创建测试任务
+}
+```
+
+
+### run
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+run(): Promise<void>
+
+运行性能测试，迭代执行测试代码段并采集性能数据，使用Promise回调。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[perftest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 32400002 | Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist. |
+| 32400004 | Failed to execute the callback. Possible causes: 1. An exception is thrown in the callback. 2. Callback execution timed out. |
+| 32400005 | Failed to collect metric data. |
+| 32400007 | The API does not support concurrent calls. |
+
+
+**示例：**
+
+
+```ts
+import { PerfMetric, PerfTest, PerfTestStrategy } from '@kit.TestKit';
+
+async function demo() {
+  let metrics: Array<PerfMetric> = [PerfMetric.DURATION];
+  let num = 0;
+  let actionCode = async (finish: Callback<boolean>) => {
+    for (let index = 0; index < 10000; index++) {
+      num++;
+    }
+    finish(true);
+  };
+  let perfTestStrategy: PerfTestStrategy = {
+    metrics: metrics,
+    actionCode: actionCode,
+  };
+  let perfTest: PerfTest = PerfTest.create(perfTestStrategy);
+  await perfTest.run(); // 运行性能测试
+}
+```
+
+
+### getMeasureResult
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+getMeasureResult(metric: PerfMetric): PerfMeasureResult
+
+获取指定性能指标的测量数据。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| metric | [PerfMetric](#perfmetric) | 是 | 性能指标。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [PerfMeasureResult](#perfmeasureresult) | 性能指标对应测量结果数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[perftest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 32400002 | Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist. |
+| 32400003 | Parameter verification failed. |
+| 32400006 | Failed to obtain the measurement result. |
+| 32400007 | The API does not support concurrent calls. |
+
+
+**示例：**
+
+
+```ts
+import { PerfMetric, PerfTest, PerfTestStrategy } from '@kit.TestKit';
+
+async function demo() {
+  let metrics: Array<PerfMetric> = [PerfMetric.DURATION];
+  let num = 0;
+  let actionCode = async (finish: Callback<boolean>) => {
+    for (let index = 0; index < 10000; index++) {
+      num++;
+    }
+    finish(true);
+  };
+  let perfTestStrategy: PerfTestStrategy = {
+    metrics: metrics,
+    actionCode: actionCode,
+  };
+  let perfTest: PerfTest = PerfTest.create(perfTestStrategy);
+  await perfTest.run();
+  let res = perfTest.getMeasureResult(PerfMetric.DURATION); // 获取指定性能指标的测量数据
+}
+```
+
+
+### destroy
+**支持设备：** Phone / PC/2in1 / Tablet / TV
+
+destroy(): void
+
+销毁PerfTest对象。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.PerfTest
+
+**错误码：**
+
+以下错误码的详细介绍请参见[perftest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-perftest)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 32400002 | Internal error. Possible causes: 1. IPC connection failed. 2. The object does not exist. |
+| 32400007 | The API does not support concurrent calls. |
+
+
+**示例：**
+
+
+```ts
+import { PerfMetric, PerfTest, PerfTestStrategy } from '@kit.TestKit';
+
+async function demo() {
+  let metrics: Array<PerfMetric> = [PerfMetric.DURATION];
+  let num = 0;
+  let actionCode = async (finish: Callback<boolean>) => {
+    for (let index = 0; index < 10000; index++) {
+      num++;
+    }
+    finish(true);
+  };
+  let perfTestStrategy: PerfTestStrategy = {
+    metrics: metrics,
+    actionCode: actionCode,
+  };
+  let perfTest: PerfTest = PerfTest.create(perfTestStrategy);
+  await perfTest.run();
+  perfTest.destroy(); // 销毁PerfTest对象
+}
+```

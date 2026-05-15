@@ -1,0 +1,73 @@
+# @ohos.file.BackupExtensionContext (备份恢复扩展能力)
+
+更新时间：2026-04-28 03:31:56
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-backupextensioncontext
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+BackupExtensionContext是BackupExtension的上下文环境，继承自ExtensionContext。
+
+BackupExtensionContext模块提供访问特定BackupExtension的资源的能力。对于扩展的BackupExtension，可直接将BackupExtensionContext作为上下文环境，或者定义一个继承自BackupExtensionContext的类型作为上下文环境。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { BackupExtensionContext } from '@kit.CoreFileKit';
+```
+
+
+## BackupExtensionContext
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+### 属性
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+**系统能力**：SystemCapability.FileManagement.StorageService.Backup
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| backupDir | string | 是 | 否 | 获取备份恢复时的临时路径，该路径只允许在备份恢复过程中作为临时路径使用，不允许应用将该路径作为其他用途来使用。目前只支持el1, el2路径，使用其他路径会返回空值。 |
+
+
+### 使用场景
+
+BackupExtensionContext主要用于获取备份恢复过程中的临时路径。
+
+**示例：**
+
+
+```ts
+import { BackupExtensionAbility } from '@kit.CoreFileKit';
+import { contextConstant } from '@kit.AbilityKit';
+
+export default class MyBackupExtAbility extends BackupExtensionAbility {
+  async onBackup() {
+    console.info('onBackup begin');
+    // 使用者可通过改变 this.context.area 来进行切换el1，el2对应的沙箱路径
+    this.context.area = contextConstant.AreaMode.EL1;
+    // 使用者可通过 this.context.backupDir 对沙箱路径进行获取
+    let dir = this.context.backupDir;
+    console.info(`onBackup el1 dir: ${dir}`);
+    this.context.area = contextConstant.AreaMode.EL2;
+    dir = this.context.backupDir;
+    console.info(`onBackup el2 dir: ${dir}`);
+    console.info('onBackup end');
+  }
+
+  async onRestore() {
+    console.info('onRestore begin');
+    this.context.area = contextConstant.AreaMode.EL1;
+    let dir = this.context.backupDir;
+    console.info(`onRestore el1 dir: ${dir}`);
+    this.context.area = contextConstant.AreaMode.EL2;
+    dir = this.context.backupDir;
+    console.info(`onRestore el2 dir: ${dir}`);
+    console.info('onRestore end');
+  }
+}
+```

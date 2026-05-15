@@ -1,0 +1,273 @@
+# Class (WebResourceResponse)
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webresourceresponse
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+Web组件资源响应对象。示例代码参考[onHttpErrorReceive事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onhttperrorreceive)。
+
+
+## constructor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor()
+
+WebResourceResponse的构造函数。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## getReasonMessage
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getReasonMessage(): string
+
+获取资源响应的状态码描述。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 返回资源响应的状态码描述。 |
+
+
+## getResponseCode
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseCode(): number
+
+获取资源响应的状态码。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 返回资源响应的状态码。 |
+
+
+## getResponseData
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseData(): string
+
+获取资源响应数据。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 返回资源响应数据。 |
+
+
+## getResponseEncoding
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseEncoding(): string
+
+获取资源响应的编码。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 返回资源响应的编码。 |
+
+
+## getResponseHeader
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseHeader() : Array<Header>
+
+获取资源响应头。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;[Header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#header)&gt; | 返回资源响应头。 |
+
+
+## getResponseMimeType
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseMimeType(): string
+
+获取资源响应的媒体（MIME）类型。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 返回资源响应的媒体（MIME）类型。 |
+
+
+## getResponseDataEx13+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined
+
+获取资源响应数据，支持多种数据类型。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| string \| number \| ArrayBuffer \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) \| undefined | string返回HTML格式的字符串。 number返回文件句柄。 ArrayBuffer返回二进制数据。 Resource返回\$rawfile资源。 如果没有可用数据，返回undefined。 |
+
+
+## getResponseIsReady13+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+getResponseIsReady(): boolean
+
+获取响应数据是否已准备就绪。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | true表示响应数据已准备好，false表示未准备好。 |
+
+
+## setResponseData9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseData(data: string | number | Resource | ArrayBuffer): void
+
+设置资源响应数据。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| data | string \| number \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource) \| ArrayBuffer11+ | 是 | 要设置的资源响应数据。string表示HTML格式的字符串。number表示文件句柄，此句柄由系统的Web组件负责关闭。Resource表示应用rawfile目录下文件资源。ArrayBuffer表示资源的原始二进制数据。 |
+
+
+## setResponseEncoding9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseEncoding(encoding: string): void
+
+设置资源响应的编码。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| encoding | string | 是 | 要设置的资源响应的编码。 |
+
+
+## setResponseMimeType9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseMimeType(mimeType: string): void
+
+设置资源响应的媒体（MIME）类型。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| mimeType | string | 是 | 要设置的资源响应的媒体（MIME）类型。 |
+
+
+## setReasonMessage9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setReasonMessage(reason: string): void
+
+设置资源响应的状态码描述。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| reason | string | 是 | 要设置的资源响应的状态码描述。 |
+
+
+## setResponseHeader9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseHeader(header: Array<Header>): void
+
+设置资源响应头。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| header | Array&lt;[Header](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i#header)&gt; | 是 | 要设置的资源响应头。 |
+
+
+## setResponseCode9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseCode(code: number): void
+
+设置资源响应的状态码。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| code | number | 是 | 要设置的资源响应的状态码。如果该资源以错误结束，请参考[@ohos.web.netErrorList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-neterrorlist)设置相应错误码，避免设置错误码为 ERR_IO_PENDING，设置为该错误码可能会导致XMLHttpRequest同步请求阻塞。 |
+
+
+## setResponseIsReady9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+setResponseIsReady(IsReady: boolean): void
+
+设置资源响应数据是否已经就绪。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| IsReady | boolean | 是 | 资源响应数据是否已经就绪。 true表示资源响应数据已经就绪，false表示资源响应数据未就绪。 如果数据是异步提供，需要显式设置为false。设置为非法值如null，undefined或者不设置都会被认为数据已经准备好。 |

@@ -1,0 +1,72 @@
+# Class (MaskFilter)
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+蒙版滤镜对象。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { drawing } from '@kit.ArkGraphics2D';
+```
+
+
+## createBlurMaskFilter12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter
+
+创建具有模糊效果的蒙版滤镜。
+
+**系统能力：** SystemCapability.Graphics.Drawing
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| blurType | [BlurType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blurtype12) | 是 | 模糊类型。 |
+| sigma | number | 是 | 高斯模糊的标准偏差，必须为大于0的浮点数。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [MaskFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter) | 返回创建的蒙版滤镜对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Parameter error.Possible causes:1.Mandatory parameters are left unspecified;2.Incorrect parameter types;3.Parameter verification failed. |
+
+
+**示例：**
+
+
+```ts
+import { RenderNode } from '@kit.ArkUI';
+import { drawing } from '@kit.ArkGraphics2D';
+
+class DrawingRenderNode extends RenderNode {
+  draw(context: DrawContext) {
+    const canvas = context.canvas;
+    let maskFilter = drawing.MaskFilter.createBlurMaskFilter(
+      drawing.BlurType.OUTER,
+      10,
+    );
+  }
+}
+```

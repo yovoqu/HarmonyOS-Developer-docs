@@ -1,0 +1,80 @@
+# Interface (StabilizationQuery)
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilizationquery
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+提供了查询设备在录像模式下是否支持对应的视频防抖模式的能力。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { camera } from '@kit.CameraKit';
+```
+
+
+## isVideoStabilizationModeSupported11+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean
+
+查询是否支持指定的视频防抖模式。
+
+**元服务API：** 从API version 19开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| vsMode | [VideoStabilizationMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#videostabilizationmode) | 是 | 视频防抖模式。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回视频防抖模式是否支持。true表示支持，false表示不支持。接口调用失败会抛出相应错误码并返回undefined，错误码类型[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config, only throw in session usage. |
+
+
+**示例：**
+
+
+```ts
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function isVideoStabilizationModeSupported(
+  videoSession: camera.VideoSession,
+): boolean {
+  let isSupported: boolean = false;
+  try {
+    isSupported = videoSession.isVideoStabilizationModeSupported(
+      camera.VideoStabilizationMode.OFF,
+    );
+  } catch (error) {
+    // 失败返回错误码error.code并处理。
+    let err = error as BusinessError;
+    console.error(
+      `The isVideoStabilizationModeSupported call failed. error code: ${err.code}`,
+    );
+  }
+  return isSupported;
+}
+```

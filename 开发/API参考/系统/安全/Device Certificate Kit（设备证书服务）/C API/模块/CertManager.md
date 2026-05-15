@@ -1,0 +1,23 @@
+# CertManager
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-certmanager
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+## 概述
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+CertManager向应用提供证书管理能力，支持证书凭据的管理和操作，应用可以获取特定类型证书详情。
+
+**起始版本：** 22
+
+
+## 文件汇总
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+| 名称 | 描述 |
+| --- | --- |
+| [cm_native_api.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cm-native-api-h) | 声明用于获取特定类型证书详情的接口。 |

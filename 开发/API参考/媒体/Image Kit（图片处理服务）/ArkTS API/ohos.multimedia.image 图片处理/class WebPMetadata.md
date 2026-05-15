@@ -1,0 +1,40 @@
+# class (WebPMetadata)
+
+更新时间：2026-04-30 02:41:24
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-webpmetadata
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+WebPMetadata
+
+WebP图像元数据类，用于存储图像的元数据。
+
+
+> [!NOTE]
+> 本模块首批接口从API version 24开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { image } from '@kit.ImageKit';
+```
+
+
+## 属性
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| canvasWidth | number | 是 | 是 | WebP图片的画布像素宽度。 单位为像素（px）。 |
+| canvasHeight | number | 是 | 是 | WebP图片的画布像素高度。 单位为像素（px）。 |
+| delayTime | number | 是 | 是 | WebP图片钳制后的帧延迟时长。钳制范围为[100, 65535]。 单位为毫秒（ms）。 |
+| unclampedDelayTime | number | 是 | 是 | WebP图片未钳制的帧延迟时长。 单位为毫秒（ms）。 |
+| loopCount | number | 是 | 是 | WebP图片动画循环的次数。如果取值为0，则表示不限次数。 |

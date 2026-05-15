@@ -1,0 +1,31 @@
+# Class (BackForwardCacheOptions)
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-backforwardcacheoptions
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+前进后退缓存相关设置对象，用来控制Web组件前进后退缓存相关选项。
+
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## 属性
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| size12+ | number | 否 | 否 | 设置每个Web组件允许缓存的最大页面个数。 默认为1，最大可设置为50。 设置为0或负数时，前进后退缓存功能不生效。 Web会根据内存压力对缓存进行回收。 |
+| timeToLive12+ | number | 否 | 否 | 设置每个Web组件允许页面在前进后退缓存中停留的时间。 设置为0或负数时，前进后退缓存功能不生效。 默认值：600。 单位：秒。 |
+
+
+## constructor12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor()
+
+BackForwardCacheOptions的构造函数。
+
+**系统能力：** SystemCapability.Web.Webview.Core

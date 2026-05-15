@@ -1,0 +1,492 @@
+# MapCircle
+
+更新时间：2026-04-24 08:10:21
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+
+```ts
+import { map, mapCommon } from '@kit.MapKit';
+```
+
+
+## MapCircle
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+更新和查询圆的接口，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addcircle)方法时会返回该类型的实例。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**示例：**
+
+
+```ts
+let mapCircleOptions: mapCommon.MapCircleOptions = {
+  center: {
+    latitude: 39.9,
+    longitude: 116.4,
+  },
+  radius: 5000,
+  fillColor: 0xff00ffff,
+  strokeColor: 0xffff0000,
+  strokeWidth: 10,
+  zIndex: 15,
+};
+let mapCircle = await this.mapController.addCircle(mapCircleOptions);
+```
+
+
+### getCenter
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getCenter(): mapCommon.LatLng
+
+获取圆心经纬度。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| mapCommon.[LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 获取圆心经纬度。 |
+
+
+**示例：**
+
+
+```ts
+let center: mapCommon.LatLng = mapCircle.getCenter();
+```
+
+
+### getFillColor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getFillColor(): number
+
+获取圆的填充色。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 获取圆的填充色。 |
+
+
+**示例：**
+
+
+```ts
+let fillColor: number = mapCircle.getFillColor();
+```
+
+
+### getRadius
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getRadius(): number
+
+获取圆的半径。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 圆的半径，单位：m。 |
+
+
+**示例：**
+
+
+```ts
+let radius: number = mapCircle.getRadius();
+```
+
+
+### getStrokeColor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getStrokeColor(): number
+
+获取圆的边框颜色值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| number | ARGB格式颜色值。 |
+
+
+**示例：**
+
+
+```ts
+let strokeColor: number = mapCircle.getStrokeColor();
+```
+
+
+### getPatterns
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getPatterns(): Array<mapCommon.PatternItem>
+
+获取圆的边框样式。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;[mapCommon.PatternItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#patternitem)&gt; | 圆的边框样式。 |
+
+
+**示例：**
+
+
+```ts
+let patterns: Array<mapCommon.PatternItem> = mapCircle.getPatterns();
+```
+
+
+### getStrokeWidth
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+getStrokeWidth(): number
+
+获取圆的边框宽度。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 圆的边框宽度，单位：px。 |
+
+
+**示例：**
+
+
+```ts
+let strokeWidth: number = mapCircle.getStrokeWidth();
+```
+
+
+### isClickable
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+isClickable(): boolean
+
+获取圆的可点击性。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 圆的可点击性。 - true：可点击 - false：不可点击 |
+
+
+**示例：**
+
+
+```ts
+let clickable: boolean = mapCircle.isClickable();
+```
+
+
+### setCenter
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setCenter(center: mapCommon.LatLng): void
+
+给圆心设置经纬度坐标。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| center | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 是 | 圆心经纬度坐标。 圆的中心点纬度在[-85.051119, 85.051119]范围内才能画出圆。若圆中心点纬度为-85.051119或85.051119时，能画出半径为1米的圆。 |
+
+
+**示例：**
+
+
+```ts
+let center: mapCommon.LatLng = { latitude: 31.98, longitude: 116.4 };
+mapCircle.setCenter(center);
+```
+
+
+### setClickable
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setClickable(clickable: boolean): void
+
+设置圆的可点击性。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| clickable | boolean | 是 | 圆的可点击性，异常值不处理。 - true：可点击 - false：不可点击 |
+
+
+**示例：**
+
+
+```ts
+let clickable = true;
+mapCircle.setClickable(clickable);
+```
+
+
+### setFillColor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setFillColor(color: number): void
+
+设置圆的填充色。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| color | number | 是 | 圆的填充色，颜色值为ARGB格式，异常值不处理。 |
+
+
+**示例：**
+
+
+```ts
+let fillColor = 0xff00ffff;
+mapCircle.setFillColor(fillColor);
+```
+
+
+### setRadius
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setRadius(radius: number): void
+
+设置圆的半径。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| radius | number | 是 | 圆的半径，单位：m，取值范围：大于等于0，异常值不处理。 |
+
+
+**示例：**
+
+
+```ts
+let radius = 300;
+mapCircle.setRadius(radius);
+```
+
+
+### setStrokeColor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setStrokeColor(color: number): void
+
+设置圆的边框颜色。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| color | number | 是 | 圆的边框颜色，ARGB格式颜色值，异常值不处理。 |
+
+
+**示例：**
+
+
+```ts
+let strokeColor = 0xffff0000;
+mapCircle.setStrokeColor(strokeColor);
+```
+
+
+### setPatterns
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setPatterns(patterns: Array<mapCommon.PatternItem>): void
+
+设置圆的边框样式。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| patterns | Array&lt;[mapCommon.PatternItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#patternitem)&gt; | 是 | 圆的边框样式。 |
+
+
+**示例：**
+
+
+```ts
+let patterns: Array<mapCommon.PatternItem> = [
+  { type: 0, length: 100 },
+  { type: 1, length: 100 },
+  { type: 2, length: 100 },
+];
+mapCircle.setPatterns(patterns);
+```
+
+
+### setStrokeWidth
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+setStrokeWidth(width: number): void
+
+设置圆的边框宽度。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 4.1.0(11)
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| width | number | 是 | 圆的边框宽度，单位：px，取值范围：大于等于0。 |
+
+
+**示例：**
+
+
+```ts
+let width = 10;
+mapCircle.setStrokeWidth(width);
+```

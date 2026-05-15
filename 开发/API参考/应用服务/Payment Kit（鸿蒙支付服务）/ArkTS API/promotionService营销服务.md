@@ -1,0 +1,524 @@
+# promotionService(营销服务)
+
+更新时间：2026-04-30 09:02:20
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice
+**支持设备：** Phone / PC/2in1 / Tablet
+
+本模块支持拉起营销服务，包括活动入口组件以及选券组件。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet
+
+
+```ts
+import { promotionService } from '@kit.PaymentKit';
+```
+
+
+## UserAction
+**支持设备：** Phone / PC/2in1 / Tablet
+
+用户行为，包括关闭组件、点击领取按钮以及点击去使用按钮。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| doNothing | boolean | 否 | 否 | 表示是否关闭组件。 - true:是  - false：否（默认）。 |
+| useButtonClicked | boolean | 否 | 否 | 表示是否点击“去使用”按钮。 - true:是  - false：否（默认）。 |
+| receiveButtonClicked | boolean | 否 | 否 | 表示是否点击“领取”按钮。 - true:是  - false：否（默认）。 |
+
+
+## OrderContext
+**支持设备：** Phone / PC/2in1 / Tablet
+
+订单上下文信息，用于拉起选券组件。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| mercNo | string | 否 | 否 | 商户号。 |
+| tradeOrderAmount | number | 否 | 否 | 订单交易金额，单位为分。取值必须大于0，传递非取值范围内的值会导致请求异常。 |
+| goodsCodes | string[] | 否 | 是 | 商品编码列表。 |
+| authId | string | 否 | 否 | 商户证书ID。 |
+| sign | string | 否 | 否 | 签名，使用除了sign字段以外的其他字段计算签名值。可参考[签名规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-rest-overview#签名规则)。 |
+
+
+## CouponCategory
+**支持设备：** Phone / PC/2in1 / Tablet
+
+优惠券品类枚举类型。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| PLATFORM_COUPON | 0 | 平台券。 |
+
+
+## CouponType
+**支持设备：** Phone / PC/2in1 / Tablet
+
+优惠券类型枚举。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| VOUCHER | 0 | 满减券类型。 |
+
+
+## CouponDetail
+**支持设备：** Phone / PC/2in1 / Tablet
+
+券详情信息。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| couponCategory | [CouponCategory](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#couponcategory) | 否 | 否 | 优惠券品类枚举类型。 |
+| couponCode | string | 否 | 否 | 券码。 |
+| batchNo | string | 否 | 否 | 批次号。 |
+| couponType | [CouponType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#coupontype) | 否 | 否 | 券类型。 |
+| effectiveTime | number | 否 | 否 | 优惠券生效时间。 |
+| expireTime | number | 否 | 否 | 优惠券过期时间。 |
+| amount | number | 否 | 是 | 优惠券面额，单位为分。 |
+| logoUrl | string | 否 | 否 | 优惠券图标地址。 |
+| couponDesc | string | 否 | 否 | 优惠券描述信息。最大长度3096。 |
+
+
+## PromotionComponentController
+**支持设备：** Phone / PC/2in1 / Tablet
+
+该类为营销组件控制器。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+
+### constructor
+**支持设备：** Phone / PC/2in1 / Tablet
+
+constructor(context: UIContext)
+
+该方法实例化营销组件控制器对象，通过该接口可以拉起活动入口组件。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该实例方法支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+**参数**：
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | [UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext) | 是 | UI上下文对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+
+
+| 错误码 | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1019200001 | System internal error. |
+| 1019200002 | Network connection error. |
+
+
+**示例**：
+
+
+```ts
+import { promotionService } from '@kit.PaymentKit';
+
+@Component
+struct StartPromotionEntryDialogDemo {
+  controller: promotionService.PromotionComponentController = new promotionService.PromotionComponentController(this.getUIContext());
+
+  build() {}
+}
+```
+
+
+### startPromotionEntryDialog
+**支持设备：** Phone / PC/2in1 / Tablet
+
+startPromotionEntryDialog(mercNo: string, offset?: number): Promise<UserAction>
+
+拉起活动入口组件，使用Promise异步回调。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+**参数**：
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| mercNo | string | 是 | 商户号。 |
+| offset | number | 否 | 活动入口组件底部到屏幕边框底部的距离差，默认为100px。 |
+
+
+**返回值**：
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;[UserAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#useraction)&gt; | Promise对象，返回用户行为信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+
+
+| 错误码 | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1019200001 | System internal error. |
+| 1019200002 | Network connection error. |
+
+
+**示例**：
+
+
+```ts
+import { promotionService } from "@kit.PaymentKit";
+
+@Component
+struct StartPromotionEntryDialogDemo {
+  controller: promotionService.PromotionComponentController = new promotionService.PromotionComponentController(this.getUIContext());
+
+  build() {
+    Column() {
+      Button('拉起活动入口组件')
+      .type(ButtonType.Capsule)
+      .width('50%')
+      .margin(20)
+      .onClick(async () => {
+        try {
+          // 拉起活动入口组件
+          let userAction = await this.controller.startPromotionEntryDialog('', 10);
+          // 点击关闭、去使用后会分别返回doNothing、useButtonClicked为true
+          console.info(`userAction ${JSON.stringify(userAction)}`);
+        } catch (e) {
+          console.error(`startUserSelectCouponsPopup error ${JSON.stringify(e)}`);
+        }
+      })
+    }
+  }
+}
+```
+
+
+## startUserChooseCouponsPopup
+**支持设备：** Phone / PC/2in1 / Tablet
+
+startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>
+
+选券组件拉起方法，调用后使用Promise异步回调。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+**参数**：
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。 |
+| orderContext | [OrderContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#ordercontext) | 是 | 用户订单上下文。 |
+
+
+**返回值**：
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;[CouponDetail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#coupondetail)[]&gt; | Promise对象，返回券详情信息。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+
+
+| 错误码 | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1019200001 | System internal error. |
+| 1019200002 | Network connection error. |
+| 1019200003 | Trade amount is invalid. |
+
+
+**示例**：
+
+
+```ts
+import { promotionService } from "@kit.PaymentKit";
+
+@Entry
+@Component
+export struct StartUserChooseCouponsPopupDemo {
+  build() {
+    Column() {
+      Button('选券页面')
+      .type(ButtonType.Capsule)
+      .width('50%')
+      .margin(20)
+      .onClick(() => {
+        let req: promotionService.OrderContext = {
+          // 商户号
+          mercNo: '',
+          // 订单金额，单位为分
+          tradeOrderAmount: 15,
+          // 商品编码
+          goodsCodes: ['', ''],
+          // 商户证书ID
+          authId: '',
+          // 签名内容调云侧接口获取
+          sign: 'MEQCIEIWzdpziRyTi8vhwWHFuDdxf********************CHljer0YAMabeCgTDG77e+2XJItvq/ZkIcCN5/B20pQ=='
+        }
+        console.info(`req ${JSON.stringify(req)}`);
+        promotionService.startUserChooseCouponsPopup(this.getUIContext().getHostContext()!, req).then(res => {
+          console.info(`startUserChooseCouponsPopup res ${JSON.stringify(res)}.`);
+        })
+      })
+    }
+  }
+}
+```
+
+
+## startPromotionDetailPopup
+**支持设备：** Phone / PC/2in1 / Tablet
+
+startPromotionDetailPopup(context: common.Context, mercNo: string): Promise<UserAction>
+
+拉起营销详情，使用Promise异步回调。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.0(23)
+
+**参数**：
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。 |
+| mercNo | string | 是 | 商户号。 |
+
+
+**返回值**：
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;[UserAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#useraction)&gt; | Promise对象，返回用户行为信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+
+
+| 错误码 | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1019200001 | System internal error. |
+| 1019200002 | Network connection error. |
+
+
+**示例**：
+
+
+```ts
+import { promotionService } from "@kit.PaymentKit";
+
+@Entry
+@Component
+export struct StartPromotionDetailPopupDemo {
+  build() {
+    Column() {
+      Button('拉起营销详情')
+      .type(ButtonType.Capsule)
+      .width('50%')
+      .margin(20)
+      .onClick(() => {
+        console.info(`click enter`);
+        promotionService.startPromotionDetailPopup(this.getUIContext().getHostContext()!, 'mercNo123')
+        .then((val) => {
+          console.info(`receive resulr is ${JSON.stringify(val)}`);
+        }).catch((e: BusinessError) => {
+          console.info(`sendMessageRequest failed, message: ${JSON.stringify(e)}`)
+        }
+        )
+      })
+    }
+  }
+}
+```
+
+
+## getOrderAvailableCoupons
+**支持设备：** Phone / PC/2in1 / Tablet
+
+getOrderAvailableCoupons(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>
+
+查询当前订单可用券。使用Promise异步回调。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Payment.Promotion
+
+**起始版本：** 6.1.1(24)
+
+**参数**：
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | 上下文。 |
+| orderContext | [OrderContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#ordercontext) | 是 | 用户订单上下文。 |
+
+
+**返回值**：
+
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;[CouponDetail](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice#coupondetail)[]&gt; | Promise对象，返回券详情信息。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+
+
+| 错误码 | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1019200001 | System internal error. |
+| 1019200002 | Network connection error. |
+| 1019200003 | Trade amount is invalid. |
+| 1019200005 | AuthId is invalid. |
+| 1019200006 | Sign is invalid. |
+| 1019200007 | OrderContext is invalid. |
+| 1019200008 | The HUAWEI ID is not signed in. |
+| 1019200009 | The user did not accept the agreement. |
+| 1019200010 | Merchant no is invalid. |
+
+
+**示例**：
+
+
+```ts
+import { promotionService } from "@kit.PaymentKit";
+
+@Component
+export struct GetOrderAvailableCouponsDemo {
+  build() {
+    Column() {
+      Button('查询可用券')
+      .type(ButtonType.Capsule)
+      .width('50%')
+      .margin(20)
+      .onClick(() => {
+        let req: promotionService.OrderContext = {
+          // 商户号
+          mercNo: '',
+          // 订单金额，单位为分
+          tradeOrderAmount: 15,
+          // 商品编码
+          goodsCodes: ['', ''],
+          // 商户证书ID
+          authId: '',
+          // 签名内容调云侧接口获取
+          sign: 'MEQCIEIWzdpziRyTi8vhwWHFuDdxf********************CHljer0YAMabeCgTDG77e+2XJItvq/ZkIcCN5/B20pQ=='
+        }
+        console.info(`req ${JSON.stringify(req)}`);
+        promotionService.getOrderAvailableCoupons(this.getUIContext().getHostContext()!, req).then(res => {
+          console.error(`getOrderAvailableCoupons res ${JSON.stringify(res)}.`);
+        }).catch((e: BusinessError) => {
+          console.error(`getOrderAvailableCoupons error ${JSON.stringify(e)}`);
+        })
+      })
+    }
+  }
+}
+```

@@ -1,0 +1,37 @@
+# Class (JsGeolocation)
+
+更新时间：2026-04-28 03:31:56
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-jsgeolocation
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+Web组件返回授权或拒绝权限功能的对象。示例代码参考[onGeolocationShow事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#ongeolocationshow)。
+
+
+## constructor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor()
+
+JsGeolocation的构造函数。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## invoke
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+invoke(origin: string, allow: boolean, retain: boolean): void
+
+设置网页地理位置权限状态。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| origin | string | 是 | 指定源的字符串。 |
+| allow | boolean | 是 | 设置的地理位置权限状态。 true表示开启地理位置权限，false表示不开启地理位置权限。 |
+| retain | boolean | 是 | 是否允许将地理位置权限状态保存到系统中。可通过[GeolocationPermissions9+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-geolocationpermissions)接口管理保存到系统的地理位置权限。 true表示允许将地理位置权限状态保存到系统中，false表示不允许将地理位置权限状态保存到系统中。 |

@@ -1,0 +1,23 @@
+# CryptoAsymKeyApi
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymkeyapi
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+## 概述
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+为应用提供非对称密钥生成和转换算法接口。
+
+**起始版本：** 12
+
+
+## 文件汇总
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+| 名称 | 描述 |
+| --- | --- |
+| [crypto_asym_key.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h) | 声明非对称密钥接口。 |

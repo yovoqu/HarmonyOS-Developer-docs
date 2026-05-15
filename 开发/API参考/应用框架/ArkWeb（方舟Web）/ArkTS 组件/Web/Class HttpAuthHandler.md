@@ -1,0 +1,71 @@
+# Class (HttpAuthHandler)
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-httpauthhandler
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+Web组件返回的http auth认证请求确认或取消和使用缓存密码认证功能对象。示例代码参考[onHttpAuthRequest事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onhttpauthrequest9)。
+
+
+## constructor9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor()
+
+HttpAuthHandler的构造函数。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## cancel9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+cancel(): void
+
+通知Web组件用户取消HTTP认证操作。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## confirm9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+confirm(userName: string, password: string): boolean
+
+使用用户名和密码进行HTTP认证操作。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| userName | string | 是 | HTTP认证用户名。 |
+| password | string | 是 | HTTP认证密码。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 认证成功返回true，失败返回false。 |
+
+
+## isHttpAuthInfoSaved9+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+isHttpAuthInfoSaved(): boolean
+
+通知Web组件用户使用服务器缓存的账号密码认证。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 存在密码认证成功返回true，其他返回false。 |

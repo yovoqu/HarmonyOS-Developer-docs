@@ -1,0 +1,96 @@
+# Class (WebKeyboardController)
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webkeyboardcontroller
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+控制自定义键盘的输入、删除、关闭等操作。示例代码参考[onInterceptKeyboardAttach](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptkeyboardattach12)。
+
+
+## constructor12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor()
+
+WebKeyboardController的构造函数。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+
+## insertText12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+insertText(text: string): void
+
+Web输入框中插入字符。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| text | string | 是 | 向Web输入框插入字符。 |
+
+
+## deleteForward12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+deleteForward(length: number): void
+
+从后往前删除Web输入框中指定长度的字符。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| length | number | 是 | 从后往前删除Web输入框中指定长度的字符。 取值范围：[-2147483648 , 2147483647]，当参数值大于字符长度时，默认删除光标前面所有字符；参数值为负数时，不执行删除操作。 |
+
+
+## deleteBackward12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+deleteBackward(length: number): void
+
+从前往后删除Web输入框中指定长度的字符。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| length | number | 是 | 从前往后删除Web输入框中指定长度的字符。 取值范围：[-2147483648 , 2147483647]，当参数值大于字符长度时，默认删除光标后面所有字符；参数值为负数时，不执行删除操作。 |
+
+
+## sendFunctionKey12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+sendFunctionKey(key: number): void
+
+插入功能按键，目前仅支持Enter键类型，取值见[EnterKeyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#enterkeytype10)。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| key | number | 是 | 向Web输入框传递功能键，目前仅支持Enter键。 |
+
+
+## close12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+close(): void
+
+关闭自定义键盘。
+
+**系统能力：** SystemCapability.Web.Webview.Core

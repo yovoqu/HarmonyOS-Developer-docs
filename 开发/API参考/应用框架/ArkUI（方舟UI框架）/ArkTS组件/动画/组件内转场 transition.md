@@ -1,0 +1,592 @@
+# 组件内转场 (transition)
+
+更新时间：2026-04-29 07:35:50
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-transition-animation-component
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+组件内转场主要通过transition属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。
+
+
+> [!NOTE]
+> 从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 当前有两种方式触发组件的transition：
+
+
+## transition
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+transition(value: TransitionOptions | TransitionEffect): T
+
+组件插入显示和删除隐藏的过渡效果。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | [TransitionOptions](#transitionoptionsdeprecated)(deprecated) \| [TransitionEffect](#transitioneffect10对象说明) | 是 | 设置组件插入显示和删除隐藏的过渡效果。 说明：  详细描述见[TransitionOptions](#transitionoptionsdeprecated)和[TransitionEffect](#transitioneffect10对象说明)对象说明。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| T | 返回当前组件。 |
+
+
+## transition12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T
+
+组件插入显示和删除隐藏的过渡效果。同[transition](#transition)相比，增加了转场动画结束的回调。
+
+
+> [!NOTE]
+> 从API version 20开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| effect | [TransitionEffect](#transitioneffect10对象说明) | 是 | 设置组件插入显示和删除隐藏的过渡效果。 |
+| onFinish | Optional&lt;[TransitionFinishCallback](#transitionfinishcallback12)&gt; | 是 | 转场动画结束回调。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| T | 返回当前组件。 |
+
+
+## TransitionEdge10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+转场边缘类型。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TOP | 0 | 窗口的上边缘。 |
+| BOTTOM | 1 | 窗口的下边缘。 |
+| START | 2 | 窗口的起始边缘，LTR时为左边缘，RTL时为右边缘。 |
+| END | 3 | 窗口的终止边缘，LTR时为右边缘，RTL时为左边缘。 |
+
+
+## TransitionEffect10+对象说明
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+TransitionEffect以函数的形式指定转场效果。提供了以下接口：
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+
+### 属性
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| IDENTITY | [TransitionEffect](#transitioneffect10对象说明)&lt;"identity"&gt; | 是 | 否 | 禁用转场效果。 |
+| OPACITY | [TransitionEffect](#transitioneffect10对象说明)&lt;"opacity"&gt; | 是 | 否 | 为组件添加透明度转场效果，出现时透明度从0到1、消失时透明度从1到0，相当于TransitionEffect.opacity(0)。 |
+| SLIDE | [TransitionEffect](#transitioneffect10对象说明)&lt;"asymmetric", { appear: [TransitionEffect](#transitioneffect10对象说明)&lt;"move", [TransitionEdge](#transitionedge10)&gt;; disappear: [TransitionEffect](#transitioneffect10对象说明)&lt;"move", [TransitionEdge](#transitionedge10)&gt;; }&gt; | 是 | 否 | 相当于TransitionEffect.asymmetric(TransitionEffect.move(TransitionEdge.START), TransitionEffect.move(TransitionEdge.END))。从START边滑入，END边滑出。即在LTR模式下，从左侧滑入，右侧滑出；在RTL模式下，从右侧滑入，左侧滑出。 |
+| SLIDE_SWITCH | [TransitionEffect](#transitioneffect10对象说明)&lt;"slideSwitch"&gt; | 是 | 否 | 指定出现时从右侧先缩小再放大滑入、消失时从左侧先缩小再放大滑出的转场效果。自带动画参数，也可覆盖动画参数，自带的动画参数时长600ms，指定动画曲线cubicBezierCurve(0.24, 0.0, 0.50, 1.0)，最小缩放比例为0.8。 |
+
+
+### translate10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+translate(options: TranslateOptions): TransitionEffect<"translate">
+
+设置组件转场时的平移效果。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | [TranslateOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translateoptions对象说明) | 是 | 组件转场时的平移效果，为插入时起点和删除时终点的值。 -x：横向的平移距离。 -y：纵向的平移距离。 -z：竖向的平移距离。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"translate"&gt; | 当前动画平移效果。 |
+
+
+### rotate10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+rotate(options: RotateOptions): TransitionEffect<"rotate">
+
+设置组件转场时的旋转效果。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | [RotateOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotateoptions对象说明) | 是 | 组件转场时的旋转效果，为插入时起点和删除时终点的值。 -x：横向的旋转向量分量。 -y：纵向的旋转向量分量。 -z：竖向的旋转向量分量。 - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。 - 中心点为(0, 0)代表组件的左上角。 -centerZ指z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。 -perspective指视距，不支持perspective属性做转场动画。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"rotate"&gt; | 当前动画旋转效果。 |
+
+
+### scale10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+scale(options: ScaleOptions): TransitionEffect<"scale">
+
+设置组件转场时的缩放效果。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | [ScaleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#scaleoptions对象说明) | 是 | 组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，组件入场动画的缩放值将从0.4开始执行。 -x：横向放大倍数（或缩小比例）。 -y：纵向放大倍数（或缩小比例）。 -z：当前为二维显示，该参数无效。 - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。 - 中心点为(0, 0)代表组件的左上角。 说明：  设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"scale"&gt; | 当前动画缩放效果。 |
+
+
+### opacity10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+opacity(alpha: number): TransitionEffect<"opacity">
+
+设置组件转场时的透明度效果。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| alpha | number | 是 | 组件转场时的透明度效果，为插入时起点和删除时终点的值。 取值范围：[0, 1] 说明：  设置小于0的非法值按0处理，大于1的非法值按1处理。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"opacity"&gt; | 当前动画透明度效果。 |
+
+
+### move10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+move(edge: TransitionEdge): TransitionEffect<"move">
+
+设置组件转场时从屏幕边缘滑入和滑出的效果。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| edge | [TransitionEdge](#transitionedge10) | 是 | 组件转场时从屏幕边缘滑入和滑出的效果，本质为平移效果，为插入时起点和删除时终点的值。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"move"&gt; | 当前动画从屏幕边缘滑入和滑出的效果。 |
+
+
+### asymmetric10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect<"asymmetric">
+
+设置非对称的转场效果，即出现、消失为两套独立不同的动画，效果不互为逆过程。具体效果可参考[示例2](#示例2使用不同接口实现图片出现消失)。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| appear | [TransitionEffect](#transitioneffect10对象说明) | 是 | 指定出现的转场效果。 如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。 |
+| disappear | [TransitionEffect](#transitioneffect10对象说明) | 是 | 指定消失的转场效果。 如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明)&lt;"asymmetric"&gt; | 当前动画非对称的转场效果。 |
+
+
+### constructor10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+constructor(type: Type, effect: Effect)
+
+构造TransitionEffect对象。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| type | [Type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#transitiontype) | 是 | 转场类型。 |
+| effect | [Effect](#transitioneffect10对象说明) | 是 | 转场参数。 |
+
+
+### combine10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+combine(transitionEffect: TransitionEffect): TransitionEffect
+
+对TransitionEffect进行链式组合，以形成包含多种转场效果的TransitionEffect。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| transitionEffect | [TransitionEffect](#transitioneffect10对象说明) | 是 | 被组合的过渡效果。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明) | 组合过渡效应。 |
+
+
+### animation10+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+animation(value: AnimateParam): TransitionEffect
+
+指定该TransitionEffect的动画参数。
+
+**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
+
+**卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | [AnimateParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-explicit-animation#animateparam对象说明) | 是 | 动画参数。 该参数只用来指定动画参数，其入参AnimateParam的onFinish回调不生效。 如果通过combine进行TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。 |
+
+
+**返回值：**
+
+
+| 类型 | 说明 |
+| --- | --- |
+| [TransitionEffect](#transitioneffect10对象说明) | 当前动画效果。 |
+
+
+## TransitionFinishCallback12+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+type TransitionFinishCallback = (transitionIn: boolean) => void
+
+组件转场动画的结束回调类型。
+
+**卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| transitionIn | boolean | 是 | 该入参表示转场动画的结束回调类型。 该参数为true表示该转场回调是出现动画的结束回调，该参数为false表示该转场回调是消失动画的结束回调。 |
+
+
+## TransitionOptions(deprecated)
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+TransitionOptions通过指定结构体内的参数来指定转场效果。
+
+
+> [!NOTE]
+> 从API version 7开始支持，从API version 10开始废弃，建议使用[TransitionEffect](#transitioneffect10对象说明)替代。
+
+**系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| type | [TransitionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#transitiontype) | 否 | 是 | 指定该转场样式生效的��景。 默认值：TransitionType.All 说明： 不指定type时默认为TransitionType.All，即插入删除都生效。 |
+| opacity | number | 否 | 是 | 设置组件转场时的透明度效果，为插入时起点和删除时终点的值。 取值范围： [0, 1] 说明：  设置小于0的非法值时，按0处理；设置大于1的非法值时，按1处理。 |
+| translate | [TranslateOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#translateoptions对象说明) | 否 | 是 | 设置组件转场时的平移效果，为插入时起点和删除时终点的值。 -x：横向的平移距离。 -y：纵向的平移距离。 -z：竖向的平移距离。 |
+| scale | [ScaleOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#scaleoptions对象说明) | 否 | 是 | 设置组件转场时的缩放效果，为插入时起点和删除时终点的值。 -x：横向放大倍数（或缩小比例）。 -y：纵向放大倍数（或缩小比例）。 -z：当前为二维显示，该参数无效 。 - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。 - 中心点为(0, 0)代表组件的左上角。 说明：  设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。 |
+| rotate | [RotateOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-transformation#rotateoptions对象说明) | 否 | 是 | 设置组件转场时的旋转效果，为插入时起点和删除时终点的值。 -x：横向的旋转向量分量。 -y：纵向的旋转向量分量。 -z：竖向的旋转向量分量。 - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。 - 中心点为(0, 0)代表组件的左上角。 |
+
+
+## 示例
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+### 示例1（使用同一接口实现图片出现消失）
+
+该示例主要演示如何通过同一[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现与消失，出现和消失互为逆过程。
+
+
+```ts
+// xxx.ets
+@Entry
+@Component
+struct TransitionEffectExample1 {
+  @State flag: boolean = true;
+  @State show: string = 'show';
+
+  build() {
+    Column() {
+      Button(this.show).width(80).height(30).margin(30)
+      .onClick(() => {
+        // 点击Button控制Image的显示和消失
+        if (this.flag) {
+          this.show = 'hide';
+        } else {
+          this.show = 'show';
+        }
+        this.flag = !this.flag;
+      })
+      if (this.flag) {
+        // Image的显示和消失配置为相同的过渡效果（出现和消失互为逆过程）
+        // 出现时从指定的透明度为0、绕z轴旋转180°的状态，变为默认的透明度为1、旋转角为0的状态，透明度与旋转动画时长都为2000ms
+        // 消失时从默认的透明度为1、旋转角为0的状态，变为指定的透明度为0、绕z轴旋转180°的状态，透明度与旋转动画时长都为2000ms
+        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
+        Image($r('app.media.testImg')).width(200).height(200)
+        .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(
+        TransitionEffect.rotate({ z: 1, angle: 180 })
+        ))
+      }
+    }.width('100%')
+  }
+}
+```
+
+示意图：
+
+![](assets/组件内转场%20transition/file-20260514164128163-0.gif)
+
+
+### 示例2（使用不同接口实现图片出现消失）
+
+该示例主要演示使用不同[TransitionEffect](#transitioneffect10对象说明)来实现图片的出现和消失。
+
+
+```ts
+// xxx.ets
+@Entry
+@Component
+struct TransitionEffectExample2 {
+  @State flag: boolean = true;
+  @State show: string = 'show';
+
+  build() {
+    Column() {
+      Button(this.show).width(80).height(30).margin(30)
+      .onClick(() => {
+        // 点击Button控制Image的显示和消失
+        if (this.flag) {
+          this.show = 'hide';
+        } else {
+          this.show = 'show';
+        }
+        this.getUIContext().animateTo({ duration: 2000 }, () => {
+          // 第一张图的TransitionEffect包含了animation，transition的动画参数由TransitionEffect指定
+          // 第二张图的TransitionEffect不包含animation，transition的动画参数由animateTo指定
+          this.flag = !this.flag;
+        });
+      })
+      if (this.flag) {
+        // Image的显示和消失配置为不同的过渡效果
+        // 出现时做从指定的透明度为0变为默认的透明度1的动画，该动画时长为1000ms，以及做从指定的绕z轴旋转180°变为默认的旋转角为0的动画，该动画1000ms后播放，时长为1000ms
+        // 消失时做从默认的透明度为1变为指定的透明度0的动画，该动画1000ms后播放，时长为1000ms，以及做从默认的旋转角0变为指定的绕z轴旋转180°的动画，该动画时长为1000ms
+        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
+        Image($r('app.media.testImg')).width(200).height(200)
+        .transition(
+        TransitionEffect.asymmetric(
+        TransitionEffect.OPACITY.animation({ duration: 1000 }).combine(
+        TransitionEffect.rotate({ z: 1, angle: 180 }).animation({ delay: 1000, duration: 1000 }))
+        ,
+        TransitionEffect.OPACITY.animation({ delay: 1000, duration: 1000 }).combine(
+        TransitionEffect.rotate({ z: 1, angle: 180 }).animation({ duration: 1000 }))
+        )
+        )
+        // 出现时做从x方向和y方向scale都为0变为默认的x方向和y方向scale都为1的动画，该动画时长为animateTo中指定的2000ms
+        // 消失时无转场效果
+        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
+        Image($r('app.media.testImg')).width(200).height(200).margin({ top: 100 })
+        .transition(
+        TransitionEffect.asymmetric(
+        TransitionEffect.scale({ x: 0, y: 0 }),
+        TransitionEffect.IDENTITY
+        )
+        )
+      }
+    }.width('100%')
+  }
+}
+```
+
+示意图：
+
+![](assets/组件内转场%20transition/file-20260514164128163-1.gif)
+
+
+### 示例3（设置父子组件为transition）
+
+该示例主要演示通过父子组件都配置[transition](#transition)来实现图片的出现和消失。
+
+
+```ts
+// xxx.ets
+@Entry
+@Component
+struct TransitionEffectExample3 {
+  @State flag: boolean = true;
+  @State show: string = 'show';
+
+  build() {
+    Column() {
+      Button(this.show).width(80).height(30).margin(30)
+      .onClick(() => {
+        // 点击Button控制Image的显示和消失
+        if (this.flag) {
+          this.show = 'hide';
+        } else {
+          this.show = 'show';
+        }
+        this.flag = !this.flag;
+      })
+      if (this.flag) {
+        // 当flag条件改变时，会触发id为"column1"、"image1"、"image2"的transition动画。
+        // id为"column1"的组件是这棵新出现/消失的子树的根节点。
+        Column() {
+          Row() {
+            // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
+            Image($r('app.media.testImg')).width(150).height(150).id("image1")
+            .transition(TransitionEffect.OPACITY.animation({ duration: 1000 }))
+          }
+
+          // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。
+          Image($r('app.media.testImg'))
+          .width(150)
+          .height(150)
+          .margin({ top: 50 })
+          .id("image2")
+          .transition(TransitionEffect.scale({ x: 0, y: 0 }).animation({ duration: 1000 }))
+          Text("view").margin({ top: 50 })
+        }
+        .id("column1")
+        .transition(TransitionEffect.opacity(0.99).animation({ duration: 1000 }),
+        // 结束回调设置在消失的第一层节点上，确保能有消失的结束回调
+        (transitionIn: boolean) => {
+          console.info("transition finish, transitionIn:" + transitionIn);
+        }
+        )
+      }
+    }.width('100%')
+  }
+}
+```
+
+示意图：
+
+![](assets/组件内转场%20transition/file-20260514164128163-2.gif)

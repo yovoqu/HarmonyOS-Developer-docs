@@ -1,0 +1,30 @@
+# DrawableDescriptor错误码
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-drawable-descriptor
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+> [!NOTE]
+> 以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+
+## 111001 内部错误
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+**错误信息**
+
+resource loading failed.
+
+**错误描述**
+
+该错误码在资源加载失败时被触发。
+
+**可能原因**
+
+路径不存在，资源不存在或者文件已损坏。
+
+**处理步骤**
+
+检查资源是否存在或文件是否损坏。

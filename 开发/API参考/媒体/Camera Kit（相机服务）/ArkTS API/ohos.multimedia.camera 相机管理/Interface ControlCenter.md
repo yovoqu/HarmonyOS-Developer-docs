@@ -1,0 +1,64 @@
+# Interface (ControlCenter)
+
+更新时间：2026-04-30 02:41:24
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenter
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+ControlCenter继承自[ControlCenterQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenterquery)。
+
+控制中心类，用于使能相机控制器。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { camera } from '@kit.CameraKit';
+```
+
+
+## enableControlCenter20+
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+enableControlCenter(enabled: boolean): void
+
+使能相机控制器。
+
+**元服务API：** 从API version 20开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | boolean | 是 | 开启或关闭相机控制器。true表示开启，false表示关闭。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config. |
+
+
+**示例：**
+
+
+```ts
+function enableControlCenter(
+  videoSession: camera.VideoSession,
+  enable: boolean,
+): void {
+  let isSupported: boolean = videoSession.isControlCenterSupported();
+  if (isSupported) {
+    videoSession.enableControlCenter(enable);
+  }
+}
+```

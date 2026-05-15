@@ -1,0 +1,140 @@
+# UIServiceProxy
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiserviceproxy
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+UIServiceProxy提供代理能力，可以从UIServiceExtension客户端发送数据到服务端。
+
+
+## 导入模块
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+
+```ts
+import { common } from '@kit.AbilityKit';
+```
+
+
+## UIServiceProxy.sendData
+**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+sendData(data: Record<string, Object>): void
+
+给UIServiceExtension服务端发送数据。
+
+
+> [!NOTE]
+> 组件启动规则详见：[组件启动规则（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules)。
+
+**元服务API**：从 API version 14开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+
+**参数：**
+
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| data | Record&lt;string, Object&gt; | 是 | 待发送给UIServiceExtension服务端的数据。 |
+
+
+**错误码：**
+
+以下错误码详细介绍请参考[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[元能力子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ability)。
+
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 16000050 | Internal error. |
+
+
+**示例：**
+
+
+```ts
+import { common, Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+const TAG: string = '[Extension] ';
+
+@Entry
+@Component
+struct UIServiceExtensionAbility {
+  comProxy: common.UIServiceProxy | null = null;
+  dataCallBack: common.UIServiceExtensionConnectCallback = {
+    onData: (data: Record<string, Object>) => {
+      console.info(`${TAG} dataCallBack received data: ${JSON.stringify(data)}.`);
+    },
+    onDisconnect: () => {
+      console.info(`${TAG} dataCallBack onDisconnect.`);
+      this.comProxy = null;
+    }
+  }
+
+  build() {
+    Scroll() {
+      Column() {
+        // 创建一个连接UIServiceExtension的按钮
+        Button('connectUIServiceExtensionAbility', { type: ButtonType.Capsule, stateEffect: true })
+        .margin({
+          top: 5,
+          left: 10,
+          right: 10,
+          bottom: 5
+        })
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          this.myConnectUIServiceExtensionAbility()
+        });
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+
+  // 自定义连接UIServiceExtension的函数
+  myConnectUIServiceExtensionAbility() {
+    let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+    let startWant: Want = {
+      deviceId: '',
+      bundleName: 'com.acts.myapplication',
+      abilityName: 'UiServiceExtensionAbility'
+    };
+
+    try {
+      // 连接UIServiceExtension
+      context.connectUIServiceExtensionAbility(startWant, this.dataCallBack)
+      .then((proxy: common.UIServiceProxy) => {
+        console.info(TAG + `try to connectUIServiceExtensionAbility ${proxy}}`);
+        this.comProxy = proxy;
+        let formData: Record<string, string> = {
+          'PATH': '/tmp/aaa.jpg'
+        };
+        try {
+          console.info(`${TAG} sendData.`);
+          // 给UIServiceExtension发送数据
+          this.comProxy.sendData(formData);
+        } catch (err) {
+          let code = (err as BusinessError).code;
+          let message = (err as BusinessError).message;
+          console.error(`${TAG} sendData failed, code is ${code}, message is ${message}.`);
+        }
+      }).catch((err: Error) => {
+        let code = (err as BusinessError).code;
+        let message = (err as BusinessError).message;
+        console.error(`${TAG} connectUIServiceExtensionAbility failed, code is ${code}, message is ${message}.`);
+      });
+    } catch (err) {
+      let code = (err as BusinessError).code;
+      let message = (err as BusinessError).message;
+      console.error(`${TAG} connectUIServiceExtensionAbility failed, code is ${code}, message is ${message}.`);
+    }
+  }
+}
+```
