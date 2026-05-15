@@ -1,0 +1,254 @@
+[
+  {
+    "slug": "general_overview-0000001929599380",
+    "name": "概览",
+    "file": "概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/general_overview-0000001929599380"
+  },
+  {
+    "slug": "bottomtab-0000001956787789",
+    "name": "底部页签",
+    "file": "导航类/底部页签.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/bottomtab-0000001956787789"
+  },
+  {
+    "slug": "chipsgroup-0000001929788350",
+    "name": "子页签",
+    "file": "导航类/子页签.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/chipsgroup-0000001929788350"
+  },
+  {
+    "slug": "titlebar-0000001929628982",
+    "name": "标题栏",
+    "file": "导航类/标题栏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/titlebar-0000001929628982"
+  },
+  {
+    "slug": "swiper-0000001956947629",
+    "name": "导航点",
+    "file": "导航类/导航点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/swiper-0000001956947629"
+  },
+  {
+    "slug": "text-0000001956975261",
+    "name": "文本",
+    "file": "展示类/文本.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/text-0000001956975261"
+  },
+  {
+    "slug": "divider-0000001956815469",
+    "name": "分隔器",
+    "file": "展示类/分隔器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/divider-0000001956815469"
+  },
+  {
+    "slug": "subheader-0000001929816012",
+    "name": "子标题",
+    "file": "展示类/子标题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/subheader-0000001929816012"
+  },
+  {
+    "slug": "progress-0000001929656644",
+    "name": "进度条",
+    "file": "展示类/进度条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/progress-0000001929656644"
+  },
+  {
+    "slug": "alphabetindexer-0000001956975265",
+    "name": "索引条",
+    "file": "展示类/索引条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/alphabetindexer-0000001956975265"
+  },
+  {
+    "slug": "scrollbar-0000001956815473",
+    "name": "滚动条",
+    "file": "展示类/滚动条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/scrollbar-0000001956815473"
+  },
+  {
+    "slug": "badge-0000001929816016",
+    "name": "新事件标记",
+    "file": "展示类/新事件标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/badge-0000001929816016"
+  },
+  {
+    "slug": "toast-0000001929656648",
+    "name": "即时反馈",
+    "file": "展示类/即时反馈.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/toast-0000001929656648"
+  },
+  {
+    "slug": "component_snackbar-0000002340726169",
+    "name": "即时操作",
+    "file": "展示类/即时操作.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/component_snackbar-0000002340726169"
+  },
+  {
+    "slug": "popup-0000001956975269",
+    "name": "气泡提示",
+    "file": "展示类/气泡提示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/popup-0000001956975269"
+  },
+  {
+    "slug": "datapanel-0000001956815481",
+    "name": "数据可视化",
+    "file": "展示类/数据可视化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/datapanel-0000001956815481"
+  },
+  {
+    "slug": "qrcode-0000001929816020",
+    "name": "二维码",
+    "file": "展示类/二维码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/qrcode-0000001929816020"
+  },
+  {
+    "slug": "textclock-0000001929656652",
+    "name": "文本时钟",
+    "file": "展示类/文本时钟.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/textclock-0000001929656652"
+  },
+  {
+    "slug": "image-0000001956975273",
+    "name": "图片",
+    "file": "展示类/图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/image-0000001956975273"
+  },
+  {
+    "slug": "blank-0000001956815485",
+    "name": "空白",
+    "file": "展示类/空白.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/blank-0000001956815485"
+  },
+  {
+    "slug": "button-0000001929683228",
+    "name": "按钮",
+    "file": "操作类/按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/button-0000001929683228"
+  },
+  {
+    "slug": "select-0000001957001873",
+    "name": "下拉按钮",
+    "file": "操作类/下拉按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/select-0000001957001873"
+  },
+  {
+    "slug": "togglebutton-0000001956842045",
+    "name": "状态按钮",
+    "file": "操作类/状态按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/togglebutton-0000001956842045"
+  },
+  {
+    "slug": "chips-0000001929842624",
+    "name": "操作块",
+    "file": "操作类/操作块.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/chips-0000001929842624"
+  },
+  {
+    "slug": "toolbar-0000001929683232",
+    "name": "工具栏",
+    "file": "操作类/工具栏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/toolbar-0000001929683232"
+  },
+  {
+    "slug": "component_actionbar-0000002306891560",
+    "name": "核心操作栏",
+    "file": "操作类/核心操作栏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/component_actionbar-0000002306891560"
+  },
+  {
+    "slug": "menu-0000001957001877",
+    "name": "菜单",
+    "file": "操作类/菜单.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/menu-0000001957001877"
+  },
+  {
+    "slug": "textselection-0000001956842049",
+    "name": "文本选择菜单",
+    "file": "操作类/文本选择菜单.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/textselection-0000001956842049"
+  },
+  {
+    "slug": "textinput-0000001957012557",
+    "name": "文本框",
+    "file": "输入类/文本框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/textinput-0000001957012557"
+  },
+  {
+    "slug": "search-0000001956852741",
+    "name": "搜索框",
+    "file": "输入类/搜索框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/search-0000001956852741"
+  },
+  {
+    "slug": "counter-0000001929853284",
+    "name": "数字加减",
+    "file": "输入类/数字加减.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/counter-0000001929853284"
+  },
+  {
+    "slug": "patternlock-0000001929853902",
+    "name": "图案锁",
+    "file": "输入类/图案锁.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/patternlock-0000001929853902"
+  },
+  {
+    "slug": "checkbox-0000001957012561",
+    "name": "勾选",
+    "file": "选择类/勾选.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/checkbox-0000001957012561"
+  },
+  {
+    "slug": "toggleswitch-0000001956852745",
+    "name": "开关",
+    "file": "选择类/开关.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/toggleswitch-0000001956852745"
+  },
+  {
+    "slug": "radio-0000001929853288",
+    "name": "单选框",
+    "file": "选择类/单选框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/radio-0000001929853288"
+  },
+  {
+    "slug": "rating-0000001929853906",
+    "name": "评分条",
+    "file": "选择类/评分条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/rating-0000001929853906"
+  },
+  {
+    "slug": "slider-0000001957012565",
+    "name": "滑动条",
+    "file": "选择类/滑动条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/slider-0000001957012565"
+  },
+  {
+    "slug": "picker-0000001956852749",
+    "name": "选择器",
+    "file": "选择类/选择器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/picker-0000001956852749"
+  },
+  {
+    "slug": "segmentbutton-0000001929853292",
+    "name": "分段按钮",
+    "file": "选择类/分段按钮.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/segmentbutton-0000001929853292"
+  },
+  {
+    "slug": "list-0000001929853910",
+    "name": "列表",
+    "file": "容器类/列表.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/list-0000001929853910"
+  },
+  {
+    "slug": "dialog-0000001957012569",
+    "name": "弹出框",
+    "file": "容器类/弹出框.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/dialog-0000001957012569"
+  },
+  {
+    "slug": "bindsheet-0000001956852753",
+    "name": "半模态面板",
+    "file": "容器类/半模态面板.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/bindsheet-0000001956852753"
+  }
+]
