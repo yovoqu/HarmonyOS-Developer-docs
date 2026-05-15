@@ -1,0 +1,58 @@
+[
+  {
+    "section": "编译构建",
+    "slug": "bpta-gn-adapts-to-harmonyos",
+    "name": "GN构建工程配置HarmonyOS编译工具链",
+    "file": "编译构建/GN构建工程配置HarmonyOS编译工具链.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-gn-adapts-to-harmonyos"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-cmake-adapts-to-harmonyos",
+    "name": "CMake构建工程配置HarmonyOS编译工具链",
+    "file": "编译构建/CMake构建工程配置HarmonyOS编译工具链.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cmake-adapts-to-harmonyos"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-make-adapts-to-harmonyos",
+    "name": "Make构建工程配置HarmonyOS编译工具链",
+    "file": "编译构建/Make构建工程配置HarmonyOS编译工具链.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-make-adapts-to-harmonyos"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-configure-adapts-to-harmonyos",
+    "name": "Configure构建工程配置HarmonyOS编译工具链",
+    "file": "编译构建/Configure构建工程配置HarmonyOS编译工具链.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-configure-adapts-to-harmonyos"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-lycium-adapts-to-harmonyos",
+    "name": "使用lycium工具快速编译三方库",
+    "file": "编译构建/使用lycium工具快速编译三方库.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lycium-adapts-to-harmonyos"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-custom-hvigor-plugin",
+    "name": "定制hvigor插件",
+    "file": "编译构建/定制hvigor插件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-hvigor-plugin"
+  },
+  {
+    "section": "编译构建",
+    "slug": "bpta-multi-target",
+    "name": "多目标产物构建",
+    "file": "编译构建/多目标产物构建.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-target"
+  },
+  {
+    "section": "测试框架",
+    "slug": "bpta-automated-testing-frameworks",
+    "name": "自动化测试框架开发实践",
+    "file": "测试框架/自动化测试框架开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-automated-testing-frameworks"
+  }
+]
