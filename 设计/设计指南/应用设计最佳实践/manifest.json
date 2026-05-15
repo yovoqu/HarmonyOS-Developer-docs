@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "practices-overview-0000001746498066",
+    "name": "概述",
+    "file": "概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/practices-overview-0000001746498066"
+  },
+  {
+    "slug": "responsive-design-examples1-0000001957369849",
+    "name": "影音娱乐类",
+    "file": "影音娱乐类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples1-0000001957369849"
+  },
+  {
+    "slug": "responsive-design-examples2-0000001793536901",
+    "name": "社交通讯类",
+    "file": "社交通讯类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples2-0000001793536901"
+  },
+  {
+    "slug": "responsive-design-examples3-0000001746498074",
+    "name": "拍摄美化类",
+    "file": "拍摄美化类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples3-0000001746498074"
+  },
+  {
+    "slug": "responsive-design-examples4-0000001746657290",
+    "name": "新闻阅读类",
+    "file": "新闻阅读类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples4-0000001746657290"
+  },
+  {
+    "slug": "responsive-design-examples5-0000001930419478",
+    "name": "电商购物类",
+    "file": "电商购物类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples5-0000001930419478"
+  },
+  {
+    "slug": "responsive-design-examples6-0000001793536905",
+    "name": "金融理财类",
+    "file": "金融理财类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/responsive-design-examples6-0000001793536905"
+  },
+  {
+    "slug": "convenient-life-0000001957252465",
+    "name": "便捷生活类",
+    "file": "便捷生活类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/convenient-life-0000001957252465"
+  },
+  {
+    "slug": "tourist-accommodation-0000001957241545",
+    "name": "旅游住宿类",
+    "file": "旅游住宿类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/tourist-accommodation-0000001957241545"
+  },
+  {
+    "slug": "travel-and-navigation-0000001957391017",
+    "name": "出行导航类",
+    "file": "出行导航类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/travel-and-navigation-0000001957391017"
+  },
+  {
+    "slug": "mobile-payment-0000001957421613",
+    "name": "移动支付类",
+    "file": "移动支付类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/mobile-payment-0000001957421613"
+  },
+  {
+    "slug": "games-0000001930189974",
+    "name": "游戏类",
+    "file": "游戏类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/games-0000001930189974"
+  },
+  {
+    "slug": "cars-0000001930233436",
+    "name": "汽车类",
+    "file": "汽车类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/cars-0000001930233436"
+  },
+  {
+    "slug": "office-0000002315825496",
+    "name": "办公类",
+    "file": "办公类.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/office-0000002315825496"
+  }
+]
