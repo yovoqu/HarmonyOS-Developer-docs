@@ -1,0 +1,314 @@
+[
+  {
+    "group": "(root)",
+    "slug": "application-dev-guide",
+    "name": "应用开发导读",
+    "file": "应用开发导读.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide",
+    "title": "应用开发导读"
+  },
+  {
+    "group": "快速入门",
+    "slug": "start-overview",
+    "name": "开发准备",
+    "file": "快速入门/开发准备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-overview",
+    "title": "开发准备"
+  },
+  {
+    "group": "快速入门",
+    "slug": "start-with-ets-stage",
+    "name": "构建第一个HarmonyOS应用（ArkTS）",
+    "file": "快速入门/构建第一个HarmonyOS应用（ArkTS）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-with-ets-stage",
+    "title": "构建第一个HarmonyOS应用（ArkTS）"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识",
+    "slug": "application-package-overview",
+    "name": "应用程序包概述",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview",
+    "title": "应用程序包概述"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包结构",
+    "slug": "application-package-structure-stage",
+    "name": "Stage模型应用程序包结构",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包结构/Stage模型应用程序包结构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure-stage",
+    "title": "Stage模型应用程序包结构"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包结构",
+    "slug": "application-package-structure-fa",
+    "name": "FA模型应用程序包结构",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包结构/FA模型应用程序包结构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure-fa",
+    "title": "FA模型应用程序包结构"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包开发与使用",
+    "slug": "hap-package",
+    "name": "HAP",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包开发与使用/HAP.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package",
+    "title": "HAP"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包开发与使用",
+    "slug": "har-package",
+    "name": "HAR",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包开发与使用/HAR.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package",
+    "title": "HAR"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包开发与使用",
+    "slug": "in-app-hsp",
+    "name": "HSP",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包开发与使用/HSP.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp",
+    "title": "HSP"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包安装卸载与更新",
+    "slug": "application-package-install-uninstall",
+    "name": "应用安装卸载与更新开发指导",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包安装卸载与更新/应用安装卸载与更新开发指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-install-uninstall",
+    "title": "应用安装卸载与更新开发指导"
+  },
+  {
+    "group": "开发基础知识/应用程序包基础知识/应用程序包安装卸载与更新",
+    "slug": "install-and-update-consistency-verification",
+    "name": "应用安装与更新一致性校验",
+    "file": "开发基础知识/应用程序包基础知识/应用程序包安装卸载与更新/应用安装与更新一致性校验.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/install-and-update-consistency-verification",
+    "title": "应用安装与更新一致性校验"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（Stage模型）",
+    "slug": "application-configuration-file-overview-stage",
+    "name": "应用配置文件概述（Stage模型）",
+    "file": "开发基础知识/应用配置文件（Stage模型）/应用配置文件概述（Stage模型）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-stage",
+    "title": "应用配置文件概述（Stage模型）"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（Stage模型）",
+    "slug": "app-configuration-file",
+    "name": "app.json5配置文件",
+    "file": "开发基础知识/应用配置文件（Stage模型）/app.json5配置文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file",
+    "title": "app.json5配置文件"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（Stage模型）",
+    "slug": "module-configuration-file",
+    "name": "module.json5配置文件",
+    "file": "开发基础知识/应用配置文件（Stage模型）/module.json5配置文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file",
+    "title": "module.json5配置文件"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（FA模型）",
+    "slug": "application-configuration-file-overview-fa",
+    "name": "应用配置文件概述（FA模型）",
+    "file": "开发基础知识/应用配置文件（FA模型）/应用配置文件概述（FA模型）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa",
+    "title": "应用配置文件概述（FA模型）"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（FA模型）",
+    "slug": "app-structure",
+    "name": "app对象内部结构",
+    "file": "开发基础知识/应用配置文件（FA模型）/app对象内部结构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-structure",
+    "title": "app对象内部结构"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（FA模型）",
+    "slug": "deviceconfig-structure",
+    "name": "deviceConfig内部结构",
+    "file": "开发基础知识/应用配置文件（FA模型）/deviceConfig内部结构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deviceconfig-structure",
+    "title": "deviceConfig内部结构"
+  },
+  {
+    "group": "开发基础知识/应用配置文件（FA模型）",
+    "slug": "module-structure",
+    "name": "module对象内部结构",
+    "file": "开发基础知识/应用配置文件（FA模型）/module对象内部结构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-structure",
+    "title": "module对象内部结构"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "typical-scenario-configuration",
+    "name": "创建应用静态快捷方式",
+    "file": "开发基础知识/典型场景的开发指导/创建应用静态快捷方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typical-scenario-configuration",
+    "title": "创建应用静态快捷方式"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "app-clone",
+    "name": "创建应用分身",
+    "file": "开发基础知识/典型场景的开发指导/创建应用分身.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone",
+    "title": "创建应用分身"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "multiinstance",
+    "name": "创建应用多实例",
+    "file": "开发基础知识/典型场景的开发指导/创建应用多实例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multiinstance",
+    "title": "创建应用多实例"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "layered-image",
+    "name": "配置应用图标和名称",
+    "file": "开发基础知识/典型场景的开发指导/配置应用图标和名称.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/layered-image",
+    "title": "配置应用图标和名称"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "har-to-hsp",
+    "name": "HAR转HSP指导",
+    "file": "开发基础知识/典型场景的开发指导/HAR转HSP指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-to-hsp",
+    "title": "HAR转HSP指导"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "hsp-to-har",
+    "name": "HSP转HAR指导",
+    "file": "开发基础知识/典型场景的开发指导/HSP转HAR指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hsp-to-har",
+    "title": "HSP转HAR指导"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "hap-to-har",
+    "name": "HAP转HAR指导",
+    "file": "开发基础知识/典型场景的开发指导/HAP转HAR指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-to-har",
+    "title": "HAP转HAR指导"
+  },
+  {
+    "group": "开发基础知识/典型场景的开发指导",
+    "slug": "integrated-hsp",
+    "name": "集成态HSP",
+    "file": "开发基础知识/典型场景的开发指导/集成态HSP.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp",
+    "title": "集成态HSP"
+  },
+  {
+    "group": "开发基础知识",
+    "slug": "common-problem-of-application",
+    "name": "应用程序包常见问题",
+    "file": "开发基础知识/应用程序包常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-problem-of-application",
+    "title": "应用程序包常见问题"
+  },
+  {
+    "group": "开发基础知识",
+    "slug": "application-package-glossary",
+    "name": "应用程序包术语",
+    "file": "开发基础知识/应用程序包术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary",
+    "title": "应用程序包术语"
+  },
+  {
+    "group": "(root)",
+    "slug": "resource-categories-and-access",
+    "name": "资源分类与访问",
+    "file": "资源分类与访问.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access",
+    "title": "资源分类与访问"
+  },
+  {
+    "group": "学习ArkTS语言",
+    "slug": "arkts-get-started",
+    "name": "初识ArkTS语言",
+    "file": "学习ArkTS语言/初识ArkTS语言.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-get-started",
+    "title": "初识ArkTS语言"
+  },
+  {
+    "group": "学习ArkTS语言",
+    "slug": "introduction-to-arkts",
+    "name": "ArkTS语言介绍",
+    "file": "学习ArkTS语言/ArkTS语言介绍.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts",
+    "title": "ArkTS语言介绍"
+  },
+  {
+    "group": "学习ArkTS语言",
+    "slug": "arkts-coding-style-guide",
+    "name": "ArkTS编程规范",
+    "file": "学习ArkTS语言/ArkTS编程规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-coding-style-guide",
+    "title": "ArkTS编程规范"
+  },
+  {
+    "group": "学习ArkTS语言/从TypeScript到ArkTS的适配指导",
+    "slug": "arkts-migration-background",
+    "name": "ArkTS语法适配背景",
+    "file": "学习ArkTS语言/从TypeScript到ArkTS的适配指导/ArkTS语法适配背景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-migration-background",
+    "title": "ArkTS语法适配背景"
+  },
+  {
+    "group": "学习ArkTS语言/从TypeScript到ArkTS的适配指导",
+    "slug": "typescript-to-arkts-migration-guide",
+    "name": "从TypeScript到ArkTS的适配规则",
+    "file": "学习ArkTS语言/从TypeScript到ArkTS的适配指导/从TypeScript到ArkTS的适配规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/typescript-to-arkts-migration-guide",
+    "title": "从TypeScript到ArkTS的适配规则"
+  },
+  {
+    "group": "学习ArkTS语言/从TypeScript到ArkTS的适配指导",
+    "slug": "arkts-more-cases",
+    "name": "适配指导案例",
+    "file": "学习ArkTS语言/从TypeScript到ArkTS的适配指导/适配指导案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-more-cases",
+    "title": "适配指导案例"
+  },
+  {
+    "group": "学习ArkTS语言",
+    "slug": "arkts-high-performance-programming",
+    "name": "ArkTS高性能编程实践",
+    "file": "学习ArkTS语言/ArkTS高性能编程实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-high-performance-programming",
+    "title": "ArkTS高性能编程实践"
+  },
+  {
+    "group": "学习ArkTS语言/面向其他语言的ArkTS迁移指导",
+    "slug": "getting-started-with-arkts-for-java-programmers",
+    "name": "从Java到ArkTS的迁移指导",
+    "file": "学习ArkTS语言/面向其他语言的ArkTS迁移指导/从Java到ArkTS的迁移指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/getting-started-with-arkts-for-java-programmers",
+    "title": "从Java到ArkTS的迁移指导"
+  },
+  {
+    "group": "学习ArkTS语言/面向其他语言的ArkTS迁移指导",
+    "slug": "getting-started-with-arkts-for-swift-programmers",
+    "name": "从Swift到ArkTS的迁移指导",
+    "file": "学习ArkTS语言/面向其他语言的ArkTS迁移指导/从Swift到ArkTS的迁移指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/getting-started-with-arkts-for-swift-programmers",
+    "title": "从Swift到ArkTS的迁移指导"
+  },
+  {
+    "group": "(root)",
+    "slug": "glossary",
+    "name": "HarmonyOS术语",
+    "file": "HarmonyOS术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/glossary",
+    "title": "HarmonyOS术语"
+  }
+]
