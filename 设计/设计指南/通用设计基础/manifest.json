@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "design-concepts-0000001795698445",
+    "name": "设计理念",
+    "file": "设计理念.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-concepts-0000001795698445"
+  },
+  {
+    "slug": "color-0000001776857164",
+    "name": "色彩",
+    "file": "视觉风格/色彩.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/color-0000001776857164"
+  },
+  {
+    "slug": "font-0000001828772001",
+    "name": "字体排印",
+    "file": "视觉风格/字体排印.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/font-0000001828772001"
+  },
+  {
+    "slug": "application-icon-0000001953444009",
+    "name": "应用图标",
+    "file": "视觉风格/应用图标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/application-icon-0000001953444009"
+  },
+  {
+    "slug": "system-icons-0000001929854962",
+    "name": "HarmonyOS Symbol",
+    "file": "视觉风格/HarmonyOS Symbol.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/system-icons-0000001929854962"
+  },
+  {
+    "slug": "design-layout-basics-0000001795579413",
+    "name": "布局基础",
+    "file": "布局/布局基础.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-layout-basics-0000001795579413"
+  },
+  {
+    "slug": "design-responsive-layout-structure-0000001748539684",
+    "name": "响应式应用架构",
+    "file": "布局/响应式应用架构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-responsive-layout-structure-0000001748539684"
+  },
+  {
+    "slug": "design-responsive-layout-method-0000001795698449",
+    "name": "响应式布局方法",
+    "file": "布局/响应式布局方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-responsive-layout-method-0000001795698449"
+  },
+  {
+    "slug": "design-animation-overview-0000001750985338",
+    "name": "概述",
+    "file": "动效/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-animation-overview-0000001750985338"
+  },
+  {
+    "slug": "animation-design-principles-0000001750237392",
+    "name": "设计原则",
+    "file": "动效/设计原则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/animation-design-principles-0000001750237392"
+  },
+  {
+    "slug": "animation-attributes-0000001797117229",
+    "name": "动效属性",
+    "file": "动效/动效属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/animation-attributes-0000001797117229"
+  },
+  {
+    "slug": "transition-animation-0000001750078488",
+    "name": "转场动效",
+    "file": "动效/转场动效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/transition-animation-0000001750078488"
+  },
+  {
+    "slug": "gesture-animation-0000001797038213",
+    "name": "手势动效",
+    "file": "动效/手势动效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/gesture-animation-0000001797038213"
+  },
+  {
+    "slug": "design-ui-language-0000001795698453",
+    "name": "界面用语",
+    "file": "界面用语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-ui-language-0000001795698453"
+  },
+  {
+    "slug": "design-globalization-0000001748539688",
+    "name": "全球化",
+    "file": "全球化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-globalization-0000001748539688"
+  },
+  {
+    "slug": "privacy-0000001929972682",
+    "name": "隐私",
+    "file": "隐私.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/privacy-0000001929972682"
+  }
+]
