@@ -1,0 +1,80 @@
+# @typescript-eslint/no-floating-promises
+
+更新时间：2026-01-15 06:51:04
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-floating-promises
+
+要求正确处理Promise表达式。
+
+ floating-promise是指在创建Promise时，没有使用任何代码来处理它可能引发的错误，这是一种不正确的使用方式。
+
+
+## 规则配置
+
+
+```text
+// code-linter.json5
+{
+  "rules": {
+    "@typescript-eslint/no-floating-promises": "error"
+  }
+}
+```
+
+
+## 选项
+
+详情请参考[@typescript-eslint/no-floating-promises选项](https://typescript-eslint.nodejs.cn/rules/no-floating-promises/#options)。
+
+## 正例
+
+
+```text
+export async function bar() {
+  const promise = new Promise(resolve => {
+    resolve('value');
+    return 'finish';
+  });
+  await promise;
+
+  Promise.reject('value').catch(() => {
+    console.error('error');
+  });
+
+  await Promise.reject('value').finally(() => {
+    console.info('finally');
+  });
+
+  await Promise.all(['1', '2', '3'].map(x => x + '1'));
+}
+```
+
+
+## 反例
+
+
+```text
+export async function bar() {
+  const promise = new Promise(resolve => {
+    resolve('value');
+    return 'finish';
+  });
+  promise;
+
+  Promise.reject('value').catch();
+
+  await Promise.reject('value').finally();
+
+  ['1', '2', '3'].map(async x => x + '1');
+}
+```
+
+
+## 规则集
+
+
+```text
+plugin:@typescript-eslint/all
+```
+
+ Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

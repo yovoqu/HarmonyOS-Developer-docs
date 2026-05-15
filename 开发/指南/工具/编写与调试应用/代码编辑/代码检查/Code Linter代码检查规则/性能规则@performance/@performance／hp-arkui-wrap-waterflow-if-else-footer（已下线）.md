@@ -1,0 +1,172 @@
+# @performance/hp-arkui-wrap-waterflow-if-else-footer（已下线）
+
+更新时间：2026-01-15 06:51:04
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hp-arkui-wrap-waterflow-if-else-footer
+
+建议使用容器包裹waterflow中footer的if-else逻辑。
+
+
+## 规则配置
+
+
+```text
+// code-linter.json5
+{
+  "rules": {
+    "@performance/hp-arkui-wrap-waterflow-if-else-footer": "suggestion",
+  }
+}
+```
+
+
+## 选项
+
+该规则无需配置额外选项。
+
+## 正例
+
+
+```text
+// 源码文件，请以工程实际为准
+import { MyDataSource } from './MyDataSource';
+
+@Entry
+@Component
+struct MyComponent{
+  private datasource: MyDataSource = new MyDataSource();
+  private showFooterStatus = 2;
+
+  aboutToAppear() {
+    for (let i = 0; i  this.itemFoot() }) {
+        LazyForEach(this.datasource, (item: number) => {
+          FlowItem() {
+            ReusableFlowItem({ item: item })
+
+          }.onAppear(() => {
+            if (item + 20 == this.datasource.totalCount()) {
+              for (let i = 0; i  item)
+      }
+      .columnsTemplate('1fr 1fr 1fr 1fr')
+      .columnsGap(10)
+      .rowsGap(5)
+      .width('100%')
+      .height('50%')
+    }
+  }
+
+  @Builder
+  itemFoot() {
+    //  外层加了一个column容器控制
+    Column() {
+      if (this.showFooterStatus == 1) {
+        // Code to show try again
+      } else if (this.showFooterStatus == 2) {
+        // Code to show end
+      } else {
+        // Code to show footer loading
+      }
+    }
+  }
+}
+
+@Component
+@Reusable
+struct ReusableFlowItem {
+  @State item: number = 0
+
+  aboutToReuse(params: Record) {
+    this.item = params.item;
+  }
+
+  build() {
+    Column() {
+      Text('N' + this.item)
+        .fontSize(12)
+        .height('16')
+      Image('res/waterFlowTest (' + this.item % 5 + ').jpg')
+        .objectFit(ImageFit.Fill)
+        .width('100%')
+        .layoutWeight(1)
+    }
+  }
+}
+```
+
+
+## 反例
+
+
+```text
+// 源码文件，请以工程实际为准
+import { MyDataSource } from './MyDataSource';
+
+@Entry
+@Component
+struct MyComponent{
+  private datasource: MyDataSource = new MyDataSource();
+  private showFooterStatus = 2;
+
+  aboutToAppear() {
+    for (let i = 0; i  this.itemFoot() }) {
+        LazyForEach(this.datasource, (item: number) => {
+          FlowItem() {
+            ReusableFlowItem({ item: item })
+
+          }.onAppear(() => {
+            if (item + 20 == this.datasource.totalCount()) {
+              for (let i = 0; i  item)
+      }
+      .columnsTemplate('1fr 1fr 1fr 1fr')
+      .columnsGap(10)
+      .rowsGap(5)
+      .width('100%')
+      .height('50%')
+    }
+  }
+
+  @Builder
+  itemFoot() {
+    //  这个作为footer的build的逻辑里有if逻辑，应该在外层加一个容器控制
+    if (this.showFooterStatus == 1) {
+      // Code to show try again
+    } else if (this.showFooterStatus == 2) {
+      // Code to show end
+    } else {
+      // Code to show footer loading
+    }
+  }
+}
+
+@Component
+@Reusable
+struct ReusableFlowItem {
+  @State item: number = 0
+
+  aboutToReuse(params: Record) {
+    this.item = params.item;
+  }
+
+  build() {
+    Column() {
+      Text('N' + this.item)
+        .fontSize(12)
+        .height('16')
+      Image('res/waterFlowTest (' + this.item % 5 + ').jpg')
+        .objectFit(ImageFit.Fill)
+        .width('100%')
+        .layoutWeight(1)
+    }
+  }
+}
+```
+
+
+## 规则集
+
+
+```text
+plugin:@performance/all
+```
+
+Code Linter代码检查规则的配置指导请参考[Code Linter代码检查](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-code-linter)。

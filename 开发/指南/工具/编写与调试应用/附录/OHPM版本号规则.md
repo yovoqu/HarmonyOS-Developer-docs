@@ -1,0 +1,146 @@
+# OHPM版本号规则
+
+更新时间：2026-01-15 06:51:04
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-version-rules
+
+ohpm管理的三方包的版本号遵循[语义化版本控制](https://semver.org/lang/zh-CN/)（SemVer 2.0.0）规则。
+
+
+## 版本号格式
+
+
+```text
+版本号格式：主版本号.次版本号.修订号[-先行版本号][+构建信息]， 正例：1.0.0-PRERELEASE+BUILD
+```
+
+主版本号（MAJOR）：非负整数，当开发者做了不能向下兼容的代码修改时，必须递增主版本号，同时MINOR和PATCH须归零。次版本号（MINOR）：非负整数，当开发者新增功能时必须递增次版本号，同时PATCH须归零。修订号（PATCH）：非负整数，当开发者做了程序Bug或漏洞修复时须递增修订号。先行版本号（PRERELEASE，可选）：由连字符（-）和点（.）分隔的ASCII字母、数字、连字符组成，禁止使用空格；用于标识尚未稳定的预发布版本（如测试版、候选版），正例：1.0.0-alpha、1.0.0-beta。构建信息（BUILD，可选）：由加号（+）和点（.）分隔的ASCII字母、数字、连字符组成，禁止使用空格；不影响版本比较时的优先级，用于记录编译或构建过程中的附加信息（如时间戳），正例：1.0.0+20250415。
+
+## 格式约束
+
+标准版本号：x.y.z，标准版本号只允许存在三位，每一位版本均禁止在前面添加0，正例：1.0.0，反例：01.0.1、1.0.0.0、-1.0.01。先行版本：x.y.z-PRERELEASE，PRERELEASE部分按点（.）分隔后的标识符如果是纯数字，则禁止在最前面添加0，正例：1.0.0-beta.10，反例：1.0.0-beta.01。空标识符，如："1.0.0-"无效，需至少一个标识符，正例：1.0.0-rc。
+
+## 特殊版本号示例
+
+"0.1.0" 初始开发版本，API不稳定（主版本号为零（0.y.z）的软件处于开发初始阶段，视为非稳定版本）。"1.0.0" 首个稳定版，API定型。"1.0.0-beta.1"主版本升级的预发布版本。
+
+## 版本比较规则
+
+ 版本比较时优先比较标准版本号部分（即：主版本号.次版本号.修订号），优先级为：主版本号 > 次版本号 > 修订号。比较方式如下： 按数值逐级比较：主版本号不同时，直接比较主版本号，例如：1.0.0  次版本号 > 修订号，当标准版本号不相同时，按照同级版本大小进行比较。例如：1.0.2-snapshot> 1.0.0，可参考示例3。 当标准版本号相同时，先行版本优先级小于标准版本。例如：1.0.0-snapshot =1.0.0 ，此时安装的版本会从标准版本中获取，即安装>=1.0.0的最新标准版本，如果没有>=1.0.0的标准版本，则安装>=1.0.0的先行版本，可参考示例1。当仓库同时存在先行版本和标准版本，配置依赖为先行范围版本如：>=1.0.0-snapshot ，此时安装的版本会从标准版本中获取，即安装>=1.0.0的最新标准版本，如果没有>=1.0.0的标准版本，则安装>=1.0.0-snapshot的先行版本，可参考示例4和示例5当仓库仅存在先行版本时，配置依赖为标准范围版本如：>=1.0.0 ，此时安装的版本会从先行版本中获取，即安装>=1.0.0的最新先行版本，可参考示例2。当仓库仅存在先行版本时，配置依赖为先行范围版本如：>=1.0.0-snapshot ，此时安装的版本会从先行版本中获取，即安装>=1.0.0-snapshot的最新先行版本，可参考示例6。
+```text
+// 示例1
+> 依赖`liba`在仓库存在的版本有：['1.0.0-snapshot.1', '1.0.0-snapshot.2', '1.0.0', '2.0.0-snapshot.1', '2.0.0-snapshot.2', '2.0.0', '3.0.0-snapshot.1', '3.0.0-snapshot.2']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": ">=1.0.0"
+  }
+}
+> ohpm install后安装的`liba`版本为：`2.0.0`
+
+// 示例2
+> 依赖`liba`在仓库存在的版本有：['1.0.0-snapshot.1', '1.0.0-snapshot.2', '2.0.0-snapshot.1', '2.0.0-snapshot.2']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": ">=1.0.0"
+  }
+}
+> ohpm install后安装的`liba`版本为：`2.0.0-snapshot.2`
+
+// 示例3
+> 依赖`liba`在仓库存在的版本有：['1.0.0', '1.0.2-snapshot', '2.0.0-snapshot.1', '2.0.0-snapshot.2']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": "^1.0.0"
+  }
+}
+> 工程级配置依赖`liba`，工程级的
+oh-package.json5配置：{
+  "modelVersion": "x.0.0",
+  "description": "Please describe the basic information.",
+  "dependencies": {
+    "liba": "1.0.2-snapshot"
+  }
+}
+> ohpm install后安装的`liba`版本为：`1.0.2-snapshot`
+
+// 示例4
+> 依赖`liba`在仓库存在的版本有：['1.0.0-snapshot', '1.0.0']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": ">=1.0.0-snapshot"
+  }
+}
+> ohpm install后安装的`liba`版本为：`1.0.0`
+
+// 示例5
+> 依赖`liba`在仓库存在的版本有：['0.0.1','1.0.0-snapshot', '1.0.1-snapshot']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": ">=1.0.0-snapshot"
+  }
+}
+> ohpm install后安装的`liba`版本为：`1.0.1-snapshot`
+
+// 示例6
+> 依赖`liba`在仓库存在的版本有：['1.0.0-snapshot.1', '1.0.0-snapshot.2', '2.0.0-snapshot.1', '2.0.0-snapshot.2']
+> entry模块依赖`liba`，entry的oh-package.json5配置：{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "Index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "liba": ">=1.0.0-snapshot"
+  }
+}
+> ohpm install后安装的`liba`版本为：`2.0.0-snapshot.2`
+```
+
+
+## 先行版本间比较规则
+
+ 当标准版本部分一致时，版本大小由先行版本号决定；即先行版本号按 "." 分割的标识符逐个比较，每个标识符按字符从左到右逐个比较，详细如下：数字标识符按数字比较大小。举例：2.0.0-beta.2与2.0.0-beta.11比较，标准版本："2.0.0" 部分一致，大小由先行版本号部分：beta.2和beta.11决定；按 "." 分割后，第一段标识符"beta"一致，进而比较数字部分：2 1.2.0" 表示版本需高于1.2.0及以下版本。
+
+## 通配符与逻辑符
+
+
+## x 或 *（通配符）
+
+ 匹配任意值，通常用于省略字段， 简化范围定义。
+```text
+// 通配符使用示例
+1.x 等价于：1.0.0 =1.0.101 <2.0.100 等价于：1.0.101 <= 版本 < 2.0.100
+```
+
+
+## ||（逻辑或）
+
+ 组合多个范围版本，满足任意一个即可。
+```text
+// 逻辑或使用示例
+^1.0.101 || ^2.0.100 等价于：1.0.101
