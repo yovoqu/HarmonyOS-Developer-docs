@@ -1,0 +1,7 @@
+# Weather Service Kit接口有定位功能吗
+
+更新时间：2026-04-28 03:31:56
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/weather-service-faq-2
+
+没有，获取当前位置的经纬度可参考[获取当前位置经纬度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/weather-service-getweather#可选获取当前位置经纬度)。

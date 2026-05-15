@@ -1,0 +1,7 @@
+# 请求接口加签验证中，如果请求头“PayMercAuth”中bodySign字段为空值，会做验签吗？还是会先校验字段？
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-21
+
+鉴权请求头“PayMercAuth”会先校验相关字段再做验签。bodySign字段设置为空值，Payment Kit服务器不会做验签，直接响应异常给商户。
