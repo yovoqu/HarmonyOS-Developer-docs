@@ -1,0 +1,1010 @@
+[
+  {
+    "section": "应用质量概览",
+    "slug": "bpta-quality-overview",
+    "name": "应用质量概览",
+    "file": "应用质量概览/应用质量概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-quality-overview"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-performance-guide-reading",
+    "name": "性能概览",
+    "file": "性能/性能概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-guide-reading"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-smooth-application-design",
+    "name": "性能体验设计",
+    "file": "性能/性能体验设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smooth-application-design"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-performance-detection",
+    "name": "开发态性能检测",
+    "file": "性能/性能检测/开发态性能检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-detection"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-performance-startup-time-detection",
+    "name": "启动耗时类问题检测方法",
+    "file": "性能/性能检测/运行态性能检测/启动耗时类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-startup-time-detection"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-performance-mainthread-consumption-detection",
+    "name": "主线程超时类问题检测方法",
+    "file": "性能/性能检测/运行态性能检测/主线程超时类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-mainthread-consumption-detection"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-performance-sliding-frame-drop-detection",
+    "name": "滑动丢帧类问题检测方法",
+    "file": "性能/性能检测/运行态性能检测/滑动丢帧类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-performance-sliding-frame-drop-detection"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-optimization-overview",
+    "name": "性能分析简介",
+    "file": "性能/性能分析/性能分析简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-optimization-overview"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-click-to-click-response-optimization",
+    "name": "点击响应时延分析",
+    "file": "性能/性能分析/点击响应时延分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-click-response-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-click-to-complete-delay-analysis",
+    "name": "点击完成时延分析",
+    "file": "性能/性能分析/点击完成时延分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-click-to-complete-delay-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-zhenlv",
+    "name": "帧率问题分析",
+    "file": "性能/性能分析/帧率问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-zhenlv"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-web-click-response-delay-analysis",
+    "name": "Web点击响应时延分析",
+    "file": "性能/性能分析/Web点击响应时延分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-click-response-delay-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-web-completion-delay-analysis",
+    "name": "Web加载完成时延分析",
+    "file": "性能/性能分析/Web加载完成时延分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-completion-delay-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-web-frame-rate-performance-analysis",
+    "name": "Web帧率问题分析",
+    "file": "性能/性能分析/Web帧率问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-frame-rate-performance-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-threads-serialization-timeout-analysis",
+    "name": "跨线程序列化耗时问题分析",
+    "file": "性能/性能分析/跨线程序列化耗时问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-threads-serialization-timeout-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-memory-basic-knowledge",
+    "name": "内存基础知识",
+    "file": "性能/性能分析/分析内存占用问题/内存基础知识.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-memory-basic-knowledge"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-retrieve-process-memory-info",
+    "name": "获取进程内存信息",
+    "file": "性能/性能分析/分析内存占用问题/获取进程内存信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-retrieve-process-memory-info"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-arkts-js-memory-analysis",
+    "name": "分析ArkTS/JS内存",
+    "file": "性能/性能分析/分析内存占用问题/分析ArkTS／JS内存.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-js-memory-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-native-memory-analysis",
+    "name": "分析native内存",
+    "file": "性能/性能分析/分析内存占用问题/分析native内存.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-native-memory-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-kernel-memory-analysis",
+    "name": "分析内核态内存",
+    "file": "性能/性能分析/分析内存占用问题/分析内核态内存.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-kernel-memory-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-permission-timeout-analysis",
+    "name": "分析任务执行超时问题",
+    "file": "性能/性能分析/分析任务执行超时问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-permission-timeout-analysis"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-perceived-smoothness",
+    "name": "感知流畅优化",
+    "file": "性能/性能优化/感知流畅优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-perceived-smoothness"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-control-rendering-range",
+    "name": "渲染范围控制",
+    "file": "性能/性能优化/渲染范围控制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-control-rendering-range"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-reduce-layout-nodes",
+    "name": "布局节点减少",
+    "file": "性能/性能优化/布局节点减少.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reduce-layout-nodes"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-pptimized-component-drawing",
+    "name": "组件绘制优化",
+    "file": "性能/性能优化/组件绘制优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pptimized-component-drawing"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-state-refresh",
+    "name": "状态刷新控制",
+    "file": "性能/性能优化/状态刷新控制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-state-refresh"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-animation-frame",
+    "name": "动画帧率优化",
+    "file": "性能/性能优化/动画帧率优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-animation-frame"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-concurrency-capability",
+    "name": "并发能力使用",
+    "file": "性能/性能优化/并发能力使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-concurrency-capability"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-preloading-resources",
+    "name": "资源提前加载",
+    "file": "性能/性能优化/资源提前加载.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-preloading-resources"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-improve-running-efficiency",
+    "name": "运行效率提高",
+    "file": "性能/性能优化/运行效率提高.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve-running-efficiency"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-reduce-time-consuming",
+    "name": "耗时操作减少",
+    "file": "性能/性能优化/耗时操作减少.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reduce-time-consuming"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-delayed-trigger-operation",
+    "name": "操作延时触发",
+    "file": "性能/性能优化/操作延时触发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-delayed-trigger-operation"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-component-nesting-optimization",
+    "name": "组件嵌套优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/组件嵌套优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-nesting-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-lazyforeach-optimization",
+    "name": "懒加载优化性能",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/懒加载优化性能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lazyforeach-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-ui-component-performance-optimization",
+    "name": "UI组件性能优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/UI组件性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-component-performance-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-time-optimization-of-the-main-thread",
+    "name": "主线程耗时操作优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/主线程耗时操作优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-dispose-highly-loaded-component-render",
+    "name": "高负载场景分帧渲染",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/高负载场景分帧渲染.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dispose-highly-loaded-component-render"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-best-practices-long-list",
+    "name": "长列表加载丢帧优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/长列表加载丢帧优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-waterflow-performance-optimization",
+    "name": "瀑布流加载丢帧优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/瀑布流加载丢帧优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-waterflow-performance-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-improve_grid_performance",
+    "name": "Grid组件加载丢帧优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/Grid组件加载丢帧优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-improve_grid_performance"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-swiper_high_performance_development_guide",
+    "name": "Swiper组件加载丢帧优化",
+    "file": "性能/性能场景优化案例/界面渲染性能优化/Swiper组件加载丢帧优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-swiper_high_performance_development_guide"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-application-cold-start-optimization",
+    "name": "应用冷启动时延优化",
+    "file": "性能/性能场景优化案例/应用启动与响应优化/应用冷启动时延优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-cold-start-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-application-latency-optimization-cases",
+    "name": "应用时延优化",
+    "file": "性能/性能场景优化案例/应用启动与响应优化/应用时延优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-decrease_pakage_size",
+    "name": "应用包体积优化",
+    "file": "性能/性能场景优化案例/资源与存储优化/应用包体积优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-decrease_pakage_size"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-memory-optimization",
+    "name": "应用内存占用优化",
+    "file": "性能/性能场景优化案例/资源与存储优化/应用内存占用优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-memory-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-texture-compression-improve-performance",
+    "name": "图片资源加载优化",
+    "file": "性能/性能场景优化案例/资源与存储优化/图片资源加载优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-texture-compression-improve-performance"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-file-upload-and-download-performance",
+    "name": "文件上传下载优化",
+    "file": "性能/性能场景优化案例/资源与存储优化/文件上传下载优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-file-upload-and-download-performance"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-web-develop-optimization",
+    "name": "Web加载性能优化",
+    "file": "性能/性能场景优化案例/Web性能优化/Web加载性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-develop-optimization"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-screen-flicker-solution",
+    "name": "应用闪屏解决方案",
+    "file": "性能/性能场景优化案例/专项问题解决方案/应用闪屏解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-screen-flicker-solution"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-image-white-lump-solution",
+    "name": "Image白块解决方案",
+    "file": "性能/性能场景优化案例/专项问题解决方案/Image白块解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-white-lump-solution"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-high-performance-json-parsing",
+    "name": "高性能JSON解析",
+    "file": "性能/性能场景优化案例/对象序列化性能优化/高性能JSON解析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-json-parsing"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-high-performance-protobuf-parsing",
+    "name": "高性能Protobuf解析",
+    "file": "性能/性能场景优化案例/对象序列化性能优化/高性能Protobuf解析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-performance-protobuf-parsing"
+  },
+  {
+    "section": "性能",
+    "slug": "bpta-concurrent-optimization",
+    "name": "并行化性能优化",
+    "file": "性能/性能场景优化案例/并行化性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-concurrent-optimization"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-power_overview",
+    "name": "功耗概览",
+    "file": "功耗/功耗概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-power_overview"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-power-consumption-experience",
+    "name": "应用功耗体验",
+    "file": "功耗/应用功耗体验.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-power-consumption-experience"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-application-power-test",
+    "name": "场景功耗测试",
+    "file": "功耗/应用功耗检测/开发态功耗检测/场景功耗测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-power-test"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-power-basic-quality-test",
+    "name": "功耗基础质量测试",
+    "file": "功耗/应用功耗检测/开发态功耗检测/功耗基础质量测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-power-basic-quality-test"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-power-consumption-runtime-analysis",
+    "name": "运行态功耗检测",
+    "file": "功耗/应用功耗检测/运行态功耗检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-power-consumption-runtime-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-high-cpu-load-analysis",
+    "name": "CPU 高负载分析",
+    "file": "功耗/应用功耗分析/CPU 高负载分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-high-cpu-load-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-frontend-invisible-animation-analysis",
+    "name": "前台不可见动效问题分析",
+    "file": "功耗/应用功耗分析/前台不可见动效问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-frontend-invisible-animation-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-ui-skip-analysis",
+    "name": "应用UI进程空跑问题分析",
+    "file": "功耗/应用功耗分析/应用UI进程空跑问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-skip-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-hwc-self-rendering-layer-analysis",
+    "name": "自渲染图层未使用硬件合成问题分析",
+    "file": "功耗/应用功耗分析/自渲染图层未使用硬件合成问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hwc-self-rendering-layer-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-background-sensors-baned-analysis",
+    "name": "应用退后台禁止使用传感器问题分析",
+    "file": "功耗/应用功耗分析/应用退后台禁止使用传感器问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-background-sensors-baned-analysis"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-low-power-design-in-dark-mode",
+    "name": "省电和深色模式下低功耗设计",
+    "file": "功耗/应用功耗优化/前台任务低功耗/省电和深色模式下低功耗设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-low-power-design-in-dark-mode"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-ltpo-description",
+    "name": "基于LTPO的低功耗设计",
+    "file": "功耗/应用功耗优化/前台任务低功耗/基于LTPO的低功耗设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ltpo-description"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-utilize-hwc-efficiently",
+    "name": "高效利用HWC的低功耗设计",
+    "file": "功耗/应用功耗优化/前台任务低功耗/高效利用HWC的低功耗设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-utilize-hwc-efficiently"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-music-playback-scenarios",
+    "name": "音乐播放场景低功耗规则",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/音乐播放场景低功耗规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-music-playback-scenarios"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-navigation-scenarios",
+    "name": "导航定位场景低功耗规则",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/导航定位场景低功耗规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-navigation-scenarios"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-static-scenarios",
+    "name": "静态场景低功耗规则",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/静态场景低功耗规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-static-scenarios"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-video-codec",
+    "name": "视频场景编解码低功耗规则",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/视频场景编解码低功耗规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-codec"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-video-barrage",
+    "name": "视频场景弹幕绘制低功耗规则",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/视频场景弹幕绘制低功耗规则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-barrage"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-video-rom",
+    "name": "视频场景ROM低功耗建议",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/视频场景ROM低功耗建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-rom"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-video-layer",
+    "name": "视频场景图层低功耗建议",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/视频场景图层低功耗建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-layer"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-video-wifi",
+    "name": "视频场景Wi-Fi加载低功耗建议",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/视频场景Wi-Fi加载低功耗建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-wifi"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-network-resources",
+    "name": "网络资源低功耗建议",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/网络资源低功耗建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-resources"
+  },
+  {
+    "section": "功耗",
+    "slug": "low-power-consumption-suggestions",
+    "name": "不可见组件低功耗建议",
+    "file": "功耗/应用功耗优化/前台任务低功耗/前台资源合理使用/不可见组件低功耗建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/low-power-consumption-suggestions"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-use-of-background-tasks",
+    "name": "后台任务合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台任务合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-use-of-background-tasks"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-back-task-implement",
+    "name": "应用后台运行",
+    "file": "功耗/应用功耗优化/后台任务低功耗/应用后台运行.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-back-task-implement"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-controlling-background-process-cpu",
+    "name": "控制后台进程CPU使用率",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/控制后台进程CPU使用率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-controlling-background-process-cpu"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-bluetooth-use",
+    "name": "蓝牙资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/蓝牙资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-bluetooth-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-network-use",
+    "name": "网络资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/网络资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-network-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-audio-use",
+    "name": "音频资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/音频资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-audio-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-gps-use",
+    "name": "GPS资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/GPS资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-gps-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-sensor-use",
+    "name": "传感器资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台硬件资源合理使用/传感器资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-sensor-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-request-use",
+    "name": "后台上传下载合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台软件资源合理使用/后台上传下载合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-request-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-audio-playback-use",
+    "name": "后台音频播放合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台软件资源合理使用/后台音频播放合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-audio-playback-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-position-navigation-use",
+    "name": "后台定位导航服务合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台软件资源合理使用/后台定位导航服务合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-position-navigation-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-reasonable-system-use",
+    "name": "后台系统资源合理使用",
+    "file": "功耗/应用功耗优化/后台任务低功耗/后台软件资源合理使用/后台系统资源合理使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reasonable-system-use"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-vsync-power-optimization",
+    "name": "Vsync低功耗优化",
+    "file": "功耗/功耗场景优化案例/Vsync低功耗优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-vsync-power-optimization"
+  },
+  {
+    "section": "功耗",
+    "slug": "bpta-buffer-power-optimization",
+    "name": "Buffer低功耗优化",
+    "file": "功耗/功耗场景优化案例/Buffer低功耗优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-buffer-power-optimization"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-overview",
+    "name": "稳定性概览",
+    "file": "稳定性/稳定性概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-overview"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-sanitizer-overview",
+    "name": "地址越界检测能力概述",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/地址越界检测能力概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-overview"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-sanitizer-catagory",
+    "name": "地址越界经典问题类型",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/地址越界经典问题类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-catagory"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-sanitizer-principle",
+    "name": "地址越界检测工具原理",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/地址越界检测工具原理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-principle"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-asan-detection",
+    "name": "使用ASan检测内存错误",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/使用ASan检测内存错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-asan-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-hwasan-detection",
+    "name": "使用HWASan检测内存错误",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/使用HWASan检测内存错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-gwpasan-detection",
+    "name": "使用GWP-ASan检测内存错误",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/使用GWP-ASan检测内存错误.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-gwpasan-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-sanitizer-faq",
+    "name": "适配常见问题",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/地址越界类问题检测/适配常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-faq"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-tsan-detection",
+    "name": "使用TSan检测线程问题",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/线程并发类问题检测/使用TSan检测线程问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-tsan-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-js-memleak-detection",
+    "name": "JS内存泄漏问题检测方法",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/内存泄漏类问题检测方法/JS内存泄漏问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-js-memleak-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-native-memleak-detection",
+    "name": "Native内存泄漏问题检测方法",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/内存泄漏类问题检测方法/Native内存泄漏问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-native-memleak-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-js-leak-watcher",
+    "name": "JsLeakWatcher开发实践",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/内存泄漏类问题检测方法/JsLeakWatcher开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-js-leak-watcher"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-malloc-dispatch-table",
+    "name": "内存泄漏定制能力开放使用指导",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/内存泄漏类问题检测方法/内存泄漏定制能力开放使用指导.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-malloc-dispatch-table"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-file-handle-detection",
+    "name": "文件句柄泄漏类问题检测方法",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/文件句柄泄漏类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-file-handle-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-thread-leak-detection",
+    "name": "线程泄漏类问题检测方法",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/资源泄漏类问题检测/线程泄漏类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-thread-leak-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-ark-runtime-detection",
+    "name": "方舟运行时检测",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/方舟类问题检测/方舟运行时检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-runtime-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-ark-exception-detection",
+    "name": "使用方舟异常信息增强检测",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/方舟类问题检测/使用方舟异常信息增强检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ark-exception-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-ubsan-detection",
+    "name": "使用UBSan检测未定义行为",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/使用UBSan检测未定义行为.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ubsan-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-analyzer",
+    "name": "应用体检",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/应用体检.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-analyzer"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-deveco-testing",
+    "name": "使用DevEco Testing进行稳定性测试",
+    "file": "稳定性/稳定性检测/开发态稳定性检测/稳定性测试/使用DevEco Testing进行稳定性测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-deveco-testing"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-runtime-address-sanitizer-detection",
+    "name": "地址越界类问题检测方法",
+    "file": "稳定性/稳定性检测/运行态稳定性检测/地址越界类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-address-sanitizer-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-runtime-leak-detection",
+    "name": "资源泄漏类问题检测方法",
+    "file": "稳定性/稳定性检测/运行态稳定性检测/资源泄漏类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-leak-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-runtime-freeze-detection",
+    "name": "应用冻屏类问题检测方法",
+    "file": "稳定性/稳定性检测/运行态稳定性检测/应用冻屏类问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-freeze-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-runtime-crash-detection",
+    "name": "应用崩溃问题检测方法",
+    "file": "稳定性/稳定性检测/运行态稳定性检测/应用异常退出类问题检测方法/应用崩溃问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-crash-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-runtime-appkilled-detection",
+    "name": "应用被查杀问题检测方法",
+    "file": "稳定性/稳定性检测/运行态稳定性检测/应用异常退出类问题检测方法/应用被查杀问题检测方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-runtime-appkilled-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-fault-type",
+    "name": "故障类型",
+    "file": "稳定性/稳定性分析/稳定性故障类型及日志规格说明/故障类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-fault-type"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-log-specs",
+    "name": "日志规格",
+    "file": "稳定性/稳定性分析/稳定性故障类型及日志规格说明/日志规格.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-log-specs"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-illegal-way",
+    "name": "地址越界类问题分析方法",
+    "file": "稳定性/稳定性分析/地址越界类问题分析方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-illegal-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-leak-way",
+    "name": "资源泄漏类问题分析方法",
+    "file": "稳定性/稳定性分析/资源泄漏类问题分析方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-freeze-way",
+    "name": "应用冻屏问题排查方法",
+    "file": "稳定性/稳定性分析/应用冻屏类问题分析方法/应用冻屏问题排查方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-freeze-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-freeze-ark-runtime",
+    "name": "栈顶在方舟运行时的应用冻屏问题定位实践",
+    "file": "稳定性/稳定性分析/应用冻屏类问题分析方法/栈顶在方舟运行时的应用冻屏问题定位实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-freeze-ark-runtime"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-crash-cpp-way",
+    "name": "CppCrash类问题分析方法",
+    "file": "稳定性/稳定性分析/应用异常退出类问题分析方法/CppCrash类问题分析方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-crash-cpp-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-crash-js-way",
+    "name": "JS Crash类问题分析方法",
+    "file": "稳定性/稳定性分析/应用异常退出类问题分析方法/JS Crash类问题分析方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-crash-js-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-killed-way",
+    "name": "应用被查杀类问题分析方法",
+    "file": "稳定性/稳定性分析/应用异常退出类问题分析方法/应用被查杀类问题分析方法.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-killed-way"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-coding-standard-ndk-arkts",
+    "name": "NDK开发ArkTS侧编码规范",
+    "file": "稳定性/稳定性优化/稳定性编码规范/NDK开发ArkTS侧编码规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-ndk-arkts"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-coding-standard-node",
+    "name": "Node-API开发规范",
+    "file": "稳定性/稳定性优化/稳定性编码规范/Node-API开发规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-node"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-coding-standard-cpp",
+    "name": "C++编码规范",
+    "file": "稳定性/稳定性优化/稳定性编码规范/C++编码规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-cpp"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-coding-standard-libuv",
+    "name": "libuv使用规范及案例",
+    "file": "稳定性/稳定性优化/稳定性编码规范/libuv使用规范及案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-libuv"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-coding-standard-api",
+    "name": "易错API的使用规范",
+    "file": "稳定性/稳定性优化/稳定性编码规范/易错API的使用规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-coding-standard-api"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-ide-static-detection",
+    "name": "使用DevEco Studio静态检测编码规范",
+    "file": "稳定性/稳定性优化/稳定性编码规范/使用DevEco Studio静态检测编码规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-ide-static-detection"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-log-standard-hilog",
+    "name": "HiLog打印规范",
+    "file": "稳定性/稳定性优化/日志打印规范/HiLog打印规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-log-standard-hilog"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-address-sanitizer-opt",
+    "name": "地址越界类问题优化建议",
+    "file": "稳定性/稳定性优化/地址越界类问题优化建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-opt"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-leak-opt",
+    "name": "资源泄漏类问题优化建议",
+    "file": "稳定性/稳定性优化/资源泄漏类问题优化建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-opt"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-app-freeze-opt",
+    "name": "应用冻屏类问题优化建议",
+    "file": "稳定性/稳定性优化/应用冻屏类问题优化建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-app-freeze-opt"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-cpp-crash-opt",
+    "name": "CppCrash类问题优化建议",
+    "file": "稳定性/稳定性优化/应用异常退出类问题优化建议/CppCrash类问题优化建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-cpp-crash-opt"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-js-crash-opt",
+    "name": "JS Crash类问题优化建议",
+    "file": "稳定性/稳定性优化/应用异常退出类问题优化建议/JS Crash类问题优化建议.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-js-crash-opt"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-scenario-stability-address-sanitizer",
+    "name": "地址越界类问题案例",
+    "file": "稳定性/稳定性案例/地址越界类问题案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-address-sanitizer"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-scenario-stability-leak",
+    "name": "资源泄漏类问题案例",
+    "file": "稳定性/稳定性案例/资源泄漏类问题案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-leak"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-scenario-stability-app-freeze",
+    "name": "应用冻屏类问题案例",
+    "file": "稳定性/稳定性案例/应用冻屏类问题案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-app-freeze"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-scenario-stability-cppcrash",
+    "name": "CppCrash类问题案例",
+    "file": "稳定性/稳定性案例/应用异常退出类问题案例/CppCrash类问题案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-cppcrash"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-scenario-stability-jscrash",
+    "name": "JS Crash类问题案例",
+    "file": "稳定性/稳定性案例/应用异常退出类问题案例/JS Crash类问题案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-scenario-stability-jscrash"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-operate-apm",
+    "name": "APM能力建设",
+    "file": "稳定性/稳定性运维/APM能力建设.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-operate-apm"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-stability-operate-app-event",
+    "name": "应用事件",
+    "file": "稳定性/稳定性运维/稳定性事件接入/应用事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-operate-app-event"
+  },
+  {
+    "section": "稳定性",
+    "slug": "bpta-crash-monitor-practice",
+    "name": "崩溃监测实践",
+    "file": "稳定性/稳定性运维/崩溃监测实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-crash-monitor-practice"
+  }
+]
