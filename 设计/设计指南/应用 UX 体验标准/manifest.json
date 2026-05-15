@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "ux-guidelines-overview-0000001760867048",
+    "name": "概述",
+    "file": "概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-overview-0000001760867048"
+  },
+  {
+    "slug": "ux-guidelines-general-0000001760708152",
+    "name": "通用应用 UX 体验标准",
+    "file": "通用应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-general-0000001760708152"
+  },
+  {
+    "slug": "ux-guidelines-large-screen-0000001807707561",
+    "name": "大屏应用 UX 体验标准",
+    "file": "大屏应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-large-screen-0000001807707561"
+  },
+  {
+    "slug": "ux-guidelines-foldable-screen-0000001807866557",
+    "name": "折叠屏应用 UX 体验标准",
+    "file": "折叠屏应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-foldable-screen-0000001807866557"
+  },
+  {
+    "slug": "ux-guidelines-2in1-0000001777895636",
+    "name": "电脑应用 UX 体验标准",
+    "file": "电脑应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-2in1-0000001777895636"
+  },
+  {
+    "slug": "ux-guidelines-vision-0000002360813381",
+    "name": "智慧屏应用 UX 体验标准",
+    "file": "智慧屏应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-vision-0000002360813381"
+  },
+  {
+    "slug": "ux-standard-overview-0000002019655177",
+    "name": "元服务 UX 体验标准",
+    "file": "元服务 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-standard-overview-0000002019655177"
+  },
+  {
+    "slug": "ux-guidelines-wearable-0000002503475023",
+    "name": "智能穿戴应用 UX 体验标准",
+    "file": "智能穿戴应用 UX 体验标准.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/ux-guidelines-wearable-0000002503475023"
+  }
+]
