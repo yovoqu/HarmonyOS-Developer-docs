@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "hmi-overview-0000001795410269",
+    "name": "概述",
+    "file": "概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-overview-0000001795410269"
+  },
+  {
+    "slug": "hmi-touchscreen-0000001928273206",
+    "name": "手势",
+    "file": "手势.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-touchscreen-0000001928273206"
+  },
+  {
+    "slug": "hmi-cursor-0000001795531205",
+    "name": "光标交互",
+    "file": "光标交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-cursor-0000001795531205"
+  },
+  {
+    "slug": "hmi-focus-0000001748650376",
+    "name": "焦点导航",
+    "file": "焦点导航.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-focus-0000001748650376"
+  },
+  {
+    "slug": "hmi-mouse-0000001930021626",
+    "name": "鼠标",
+    "file": "鼠标.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-mouse-0000001930021626"
+  },
+  {
+    "slug": "hmi-keyboard-0000001928070488",
+    "name": "键盘",
+    "file": "键盘.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-keyboard-0000001928070488"
+  },
+  {
+    "slug": "hmi-touchpad-0000002464444730",
+    "name": "触控板",
+    "file": "触控板.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-touchpad-0000002464444730"
+  },
+  {
+    "slug": "hmi-scenes-drag-0000001795410277",
+    "name": "拖拽",
+    "file": "常用交互/拖拽.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-scenes-drag-0000001795410277"
+  },
+  {
+    "slug": "hmi-scenes-selection-0000001957005521",
+    "name": "框选",
+    "file": "常用交互/框选.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-scenes-selection-0000001957005521"
+  },
+  {
+    "slug": "hmi-interaction-events-0000001795531217",
+    "name": "交互事件归一",
+    "file": "交互事件归一.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/hmi-interaction-events-0000001795531217"
+  }
+]
