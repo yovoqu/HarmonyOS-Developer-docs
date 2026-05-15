@@ -1,0 +1,499 @@
+[
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-overview",
+    "name": "一次开发，多端部署概览",
+    "file": "一次开发，多端部署/一次开发，多端部署概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-overview"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-start",
+    "name": "从一个例子开始",
+    "file": "一次开发，多端部署/从一个例子开始.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-start"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-design-principles",
+    "name": "多设备体验设计",
+    "file": "一次开发，多端部署/多设备体验设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-design-principles"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-window-mode",
+    "name": "窗口模式",
+    "file": "一次开发，多端部署/多设备界面开发/多设备窗口形态/窗口模式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-mode"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-window-direction",
+    "name": "窗口方向",
+    "file": "一次开发，多端部署/多设备界面开发/多设备窗口形态/窗口方向.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-direction"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-window-immersive",
+    "name": "窗口沉浸式",
+    "file": "一次开发，多端部署/多设备界面开发/多设备窗口形态/窗口沉浸式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-window-immersive"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-layout-overview",
+    "name": "布局概述",
+    "file": "一次开发，多端部署/多设备界面开发/布局概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-layout-overview"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-responsive-layout",
+    "name": "响应式布局",
+    "file": "一次开发，多端部署/多设备界面开发/界面布局响应式变化/响应式布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-responsive-layout"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-page-layout",
+    "name": "页面布局场景",
+    "file": "一次开发，多端部署/多设备界面开发/界面布局响应式变化/页面布局场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-page-layout"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-component-layout",
+    "name": "组件布局场景",
+    "file": "一次开发，多端部署/多设备界面开发/界面布局响应式变化/组件布局场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-component-layout"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-screen-layout",
+    "name": "屏幕类型布局场景",
+    "file": "一次开发，多端部署/多设备界面开发/界面布局响应式变化/屏幕类型布局场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-screen-layout"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-adaptive-layout",
+    "name": "自适应布局",
+    "file": "一次开发，多端部署/多设备界面开发/界面元素自适应变化/自适应布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-adaptive-layout"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-folded-hover",
+    "name": "折叠屏悬停态",
+    "file": "一次开发，多端部署/多设备界面开发/特殊界面布局场景/折叠屏悬停态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-folded-hover"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-web-adaptation",
+    "name": "Web响应式布局",
+    "file": "一次开发，多端部署/多设备界面开发/特殊界面布局场景/Web响应式布局.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-adaptation"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-interaction",
+    "name": "多设备交互",
+    "file": "一次开发，多端部署/多设备界面开发/多设备交互/多设备交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-interaction"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-resource",
+    "name": "多设备资源文件",
+    "file": "一次开发，多端部署/多设备界面开发/多设备资源文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-resource"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-video-app",
+    "name": "多设备长视频界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备长视频界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-video-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-ticket-class",
+    "name": "多设备股票类界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备股票类界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-ticket-class"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-business-office",
+    "name": "多设备商务办公界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备商务办公界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-business-office"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-music-app-overview",
+    "name": "多设备音乐界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备音乐界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-music-app-overview"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-shopping-price-comparison",
+    "name": "多设备购物比价界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备购物比价界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-shopping-price-comparison"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-travel-accommodation",
+    "name": "多设备旅行订票界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备旅行订票界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-travel-accommodation"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-travel-navigation",
+    "name": "多设备地图导航界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备地图导航界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-travel-navigation"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-convenient-life",
+    "name": "多设备便捷生活界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备便捷生活界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-convenient-life"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-financial-app",
+    "name": "多设备银行理财界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备银行理财界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-financial-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-community-app",
+    "name": "多设备社区评论界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备社区评论界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-community-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-news-read",
+    "name": "多设备新闻阅读界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备新闻阅读界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-news-read"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-mobile-payment",
+    "name": "多设备移动支付界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备移动支付界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-mobile-payment"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-communication-app",
+    "name": "多设备即时通讯界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备即时通讯界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-communication-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-picture-app",
+    "name": "多设备图片美化界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备图片美化界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-picture-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi_game",
+    "name": "多设备游戏界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备游戏界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi_game"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-settings-application-page",
+    "name": "多设备设置界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备设置界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-settings-application-page"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "multi-short-video-app",
+    "name": "多设备短视频界面",
+    "file": "一次开发，多端部署/多设备界面开发/多设备界面开发案例/多设备短视频界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/multi-short-video-app"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-function",
+    "name": "多设备功能开发",
+    "file": "一次开发，多端部署/多设备功能开发/多设备功能开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-function"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-camera",
+    "name": "相机硬件差异",
+    "file": "一次开发，多端部署/多设备功能开发/相机硬件差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-camera"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-screen-diff",
+    "name": "多设备适配屏幕差异",
+    "file": "一次开发，多端部署/多设备功能开发/多设备适配屏幕差异.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-screen-diff"
+  },
+  {
+    "section": "一次开发，多端部署",
+    "slug": "bpta-multi-device-ide",
+    "name": "多设备工程部署与发布",
+    "file": "一次开发，多端部署/多设备工程部署与发布.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-device-ide"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-hopping",
+    "name": "自由流转概述",
+    "file": "自由流转/自由流转概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hopping"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-continue-cast",
+    "name": "应用接续概述",
+    "file": "自由流转/跨端迁移/应用接续概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-cast"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-continue-data",
+    "name": "应用接续数据迁移",
+    "file": "自由流转/跨端迁移/应用接续数据迁移.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue-data"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-application-continue-progess",
+    "name": "常见接续最佳实践",
+    "file": "自由流转/跨端迁移/常见接续最佳实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-continue-progess"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-vdeocast",
+    "name": "视频投播",
+    "file": "自由流转/多端协同/视频投播.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-vdeocast"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-audio-cast",
+    "name": "音频投播",
+    "file": "自由流转/多端协同/音频投播.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-cast"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-distribute-drag-cast",
+    "name": "跨设备拖拽",
+    "file": "自由流转/多端协同/跨设备拖拽.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-distribute-drag-cast"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-unified-drag-and-drop",
+    "name": "统一拖拽",
+    "file": "自由流转/多端协同/统一拖拽.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-unified-drag-and-drop"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-distributed-pasteboard-cast",
+    "name": "跨设备剪贴板",
+    "file": "自由流转/多端协同/跨设备剪贴板.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-distributed-pasteboard-cast"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-distributed-pasteboard",
+    "name": "跨设备剪贴板常见场景",
+    "file": "自由流转/多端协同/跨设备剪贴板常见场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-distributed-pasteboard"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-application-knock-video-share",
+    "name": "碰一碰链接分享",
+    "file": "自由流转/多端协同/碰一碰链接分享.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-knock-video-share"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-application-knock-file-share",
+    "name": "碰一碰文件分享",
+    "file": "自由流转/多端协同/碰一碰文件分享.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-knock-file-share"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-application-gesture-share",
+    "name": "隔空传送快速分享",
+    "file": "自由流转/多端协同/隔空传送快速分享.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-gesture-share"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-collaboration-office",
+    "name": "办公编辑全场景协同最佳实践",
+    "file": "自由流转/典型全场景协同开发案例/办公编辑全场景协同最佳实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-collaboration-office"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-smartwatchnavigation",
+    "name": "智能穿戴导航协同",
+    "file": "自由流转/典型全场景协同开发案例/智能穿戴导航协同.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatchnavigation"
+  },
+  {
+    "section": "自由流转",
+    "slug": "bpta-continue",
+    "name": "内容编辑多设备协同",
+    "file": "自由流转/典型全场景协同开发案例/内容编辑多设备协同.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-continue"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-foldable-guide",
+    "name": "双折叠应用开发",
+    "file": "多端设备体验提升/手机/双折叠应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-foldable-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-purax-guide",
+    "name": "阔折叠应用开发",
+    "file": "多端设备体验提升/手机/阔折叠应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-purax-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-matext-guide",
+    "name": "三折叠应用开发",
+    "file": "多端设备体验提升/手机/三折叠应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-matext-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-pad-guide",
+    "name": "平板应用开发",
+    "file": "多端设备体验提升/平板/平板应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pad-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-pc-guide",
+    "name": "电脑应用开发",
+    "file": "多端设备体验提升/电脑/电脑应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-pc-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-mate-book-fold",
+    "name": "MateBook Fold折叠电脑应用开发",
+    "file": "多端设备体验提升/电脑/MateBook Fold折叠电脑应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-mate-book-fold"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-smartwatch",
+    "name": "智能穿戴应用开发",
+    "file": "多端设备体验提升/穿戴/智能穿戴应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smartwatch"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-lite-wearable-guide",
+    "name": "轻量级智能穿戴应用开发",
+    "file": "多端设备体验提升/穿戴/轻量级智能穿戴应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lite-wearable-guide"
+  },
+  {
+    "section": "多端设备体验提升",
+    "slug": "bpta-matetv-guide",
+    "name": "MateTV智慧屏应用开发",
+    "file": "多端设备体验提升/智慧屏/MateTV智慧屏应用开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-matetv-guide"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-news_homepage",
+    "name": "首页信息流体验优化",
+    "file": "行业场景解决方案/新闻阅读/首页信息流体验优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-news_homepage"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-reader-page-flip",
+    "name": "阅读器翻页",
+    "file": "行业场景解决方案/新闻阅读/阅读器翻页.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-reader-page-flip"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-smooth-switching",
+    "name": "在线短视频流畅切换",
+    "file": "行业场景解决方案/影音娱乐/在线短视频流畅切换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-smooth-switching"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-short-video-base-adaptivevideo",
+    "name": "基于adaptive_video的短视频适配",
+    "file": "行业场景解决方案/影音娱乐/基于adaptive_video的短视频适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-short-video-base-adaptivevideo"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-hmos-live-stream-solution",
+    "name": "基于媒体能力实现直播单播功能",
+    "file": "行业场景解决方案/影音娱乐/基于媒体能力实现直播单播功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmos-live-stream-solution"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-hmos-live-stream-audio-call",
+    "name": "基于媒体能力实现直播连麦功能",
+    "file": "行业场景解决方案/影音娱乐/基于媒体能力实现直播连麦功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hmos-live-stream-audio-call"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-landscape-and-portrait-development",
+    "name": "视频类应用横竖屏切换",
+    "file": "行业场景解决方案/影音娱乐/视频类应用横竖屏切换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-landscape-and-portrait-development"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-shared-bicycle",
+    "name": "快捷骑行体验",
+    "file": "行业场景解决方案/出行导航/快捷骑行体验.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-shared-bicycle"
+  },
+  {
+    "section": "行业场景解决方案",
+    "slug": "bpta-content-creation",
+    "name": "AI辅助图文内容编创",
+    "file": "行业场景解决方案/社交通讯/AI辅助图文内容编创.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-content-creation"
+  }
+]
