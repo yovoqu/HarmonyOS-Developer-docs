@@ -1,0 +1,104 @@
+[
+  {
+    "slug": "phone-0000001776694632",
+    "name": "手机",
+    "file": "手机.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/phone-0000001776694632"
+  },
+  {
+    "slug": "design-principles-0000001957023989",
+    "name": "设计原则",
+    "file": "折叠屏/设计原则.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/design-principles-0000001957023989"
+  },
+  {
+    "slug": "foldable-0000002352875141",
+    "name": "双折叠",
+    "file": "折叠屏/双折叠.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/foldable-0000002352875141"
+  },
+  {
+    "slug": "trifold-0000002352915021",
+    "name": "三折叠",
+    "file": "折叠屏/三折叠.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/trifold-0000002352915021"
+  },
+  {
+    "slug": "flip-0000002321233974",
+    "name": "阔折叠",
+    "file": "折叠屏/阔折叠.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/flip-0000002321233974"
+  },
+  {
+    "slug": "pad-0000001823654157",
+    "name": "平板",
+    "file": "平板.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/pad-0000001823654157"
+  },
+  {
+    "slug": "concept-0000002353669657",
+    "name": "设计概述",
+    "file": "电脑/设计概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/concept-0000002353669657"
+  },
+  {
+    "slug": "window-0000002321868010",
+    "name": "窗口框架",
+    "file": "电脑/窗口框架.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/window-0000002321868010"
+  },
+  {
+    "slug": "app-design-0000002353509845",
+    "name": "应用设计",
+    "file": "电脑/应用设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/app-design-0000002353509845"
+  },
+  {
+    "slug": "statusbar-0000002319710910",
+    "name": "应用状态栏接入",
+    "file": "电脑/应用状态栏接入.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/statusbar-0000002319710910"
+  },
+  {
+    "slug": "foldable-pc-0000002322600098",
+    "name": "折叠电脑",
+    "file": "电脑/折叠电脑.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/foldable-pc-0000002322600098"
+  },
+  {
+    "slug": "smart-cockpit-0000002045925712",
+    "name": "智能座舱",
+    "file": "智能座舱.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/smart-cockpit-0000002045925712"
+  },
+  {
+    "slug": "wearable-overview-0000002197410498",
+    "name": "概述",
+    "file": "智能穿戴/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/wearable-overview-0000002197410498"
+  },
+  {
+    "slug": "application-architecture-0000002202799801",
+    "name": "应用架构",
+    "file": "智能穿戴/应用架构.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/application-architecture-0000002202799801"
+  },
+  {
+    "slug": "human-machine-interaction-0000002167648022",
+    "name": "人机交互",
+    "file": "智能穿戴/人机交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/human-machine-interaction-0000002167648022"
+  },
+  {
+    "slug": "spacing-parameters-0000002202912577",
+    "name": "间隔参数",
+    "file": "智能穿戴/间隔参数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/spacing-parameters-0000002202912577"
+  },
+  {
+    "slug": "vision-0000002321377950",
+    "name": "智慧屏",
+    "file": "智慧屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/design-guides/vision-0000002321377950"
+  }
+]
