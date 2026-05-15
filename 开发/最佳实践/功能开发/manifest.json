@@ -1,0 +1,632 @@
+[
+  {
+    "section": "应用框架",
+    "slug": "bpta-arkts-high-performance",
+    "name": "ArkTS高性能编程",
+    "file": "应用框架/ArkTS语言/ArkTS高性能编程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-high-performance"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-app-concurrency-design",
+    "name": "应用并发设计",
+    "file": "应用框架/ArkTS语言/应用并发设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-concurrency-design"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-comparative_practice_of_taskpool_and_worker",
+    "name": "TaskPool和Worker对比",
+    "file": "应用框架/ArkTS语言/TaskPool和Worker对比.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-comparative_practice_of_taskpool_and_worker"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-taskpool_usage_specifications_and_faqs",
+    "name": "TaskPool使用规范",
+    "file": "应用框架/ArkTS语言/TaskPool使用规范.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-taskpool_usage_specifications_and_faqs"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-application-aspect-programming-design",
+    "name": "应用切面编程设计",
+    "file": "应用框架/ArkTS语言/应用切面编程设计.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-aspect-programming-design"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-application-track-practice",
+    "name": "应用埋点",
+    "file": "应用框架/ArkTS语言/应用埋点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-track-practice"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-aspect-implements-aop",
+    "name": "基于Aspect插件库实现切面编程",
+    "file": "应用框架/ArkTS语言/基于Aspect插件库实现切面编程.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-aspect-implements-aop"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-abckitts-implements-instrumentation",
+    "name": "基于AbcKitTS实现字节码插桩",
+    "file": "应用框架/ArkTS语言/基于AbcKitTS实现字节码插桩.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-abckitts-implements-instrumentation"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-desktop-shortcuts",
+    "name": "桌面快捷方式",
+    "file": "应用框架/程序包结构/桌面快捷方式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-desktop-shortcuts"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-cross-module-resource-access",
+    "name": "跨模块资源访问",
+    "file": "应用框架/程序包结构/跨模块资源访问.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-module-resource-access"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-cross-module-reference",
+    "name": "Native侧跨HAR/HSP模块接口调用",
+    "file": "应用框架/程序包结构/Native侧跨HAR／HSP模块接口调用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-module-reference"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-app-icon-configuration",
+    "name": "应用图标配置与开发",
+    "file": "应用框架/程序包结构/应用图标配置与开发.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-app-icon-configuration"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-link-between-apps-overview",
+    "name": "应用间跳转实践概览",
+    "file": "应用框架/程序框架/应用间跳转实践概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-link-between-apps-overview"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-social-share",
+    "name": "社交分享跳转",
+    "file": "应用框架/程序框架/社交分享跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-social-share"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-ads-jump",
+    "name": "广告跳转",
+    "file": "应用框架/程序框架/广告跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ads-jump"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-special-text-recognition",
+    "name": "特殊文本识别跳转",
+    "file": "应用框架/程序框架/特殊文本识别跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-special-text-recognition"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-web-app-jump-and-pull-up",
+    "name": "Web和应用的跳转与拉起",
+    "file": "应用框架/程序框架/Web和应用的跳转与拉起.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-app-jump-and-pull-up"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-music-card",
+    "name": "音乐服务卡片",
+    "file": "应用框架/服务卡片/音乐服务卡片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-music-card"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-card-update-and-data-interaction",
+    "name": "卡片更新与数据交互",
+    "file": "应用框架/服务卡片/卡片更新与数据交互.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-card-update-and-data-interaction"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-multi-window-practice",
+    "name": "智慧多窗",
+    "file": "应用框架/窗口与屏幕管理/智慧多窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-window-practice"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-2in1-window-shape",
+    "name": "PC/2in1异形窗口",
+    "file": "应用框架/窗口与屏幕管理/PC／2in1异形窗口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-2in1-window-shape"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-keyboard-layout-adapt",
+    "name": "软键盘布局适配",
+    "file": "应用框架/输入法/软键盘布局适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-keyboard-layout-adapt"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-custom-keyboard",
+    "name": "自定义键盘",
+    "file": "应用框架/输入法/自定义键盘.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-keyboard"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-local-file-and-data-multithreaded-io",
+    "name": "多线程操作密集型关系型数据库和文件读写",
+    "file": "应用框架/数据和文件/多线程操作密集型关系型数据库和文件读写.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-local-file-and-data-multithreaded-io"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-file-native-side",
+    "name": "Native侧实现文件访问",
+    "file": "应用框架/数据和文件/Native侧实现文件访问.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-file-native-side"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-arkweb_rendering_framework",
+    "name": "ArkWeb渲染框架适配",
+    "file": "应用框架/ArkWeb/ArkWeb渲染框架适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkweb_rendering_framework"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-render-web-using-same-layer-render",
+    "name": "同层渲染原生组件",
+    "file": "应用框架/ArkWeb/同层渲染原生组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-render-web-using-same-layer-render"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-video-adaptation-based-web",
+    "name": "Web页面视频适配",
+    "file": "应用框架/ArkWeb/Web页面视频适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-adaptation-based-web"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-cross-domain-solutions-for-web-pages",
+    "name": "Web页面跨域解决方案",
+    "file": "应用框架/ArkWeb/Web页面跨域解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-cross-domain-solutions-for-web-pages"
+  },
+  {
+    "section": "应用框架",
+    "slug": "bpta-web-interceptor",
+    "name": "Web组件拦截能力的使用",
+    "file": "应用框架/ArkWeb/Web组件拦截能力的使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-web-interceptor"
+  },
+  {
+    "section": "网络",
+    "slug": "bpta-network-reconnection",
+    "name": "应用网络重连",
+    "file": "网络/应用网络重连.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-network-reconnection"
+  },
+  {
+    "section": "网络",
+    "slug": "bpta-bluetooth-low-energy",
+    "name": "低功耗蓝牙基础使用",
+    "file": "网络/低功耗蓝牙基础使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-bluetooth-low-energy"
+  },
+  {
+    "section": "网络",
+    "slug": "bpta-file-transmission-based-on-sfft",
+    "name": "基于SFFT的大文件高速并发传输",
+    "file": "网络/基于SFFT的大文件高速并发传输.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-file-transmission-based-on-sfft"
+  },
+  {
+    "section": "网络",
+    "slug": "bpta-common-network-query",
+    "name": "网络信息查询与连接管理",
+    "file": "网络/网络信息查询与连接管理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-common-network-query"
+  },
+  {
+    "section": "网络",
+    "slug": "bpta-multi-path-network-turbo",
+    "name": "多网并发网络加速",
+    "file": "网络/多网并发网络加速.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-path-network-turbo"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-camera-shot2see",
+    "name": "相机分段式拍照性能优化",
+    "file": "媒体/相机/相机分段式拍照性能优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-camera-shot2see"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-deal-stride-solution",
+    "name": "相机预览花屏解决方案",
+    "file": "媒体/相机/相机预览花屏解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-deal-stride-solution"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-custom-camera-preview",
+    "name": "自定义相机预览",
+    "file": "媒体/相机/自定义相机预览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-camera-preview"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-custom-camera-photo",
+    "name": "自定义相机拍照",
+    "file": "媒体/相机/自定义相机拍照.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-camera-photo"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-custom-camera-video",
+    "name": "自定义相机录像",
+    "file": "媒体/相机/自定义相机录像.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-camera-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-image_get_and_save",
+    "name": "图片获取与保存实践",
+    "file": "媒体/图片/图片获取与保存实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image_get_and_save"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-long-snapshot-practice",
+    "name": "长截图",
+    "file": "媒体/图片/长截图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-long-snapshot-practice"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avplayer-basic-control",
+    "name": "基于AVPlayer基础播控实践",
+    "file": "媒体/音频和视频/基于AVPlayer播放视频系列开发实践/基于AVPlayer基础播控实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-basic-control"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avplayer-long-video",
+    "name": "基于AVPlayer播放长视频实践",
+    "file": "媒体/音频和视频/基于AVPlayer播放视频系列开发实践/基于AVPlayer播放长视频实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avplayer-short-video",
+    "name": "基于AVPlayer播放短视频实践",
+    "file": "媒体/音频和视频/基于AVPlayer播放视频系列开发实践/基于AVPlayer播放短视频实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-short-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avplayer-embeded-short-video",
+    "name": "基于AVPlayer播放嵌入式短视频实践",
+    "file": "媒体/音频和视频/基于AVPlayer播放视频系列开发实践/基于AVPlayer播放嵌入式短视频实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-embeded-short-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avplayer-embeded-network-video",
+    "name": "基于AVPlayer播放网络视频实践",
+    "file": "媒体/音频和视频/基于AVPlayer播放视频系列开发实践/基于AVPlayer播放网络视频实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-embeded-network-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-general-comments",
+    "name": "概述",
+    "file": "媒体/音频和视频/音频播放系列开发实践/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-general-comments"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-playing-pcm-audio-based-audiorenderer",
+    "name": "基于AudioRender播放PCM音频",
+    "file": "媒体/音频和视频/音频播放系列开发实践/基于AudioRender播放PCM音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-playing-pcm-audio-based-ohaudio",
+    "name": "基于OHAudio播放PCM音频",
+    "file": "媒体/音频和视频/音频播放系列开发实践/基于OHAudio播放PCM音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-ohaudio"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-playing-formatted-audio-based-avplayer-arkts",
+    "name": "基于AVPlayer播放格式化音频（ArkTS）",
+    "file": "媒体/音频和视频/音频播放系列开发实践/基于AVPlayer播放格式化音频（ArkTS）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-formatted-audio-based-avplayer-arkts"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-playing-formatted-audio-based-avplayer-cpp",
+    "name": "基于AVPlayer播放格式化音频（C++）",
+    "file": "媒体/音频和视频/音频播放系列开发实践/基于AVPlayer播放格式化音频（C++）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-formatted-audio-based-avplayer-cpp"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-playing-short-audio-based-soundpool",
+    "name": "基于SoundPool播放短音频",
+    "file": "媒体/音频和视频/音频播放系列开发实践/基于SoundPool播放短音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-short-audio-based-soundpool"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-overview",
+    "name": "概述",
+    "file": "媒体/音频和视频/音频录制系列开发实践/概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-overview"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-base-on-audiocapturer",
+    "name": "基于AudioCapturer录制PCM音频（ArkTS）",
+    "file": "媒体/音频和视频/音频录制系列开发实践/基于AudioCapturer录制PCM音频（ArkTS）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-audiocapturer"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-base-on-ohaudio",
+    "name": "基于OHAudio录制PCM音频（C++）",
+    "file": "媒体/音频和视频/音频录制系列开发实践/基于OHAudio录制PCM音频（C++）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-ohaudio"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-base-on-avrecorder-arkts",
+    "name": "基于AVRecorder录制格式化音频（ArkTS）",
+    "file": "媒体/音频和视频/音频录制系列开发实践/基于AVRecorder录制格式化音频（ArkTS）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-avrecorder-arkts"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-base-on-avrecorder",
+    "name": "基于AVRecorder录制格式化音频（C++）",
+    "file": "媒体/音频和视频/音频录制系列开发实践/基于AVRecorder录制格式化音频（C++）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-avrecorder"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-record-base-on-avscreencapture",
+    "name": "基于AVScreenCapture录制音频",
+    "file": "媒体/音频和视频/音频录制系列开发实践/基于AVScreenCapture录制音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-record-base-on-avscreencapture"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-video-component-long-video",
+    "name": "基于Video组件播放长视频",
+    "file": "媒体/音频和视频/基于Video播放视频系列开发实践/基于Video组件播放长视频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-component-long-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-video-component-short-video",
+    "name": "基于Video组件播放短视频",
+    "file": "媒体/音频和视频/基于Video播放视频系列开发实践/基于Video组件播放短视频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-component-short-video"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-video-render",
+    "name": "渲染视频画面",
+    "file": "媒体/音频和视频/渲染视频画面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-render"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-surface-encoder",
+    "name": "基于Surface模式进行视频编码",
+    "file": "媒体/音频和视频/基于Surface模式进行视频编码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-surface-encoder"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-buffer-mode-transcoding",
+    "name": "基于Buffer模式进行视频转码",
+    "file": "媒体/音频和视频/基于Buffer模式进行视频转码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-buffer-mode-transcoding"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-focus-management",
+    "name": "音频焦点管理解决方案",
+    "file": "媒体/音频和视频/音频焦点管理解决方案.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-focus-management"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-online-video-playback-lags-practice",
+    "name": "在线视频播放卡顿优化",
+    "file": "媒体/音频和视频/在线视频播放卡顿优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-online-video-playback-lags-practice"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-hdrvivid",
+    "name": "HDR Vivid视频播放与录制开发实践",
+    "file": "媒体/音频和视频/HDR Vivid视频播放与录制开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hdrvivid"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-hdrtosdr",
+    "name": "HDR Vivid视频转码SDR视频开发实践",
+    "file": "媒体/音频和视频/HDR Vivid视频转码SDR视频开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-hdrtosdr"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-video-thumbnail",
+    "name": "基于系统能力获取视频缩略图",
+    "file": "媒体/音频和视频/基于系统能力获取视频缩略图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-video-thumbnail"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-video-synchronization",
+    "name": "音画同步",
+    "file": "媒体/音频和视频/音画同步.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-video-synchronization"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-avscreencapture-for-screen-recording",
+    "name": "基于AVScreenCapture实现屏幕录制",
+    "file": "媒体/音频和视频/基于AVScreenCapture实现屏幕录制.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avscreencapture-for-screen-recording"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-sound-quality-switching",
+    "name": "音质切换开发实践",
+    "file": "媒体/音频和视频/音质切换开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-sound-quality-switching"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-image-to-video-synthesis",
+    "name": "图片合成视频开发实践",
+    "file": "媒体/音频和视频/图片合成视频开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-image-to-video-synthesis"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-ripple-animation",
+    "name": "基于AudioRenderer和AudioCapturer实现音频波形动画",
+    "file": "媒体/音频和视频/基于AudioRenderer和AudioCapturer实现音频波形动画.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-ripple-animation"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-audio-in-ear-monitor",
+    "name": "基于Audio能力实现音频耳返",
+    "file": "媒体/音频和视频/基于Audio能力实现音频耳返.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-audio-in-ear-monitor"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-managing-audio-input-devices",
+    "name": "管理音频输入设备开发实践",
+    "file": "媒体/音频和视频/管理音频输入设备开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-managing-audio-input-devices"
+  },
+  {
+    "section": "媒体",
+    "slug": "bpta-managing-audio-output-devices",
+    "name": "管理音频输出设备开发实践",
+    "file": "媒体/音频和视频/管理音频输出设备开发实践.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-managing-audio-output-devices"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-drawing-capability-improve-performance",
+    "name": "Drawing自绘制性能提升",
+    "file": "图形/图形绘制/Drawing自绘制性能提升.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-drawing-capability-improve-performance"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-add-watermark",
+    "name": "水印添加",
+    "file": "图形/图形绘制/水印添加.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-add-watermark"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-implement-timeline-based-on-canvas",
+    "name": "基于Canvas实现录像回放时间轴",
+    "file": "图形/图形绘制/基于Canvas实现录像回放时间轴.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implement-timeline-based-on-canvas"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-fuzzy-scene-performance-optimization",
+    "name": "图像模糊动效优化",
+    "file": "图形/图像处理/图像模糊动效优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fuzzy-scene-performance-optimization"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-background-blur",
+    "name": "图像模糊高效使用",
+    "file": "图形/图像处理/图像模糊高效使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-background-blur"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-analysis-of-image-blurring",
+    "name": "图像模糊卡顿问题分析",
+    "file": "图形/图像处理/图像模糊卡顿问题分析.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-analysis-of-image-blurring"
+  },
+  {
+    "section": "图形",
+    "slug": "bpta-maleoon-gpu-best-practices",
+    "name": "马良GPU渲染优化",
+    "file": "图形/GPU加速/马良GPU渲染优化.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-maleoon-gpu-best-practices"
+  },
+  {
+    "section": "应用服务",
+    "slug": "bpta-positioning",
+    "name": "位置定位",
+    "file": "应用服务/位置定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-positioning"
+  },
+  {
+    "section": "应用服务",
+    "slug": "bpta-lock-screen-immersive-live-window",
+    "name": "锁屏沉浸实况窗",
+    "file": "应用服务/锁屏沉浸实况窗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lock-screen-immersive-live-window"
+  },
+  {
+    "section": "NDK开发",
+    "slug": "bpta-complex-type-pass",
+    "name": "跨语言调用复杂参数传递",
+    "file": "NDK开发/跨语言调用复杂参数传递.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-complex-type-pass"
+  },
+  {
+    "section": "NDK开发",
+    "slug": "bpta-dynamic-link-library",
+    "name": "三方动态链接库集成",
+    "file": "NDK开发/三方动态链接库集成.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-dynamic-link-library"
+  },
+  {
+    "section": "NDK开发",
+    "slug": "bpta-thread-priority-setting",
+    "name": "高负载场景线程优先级设置",
+    "file": "NDK开发/高负载场景线程优先级设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-thread-priority-setting"
+  },
+  {
+    "section": "NDK开发",
+    "slug": "bpta-native-sub-main-comm",
+    "name": "Native侧子线程与UI主线程通信",
+    "file": "NDK开发/Native侧子线程与UI主线程通信.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-native-sub-main-comm"
+  }
+]
