@@ -1,0 +1,265 @@
+# stepper开发指导
+
+更新时间：2026-03-09 02:50:43
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-stepper
+
+当一个任务需要多个步骤时，可以使用stepper组件展示当前进展。具体用法请参考[stepper API](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-stepper)。
+
+
+## 创建stepper组件
+
+在pages/index目录下的hml文件中创建一个stepper组件。
+```text
+
+
+     Step 1
+
+
+     Step 2
+
+
+```
+
+
+```text
+/* xxx.css */
+.container {
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F1F3F5;
+}
+text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+```
+
+![](assets/stepper开发指导/file-20260514130745307-0.gif)
+
+## 设置index属性
+
+页面默认显示索引值为index的步骤。
+```text
+
+
+     stepper-item1
+
+
+     stepper-item2
+
+
+     stepper-item3
+
+
+```
+
+
+```text
+/* xxx.css */
+.container {
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  background-color: #F1F3F5;
+}
+text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+```
+
+![](assets/stepper开发指导/file-20260514130745307-1.gif)
+通过设置label属性，自定义stepper-item的提示按钮。
+```text
+
+
+     stepper-item1
+
+
+     stepper-item2
+
+
+     stepper-item3
+
+
+     stepper-item4
+
+
+```
+
+
+```text
+/* xxx.css */
+.container {
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  background-color: #F1F3F5;
+}
+text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+```
+
+
+```text
+// xxx.js
+export default {
+  data: {
+    label_1:{
+      nextLabel: 'NEXT',
+      status: 'normal'
+    },
+    label_2:{
+      prevLabel: 'BACK',
+      nextLabel: 'NEXT',
+      status: 'normal'
+    },
+    label_3:{
+      prevLabel: 'BACK',
+      nextLabel: 'END',
+      status: 'disabled'
+    },
+  },
+}
+```
+
+![](assets/stepper开发指导/file-20260514130745307-2.gif)
+
+## 设置样式
+
+stepper组件默认填充父容器，通过border和background-color设置边框、背景色。
+```text
+
+
+        stepper-item1
+
+
+```
+
+
+```text
+/* xxx.css */
+.container {
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:#F1F3F5;
+}
+.stepperContent{
+  width: 300px;
+  height: 300px;
+}
+.stepperClass{
+  border:1px solid silver ;
+  background-color: white;
+}
+text{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+```
+
+![](assets/stepper开发指导/file-20260514130745307-3.png)
+
+## 添加事件
+
+stepper分别添加finish，change，next，back，skip事件。 当change与next或back同时存在时，会先执行next或back事件再去执行change事件。 重新设置index属性值时要先清除index的值再重新设置，否则检测不到值的改变。
+```text
+
+
+        stepper-item1
+
+
+         stepper-item2
+
+
+        stepper-item3
+
+
+```
+
+
+```text
+/* xxx.css */
+.doc-page {
+  width:100%;
+  height:100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+stepper-item{
+  width: 100%;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+}
+text{
+  margin-top: 45%;
+  justify-content: center;
+  align-self: center;
+  margin-bottom: 50px;
+}
+button{
+  width: 80%;
+  height: 60px;
+  margin-top: 20px;
+}
+```
+
+
+```text
+// xxx.js
+import promptAction from '@ohos.promptAction';
+export default {
+  data: {
+    index:0,
+  },
+   stepperSkip(){
+    this.index=2;
+  },
+   skipClick(){
+    this.$element('stepperId').setNextButtonStatus({status: 'skip', label: 'SKIP'});
+  },
+  stepperFinish(){
+    promptAction.showToast({
+      message: 'All Finished'
+    })
+  },
+  stepperChange(e){
+    console.info("stepperChange"+e.index)
+    promptAction.showToast({
+      // index表示当前步骤的序号
+      message: 'Previous step: '+e.prevIndex+"-------Current step:"+e.index
+    })
+  },
+  stepperNext(e){
+    console.info("stepperNext"+e.index)
+    promptAction.showToast({
+      // pendingIndex表示将要跳转的序号
+      message: 'Current step:'+e.index+"-------Next step:"+e.pendingIndex
+    })
+    var index = {pendingIndex:e.pendingIndex }
+    return index;
+  },
+  stepperBack(e){
+    console.info("stepperBack"+e.index)
+    var index = {pendingIndex: e.pendingIndex }
+    return index;
+  }
+}
+```
+
+![](assets/stepper开发指导/file-20260514130745307-4.gif)
