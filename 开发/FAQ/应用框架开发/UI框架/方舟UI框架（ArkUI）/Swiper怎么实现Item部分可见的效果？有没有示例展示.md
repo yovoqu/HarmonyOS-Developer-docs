@@ -1,0 +1,7 @@
+# Swiper怎么实现Item部分可见的效果？有没有示例展示
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-436
+
+可以通过设置nextMargin参数控制相邻Item的可见区域，具体用法参见官网示例：设置导航点交互及翻页动效。

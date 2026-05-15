@@ -1,0 +1,23 @@
+# 编译报错“failed with:Exit code 0xc0000043”
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-194
+
+问题现象
+
+编译构建Native C++模块时，出现报错“failed with:Exit code 0xc0000043”。
+
+
+![](assets/编译报错“failed%20with／Exit%20code%200xc0000043”/file-20260515130229788-0.png)
+
+
+问题原因
+
+该报错是Windows系统下的一个NTSTATUS错误码，出现该报错的原因可能是使用了损坏或不完整的可执行文件，也可能是杀毒软件/防火墙拦截了ninja.exe文件的加载。
+
+解决措施
+
+1、在报错的ninja.exe文件所在目录中打开命令行工具，执行命令ninja.exe --version，若无法正常输出版本信息，可能为文件损坏或丢失，建议重新安装DevEco Studio。
+
+2、尝试暂时关闭杀毒软件，或手动将ninja.exe文件添加到杀毒软件的白名单中，然后重新执行编译构建。

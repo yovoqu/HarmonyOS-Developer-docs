@@ -1,0 +1,25 @@
+# 如何写har包的编译脚本
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-64
+
+在har包目录下的hvigorfile.ts文件中编写代码如下：
+
+```ts
+import { harTasks } from '@ohos/hvigor-ohos-plugin';
+
+function harTask(): HvigorPlugin {
+  return {
+    pluginId: 'harTask',
+    apply(node: HvigorNode) {
+      console.log('hello harTasks!');
+    },
+  };
+}
+
+export default {
+  system: harTasks,
+  plugins: [harTask()],
+};
+```

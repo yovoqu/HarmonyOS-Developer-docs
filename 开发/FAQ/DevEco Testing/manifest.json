@@ -1,0 +1,485 @@
+[
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-1",
+    "name": "针对 HarmonyOS 应用测试，DevEco Testing提供了哪些配套测试能力",
+    "file": "常见问题/针对 HarmonyOS 应用测试，DevEco Testing提供了哪些配套测试能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-2",
+    "name": "设备已连接，为什么设备列表中未显示该设备",
+    "file": "常见问题/设备已连接，为什么设备列表中未显示该设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-3",
+    "name": "测试任务执行时，避免PC进入睡眠状态，如何设置",
+    "file": "常见问题/测试任务执行时，避免PC进入睡眠状态，如何设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-4",
+    "name": "创建任务时，为什么会提示创建任务失败",
+    "file": "常见问题/创建任务时，为什么会提示创建任务失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-5",
+    "name": "是否支持对使用Flutter等三方框架开发的应用进行测试",
+    "file": "常见问题/是否支持对使用Flutter等三方框架开发的应用进行测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-5"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-6",
+    "name": "是否支持DevEco Emulator模拟器",
+    "file": "常见问题/是否支持DevEco Emulator模拟器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-6"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-7",
+    "name": "使用DevEco Testing/DevEco Testing Hypium有疑问，如何自助查阅资料及指南",
+    "file": "常见问题/使用DevEco Testing／DevEco Testing Hypium有疑问，如何自助查阅资料及指南.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-7"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-deveco-testing-faq-8",
+    "name": "测试指南和FAQ无法解决问题时，如何获取在线支持",
+    "file": "常见问题/测试指南和FAQ无法解决问题时，如何获取在线支持.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-8"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-performance-basic-quality-test-1",
+    "name": "报告中为什么会出现未执行检测",
+    "file": "专项测试/性能基础质量测试/报告中为什么会出现未执行检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-basic-quality-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-performance-basic-quality-test-2",
+    "name": "测试过程中，设备断连重连后任务能否继续进行",
+    "file": "专项测试/性能基础质量测试/测试过程中，设备断连重连后任务能否继续进行.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-basic-quality-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-performance-indicator-monitoring-test-1",
+    "name": "trace采集功能如何使用",
+    "file": "专项测试/性能指标监控测试/trace采集功能如何使用.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-indicator-monitoring-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-stability-basic-quality-test-1",
+    "name": "任务出现超时未结束是什么原因",
+    "file": "专项测试/稳定性基础质量测试/任务出现超时未结束是什么原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-stability-basic-quality-test-2",
+    "name": "内存泄漏的定位日志为什么是乱码",
+    "file": "专项测试/稳定性基础质量测试/内存泄漏的定位日志为什么是乱码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-stability-basic-quality-test-3",
+    "name": "为什么我的应用在开始稳定性测试后一直反复拉起退出，且最后测试中断结束，报告中展示测试中断？",
+    "file": "专项测试/稳定性基础质量测试/为什么我的应用在开始稳定性测试后一直反复拉起退出，且最后测试中断结束，报告中展示测试中断？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-stability-basic-quality-test-4",
+    "name": "为什么本地的报告文件夹下，稳定性问题的数量比DevEco Testing前端展示的报告问题数量多",
+    "file": "专项测试/稳定性基础质量测试/为什么本地的报告文件夹下，稳定性问题的数量比DevEco Testing前端展示的报告问题数量多.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-stability-basic-quality-test-5",
+    "name": "为什么稳定性测试过程中的AppFreeze问题，有时Testing报告上显示的比设备faultlogger实际产生的问题数量少",
+    "file": "专项测试/稳定性基础质量测试/为什么稳定性测试过程中的AppFreeze问题，有时Testing报告上显示的比设备faultlogger实际产生的问题数量少.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-stability-basic-quality-test-5"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-1",
+    "name": "执行报告用例的其中一个步骤，在视频中动效为什么只录了一半",
+    "file": "专项测试/场景化性能测试/执行报告用例的其中一个步骤，在视频中动效为什么只录了一半.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-2",
+    "name": "Can't find component with [BY.text('XXX')] 的报错是什么原因",
+    "file": "专项测试/场景化性能测试/Can't find component with [BY.text'XXX'] 的报错是什么原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-3",
+    "name": "执行python.exe -m pip install --upgrade pip命令更新pip库时报错ValueError: Unable to find resource t64.exe in package pip._vendor.distlib",
+    "file": "专项测试/场景化性能测试/执行python.exe -m pip install --upgrade pip命令更新pip库时报错ValueError／ Unable to find resource t64.exe in package pip._vendor.distlib.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-4",
+    "name": "环境安装完成后，下载工程模板至本地，如果本地调试失败，测试服务包更新后，本地调试仍然失败，应如何处理",
+    "file": "专项测试/场景化性能测试/环境安装完成后，下载工程模板至本地，如果本地调试失败，测试服务包更新后，本地调试仍然失败，应如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-5",
+    "name": "任务执行失败，原因：指定目录下未找到用例。该如何排查",
+    "file": "专项测试/场景化性能测试/任务执行失败，原因：指定目录下未找到用例。该如何排查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-5"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-6",
+    "name": "安装完全部包后，本地调试运行脚本报错",
+    "file": "专项测试/场景化性能测试/安装完全部包后，本地调试运行脚本报错.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-6"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-7",
+    "name": "卡顿率报了异常，丢帧卡顿次数为0，该如何理解",
+    "file": "专项测试/场景化性能测试/卡顿率报了异常，丢帧卡顿次数为0，该如何理解.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-7"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-8",
+    "name": "卡顿率显示的视频时间与下面给的视频图片集编号对不上，是什么原因",
+    "file": "专项测试/场景化性能测试/卡顿率显示的视频时间与下面给的视频图片集编号对不上，是什么原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-8"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-9",
+    "name": "如何获取trace文件",
+    "file": "专项测试/场景化性能测试/如何获取trace文件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-9"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-10",
+    "name": "卡顿率指标是怎么定义的",
+    "file": "专项测试/场景化性能测试/卡顿率指标是怎么定义的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-10"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-11",
+    "name": "卡顿率是否支持应用自定义检测",
+    "file": "专项测试/场景化性能测试/卡顿率是否支持应用自定义检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-11"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-12",
+    "name": "如何结合trace，分析卡顿率指标异常问题",
+    "file": "专项测试/场景化性能测试/如何结合trace，分析卡顿率指标异常问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-12"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-13",
+    "name": "测试报告中，用例执行详情为红色，且无数据是什么原因",
+    "file": "专项测试/场景化性能测试/测试报告中，用例执行详情为红色，且无数据是什么原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-13"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-14",
+    "name": "时延类指标出现负数是什么原因",
+    "file": "专项测试/场景化性能测试/时延类指标出现负数是什么原因.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-14"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-scenario-based-performance-test-15",
+    "name": "测试结果中，指标值“0”和“-”有什么区别",
+    "file": "专项测试/场景化性能测试/测试结果中，指标值“0”和“-”有什么区别.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-15"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-publish-test-1",
+    "name": "创建任务时提示“ai模型暂未启动，请稍后再试”",
+    "file": "上架预检/创建任务时提示“ai模型暂未启动，请稍后再试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-publish-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-publish-test-2",
+    "name": "测试报告中，为什么会出现测试项检测异常",
+    "file": "上架预检/测试报告中，为什么会出现测试项检测异常.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-publish-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-publish-test-3",
+    "name": "测试报告中，为什么会批量出现待检测项",
+    "file": "上架预检/测试报告中，为什么会批量出现待检测项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-publish-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-quality-test-4",
+    "name": "应用上架预检测试问题定位，可以参考哪些资料",
+    "file": "上架预检/应用上架预检测试问题定位，可以参考哪些资料.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-quality-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-ux-publish-test-1",
+    "name": "测试报告中，为什么会出现不涉及检测项",
+    "file": "上架预检/UX基础质量测试/测试报告中，为什么会出现不涉及检测项.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-publish-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-ux-publish-test-2",
+    "name": "测试报告中，所有检测项均异常，异常原因提示“the ux script reports an error”，该如何处理",
+    "file": "上架预检/UX基础质量测试/测试报告中，所有检测项均异常，异常原因提示“the ux script reports an error”，该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-publish-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-ux-publish-test-3",
+    "name": "实际情况与测试结果有偏差，该如何处理",
+    "file": "上架预检/UX基础质量测试/实际情况与测试结果有偏差，该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-publish-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-ux-publish-test-4",
+    "name": "测试报告中，所有规则检测均异常，异常原因提示“arklayout存储失败”，该如何处理？",
+    "file": "上架预检/UX基础质量测试/测试报告中，所有规则检测均异常，异常原因提示“arklayout存储失败”，该如何处理？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-publish-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-1",
+    "name": "测试过程中，为什么测试页面截图会出现页面切换状态",
+    "file": "探索测试/应用探索测试/测试过程中，为什么测试页面截图会出现页面切换状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-2",
+    "name": "测试过程中，控件语义识别中的“XXX的项”、“XXX的列”应如何理解",
+    "file": "探索测试/应用探索测试/测试过程中，控件语义识别中的“XXX的项”、“XXX的列”应如何理解.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-3",
+    "name": "查看应用探索测试报告时，报告加载卡顿的原因是什么",
+    "file": "探索测试/应用探索测试/查看应用探索测试报告时，报告加载卡顿的原因是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-4",
+    "name": "遍历路径地图中，为什么会出现截图相同的节点",
+    "file": "探索测试/应用探索测试/遍历路径地图中，为什么会出现截图相同的节点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-5",
+    "name": "语义分析的过程中，为什么会对空白区域（看不到有按钮或文字）进行红框标记",
+    "file": "探索测试/应用探索测试/语义分析的过程中，为什么会对空白区域（看不到有按钮或文字）进行红框标记.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-5"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-6",
+    "name": "应用中嵌入了Web窗口，能进行应用探索测试吗",
+    "file": "探索测试/应用探索测试/应用中嵌入了Web窗口，能进行应用探索测试吗.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-6"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-7",
+    "name": "应用为什么无法进行应用探索测试",
+    "file": "探索测试/应用探索测试/应用为什么无法进行应用探索测试.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-7"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-8",
+    "name": "执行场景压测，为什么有很多次失败？",
+    "file": "探索测试/应用探索测试/执行场景压测，为什么有很多次失败？.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-8"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-app-exploration-test-9",
+    "name": "应用稳定性问题定位，可以参考哪些资料",
+    "file": "探索测试/应用探索测试/应用稳定性问题定位，可以参考哪些资料.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-9"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-1",
+    "name": "生成回归测试包时报错提示“打包失败,当前项目根目录下缺少testcases文件夹”",
+    "file": "回归测试/生成回归测试包时报错提示“打包失败,当前项目根目录下缺少testcases文件夹”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-2",
+    "name": "生成回归测试包时报错提示“当前项目根目录下不存在setup-regression.py文件”",
+    "file": "回归测试/生成回归测试包时报错提示“当前项目根目录下不存在setup-regression.py文件”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-3",
+    "name": "生成回归测试包时，如果出现“setup-regression.py解析失败，请检查setup-regression.py的写法是否规范”的错误提示，应如何处理",
+    "file": "回归测试/生成回归测试包时，如果出现“setup-regression.py解析失败，请检查setup-regression.py的写法是否规范”的错误提示，应如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-3"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-4",
+    "name": "生成回归测试包时报错提示“测试套生成失败,请检查setup-regression.py文件后重试”",
+    "file": "回归测试/生成回归测试包时报错提示“测试套生成失败,请检查setup-regression.py文件后重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-4"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-5",
+    "name": "生成回归测试包时报错提示“dist/testsuite文件夹为临时目录，请确保该文件夹为空”",
+    "file": "回归测试/生成回归测试包时报错提示“dist／testsuite文件夹为临时目录，请确保该文件夹为空”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-5"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-6",
+    "name": "生成回归测试包时报错提示“测试包中需包含单个用例（json及对应的py文件），请校验setup-regression.py文件后重试”",
+    "file": "回归测试/生成回归测试包时报错提示“测试包中需包含单个用例（json及对应的py文件），请校验setup-regression.py文件后重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-6"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-7",
+    "name": "生成回归测试包时报错提示“xxx.json中py_file字段为空，请检查该文件是否填写正确!”",
+    "file": "回归测试/生成回归测试包时报错提示“xxx.json中py_file字段为空，请检查该文件是否填写正确!”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-7"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-8",
+    "name": "生成回归测试包时报错提示“xxx.py文件不存在,请检查 json文件是否填写正确!”",
+    "file": "回归测试/生成回归测试包时报错提示“xxx.py文件不存在,请检查 json文件是否填写正确!”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-8"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-9",
+    "name": "生成回归测试包时报错提示“xxx模块下载失败”",
+    "file": "回归测试/生成回归测试包时报错提示“xxx模块下载失败”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-9"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-10",
+    "name": "选择测试包后报错提示“应用解析异常，请稍后重试”",
+    "file": "回归测试/选择测试包后报错提示“应用解析异常，请稍后重试”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-10"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-11",
+    "name": "选择测试包后，若出现“请添加测试步骤，具体请参考测试指南”的报错提示，请参考测试指南。",
+    "file": "回归测试/选择测试包后，若出现“请添加测试步骤，具体请参考测试指南”的报错提示，请参考测试指南。.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-11"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-12",
+    "name": "选择测试包后报错提示“测试包解析失败，请查看测试指南排查失败原因”",
+    "file": "回归测试/选择测试包后报错提示“测试包解析失败，请查看测试指南排查失败原因”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-12"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-13",
+    "name": "创建任务后报错提示“测试套中用例数量不为1，请检查后使用回归测试插件生成新的测试套！”",
+    "file": "回归测试/创建任务后报错提示“测试套中用例数量不为1，请检查后使用回归测试插件生成新的测试套！”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-13"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-14",
+    "name": "创建任务后报错提示“测试套类型异常，请使用回归测试插件生成测试套！”",
+    "file": "回归测试/创建任务后报错提示“测试套类型异常，请使用回归测试插件生成测试套！”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-14"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-15",
+    "name": "创建回归测试任务时，提示“应用解析异常”",
+    "file": "回归测试/创建回归测试任务时，提示“应用解析异常”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-15"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-16",
+    "name": "测试结束后hilog日志一栏显示“-”",
+    "file": "回归测试/测试结束后hilog日志一栏显示“-”.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-16"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-regression-test-17",
+    "name": "测试过程中没有显示用例包步骤且指标监控中无数据",
+    "file": "回归测试/测试过程中没有显示用例包步骤且指标监控中无数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-17"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-utilities-cast-1",
+    "name": "设备投屏时，投屏画面持续加载中如何处理",
+    "file": "实用工具/设备投屏/设备投屏时，投屏画面持续加载中如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-utilities-cast-2",
+    "name": "设备投屏时，投屏卡顿如何处理",
+    "file": "实用工具/设备投屏/设备投屏时，投屏卡顿如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-cast-2"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-utilities-uiviewer-1",
+    "name": "如何处理UIViewer获取页面时，无论如何操作切换设备界面，UIViewer展示的都是同一个界面",
+    "file": "实用工具/UIViewer/如何处理UIViewer获取页面时，无论如何操作切换设备界面，UIViewer展示的都是同一个界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-uiviewer-1"
+  },
+  {
+    "section": "DevEco Testing",
+    "slug": "faqs-utilities-uiviewer-2",
+    "name": "UIViewer获取页面时，无法展示页面截图和元素树如何处理",
+    "file": "实用工具/UIViewer/UIViewer获取页面时，无法展示页面截图和元素树如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-uiviewer-2"
+  }
+]

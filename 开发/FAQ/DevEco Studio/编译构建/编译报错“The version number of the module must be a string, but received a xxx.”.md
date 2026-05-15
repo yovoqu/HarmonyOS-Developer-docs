@@ -1,0 +1,17 @@
+# 编译报错“The version number of the module must be a string, but received a xxx.”
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-152
+
+错误描述
+
+模块版本号必须为字符串类型。
+
+可能原因
+
+模块下的oh-package.json5文件中，version字段的配置值必须为字符串类型。
+
+解决措施
+
+在模块的oh-package.json5文件中，将version字段的值修改为字符串类型。

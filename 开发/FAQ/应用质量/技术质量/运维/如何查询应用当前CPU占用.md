@@ -1,0 +1,31 @@
+# 如何查询应用当前CPU占用
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-14
+
+目前有两种方式查询当前CPU占用：
+
+在代码中查询：
+
+可以使用 `hidebug.getCpuUsage` 接口查询 CPU 占用。参考代码如下：
+
+```ts
+let cpuUsage: number = hidebug.getCpuUsage();
+```
+
+在命令行中查询：
+
+- 根据hdc命令行工具指导，完成[环境准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V14/hdc-V14#环境准备)。
+- 正常连接设备。
+```bash
+hidumper --cpuusage <pid>
+hidumper --cpuusage
+```
+
+
+参考链接
+
+hidebug.getCpuUsage
+
+hidumper

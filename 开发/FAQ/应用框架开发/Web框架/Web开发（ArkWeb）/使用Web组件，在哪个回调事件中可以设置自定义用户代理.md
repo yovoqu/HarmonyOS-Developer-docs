@@ -1,0 +1,7 @@
+# 使用Web组件，在哪个回调事件中可以设置自定义用户代理
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-62
+
+建议在onControllerAttached回调事件中，使用setCustomUserAgent来设置自定义用户代理。

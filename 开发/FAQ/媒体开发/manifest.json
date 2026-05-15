@@ -1,0 +1,583 @@
+[
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-1",
+    "name": "使用XComponent组件显示相机的预览输出流时，如何获取相机的帧数据",
+    "file": "拍照和图片/相机开发（Camera）/使用XComponent组件显示相机的预览输出流时，如何获取相机的帧数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-2",
+    "name": "如何获取前置摄像头的预览图像",
+    "file": "拍照和图片/相机开发（Camera）/如何获取前置摄像头的预览图像.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-3",
+    "name": "如何设置相机焦距",
+    "file": "拍照和图片/相机开发（Camera）/如何设置相机焦距.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-3"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-4",
+    "name": "如何检测当前相机服务的状态",
+    "file": "拍照和图片/相机开发（Camera）/如何检测当前相机服务的状态.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-6",
+    "name": "如何读取相机的预览图",
+    "file": "拍照和图片/相机开发（Camera）/如何读取相机的预览图.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-6"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-7",
+    "name": "如何保证相机在全屏预览时不变形",
+    "file": "拍照和图片/相机开发（Camera）/如何保证相机在全屏预览时不变形.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-7"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-8",
+    "name": "相机预览切后台再回来画面不正确",
+    "file": "拍照和图片/相机开发（Camera）/相机预览切后台再回来画面不正确.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-8"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-9",
+    "name": "如何实现相机关闭",
+    "file": "拍照和图片/相机开发（Camera）/如何实现相机关闭.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-9"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-10",
+    "name": "预览流黑屏但无报错信息该怎么解决",
+    "file": "拍照和图片/相机开发（Camera）/预览流黑屏但无报错信息该怎么解决.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-10"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-12",
+    "name": "如何避免预览流产生畸变",
+    "file": "拍照和图片/相机开发（Camera）/如何避免预览流产生畸变.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-12"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-13",
+    "name": "如何开关闪光灯",
+    "file": "拍照和图片/相机开发（Camera）/如何开关闪光灯.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-13"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-14",
+    "name": "如何调用系统拍照并获取图片",
+    "file": "拍照和图片/相机开发（Camera）/如何调用系统拍照并获取图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-14"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-16",
+    "name": "视频流支持哪些格式",
+    "file": "拍照和图片/相机开发（Camera）/视频流支持哪些格式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-16"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-17",
+    "name": "视频预览分辨率设置",
+    "file": "拍照和图片/相机开发（Camera）/视频预览分辨率设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-17"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-19",
+    "name": "如何实现拍照预览onPreviewFrame回调",
+    "file": "拍照和图片/相机开发（Camera）/如何实现拍照预览onPreviewFrame回调.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-19"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-22",
+    "name": "YUV数据相关格式",
+    "file": "拍照和图片/相机开发（Camera）/YUV数据相关格式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-22"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-camera-23",
+    "name": "如何实现前置镜头的录像镜像功能",
+    "file": "拍照和图片/相机开发（Camera）/如何实现前置镜头的录像镜像功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-camera-23"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-1",
+    "name": "通过PixelMap_CreatePixelMap创建的对象，内存在ArkTS侧和Native侧是否共享",
+    "file": "拍照和图片/图片处理（Image）/通过PixelMap_CreatePixelMap创建的对象，内存在ArkTS侧和Native侧是否共享.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-22",
+    "name": "如何从图库选择图片并上传到服务器",
+    "file": "拍照和图片/图片处理（Image）/如何从图库选择图片并上传到服务器.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-22"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-2",
+    "name": "如何设置图片的高斯模糊效果",
+    "file": "拍照和图片/图片处理（Image）/如何设置图片的高斯模糊效果.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-4",
+    "name": "图片压缩API的quality参数与图片原始大小、压缩后大小的关系",
+    "file": "拍照和图片/图片处理（Image）/图片压缩API的quality参数与图片原始大小、压缩后大小的关系.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-5",
+    "name": "图片编解码支持的格式有哪些",
+    "file": "拍照和图片/图片处理（Image）/图片编解码支持的格式有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-5"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-6",
+    "name": "如何将相册选择的图片生成PixelMap",
+    "file": "拍照和图片/图片处理（Image）/如何将相册选择的图片生成PixelMap.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-6"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-7",
+    "name": "如何对相册图片进行编辑裁剪",
+    "file": "拍照和图片/图片处理（Image）/如何对相册图片进行编辑裁剪.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-7"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-8",
+    "name": "如何设置图片显示的分辨率",
+    "file": "拍照和图片/图片处理（Image）/如何设置图片显示的分辨率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-8"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-10",
+    "name": "如何读取相册中的图片",
+    "file": "拍照和图片/图片处理（Image）/如何读取相册中的图片.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-10"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-11",
+    "name": "如何把ImageReceiver收到的视频帧数据保存到本地",
+    "file": "拍照和图片/图片处理（Image）/如何把ImageReceiver收到的视频帧数据保存到本地.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-11"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-12",
+    "name": "为什么获取到的yuv数据量比宽*高*1.5多",
+    "file": "拍照和图片/图片处理（Image）/为什么获取到的yuv数据量比宽／高／1.5多.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-12"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-15",
+    "name": "如何实现PixelMap和base64的相互转换",
+    "file": "拍照和图片/图片处理（Image）/如何实现PixelMap和base64的相互转换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-15"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-16",
+    "name": "如何将图片压缩到指定大小以下",
+    "file": "拍照和图片/图片处理（Image）/如何将图片压缩到指定大小以下.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-16"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-17",
+    "name": "将pixelFormat设置为nv21或者nv12时抛出错误码62980096怎么处理",
+    "file": "拍照和图片/图片处理（Image）/将pixelFormat设置为nv21或者nv12时抛出错误码62980096怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-17"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-18",
+    "name": "如何将C++侧接收的PixelMap转换成cv::mat格式",
+    "file": "拍照和图片/图片处理（Image）/如何将C++侧接收的PixelMap转换成cv／／mat格式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-18"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-20",
+    "name": "如何将PixelMap保存到相册",
+    "file": "拍照和图片/图片处理（Image）/如何将PixelMap保存到相册.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-20"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-21",
+    "name": "如何保存网络图片到相册",
+    "file": "拍照和图片/图片处理（Image）/如何保存网络图片到相册.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-21"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-23",
+    "name": "如何生成带logo的二维码",
+    "file": "拍照和图片/图片处理（Image）/如何生成带logo的二维码.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-23"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-image-24",
+    "name": "如何对GIF图片进行压缩",
+    "file": "拍照和图片/图片处理（Image）/如何对GIF图片进行压缩.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-24"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-1",
+    "name": "如何后台播放音乐",
+    "file": "音频和视频/音频（Audio）/如何后台播放音乐.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-2",
+    "name": "创建多个视频组件无法播放",
+    "file": "音频和视频/音频（Audio）/创建多个视频组件无法播放.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-3",
+    "name": "OpenSL ES音频录制示例调用崩溃",
+    "file": "音频和视频/音频（Audio）/OpenSL ES音频录制示例调用崩溃.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-3"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-4",
+    "name": "SoundPool播放的音频是否支持WMV格式",
+    "file": "音频和视频/音频（Audio）/SoundPool播放的音频是否支持WMV格式.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-5",
+    "name": "如何实现录音监听",
+    "file": "音频和视频/音频（Audio）/如何实现录音监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-5"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-6",
+    "name": "音频处理哪些场景内置3A算法及AEC、ANC、AGC是否支持独立开关",
+    "file": "音频和视频/音频（Audio）/音频处理哪些场景内置3A算法及AEC、ANC、AGC是否支持独立开关.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-6"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-7",
+    "name": "AudioRenderer是否有跳转到某一帧的接口",
+    "file": "音频和视频/音频（Audio）/AudioRenderer是否有跳转到某一帧的接口.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-7"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-8",
+    "name": "播放短促提示音（如点赞、收藏、新消息等场景的提示音或音效），应该如何处理",
+    "file": "音频和视频/音频（Audio）/播放短促提示音（如点赞、收藏、新消息等场景的提示音或音效），应该如何处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-8"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-9",
+    "name": "静音播放音频时，如何做到不抢音频焦点",
+    "file": "音频和视频/音频（Audio）/静音播放音频时，如何做到不抢音频焦点.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-9"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-10",
+    "name": "三方应用如何选择音频流类型",
+    "file": "音频和视频/音频（Audio）/三方应用如何选择音频流类型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-10"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-11",
+    "name": "应用音频如何使用OpenSL切换为OHAudio",
+    "file": "音频和视频/音频（Audio）/应用音频如何使用OpenSL切换为OHAudio.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-11"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-12",
+    "name": "播放音频时，如何修改默认输出设备",
+    "file": "音频和视频/音频（Audio）/播放音频时，如何修改默认输出设备.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-12"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-13",
+    "name": "音频焦点如何适配",
+    "file": "音频和视频/音频（Audio）/音频焦点如何适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-13"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-14",
+    "name": "Webview焦点如何适配",
+    "file": "音频和视频/音频（Audio）/Webview焦点如何适配.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-14"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-15",
+    "name": "设备切换后没有暂停",
+    "file": "音频和视频/音频（Audio）/设备切换后没有暂停.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-15"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-16",
+    "name": "手机设置静音，重启时开机动画有声音",
+    "file": "音频和视频/音频（Audio）/手机设置静音，重启时开机动画有声音.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-16"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-17",
+    "name": "如何监听音频输出设备变更信息以作为应用处理自动暂停的依据",
+    "file": "音频和视频/音频（Audio）/如何监听音频输出设备变更信息以作为应用处理自动暂停的依据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-17"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-18",
+    "name": "如何在录制采集音频时获取麦克风的音量大小",
+    "file": "音频和视频/音频（Audio）/如何在录制采集音频时获取麦克风的音量大小.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-18"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-19",
+    "name": "如何拦截系统音量调节的上下键",
+    "file": "音频和视频/音频（Audio）/如何拦截系统音量调节的上下键.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-19"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-20",
+    "name": "如何在AVRecorder录制WAV格式的音频文件时正确配置AVRecorderProfile参数",
+    "file": "音频和视频/音频（Audio）/如何在AVRecorder录制WAV格式的音频文件时正确配置AVRecorderProfile参数.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-20"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-21",
+    "name": "如何播放PCM格式的音频",
+    "file": "音频和视频/音频（Audio）/如何播放PCM格式的音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-21"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-audio-22",
+    "name": "使用AudioRenderer播放音频时，如何跳转到指定播放位置",
+    "file": "音频和视频/音频（Audio）/使用AudioRenderer播放音频时，如何跳转到指定播放位置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-audio-22"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-1",
+    "name": "使用AVPlayer播放器概率性报错5400104、5400103要怎么处理",
+    "file": "音频和视频/媒体（Media ）/使用AVPlayer播放器概率性报错5400104、5400103要怎么处理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-2",
+    "name": "系统播放器AVPlayer支持的流媒体协议与功能",
+    "file": "音频和视频/媒体（Media ）/系统播放器AVPlayer支持的流媒体协议与功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-3",
+    "name": "如何实现使用AVPlayer播放音频的过程中打断当前播放去播放另一个音频",
+    "file": "音频和视频/媒体（Media ）/如何实现使用AVPlayer播放音频的过程中打断当前播放去播放另一个音频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-3"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-4",
+    "name": "使用AVPlayer播放视频时，如何实现应用从后台切回前台时继续播放原视频",
+    "file": "音频和视频/媒体（Media ）/使用AVPlayer播放视频时，如何实现应用从后台切回前台时继续播放原视频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-5",
+    "name": "使用video组件播放视频时，如何刷新重新加载视频？比如网络异常导致播放失败等情况",
+    "file": "音频和视频/媒体（Media ）/使用video组件播放视频时，如何刷新重新加载视频？比如网络异常导致播放失败等情况.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-5"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-6",
+    "name": "在使用Video组件时，为Video添加本地视频播放源后，立刻播放，为什么会播放失败",
+    "file": "音频和视频/媒体（Media ）/在使用Video组件时，为Video添加本地视频播放源后，立刻播放，为什么会播放失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-6"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-7",
+    "name": "如何获取视频首帧画面",
+    "file": "音频和视频/媒体（Media ）/如何获取视频首帧画面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-7"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-media-8",
+    "name": "录屏帧率是否有限制，如何设置最大帧率",
+    "file": "音频和视频/媒体（Media ）/录屏帧率是否有限制，如何设置最大帧率.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-8"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-1",
+    "name": "如何响应播控中心的播放模式切换",
+    "file": "音频和视频/音视频播控（AVSession）/如何响应播控中心的播放模式切换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-2",
+    "name": "应用如何更新进度条",
+    "file": "音频和视频/音视频播控（AVSession）/应用如何更新进度条.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-3",
+    "name": "为什么接入播控后，播控中心部分按钮是灰色的，不可点击",
+    "file": "音频和视频/音视频播控（AVSession）/为什么接入播控后，播控中心部分按钮是灰色的，不可点击.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-3"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-4",
+    "name": "能否定制播控中心界面上显示的控制元素",
+    "file": "音频和视频/音视频播控（AVSession）/能否定制播控中心界面上显示的控制元素.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-5",
+    "name": "如何在播控中心显示歌词",
+    "file": "音频和视频/音视频播控（AVSession）/如何在播控中心显示歌词.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-5"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-6",
+    "name": "如何做到连续投播",
+    "file": "音频和视频/音视频播控（AVSession）/如何做到连续投播.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-6"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-7",
+    "name": "系统是否支持DLNA设备投屏",
+    "file": "音频和视频/音视频播控（AVSession）/系统是否支持DLNA设备投屏.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-7"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-8",
+    "name": "如何自定义投播组件",
+    "file": "音频和视频/音视频播控（AVSession）/如何自定义投播组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-8"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-9",
+    "name": "应用内如何进行输出设备的选择",
+    "file": "音频和视频/音视频播控（AVSession）/应用内如何进行输出设备的选择.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-9"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-10",
+    "name": "投播成功后，本端应用内该如何显示",
+    "file": "音频和视频/音视频播控（AVSession）/投播成功后，本端应用内该如何显示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-10"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-11",
+    "name": "投播后支持哪些控制功能",
+    "file": "音频和视频/音视频播控（AVSession）/投播后支持哪些控制功能.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-11"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-12",
+    "name": "在投播过程中，出现设备连接失败、启动缓慢以及回调进度卡顿等问题，可能原因是什么",
+    "file": "音频和视频/音视频播控（AVSession）/在投播过程中，出现设备连接失败、启动缓慢以及回调进度卡顿等问题，可能原因是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-12"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avcodec-1",
+    "name": "VideoDecoder支持的包装方式是AVCC还是AnnexB",
+    "file": "音频和视频/音视频编解码（AVCodec）/VideoDecoder支持的包装方式是AVCC还是AnnexB.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-1"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avcodec-2",
+    "name": "音视频文件的封装协议与编码格式有哪些",
+    "file": "音频和视频/音视频编解码（AVCodec）/音视频文件的封装协议与编码格式有哪些.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-2"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avcodec-4",
+    "name": "如何获取系统支持的编解码能力",
+    "file": "音频和视频/音视频编解码（AVCodec）/如何获取系统支持的编解码能力.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avcodec-4"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-13",
+    "name": "如何进行视频压缩",
+    "file": "音频和视频/音视频编解码（AVCodec）/如何进行视频压缩.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-13"
+  },
+  {
+    "section": "媒体开发",
+    "slug": "faqs-avsession-14",
+    "name": "如何将图片合成视频",
+    "file": "音频和视频/音视频编解码（AVCodec）/如何将图片合成视频.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-avsession-14"
+  }
+]

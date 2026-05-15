@@ -1,0 +1,23 @@
+[
+  {
+    "section": "多设备场景",
+    "slug": "faqs-purax-2",
+    "name": "Pura X外屏展示申请前，需要做什么",
+    "file": "手机/Pura X常见问题/Pura X外屏展示申请前，需要做什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-2"
+  },
+  {
+    "section": "多设备场景",
+    "slug": "faqs-purax-1",
+    "name": "Pura X外屏适配申请提交后，多长时间能完成审核",
+    "file": "手机/Pura X常见问题/Pura X外屏适配申请提交后，多长时间能完成审核.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-1"
+  },
+  {
+    "section": "多设备场景",
+    "slug": "faqs-purax-4",
+    "name": "更多：若以上FAQ仍不能解决，可通过在线提单反馈",
+    "file": "手机/Pura X常见问题/更多：若以上FAQ仍不能解决，可通过在线提单反馈.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-purax-4"
+  }
+]

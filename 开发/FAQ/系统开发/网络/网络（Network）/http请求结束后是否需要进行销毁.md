@@ -1,0 +1,7 @@
+# http请求结束后是否需要进行销毁
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-29
+
+http请求对象，在请求成功或者失败后，都需要调用destroy()接口进行销毁，以节省资源消耗。详细请参见使用HTTP访问网络。

@@ -1,0 +1,11 @@
+# 对于HAP包中引用的HSP包是否有数量限制
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-36
+
+目前没有明确的数量限制。
+
+但是由于每个加载的HSP都需要占用一定的系统资源，过多的HSP包会对应用的性能造成影响。
+
+如果应用中HSP包数量过多，建议使用单HAP与多HAR方案，在动态加载场景中使用HSP。

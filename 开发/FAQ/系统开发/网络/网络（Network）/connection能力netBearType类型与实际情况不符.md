@@ -1,0 +1,9 @@
+# connection能力netBearType类型与实际情况不符
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-65
+
+在双开场景下，即Wi-Fi和蜂窝网络同时连接时，netBearType参数仅返回Wi-Fi的状态信息。
+
+参考文档：NetBearType

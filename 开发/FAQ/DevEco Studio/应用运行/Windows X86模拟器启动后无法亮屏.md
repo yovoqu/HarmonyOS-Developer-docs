@@ -1,0 +1,13 @@
+# Windows X86模拟器启动后无法亮屏
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-running-31
+
+问题现象
+
+更新DevEco Studio后，首次启动Windows X86模拟器，模拟器无法亮屏。
+
+解决措施
+
+清除模拟器中的用户数据后重新启动。具体操作请参考启动和关闭模拟器。

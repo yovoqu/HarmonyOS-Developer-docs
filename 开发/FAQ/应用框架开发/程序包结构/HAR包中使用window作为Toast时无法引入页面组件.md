@@ -1,0 +1,19 @@
+# HAR包中使用window作为Toast时无法引入页面组件
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-8
+
+问题现象
+
+在HAR包中使用一个window作为弹窗，该window通过一个page页面实现。使用window.setUIContent方法引入page时，出现导入失败的问题。
+
+解决措施
+
+1. HAR不包含page，建议在HAP中声明窗口以放置HAR或HSP组件。
+2. 实现弹窗Toast，可以使用ArkTS组件来自定义弹窗组件。
+
+
+参考链接
+
+自定义弹窗

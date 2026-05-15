@@ -1,0 +1,22 @@
+# 如何实现类似Java中的反射方法调用能力
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-62
+
+可以通过动态import的方式实现类似反射能力，具体实现可参考以下代码。
+
+```ts
+import('./module').then((module) => {
+  const t = module.DataTable.tagName();
+});
+```
+
+```ts
+export class DataTable {
+  constructor() {}
+  static tagName() {
+    return 'data-table';
+  }
+}
+```

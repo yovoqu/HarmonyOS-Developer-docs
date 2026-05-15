@@ -1,0 +1,7 @@
+# HarmonyOS Webview如何实现透明效果
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-76
+
+在HarmonyOS的Web组件中，可通过设置opacity属性实现页面元素的透明效果。

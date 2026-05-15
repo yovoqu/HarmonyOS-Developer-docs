@@ -1,0 +1,9 @@
+# Network connection模块netLost与netUnavailable监听场景如何区别
+
+更新时间：2026-03-17 00:56:02
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-62
+
+on('netLost')事件监听用于网络状态丢失。例如：Wi-Fi或移动网络断开时。
+
+on('netUnavailable')事件监听为网络连接成功但是发生异常无法正常访问互联网。例如：设备上显示桌面Wi-Fi图标有“!”。

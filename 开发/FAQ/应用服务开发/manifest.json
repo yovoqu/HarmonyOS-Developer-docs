@@ -1,0 +1,65 @@
+[
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-2",
+    "name": "如何让事件只在一个UIAbility实例中传递",
+    "file": "用户通知服务（Notification Kit）/如何让事件只在一个UIAbility实例中传递.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-2"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-5",
+    "name": "如何监听系统公共事件，如熄屏、亮屏、开机等",
+    "file": "用户通知服务（Notification Kit）/如何监听系统公共事件，如熄屏、亮屏、开机等.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-5"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-6",
+    "name": "requestEnableNotification接口申请通知权限的机制是怎样的",
+    "file": "用户通知服务（Notification Kit）/requestEnableNotification接口申请通知权限的机制是怎样的.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-6"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-7",
+    "name": "系统弹框和应用消息推送的区别是什么",
+    "file": "用户通知服务（Notification Kit）/系统弹框和应用消息推送的区别是什么.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-7"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-8",
+    "name": "调用notificationManager.publish发布通知失败",
+    "file": "用户通知服务（Notification Kit）/调用notificationManager.publish发布通知失败.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-8"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-notification-kit-9",
+    "name": "emitter.off取消订阅某个事件后，是不是所有订阅该事件的地方都不会再收到该事件的消息",
+    "file": "用户通知服务（Notification Kit）/emitter.off取消订阅某个事件后，是不是所有订阅该事件的地方都不会再收到该事件的消息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-notification-kit-9"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-location-kit-1",
+    "name": "如何申请精确定位",
+    "file": "位置服务（Location Kit）/如何申请精确定位.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-kit-1"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-location-kit-2",
+    "name": "定位服务使用什么坐标系，如何根据实际应用场景转换",
+    "file": "位置服务（Location Kit）/定位服务使用什么坐标系，如何根据实际应用场景转换.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-kit-2"
+  },
+  {
+    "section": "应用服务开发",
+    "slug": "faqs-location-kit-3",
+    "name": "在室内时，在持续定位场景中设置interval为1，为何不生效",
+    "file": "位置服务（Location Kit）/在室内时，在持续定位场景中设置interval为1，为何不生效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-kit-3"
+  }
+]

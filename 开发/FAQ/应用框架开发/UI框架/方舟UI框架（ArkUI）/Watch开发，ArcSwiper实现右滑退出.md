@@ -1,0 +1,7 @@
+# Watch开发，ArcSwiper实现右滑退出
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-416
+
+通过onGestureRecognizerJudgeBegin()函数识别滑动位置，该函数通过比较触摸起始坐标与移动坐标的差值来判断滑动方向，示例代码参考：示例。

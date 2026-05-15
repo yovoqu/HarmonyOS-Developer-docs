@@ -1,0 +1,13 @@
+# 如何跨HSP包调用rawfile目录下的文件
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-63
+
+解决方案
+
+建议通过导出资源的方式供其他模块使用，参见参考资料中的“导出HSP中的资源”。
+
+参考资料
+
+导出HSP中的资源。

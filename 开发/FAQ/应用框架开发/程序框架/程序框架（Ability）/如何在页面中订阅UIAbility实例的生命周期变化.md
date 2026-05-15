@@ -1,0 +1,11 @@
+# 如何在页面中订阅UIAbility实例的生命周期变化
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-36
+
+通过ApplicationContext模块提供的ApplicationContext.on()方法，可以订阅进程内UIAbility的生命周期变化。
+
+参考链接
+
+监听UIAbility生命周期变化，ApplicationContext.on

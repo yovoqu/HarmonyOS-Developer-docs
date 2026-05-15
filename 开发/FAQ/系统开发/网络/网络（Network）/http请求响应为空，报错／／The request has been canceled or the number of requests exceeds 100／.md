@@ -1,0 +1,7 @@
+# http请求响应为空，报错:"The request has been canceled or the number of requests exceeds 100"
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-22
+
+这条错误信息是判断当前不存在httpRequest对象，原因则可能是httpRequest请求次数超过100次，导致创建失败，或者是被调用了destroy方法删掉了导致请求失败。

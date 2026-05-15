@@ -1,0 +1,9 @@
+# 如何查看项目中har版本冲突
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-9
+
+属于ohpm install --all的信息，可以执行此命令查看并保留对应信息。
+
+ohpm list可以查看已安装的三方库；依赖冲突解决可以使用overrides字段控制版本，也可参考模块内依赖版本冲突文档。

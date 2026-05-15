@@ -1,0 +1,7 @@
+# Windows x86模拟器卡在开机界面，无法进入桌面
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-running-30
+
+检查本机CPU是否支持AES指令集。模拟器需要AES指令集支持。

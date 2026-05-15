@@ -1,0 +1,19 @@
+# 如何使用ohpm引入三四方库
+
+更新时间：2026-03-10 06:16:35
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-13
+
+- 方式一：打开Terminal窗口，通过如下指令进入到entry目录。cd entry
+- 引入“dayjs”，执行以下指令进行安装。ohpm install dayjs
+- 在对应的JS文件中直接引用。import dayjs from 'dayjs';
+- 方式二：打开工程目录下的entry目录，找到该目录下的oh-package.json5文件。
+- 在oh-package.json5文件中写入要安装的三方库，以dayjs为例，示例如下：
+```json
+"dependencies": {
+"dayjs": "^1.10.4",
+} ,
+```
+- 打开Terminal窗口，通过如下指令进入到entry目录。cd entry
+- 执行指令进行安装。ohpm install
+- 在对应的ArkTS文件中引用。import dayjs from 'dayjs';
