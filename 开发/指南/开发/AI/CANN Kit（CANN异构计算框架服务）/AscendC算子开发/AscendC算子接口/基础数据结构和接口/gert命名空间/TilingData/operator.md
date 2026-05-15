@@ -1,0 +1,48 @@
+# operator
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tilingdata-operator
+
+## 函数功能
+
+向后添加tiling data，若添加超过可容纳的最大长度，则忽略本次操作。
+
+## 函数原型
+
+
+```text
+template
+TilingData &operator
+
+## 参数说明
+
+
+| 参数 | 输入/输出 | 说明 |
+| --- | --- | --- |
+| T | 输入 | 添加的tiling data的类型。 |
+| out | 输出 | TilingData类实例。 |
+| data | 输入 | 添加的tiling data的实例。 |
+
+
+## 返回值
+
+追加完data的TilingData对象。
+
+## 约束说明
+
+无
+
+## 调用示例
+
+
+```text
+auto td_buf = TilingData::CreateCap(100U);
+auto td = reinterpret_cast(td_buf.get());
+
+struct AppendData{
+int a = 10;
+int b = 100;
+};
+AppendData ad;
+td

@@ -1,0 +1,50 @@
+# FreeAllEvent
+
+更新时间：2026-05-12 09:31:20
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tque-freeallevent
+
+## 功能说明
+
+释放对应队列中的所有事件，防止出现同步事件未匹配的情况，是一种额外的保护机制。建议优先保证AllocTensor/FreeTensor和EnQue/DeQue配对使用，配对使用情况下不需要调用该接口。
+
+## 函数原型
+
+
+```text
+__aicore__ inline void FreeAllEvent()
+```
+
+
+## 参数说明
+
+无
+
+## 支持的型号
+
+Kirin9020系列处理器 KirinX90系列处理器
+
+## 注意事项
+
+无
+
+## 返回值
+
+无
+
+## 调用示例
+
+
+```text
+// 接口：DeQue Tensor
+ AscendC::TPipe pipe;
+ AscendC::TQueBind que;
+ int num = 4;
+ int len = 1024;
+ pipe.InitBuffer(que, num, len);
+ AscendC::LocalTensor tensor1 = que.AllocTensor();
+ que.EnQue(tensor1);
+ tensor1 = que.DeQue(); // 将tensor从VECOUT的Queue中搬出
+ que.FreeTensor(tensor1);
+ que.FreeAllEvent();
+```

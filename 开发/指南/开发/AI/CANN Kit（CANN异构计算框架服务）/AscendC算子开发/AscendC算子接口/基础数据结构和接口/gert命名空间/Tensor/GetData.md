@@ -1,0 +1,46 @@
+# GetData
+
+更新时间：2026-05-12 09:31:20
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getdata
+
+## 函数功能
+
+获取Tensor的数据地址。
+
+## 函数原型
+
+
+```text
+template  const T *GetData() const
+template  T *GetData()
+```
+
+
+## 参数说明
+
+
+| 参数 | 输入/输出 | 说明 |
+| --- | --- | --- |
+| T | 输入 | 数据类型。 |
+
+
+## 返回值
+
+数据地址。
+
+## 约束说明
+
+无
+
+## 调用示例
+
+
+```text
+Tensor tensor{{{8, 3, 224, 224}, {16, 3, 224, 224}}, // shape
+              {ge::FORMAT_ND, ge::FORMAT_FRACTAL_NZ, {}}, // format
+              kFollowing, // placement
+              ge::DT_FLOAT16, // dt
+              nullptr};
+auto addr = tensor.GetData();
+```

@@ -1,0 +1,64 @@
+# Get
+
+更新时间：2026-05-12 09:31:20
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tbuf-get
+
+## 功能说明
+
+从TBuf上获取指定长度的Tensor，或者获取全部长度的Tensor。
+
+## 函数原型
+
+获取全部长度的Tensor
+```text
+LocalTensor Get()
+```
+
+获取指定长度的Tensor
+```text
+LocalTensor Get(uint32_t len)
+```
+
+
+## 参数说明
+
+**表1** 参数说明
+| 参数名称 | 输入/输出 | 含义 |
+| --- | --- | --- |
+| len | 输入 | 需要获取的Tensor元素个数。 |
+
+
+## 支持的型号
+
+Kirin9020系列处理器 KirinX90系列处理器
+
+## 注意事项
+
+len的数值是Tensor中元素的个数，len*sizeof(T)不能超过TBuf初始化时的长度。
+
+## 返回值
+
+无
+
+## 调用示例
+
+
+```text
+// 为TBuf初始化分配内存，分配内存长度为1024Bytes
+AscendC::TPipe pipe;
+AscendC::TBuf calcBuf; // 模板参数为TPosition中的VECCALC类型
+uint32_t byteLen = 1024;
+pipe.InitBuffer(calcBuf, byteLen);
+// 从calcBuf获取Tensor,Tensor为pipe分配的所有内存大小，为1024Bytes
+AscendC::LocalTensor tempTensor1 = calcBuf.Get();
+// 从calcBuf获取Tensor,Tensor为128个int32_t类型元素的内存大小，为512Bytes
+AscendC::LocalTensor tempTensor1 = calcBuf.Get(128);
+/* 在相对复杂计算场景，可以使用TBuf作为临时变量，存储中间计算结果，避免复杂的出队，入队过程。
+ * 下面代码来源于某种距离计算的API中，C矩阵需要除以A矩阵和B矩阵的点乘结果。在该算法中所有矩阵均提前转换成向量。
+ */
+auto normADotB = calcBuf.Get(); // 存储A矩阵和B矩阵点乘后的结果
+auto normB = qidVecIn.AllocTensor();
+// ...
+normB= qidVecIn.DeQue(); // 获取B矩阵
+for(int i = 0; i

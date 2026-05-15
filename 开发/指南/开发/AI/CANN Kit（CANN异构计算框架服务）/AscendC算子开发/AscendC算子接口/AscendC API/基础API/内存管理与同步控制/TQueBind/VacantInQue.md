@@ -1,0 +1,56 @@
+# VacantInQue
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-vacantinque
+
+## 功能说明
+
+查询队列是否已满。
+
+## 函数原型
+
+
+```text
+__aicore__ inline bool VacantInQue()
+```
+
+
+## 参数说明
+
+无
+
+## 支持的型号
+
+Kirin9020系列处理器 KirinX90系列处理器
+
+## 注意事项
+
+无
+
+## 返回值
+
+true：表示Queue未满，可以继续EnQue操作。  false：表示Queue已满，不可以继续入队。
+
+## 调用示例
+
+
+```text
+// 根据VacantInQue判断当前Queue是否已满，设置当前队列深度为4
+AscendC::TPipe pipe;
+AscendC::TQueBind que;
+int num = 10;
+int len = 1024;
+pipe.InitBuffer(que, num, len);
+bool ret = que.VacantInQue(); // 返回为true
+AscendC::LocalTensor tensor1 = que.AllocTensor();
+AscendC::LocalTensor tensor2 = que.AllocTensor();
+AscendC::LocalTensor tensor3 = que.AllocTensor();
+AscendC::LocalTensor tensor4 = que.AllocTensor();
+AscendC::LocalTensor tensor5 = que.AllocTensor();
+que.EnQue(tensor1);// 将tensor1加入VECOUT的Queue中
+que.EnQue(tensor2);// 将tensor2加入VECOUT的Queue中
+que.EnQue(tensor3);// 将tensor3加入VECOUT的Queue中
+que.EnQue(tensor4);// 将tensor4加入VECOUT的Queue中
+ret = que.VacantInQue(); // 返回为false, 继续入队操作（EnQue）将报错
+```

@@ -1,0 +1,46 @@
+# GetOptionalInputShapeRange
+
+更新时间：2026-04-20 06:34:33
+
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getoptionalinputshaperange
+
+## 函数功能
+
+根据算子原型定义中的输入索引获取对应的可选输入shape range指针。
+
+## 函数原型
+
+
+```text
+const Range *GetOptionalInputShapeRange(const size_t ir_index) const;
+```
+
+
+## 参数说明
+
+
+| 参数 | 输入/输出 | 说明 |
+| --- | --- | --- |
+| ir_index | 输入 | 算子IR原型定义中的输入索引，从0开始计数。 |
+
+
+## 返回值
+
+返回shape range指针，ir_index非法，或该INPUT没有实例化时，返回空指针。
+
+## 约束说明
+
+无
+
+## 调用示例
+
+
+```text
+const auto infer_shape_range_func = [](gert::InferShapeRangeContext *context) -> graphStatus {
+  auto input_shape_range = context->GetOptionalInputShapeRange(0U);
+  auto output_shape_range = context->GetOutputShapeRange(0U);
+  output_shape_range->SetMin(const_cast(input_shape_range->GetMin()));
+  output_shape_range->SetMax(const_cast(input_shape_range->GetMax()));
+  return GRAPH_SUCCESS;
+};
+```
