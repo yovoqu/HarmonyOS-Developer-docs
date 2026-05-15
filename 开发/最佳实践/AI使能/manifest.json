@@ -1,0 +1,23 @@
+[
+  {
+    "section": "AI使能",
+    "slug": "bpta-intent-recommend-practice",
+    "name": "意图框架习惯推荐场景",
+    "file": "AI使能/意图框架习惯推荐场景.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-intent-recommend-practice"
+  },
+  {
+    "section": "AI使能",
+    "slug": "bpta-agent",
+    "name": "智能体场景开发案例",
+    "file": "AI使能/智能体场景开发案例.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-agent"
+  },
+  {
+    "section": "AI使能",
+    "slug": "bpta-ai-ragqa",
+    "name": "基于RAG框架实现邮件智能问答",
+    "file": "AI使能/基于RAG框架实现邮件智能问答.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ai-ragqa"
+  }
+]
