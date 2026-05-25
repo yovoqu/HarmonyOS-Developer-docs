@@ -1,25 +1,19 @@
-# TraceOverlay
+# Interface (TraceOverlay)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-traceoverlay
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### 导入模块
 
 ```ts
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
-
-## TraceOverlay
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### TraceOverlay
 动态轨迹。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -30,46 +24,45 @@ import { map, mapCommon } from '@kit.MapKit';
 
 **示例：**
 
-
 ```ts
 // marker1的参数
 let markerOptions1: mapCommon.MarkerOptions = {
   position: {
     latitude: 31.99227173519985,
-    longitude: 118.7622219990476,
+    longitude: 118.7622219990476
   },
   // 图标需存放在resources/base/media目录下
-  icon: $r('app.media.track_setting_sport_map_marker_22'),
+  icon: $r("app.media.track_setting_sport_map_marker_22"),
   anchorU: 0.5,
   anchorV: 1,
-  visible: true,
+  visible: true
 };
 // 新增marker1
 let markerBoy1 = await this.mapController.addMarker(markerOptions1);
 let boyImages1: map.PlayImageAnimation = new map.PlayImageAnimation();
 boyImages1.setDuration(1000);
 let resourceArray: Array<Resource> = new Array();
-resourceArray.push($r('app.media.side_0'));
-resourceArray.push($r('app.media.side_1'));
-resourceArray.push($r('app.media.side_2'));
-resourceArray.push($r('app.media.side_3'));
-resourceArray.push($r('app.media.side_4'));
-resourceArray.push($r('app.media.side_5'));
-resourceArray.push($r('app.media.side_6'));
-resourceArray.push($r('app.media.side_7'));
-resourceArray.push($r('app.media.side_8'));
-resourceArray.push($r('app.media.side_9'));
-resourceArray.push($r('app.media.side_10'));
-resourceArray.push($r('app.media.side_11'));
-resourceArray.push($r('app.media.side_12'));
-resourceArray.push($r('app.media.side_13'));
-resourceArray.push($r('app.media.side_14'));
-resourceArray.push($r('app.media.side_15'));
-resourceArray.push($r('app.media.side_16'));
-resourceArray.push($r('app.media.side_17'));
-resourceArray.push($r('app.media.side_18'));
-resourceArray.push($r('app.media.side_19'));
-resourceArray.push($r('app.media.side_20'));
+resourceArray.push($r("app.media.side_0"));
+resourceArray.push($r("app.media.side_1"));
+resourceArray.push($r("app.media.side_2"));
+resourceArray.push($r("app.media.side_3"));
+resourceArray.push($r("app.media.side_4"));
+resourceArray.push($r("app.media.side_5"));
+resourceArray.push($r("app.media.side_6"));
+resourceArray.push($r("app.media.side_7"));
+resourceArray.push($r("app.media.side_8"));
+resourceArray.push($r("app.media.side_9"));
+resourceArray.push($r("app.media.side_10"));
+resourceArray.push($r("app.media.side_11"));
+resourceArray.push($r("app.media.side_12"));
+resourceArray.push($r("app.media.side_13"));
+resourceArray.push($r("app.media.side_14"));
+resourceArray.push($r("app.media.side_15"));
+resourceArray.push($r("app.media.side_16"));
+resourceArray.push($r("app.media.side_17"));
+resourceArray.push($r("app.media.side_18"));
+resourceArray.push($r("app.media.side_19"));
+resourceArray.push($r("app.media.side_20"));
 await boyImages1.addImages(resourceArray);
 boyImages1.setRepeatCount(-1);
 
@@ -81,38 +74,38 @@ markerBoy1.startAnimation();
 let markerOptions2: mapCommon.MarkerOptions = {
   position: {
     latitude: 31.99227173519985,
-    longitude: 118.7622219990476,
+    longitude: 118.7622219990476
   },
   // 图标需存放在resources/base/media目录下
-  icon: $r('app.media.track_setting_sport_map_marker_22'),
+  icon: $r("app.media.track_setting_sport_map_marker_22"),
   anchorU: 0.5,
   anchorV: 1,
-  visible: false,
+  visible: false
 };
 // 新增marker2
 let markerBoy2 = await this.mapController.addMarker(markerOptions2);
 let boyImages2: map.PlayImageAnimation = new map.PlayImageAnimation();
 boyImages2.setDuration(1000);
 let resourceArray2: Array<Resource> = new Array();
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_000'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_001'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_002'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_003'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_004'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_005'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_006'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_007'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_008'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_009'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_010'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_011'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_012'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_013'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_014'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_015'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_016'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_017'));
-resourceArray2.push($r('app.media.behavior_front_cycling_boy_018'));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_000"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_001"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_002"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_003"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_004"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_005"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_006"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_007"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_008"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_009"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_010"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_011"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_012"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_013"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_014"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_015"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_016"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_017"));
+resourceArray2.push($r("app.media.behavior_front_cycling_boy_018"));
 await boyImages2.addImages(resourceArray2);
 boyImages2.setRepeatCount(-1);
 // marker2添加动画
@@ -155,7 +148,7 @@ let traceOptions: mapCommon.TraceOverlayParams = {
   // 相机是否跟随动画移动
   isMapMoving: true,
   // 轨迹的颜色
-  color: 0xaaffaa00,
+  color: 0xAAFFAA00,
   // 轨迹的宽度
   width: 20,
   // 轨迹的动画回调（回调轨迹点的index）
@@ -165,25 +158,17 @@ let traceOptions: mapCommon.TraceOverlayParams = {
       markerBoy1.setVisible(false);
       markerBoy2.setVisible(true);
     }
-  },
+  }
 };
 let markers: Array<map.Marker> = new Array();
 markers.push(markerBoy1, markerBoy2);
 // 新增轨迹点动画
-let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(
-  traceOptions,
-  markers,
-);
+let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(traceOptions, markers);
 ```
 
-
-### getId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### getId
 getId(): string
-
 返回动态轨迹的ID。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -194,27 +179,19 @@ getId(): string
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | string | 返回动态轨迹的ID。 |
 
-
 **示例：**
-
 
 ```ts
 let id: string = traceOverlay.getId();
 ```
 
-
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### remove
 remove(): void
-
 删除动态轨迹。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -224,20 +201,14 @@ remove(): void
 **起始版本：** 5.0.0(12)
 
 **示例：**
-
 
 ```ts
 traceOverlay.remove();
 ```
 
-
-### pause
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### pause
 pause(): void
-
 暂停动态轨迹回放。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -247,20 +218,14 @@ pause(): void
 **起始版本：** 5.0.0(12)
 
 **示例：**
-
 
 ```ts
 traceOverlay.pause();
 ```
 
-
-### resume
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### resume
 resume(): void
-
 恢复动态轨迹回放。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -270,7 +235,6 @@ resume(): void
 **起始版本：** 5.0.0(12)
 
 **示例：**
-
 
 ```ts
 traceOverlay.resume();

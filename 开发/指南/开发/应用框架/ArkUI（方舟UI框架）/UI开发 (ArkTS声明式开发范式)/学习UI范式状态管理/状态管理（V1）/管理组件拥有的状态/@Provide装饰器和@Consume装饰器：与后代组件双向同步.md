@@ -1,24 +1,23 @@
 # @Provide装饰器和@Consume装饰器：与后代组件双向同步
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-provide-and-consume
 
 @Provide和@Consume，应用于与后代组件的双向数据同步、状态数据在多个层级之间传递的场景。不同于上文提到的父子组件之间通过命名参数机制传递，@Provide和@Consume摆脱参数传递机制的束缚，实现跨层级传递。
-
 其中@Provide装饰的变量是在祖先组件中，可以理解为被“提供”给后代的状态变量。@Consume装饰的变量是在后代组件中，去“消费（绑定）”祖先组件提供的变量。
-
 @Provide/@Consume是跨组件层级的双向同步。在阅读@Provide和@Consume文档前，建议开发者对UI范式基本语法和自定义组件有基本的了解。建议提前阅读：[基本语法概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-basic-syntax-overview)，[声明式UI描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-declarative-ui-description)，[创建自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 9开始，这两个装饰器支持在ArkTS卡片中使用。 从API version 11开始，这两个装饰器支持在元服务中使用。 API version 19及以前，@Provide和@Consume双向同步仅支持声明式节点场景。 从API version 20开始，@Consume装饰的变量支持设置默认值。当查找不到@Provide的匹配结果时，@Consume装饰的变量会使用默认值进行初始化；当查找到@Provide的匹配结果时，@Consume装饰的变量会优先使用@Provide匹配结果的值，默认值不生效。 从API version 20开始，通过配置BuilderNode的BuildOptions参数enableProvideConsumeCrossing为true，使得@Provide和@Consume支持跨BuilderNode双向同步。但需要注意，BuilderNode会在上树前构造节点，所以BuilderNode内部定义的@Consume需要设置默认值，并在BuilderNode上树后，重新获取最近的@Provide数据，与之建立双向同步关系。具体可见@Consume在跨BuilderNode场景下和@Provide建立双向同步。
 
+#### 概述
+@Provide/@Consume装饰的状态变量有以下特性：
+- @Provide装饰的状态变量自动对其所有后代组件可用，开发者不需要多次在组件之间传递变量。
+- 后代通过使用@Consume获取@Provide提供的变量，建立在@Provide和@Consume之间的双向数据同步，与@State/@Link不同的是，前者可以更便捷的在多层级父子组件之间传递。
+- @Provide和@Consume通过变量名或者变量别名绑定，需要类型相同，否则会发生类型隐式转换，从而导致应用行为异常。
 
-## 概述
-
-@Provide/@Consume装饰的状态变量有以下特性： @Provide装饰的状态变量自动对其所有后代组件可用，开发者不需要多次在组件之间传递变量。 后代通过使用@Consume获取@Provide提供的变量，建立在@Provide和@Consume之间的双向数据同步，与[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)/[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)不同的是，前者可以更便捷的在多层级父子组件之间传递。 @Provide和@Consume通过变量名或者变量别名绑定，需要类型相同，否则会发生类型隐式转换，从而导致应用行为异常。
-```text
+```ts
 // 通过相同的变量名绑定
 @Provide age: number = 0;
 @Consume age: number;
@@ -38,63 +37,62 @@
 
 当@Provide指定变量别名时，会同时保存变量名与变量别名，@Consume在查找时，会优先以变量别名作为查找值去匹配，如果没有别名则用变量名作为查找值，只要@Consume提供的查找值与@Provide保存的变量名或别名中任意一项一致，即可成功建立绑定关系。
 
-## 装饰器说明
-
+#### 装饰器说明
 
 | @Provide变量装饰器 | 说明 |
 | --- | --- |
-| 装饰器参数 | 别名：常量字符串，可选。          如果指定了别名，则通过别名来绑定变量；如果未指定别名，则通过变量名绑定变量。          allowOverride：允许重写，string类型，可选。          如果使用allowOverride指定别名，则别名可以被重写，即可以存在同名的@Provide变量。          未使用allowOverride时则不允许重名。示例见[@Provide支持allowOverride参数](#provide支持allowoverride参数)。 |
-| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。          API version 10开始支持[Date类型](#装饰date类型变量)。          API version 11及以上支持[Map](#装饰map类型变量)、[Set](#装饰set类型变量)类型、undefined和null类型、ArkUI框架定义的联合类型[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)、[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)类型以及这些类型的联合类型，示例见[@Provide和Consume支持联合类型实例](#provide和consume支持联合类型实例)。 |
+| 装饰器参数 | 别名：常量字符串，可选。 如果指定了别名，则通过别名来绑定变量；如果未指定别名，则通过变量名绑定变量。 allowOverride：允许重写，string类型，可选。 如果使用allowOverride指定别名，则别名可以被重写，即可以存在同名的@Provide变量。 未使用allowOverride时则不允许重名。示例见@Provide支持allowOverride参数。 |
+| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。 API version 10开始支持Date类型。 API version 11及以上支持Map、Set类型、undefined和null类型、ArkUI框架定义的联合类型Length、ResourceStr、ResourceColor类型以及这些类型的联合类型，示例见@Provide和Consume支持联合类型实例。 |
 | 不允许装饰的变量类型 | 不支持装饰Function类型。 |
-| 初始化规则 | 必须定义本地默认值。          可以从父组件传入非undefined类型变量，此时使用该传入变量进行初始化。          父组件未传入或传入undefined类型变量时，使用本地默认值进行初始化。 |
-| 同步规则 | 在子组件使用时：          不与父组件中的任何类型变量同步。          父组件传入的外部变量对@Provide初始化时，仅作为初始值，后续变量的变化不会同步至@Provide。          在父组件使用时：          可以初始化子组件的常规变量、@State、@Link、[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)、@Provide。          @Provide变量的变化会同步给子组件的@Link、@Prop变量。          与后代子组件中别名匹配的@Consume变量双同步。 |
+| 初始化规则 | 必须定义本地默认值。 可以从父组件传入非undefined类型变量，此时使用该传入变量进行初始化。 父组件未传入或传入undefined类型变量时，使用本地默认值进行初始化。 |
+| 同步规则 | 在子组件使用时： 不与父组件中的任何类型变量同步。 父组件传入的外部变量对@Provide初始化时，仅作为初始值，后续变量的变化不会同步至@Provide。 在父组件使用时： 可以初始化子组件的常规变量、@State、@Link、@Prop、@Provide。 @Provide变量的变化会同步给子组件的@Link、@Prop变量。 与后代子组件中别名匹配的@Consume变量双同步。 |
 
 **图1** @Provide初始化规则图示
-![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260514130518387-0.png)
+
+![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260525091526199-001.png)
+
 | @Consume变量装饰器 | 说明 |
 | --- | --- |
-| 装饰器参数 | 别名：常量字符串，可选。          如果指定了别名，则通过别名来绑定变量；如果未指定别名，则通过变量名绑定变量。 |
-| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。          API version 10开始支持[Date类型](#装饰date类型变量)。          API version 11及以上支持[Map](#装饰map类型变量)、[Set](#装饰set类型变量)类型、undefined和null类型、ArkUI框架定义的联合类型[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)、[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)类型以及这些类型的联合类型，示例见[@Provide和Consume支持联合类型实例](#provide和consume支持联合类型实例)。          说明：          API version 20之前，@Consume装饰的变量，在其父组件或者祖先组件上，必须有对应的属性和别名的@Provide装饰的变量。 |
+| 装饰器参数 | 别名：常量字符串，可选。 如果指定了别名，则通过别名来绑定变量；如果未指定别名，则通过变量名绑定变量。 |
+| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。 API version 10开始支持Date类型。 API version 11及以上支持Map、Set类型、undefined和null类型、ArkUI框架定义的联合类型Length、ResourceStr、ResourceColor类型以及这些类型的联合类型，示例见@Provide和Consume支持联合类型实例。 说明： API version 20之前，@Consume装饰的变量，在其父组件或者祖先组件上，必须有对应的属性和别名的@Provide装饰的变量。 |
 | 不允许装饰的变量类型 | 不支持装饰Function类型。 |
-| 初始化规则 | API version 20之前，@Consume装饰的变量不支持本地设置默认值，必须要有与其匹配的@Provide装饰的变量。          从API version 20开始，@Consume支持设置默认值。若存在匹配成功的@Provide，则会使用@Provide的变量值作为初始值。若未匹配到@Provide变量，则使用本地默认值。示例见[@Consume装饰的变量支持设置默认值](#consume装饰的变量支持设置默认值)。 |
-| 同步规则 | 在子组件使用时：          与祖先组件匹配的@Provide变量双向同步。          在父组件使用时：          可以初始化子组件的常规变量、@State、@Link、@Prop、@Provide。          @Consume变量的变化会同步给子组件的@Link、@Prop变量。 |
+| 初始化规则 | API version 20之前，@Consume装饰的变量不支持本地设置默认值，必须要有与其匹配的@Provide装饰的变量。 从API version 20开始，@Consume支持设置默认值。若存在匹配成功的@Provide，则会使用@Provide的变量值作为初始值。若未匹配到@Provide变量，则使用本地默认值。示例见@Consume装饰的变量支持设置默认值。 |
+| 同步规则 | 在子组件使用时： 与祖先组件匹配的@Provide变量双向同步。 在父组件使用时： 可以初始化子组件的常规变量、@State、@Link、@Prop、@Provide。 @Consume变量的变化会同步给子组件的@Link、@Prop变量。 |
 
 **图2** @Consume初始化规则图示
-![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260514130518387-1.png)
 
-## 观察变化和行为表现
+![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260525091526199-002.png)
 
+#### 观察变化和行为表现
+#### 观察变化
+- 当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。
+- 当装饰的数据类型为class或者Object的时候，可以观察到赋值和属性赋值的变化（属性为Object.keys(observedObject)返回的所有属性）。
+- 当装饰Array时，可以观察到数组本身、数组项的赋值及其API操作带来的变化。详见装饰Array类型变量。
+- 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds 更新Date的属性，详见装饰Date类型变量。
+- 当装饰的变量是Map时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。详见装饰Map类型变量。
+- 当装饰的变量是Set时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。详见装饰Set类型变量。
 
-## 观察变化
+#### 框架行为
+1. 初始渲染：  @Provide装饰的变量会以Map的形式，传递给当前@Provide所属组件的所有子组件。 子组件中如果使用@Consume变量，则会在Map中查找是否有该变量名/alias（别名）对应的@Provide的变量。在API version 20之前，如果查找不到，框架会抛出JS ERROR。从API version 20开始，如果查找不到，会判断@Consume装饰的变量是否设置了默认值，如果没有设置默认值，框架会抛出JS ERROR。 在初始化@Consume变量时，如果在Map中有该变量名/alias（别名）对应的@Provide的变量，则和@State/@Link的流程类似，@Consume变量会在Map中查找到对应的@Provide变量进行保存，并把自己注册给@Provide。 从API version 20开始，在初始化@Consume变量时，如果在Map中没有该变量名/alias（别名）对应的@Provide的变量，而@Consume的变量设置了默认值时，@Consume变量会利用默认值创建一个临时的数据源，保证通知链路的连续性。
+2. 当@Provide装饰的数据变化时：  通过初始渲染的步骤可知，子组件@Consume已把自己注册给父组件。父组件@Provide变量变更后，会遍历更新所有依赖它的系统组件（elementid）和状态变量（@Consume）。 通知@Consume更新后，子组件所有依赖@Consume的系统组件（elementId）都会被通知更新。以此实现@Provide对@Consume状态数据同步。
+3. 当@Consume装饰的数据变化时： 通过初始渲染的步骤可知，子组件@Consume持有@Provide的实例。在@Consume更新后调用@Provide的更新方法，将更新的数值同步回@Provide，以此实现@Consume向@Provide的同步更新。
 
-当装饰的数据类型为boolean、string、number类型时，可以观察到数值的变化。 当装饰的数据类型为class或者Object的时候，可以观察到赋值和属性赋值的变化（属性为Object.keys(observedObject)返回的所有属性）。 当装饰Array时，可以观察到数组本身、数组项的赋值及其API操作带来的变化。详见[装饰Array类型变量](#装饰array类型变量)。 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds 更新Date的属性，详见[装饰Date类型变量](#装饰date类型变量)。 当装饰的变量是Map时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。详见[装饰Map类型变量](#装饰map类型变量)。 当装饰的变量是Set时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。详见[装饰Set类型变量](#装饰set类型变量)。
+![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260525091526199-003.png)
 
-## 框架行为
-
-初始渲染： @Provide装饰的变量会以Map的形式，传递给当前@Provide所属组件的所有子组件。 子组件中如果使用@Consume变量，则会在Map中查找是否有该变量名/alias（别名）对应的@Provide的变量。在API version 20之前，如果查找不到，框架会抛出JS ERROR。从API version 20开始，如果查找不到，会判断@Consume装饰的变量是否设置了默认值，如果没有设置默认值，框架会抛出JS ERROR。 在初始化@Consume变量时，如果在Map中有该变量名/alias（别名）对应的@Provide的变量，则和@State/@Link的流程类似，@Consume变量会在Map中查找到对应的@Provide变量进行保存，并把自己注册给@Provide。 从API version 20开始，在初始化@Consume变量时，如果在Map中没有该变量名/alias（别名）对应的@Provide的变量，而@Consume的变量设置了默认值时，@Consume变量会利用默认值创建一个临时的数据源，保证通知链路的连续性。 当@Provide装饰的数据变化时： 通过初始渲染的步骤可知，子组件@Consume已把自己注册给父组件。父组件@Provide变量变更后，会遍历更新所有依赖它的系统组件（elementid）和状态变量（@Consume）。 通知@Consume更新后，子组件所有依赖@Consume的系统组件（elementId）都会被通知更新。以此实现@Provide对@Consume状态数据同步。 当@Consume装饰的数据变化时： 通过初始渲染的步骤可知，子组件@Consume持有@Provide的实例。在@Consume更新后调用@Provide的更新方法，将更新的数值同步回@Provide，以此实现@Consume向@Provide的同步更新。
-![](assets/@Provide装饰器和@Consume装饰器：与后代组件双向同步/file-20260514130518387-2.png)
-
-## 限制条件
-
-@Provide/@Consume的参数key必须为string类型，否则编译时会报错。
-```text
-// 错误写法，编译报错
+#### 限制条件
+1. @Provide/@Consume的参数key必须为string类型，否则编译时会报错。 // 错误写法，编译报错
 let change: number = 10;
 @Provide(change) message: string = 'Hello';
 
 // 正确写法
 let change: string = 'change';
 @Provide(change) message: string = 'Hello';
-```
-
-@Consume装饰的变量不能在构造参数中传入初始化，否则编译时会报错。@Consume仅能通过key来匹配对应的@Provide变量或者从API version 20开始设置默认值进行初始化。 【反例】
-```text
-@Component
+2. @Consume装饰的变量不能在构造参数中传入初始化，否则编译时会报错。@Consume仅能通过key来匹配对应的@Provide变量或者从API version 20开始设置默认值进行初始化。 【反例】 @Component
 struct Child {
   @Consume msg: string;
 
   build() {
-    Text(this.msg)
+ Text(this.msg)
   }
 }
 
@@ -104,27 +102,22 @@ struct Parent {
   @Provide message: string = 'Hello';
 
   build() {
-    Column() {
-      // 错误写法，不允许外部传入初始化
-      Child({msg: 'Hello'})
-    }
+ Column() {
+ // 错误写法，不允许外部传入初始化
+ Child({msg: 'Hello'})
+ }
   }
-}
-```
-
-【正例】
-```text
-@Component
+} 【正例】 @Component
 struct Child {
   @Consume num: number;
   // 从API version 20开始，@Consume装饰的变量支持设置默认值
   @Consume num1: number = 17;
 
   build() {
-    Column() {
-      Text(`Value of num: ${this.num}`)
-      Text(`Value of num1: ${this.num1}`)
-    }
+ Column() {
+ Text(`Value of num: ${this.num}`)
+ Text(`Value of num1: ${this.num1}`)
+ }
   }
 }
 
@@ -134,35 +127,27 @@ struct Parent {
   @Provide num: number = 10;
 
   build() {
-    Column() {
-      Text(`Value of num: ${this.num}`)
-      Child()
-    }
+ Column() {
+ Text(`Value of num: ${this.num}`)
+ Child()
+ }
   }
 }
-```
-
-@Provide的key重复定义时，框架会抛出运行时错误，从API version 23开始，将返回错误码[140114](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140114-声明重复key的provide)，提醒开发者重复定义key。如果开发者需要重复key，可以使用[allowOverride](#provide支持allowoverride参数)。
-```text
-// 错误写法，a重复定义
+3. @Provide的key重复定义时，框架会抛出运行时错误，从API version 23开始，将返回错误码140114，提醒开发者重复定义key。如果开发者需要重复key，可以使用allowOverride。 // 错误写法，a重复定义
 @Provide('a') count: number = 10;
 @Provide('a') num: number = 10;
 
 // 正确写法
 @Provide('a') count: number = 10;
 @Provide('b') num: number = 10;
-```
-
-在API version 20之前，初始化@Consume变量时，如果开发者没有定义对应key的@Provide变量，框架会抛出运行时错误，提示开发者初始化@Consume变量失败，原因是无法找到其对应key的@Provide变量。从API version 20开始，初始化@Consume变量时，如果开发者没有定义对应key的@Provide变量，同时没有设置默认值，框架会抛出运行时错误，从API version 23开始，将返回错误码[140112](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140112-consume缺失对应的provide)，提示开发者初始化@Consume变量失败，原因是无法找到其对应key的@Provide变量同时也没有设置默认值。 【反例】
-```text
-@Component
+4. 在API version 20之前，初始化@Consume变量时，如果开发者没有定义对应key的@Provide变量，框架会抛出运行时错误，提示开发者初始化@Consume变量失败，原因是无法找到其对应key的@Provide变量。从API version 20开始，初始化@Consume变量时，如果开发者没有定义对应key的@Provide变量，同时没有设置默认值，框架会抛出运行时错误，从API version 23开始，将返回错误码140112，提示开发者初始化@Consume变量失败，原因是无法找到其对应key的@Provide变量同时也没有设置默认值。 【反例】 @Component
 struct Child {
   @Consume num: number;
 
   build() {
-    Column() {
-      Text(`num的值: ${this.num}`)
-    }
+ Column() {
+ Text(`num的值: ${this.num}`)
+ }
   }
 }
 
@@ -173,27 +158,22 @@ struct Parent {
   num: number = 10;
 
   build() {
-    Column() {
-      Text(`num的值: ${this.num}`)
-      Child()
-    }
+ Column() {
+ Text(`num的值: ${this.num}`)
+ Child()
+ }
   }
-}
-```
-
-【正例】
-```text
-@Component
+} 【正例】 @Component
 struct Child {
   @Consume num: number;
   // 正确写法 从API version 20开始，@Consume装饰的变量支持设置默认值
   @Consume numWithDefaultValue: number = 6;
 
   build() {
-    Column() {
-      Text(`Value of num: ${this.num}`)
-      Text(`Value of numWithDefaultValue: ${this.numWithDefaultValue}`)
-    }
+ Column() {
+ Text(`Value of num: ${this.num}`)
+ Text(`Value of numWithDefaultValue: ${this.numWithDefaultValue}`)
+ }
   }
 }
 
@@ -204,48 +184,40 @@ struct Parent {
   @Provide num: number = 10;
 
   build() {
-    Column() {
-      Text(`Value of num: ${this.num}`)
-      Child()
-    }
+ Column() {
+ Text(`Value of num: ${this.num}`)
+ Child()
+ }
   }
 }
-```
-
-@Provide与@Consume不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。 从API version 23开始，添加对@Provide与@Consume装饰Function类型变量的校验，编译期会报错。 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。在BuilderNode上树时，@Consume通过key匹配找到最近的@Provide，两者类型需要一致，如果不一致，则会抛出运行时错误。 需要注意类型不相等判断，包括类实例的判断，比如：
-```text
-class A {}
+5. @Provide与@Consume不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。 从API version 23开始，在应用编译时添加了相关校验，@Provide与@Consume装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Provide或@Consume装饰器。
+6. 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。在BuilderNode上树时，@Consume通过key匹配找到最近的@Provide，两者类型需要一致，如果不一致，则会抛出运行时错误。 需要注意类型不相等判断，包括类实例的判断，比如： class A {}
 class B {}
 // 两个message都为object类型，但其构造函数不同，属于不同类型
 @Provide message: A = new A();
-@Consume message: B = new B();
-```
-
-在非BuilderNode场景中，仍建议配对的@Provide/@Consume类型一致。虽然在运行时不会有强校验，但在@Consume装饰的变量初始化时，会隐式转换成@Provide装饰变量的类型。
-```text
-import { NodeController, BuilderNode, FrameNode, UIContext } from '@kit.ArkUI';
+@Consume message: B = new B(); 在非BuilderNode场景中，仍建议配对的@Provide/@Consume类型一致。虽然在运行时不会有强校验，但在@Consume装饰的变量初始化时，会隐式转换成@Provide装饰变量的类型。 import { NodeController, BuilderNode, FrameNode, UIContext } from '@kit.ArkUI';
 
 @Builder
 function buildText() {
   Column() {
-    Child()
+ Child()
   }
 }
 
 class TextNodeController extends NodeController {
-  private builderNode: BuilderNode | null = null;
+  private builderNode: BuilderNode<[]> | null = null;
 
   constructor() {
-    super();
+ super();
   }
 
   makeNode(context: UIContext): FrameNode | null {
-    this.builderNode = new BuilderNode(context);
-    // 配置跨BuilderNode支持@Provide/@Consume
-    this.builderNode.build(wrapBuilder(buildText), undefined,
-      { enableProvideConsumeCrossing: true });
-    // 将BuilderNode的根节点挂载到NodeContainer
-    return this.builderNode.getFrameNode();
+ this.builderNode = new BuilderNode(context);
+ // 配置跨BuilderNode支持@Provide/@Consume
+ this.builderNode.build(wrapBuilder(buildText), undefined,
+ { enableProvideConsumeCrossing: true });
+ // 将BuilderNode的根节点挂载到NodeContainer
+ return this.builderNode.getFrameNode();
   }
 }
 
@@ -256,13 +228,13 @@ struct Index {
   controller: TextNodeController = new TextNodeController();
 
   build() {
-    Column() {
-      NodeContainer(this.controller)
-        .width('100%')
-        .height(100)
-    }
-    .width('100%')
-    .height('100%')
+ Column() {
+ NodeContainer(this.controller)
+ .width('100%')
+ .height(100)
+ }
+ .width('100%')
+ .height('100%')
   }
 }
 
@@ -273,27 +245,23 @@ struct Child {
   @Consume message: number = 0;
 
   build() {
-    Column() {
-      Text(`@Consume ${this.message}`)
-    }
+ Column() {
+ Text(`@Consume ${this.message}`)
+ }
   }
 }
-```
-
-父组件传入undefined时，@Provide装饰的变量仍使用本地默认值进行初始化。
-```text
-@Entry
+7. 父组件传入undefined时，@Provide装饰的变量仍使用本地默认值进行初始化。 @Entry
 @Component
 struct Parent {
   @State count: number | undefined = undefined;
 
   build() {
-    Column() {
-      Text(`Parent count value: ${this.count}`)
-        .fontSize(20)
-        .margin(10)
-      Child({ count: this.count })
-    }
+ Column() {
+ Text(`Parent count value: ${this.count}`)
+ .fontSize(20)
+ .margin(10)
+ Child({ count: this.count })
+ }
   }
 }
 
@@ -303,23 +271,19 @@ struct Child {
   @Provide count: number | undefined = 0;
 
   build() {
-    Column() {
-      Text(`Child count value: ${this.count}`)
-        .fontSize(20)
-        .margin(10)
-    }
+ Column() {
+ Text(`Child count value: ${this.count}`)
+ .fontSize(20)
+ .margin(10)
+ }
   }
 }
-```
 
-
-## 使用场景
-
-
-## @Provide变量与@Consume变量建立双向绑定
-
+#### 使用场景
+#### @Provide变量与@Consume变量建立双向绑定
 以下示例是@Provide变量与后代组件中@Consume变量进行双向同步的场景。当分别点击ToDo和ToDoItem组件内的Button时，count的更改会双向同步在ToDo和ToDoItem中。
-```text
+
+```ArkTS
 @Component
 struct ToDoItem {
   // @Consume装饰的变量通过相同的属性名绑定其祖先组件ToDo内的@Provide装饰的变量
@@ -368,11 +332,10 @@ struct ToDo {
 }
 ```
 
-
-## 装饰Array类型变量
-
+#### 装饰Array类型变量
 以下示例中，message类型为number[]，点击Button改变message的值，视图会随之刷新。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct Index {
@@ -437,18 +400,17 @@ struct Child {
 }
 ```
 
+#### 装饰Map类型变量
 
-## 装饰Map类型变量
-
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 11开始，@Provide，@Consume支持Map类型。
 
-以下示例中，message类型为Map，点击Button改变message的值，视图会随之刷新。
-```text
+以下示例中，message类型为Map<number, string>，点击Button改变message的值，视图会随之刷新。
+
+```ArkTS
 @Component
 struct Child {
-  @Consume message: Map
+  @Consume message: Map<number, string>
 
   build() {
     Column() {
@@ -488,7 +450,7 @@ struct Child {
 @Entry
 @Component
 struct MapSample {
-  @Provide message: Map = new Map([[0, 'a'], [1, 'b'], [3, 'c']])
+  @Provide message: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']])
 
   build() {
     Row() {
@@ -507,18 +469,17 @@ struct MapSample {
 }
 ```
 
+#### 装饰Set类型变量
 
-## 装饰Set类型变量
-
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 11开始，@Provide，@Consume支持Set类型。
 
-以下示例中，message类型为Set，点击Button改变message的值，视图会随之刷新。
-```text
+以下示例中，message类型为Set&lt;number&gt;，点击Button改变message的值，视图会随之刷新。
+
+```ArkTS
 @Component
 struct Child {
-  @Consume message: Set
+  @Consume message: Set<number>
 
   build() {
     Column() {
@@ -553,7 +514,7 @@ struct Child {
 @Entry
 @Component
 struct SetSample {
-  @Provide message: Set = new Set([0, 1, 2, 3, 4])
+  @Provide message: Set<number> = new Set([0, 1, 2, 3, 4])
 
   build() {
     Row() {
@@ -572,11 +533,10 @@ struct SetSample {
 }
 ```
 
-
-## 装饰Date类型变量
-
+#### 装饰Date类型变量
 以下示例中，selectedDate类型为Date，点击Button改变selectedDate的值，视图会随之刷新。
-```text
+
+```ArkTS
 @Component
 struct Child {
   @Consume selectedDate: Date;
@@ -631,11 +591,10 @@ struct Parent {
 }
 ```
 
-
-## Provide和Consume支持联合类型实例
-
+#### Provide和Consume支持联合类型实例
 @Provide和@Consume支持联合类型和undefined和null。以下示例中，count类型为string | undefined，当点击父组件Parent中的Button改变count的属性或者类型时，Child中也会对应刷新。
-```text
+
+```ArkTS
 @Component
 struct Child {
   // @Consume装饰的变量通过相同的属性名绑定其祖先组件Ancestors内的@Provide装饰的变量
@@ -676,11 +635,10 @@ struct Ancestors {
 }
 ```
 
-
-## @Provide支持allowOverride参数
-
+#### @Provide支持allowOverride参数
 allowOverride：@Provide重写选项。
-> [!NOTE]
+
+> [!NOTE] 说明
 > 从API version 11开始使用。
 
 
@@ -689,7 +647,7 @@ allowOverride：@Provide重写选项。
 | allowOverride | string | 否 | 是否允许@Provide重写。允许在同一组件树下通过allowOverride重写同名的@Provide。如果开发者未写allowOverride，定义同名的@Provide，运行时会报错。 |
 
 
-```text
+```ArkTS
 @Component
 struct MyComponent {
   // 使用allowOverride参数重写同名的@Provide
@@ -702,7 +660,8 @@ struct MyComponent {
 ```
 
 完整示例如下：
-```text
+
+```ArkTS
 @Component
 struct GrandSon {
   // @Consume装饰的变量通过相同的属性名绑定其祖先内的@Provide装饰的变量
@@ -753,16 +712,20 @@ struct GrandParent {
 }
 ```
 
-在上面的示例中： GrandParent声明了@Provide('reviewVotes') reviewVotes: number = 40。 Parent是GrandParent的子组件，声明@Provide为allowOverride，重写父组件GrandParent的@Provide('reviewVotes') reviewVotes: number = 40。如果不设置allowOverride，则会抛出运行时报错，提示@Provide重复定义。Child同理。 GrandSon在初始化@Consume的时候，@Consume装饰的变量通过相同的属性名绑定其最近的祖先的@Provide装饰的变量。 GrandSon查找到相同属性名的@Provide在祖先Child中，所以@Consume('reviewVotes') reviewVotes: number初始化数值为10。如果Child中没有定义与@Consume同名的@Provide，则继续向上寻找Parent中的同名@Provide值为20，以此类推。 如果查找到根节点还没有找到key对应的@Provide，则会报初始化@Consume找不到@Provide的报错。
+在上面的示例中：
+- GrandParent声明了@Provide('reviewVotes') reviewVotes: number = 40。
+- Parent是GrandParent的子组件，声明@Provide为allowOverride，重写父组件GrandParent的@Provide('reviewVotes') reviewVotes: number = 40。如果不设置allowOverride，则会抛出运行时报错，提示@Provide重复定义。Child同理。
+- GrandSon在初始化@Consume的时候，@Consume装饰的变量通过相同的属性名绑定其最近的祖先的@Provide装饰的变量。
+- GrandSon查找到相同属性名的@Provide在祖先Child中，所以@Consume('reviewVotes') reviewVotes: number初始化数值为10。如果Child中没有定义与@Consume同名的@Provide，则继续向上寻找Parent中的同名@Provide值为20，以此类推。
+- 如果查找到根节点还没有找到key对应的@Provide，则会报初始化@Consume找不到@Provide的报错。
 
-## @Consume装饰的变量支持设置默认值
+#### @Consume装饰的变量支持设置默认值
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 20开始，@Consume装饰的变量支持设置默认值。
 
 
-```text
+```ArkTS
 @Component
 struct MyComponent {
   // @Consume装饰的变量设置默认值
@@ -775,7 +738,8 @@ struct MyComponent {
 ```
 
 完整示例如下：
-```text
+
+```ArkTS
 @Entry
 @Component
 struct Parent {
@@ -842,16 +806,30 @@ struct Child {
 }
 ```
 
-在上面的示例中： Parent声明了@Provide('firstKey') provideOne: string | undefined = undefined 与 @Provide('secondKey') provideTwo: string = 'the second provider'。 Child声明了@Consume('firstKey') textOne: string | undefined = 'child'，@Consume('secondKey') textTwo: string 与 @Consume('thirdKey') textThree: string = 'defaultValue'。 Child是Parent的子组件，Child在初始化@Consume装饰的三个属性时，textOne根据'firstKey'别名绑定Parent中的provideOne属性，provideOne的值会覆盖textOne的默认值，所以textOne初始化的值为undefined；textTwo根据'secondKey'别名绑定Parent中的providedTwo属性，textTwo初始化的值为'the second provider'；textThree在祖先组件中不存在匹配结果，如果@Consume没有设置默认值，则会抛出运行时错误，示例中textThree有默认值'defaultValue'，所以textThree初始化的值为'defaultValue'。 @Consume装饰的属性设置的默认值仅在祖先组件没有匹配结果时才生效，有匹配结果时无影响。
+在上面的示例中：
+- Parent声明了@Provide('firstKey') provideOne: string | undefined = undefined 与 @Provide('secondKey') provideTwo: string = 'the second provider'。
+- Child声明了@Consume('firstKey') textOne: string | undefined = 'child'，@Consume('secondKey') textTwo: string 与 @Consume('thirdKey') textThree: string = 'defaultValue'。
+- Child是Parent的子组件，Child在初始化@Consume装饰的三个属性时，textOne根据'firstKey'别名绑定Parent中的provideOne属性，provideOne的值会覆盖textOne的默认值，所以textOne初始化的值为undefined；textTwo根据'secondKey'别名绑定Parent中的providedTwo属性，textTwo初始化的值为'the second provider'；textThree在祖先组件中不存在匹配结果，如果@Consume没有设置默认值，则会抛出运行时错误，示例中textThree有默认值'defaultValue'，所以textThree初始化的值为'defaultValue'。
+- @Consume装饰的属性设置的默认值仅在祖先组件没有匹配结果时才生效，有匹配结果时无影响。
 
-## @Consume在跨BuilderNode场景下和@Provide建立双向同步
+#### @Consume在跨BuilderNode场景下和@Provide建立双向同步
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。
 
-BuilderNode支持@Provide/@Consume，需注意： 在BuilderNode子树中定义的@Consume需要设置默认值，或者在子树中已存在配对的@Provide，否则会发生运行时报错。 BuilderNode上树后，设置默认值的@Consume会向上查找@Provide，根据key的匹配规则找到最近的@Provide后，会和@Provide建立双向同步关系。如果找不到配对的@Provide，则@Consume仍使用默认值。 建立双向同步的关系后，如果@Provide装饰变量的值和@Consume的默认值不同，则会回调@Consume的[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)方法，以及与@Consume有同步关系的变量的@Watch方法，例如@Consume通知与其双向同步的@Link触发@Watch方法。 BuilderNode下树后，@Consume会再次试图查找对应的@Provide，如果发现下树后无法再找到之前配对的@Provide，则断开和@Provide的双向同步关系，@Consume装饰的变量恢复成默认值。 @Consume断开和@Provide的连接，恢复成默认值时，会判断@Consume装饰变量的值从和@Provide变为@Consume的默认值是否有变化，如果有变化，则会回调@Consume以及与其有同步关系变量的@Watch方法。 在下面的例子中： 点击add Child: 构建BuilderNode下的子节点Child，Child中@Consume未找到@Provide，使用本地默认值default value初始化。 BuilderNode上树时，Child中@Consume向上找到最近的Index中的@Provide，将@Consume从默认值更新为@Provide的值，并回调@Consume的@Watch方法。 @Provide和@Consume配对后，建立双向同步关系。点击Text(`@Provide: ${this.message}`)和Text(`@Consume ${this.message}`)，@Provide和@Consume绑定的Text组件刷新，并回调@Provide和@Consume的@Watch方法。 点击remove Child, BuilderNode子节点下树，Child中的@Consume和Index中的@Provide断开连接，Child中的@Consume恢复成默认值，并回调@Consume的@Watch方法。 点击dispose Child，释放BuilderNode下子节点，BuilderNode子节点Child销毁，执行[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)。
-```text
+BuilderNode支持@Provide/@Consume，需注意：
+1. 在BuilderNode子树中定义的@Consume需要设置默认值，或者在子树中已存在配对的@Provide，否则会发生运行时报错。
+2. BuilderNode上树后，设置默认值的@Consume会向上查找@Provide，根据key的匹配规则找到最近的@Provide后，会和@Provide建立双向同步关系。如果找不到配对的@Provide，则@Consume仍使用默认值。
+3. 建立双向同步的关系后，如果@Provide装饰变量的值和@Consume的默认值不同，则会回调@Consume的[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)方法，以及与@Consume有同步关系的变量的@Watch方法，例如@Consume通知与其双向同步的@Link触发@Watch方法。
+4. BuilderNode下树后，@Consume会再次试图查找对应的@Provide，如果发现下树后无法再找到之前配对的@Provide，则断开和@Provide的双向同步关系，@Consume装饰的变量恢复成默认值。
+5. @Consume断开和@Provide的连接，恢复成默认值时，会判断@Consume装饰变量的值从和@Provide变为@Consume的默认值是否有变化，如果有变化，则会回调@Consume以及与其有同步关系变量的@Watch方法。
+在下面的例子中：
+1. 点击add Child: 构建BuilderNode下的子节点Child，Child中@Consume未找到@Provide，使用本地默认值default value初始化。 BuilderNode上树时，Child中@Consume向上找到最近的Index中的@Provide，将@Consume从默认值更新为@Provide的值，并回调@Consume的@Watch方法。
+2. @Provide和@Consume配对后，建立双向同步关系。点击Text(`@Provide: ${this.message}`)和Text(`@Consume ${this.message}`)，@Provide和@Consume绑定的Text组件刷新，并回调@Provide和@Consume的@Watch方法。
+3. 点击remove Child, BuilderNode子节点下树，Child中的@Consume和Index中的@Provide断开连接，Child中的@Consume恢复成默认值，并回调@Consume的@Watch方法。
+4. 点击dispose Child，释放BuilderNode下子节点，BuilderNode子节点Child销毁，执行[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)。
+
+```ts
 import { NodeController, BuilderNode, FrameNode, UIContext } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -867,7 +845,7 @@ function buildText() {
 class TextNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
   private uiContext: UIContext | null = null;
-  private builderNode: BuilderNode | null = null;
+  private builderNode: BuilderNode<[]> | null = null;
 
   constructor() {
     super();
@@ -987,14 +965,12 @@ struct Child {
 }
 ```
 
+#### 常见问题
+#### @BuilderParam尾随闭包情况下@Provide未定义错误
+在此[尾随闭包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam#尾随闭包初始化组件)场景下，CustomWidget执行this.builder()创建子组件CustomWidgetChild时，this指向的是HomePage。因此找不到CustomWidget的@Provide变量，所以下面示例会报找不到@Provide错误，和@BuilderParam连用的时候要谨慎this的指向。
+错误示例：
 
-## 常见问题
-
-
-## @BuilderParam尾随闭包情况下@Provide未定义错误
-
-在此[尾随闭包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam#尾随闭包初始化组件)场景下，CustomWidget执行this.builder()创建子组件CustomWidgetChild时，this指向的是HomePage。因此找不到CustomWidget的@Provide变量，所以下面示例会报找不到@Provide错误，和@BuilderParam连用的时候要谨慎this的指向。 错误示例：
-```text
+```ts
 class Tmp {
   a: string = '';
 }
@@ -1057,7 +1033,8 @@ struct CustomWidgetChild {
 ```
 
 正确示例：
-```text
+
+```ArkTS
 class Tmp {
   public name: string = '';
 }

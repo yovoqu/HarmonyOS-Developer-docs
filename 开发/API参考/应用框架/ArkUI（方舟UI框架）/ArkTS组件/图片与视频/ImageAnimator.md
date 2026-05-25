@@ -1,48 +1,33 @@
 # ImageAnimator
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-05-22 07:27:49
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imageanimator
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供帧动画组件来实现逐帧播放图片的能力，可以配置需要播放的图片列表，每张图片可以配置时长。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 子组件
 无
 
-
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 接口
 ImageAnimator()
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 属性
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-
-### images
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-images(value: Array<ImageFrameInfo>)
-
-设置图片帧信息集合。不支持动态更新。
-
+#### images
+images(value: Array&lt;ImageFrameInfo&gt;)
+设置图片帧信息集合。不支持动态更新，动态更新可能会导致不可预期的行为。
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -51,19 +36,13 @@ images(value: Array<ImageFrameInfo>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;[ImageFrameInfo](#imageframeinfo对象说明)&gt; | 是 | 设置图片帧信息集合。每一帧的帧信息(ImageFrameInfo)包含图片路径、图片大小、图片位置和图片播放时长信息，详见[ImageFrameInfo](#imageframeinfo对象说明)对象说明。          默认值：[]          说明： 传入数组的内容过大时，内存占用会随之升高。此内存由开发者自行控制。因此，开发者在传入数据前，请充分评估内存消耗情况，以避免内存不足等问题。 |
+| value | Array&lt;ImageFrameInfo&gt; | 是 | 设置图片帧信息集合。每一帧的帧信息(ImageFrameInfo)包含图片路径、图片大小、图片位置和图片播放时长信息，详见ImageFrameInfo对象说明。 默认值：[] 说明： 传入数组的内容过大时，内存占用会随之升高。此内存由开发者自行控制。因此，开发者在传入数据前，请充分评估内存消耗情况，以避免内存不足等问题。 |
 
-
-### state
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### state
 state(value: AnimationStatus)
-
 控制播放状态。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -72,19 +51,13 @@ state(value: AnimationStatus)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [AnimationStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#animationstatus) | 是 | 默认为初始状态，用于控制播放状态。          默认值：AnimationStatus.Initial |
+| value | AnimationStatus | 是 | 默认为初始状态，用于控制播放状态。 默认值：AnimationStatus.Initial |
 
-
-### duration
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### duration
 duration(value: number)
-
 设置播放时长。当Images中任意一帧图片设置了单独的duration后，该属性设置无效。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -93,19 +66,13 @@ duration(value: number)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 播放时长。          value为0时，不播放图片。          value平均分配给单张图片的播放时长小于一帧时间，将导致播放异常。          设置为负数时，取默认值。          value的改变只会在下一次循环开始时生效。          单位：毫秒          默认值：1000ms |
+| value | number | 是 | 播放时长。 value为0时，不播放图片。 value平均分配给单张图片的播放时长小于一帧时间，将导致播放异常。 设置为负数时，取默认值。 value的改变只会在下一次循环开始时生效。 单位：毫秒 默认值：1000ms |
 
-
-### reverse
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### reverse
 reverse(value: boolean)
-
 设置播放方向。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -114,19 +81,13 @@ reverse(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 播放方向。          false表示从第1张图片播放到最后1张图片，true表示从最后1张图片播放到第1张图片。          默认值：false |
+| value | boolean | 是 | 播放方向。 false表示从第1张图片播放到最后1张图片，true表示从最后1张图片播放到第1张图片。 默认值：false |
 
-
-### fixedSize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fixedSize
 fixedSize(value: boolean)
-
 设置图片大小是否固定为组件大小。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -135,40 +96,28 @@ fixedSize(value: boolean)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | boolean | 是 | 设置图片大小是否固定为组件大小。 true表示图片大小与组件大小一致，此时设置图片的width 、height 、top 和left属性无效。false表示每一张图片的width 、height 、top和left属性都要单独设置。图片宽高与组件宽高不一致时，图片不会被拉伸。          默认值：true |
+| value | boolean | 是 | 设置图片大小是否固定为组件大小。 true表示图片大小与组件大小一致，此时设置图片的width 、height 、top 和left属性无效。false表示每一张图片的width 、height 、top和left属性都要单独设置。图片宽高与组件宽高不一致时，图片不会被拉伸。 默认值：true |
 
-
-### preDecode(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### preDecode(deprecated)
 preDecode(value: number)
-
 设置预解码的图片数量。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 7开始支持，从API version 9开始废弃。当前无可替代接口。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 预解码的图片数量。例如，设置为2时，播放当前页时会提前加载后面两张图片至缓存，以提升性能。          默认值：0 |
+| value | number | 是 | 预解码的图片数量。例如，设置为2时，播放当前页时会提前加载后面两张图片至缓存，以提升性能。 默认值：0 |
 
-
-### fillMode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fillMode
 fillMode(value: FillMode)
-
 设置当前播放方向下，动画开始前和结束后的状态。动画结束后的状态由fillMode和reverse属性共同决定。例如，fillMode为Forwards表示停止时维持动画最后一个关键帧的状态，若reverse为false则维持正播的最后一帧，即最后一张图，若reverse为true则维持逆播的最后一帧，即第一张图。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -177,83 +126,57 @@ fillMode(value: FillMode)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [FillMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fillmode) | 是 | 当前播放方向下，动画开始前和结束后的状态。          默认值：FillMode.Forwards |
+| value | FillMode | 是 | 当前播放方向下，动画开始前和结束后的状态。 默认值：FillMode.Forwards |
 
-
-### iterations
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### iterations
 iterations(value: number)
-
 设置播放次数。
-
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number | 是 | 默认播放一次，设置为-1时表示无限次播放，设置为小于-1的负数时取默认值。设置为浮点数时，数值向下取整。          默认值：1 |
+| value | number | 是 | 默认播放一次，设置为-1时表示无限次播放，设置为小于-1的负数时取默认值。设置为浮点数时，数值向下取整。 默认值：1 |
 
-
-### monitorInvisibleArea17+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### monitorInvisibleArea17+
 monitorInvisibleArea(monitorInvisibleArea: boolean)
-
 设置组件是否通过系统[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)的可见性判定，控制组件的暂停和播放。
-
 **元服务API：** 从API version 17开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| monitorInvisibleArea | boolean | 是 | 当设置为true时，组件将基于系统的[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)可见性判定，控制组件的暂停和播放。          当组件的运行状态为[AnimationStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#animationstatus)的Running时，若判定组件不可见，则自动执行暂停操作；若判定为可见，则自动恢复播放。          当设置为false时，组件的暂停和播放不受到onVisibleAreaChange影响。          默认值：false          说明：          当该属性由true动态修改为false时，组件将依据当前的[AnimationStatus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#animationstatus)状态进行处理。          例如，若当前状态为Running且因[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)的不可见回调暂停，则在属性由true改为false后，组件会从上次暂停的位置重新开始播放。          由该属性导致的不可见暂停和可见暂停操作不会改变用户设置的[state](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imageanimator#state)值。 |
+| monitorInvisibleArea | boolean | 是 | 当设置为true时，组件将基于系统的onVisibleAreaChange可见性判定，控制组件的暂停和播放。 当组件的运行状态为AnimationStatus的Running时，若判定组件不可见，则自动执行暂停操作；若判定为可见，则自动恢复播放。 当设置为false时，组件的暂停和播放不受到onVisibleAreaChange影响。 默认值：false 说明： 当该属性由true动态修改为false时，组件将依据当前的AnimationStatus状态进行处理。 例如，若当前状态为Running且因onVisibleAreaChange的不可见回调暂停，则在属性由true改为false后，组件会从上次暂停的位置重新开始播放。 由该属性导致的不可见暂停和可见暂停操作不会改变用户设置的state值。 |
 
-
-## ImageFrameInfo对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### ImageFrameInfo对象说明
 图片帧信息集合。
-
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| src | string \| [Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)9+ \| [PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#pixelmap)12+ | 否 | 否 | 图片路径，图片格式为jpg、jpeg、svg、png、bmp、webp、ico和heif，从API version9开始支持[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型的路径，从API version 12开始支持[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-image-common#pixelmap)类型。          string格式说明：          - 支持加载本地图片路径和网络图片地址。使用相对路径引用本地图片时，不支持跨包或跨模块调用。resources目录下的文件不支持通过相对路径访问，需使用[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resource)类型（如\$r或\$rawfile）来引用，引用方式请参考[加载图片资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#加载图片资源)。          - 支持http和https网络图片地址，使用网络图片时需要申请权限ohos.permission.INTERNET。          - 支持file://路径前缀的字符串，应用沙箱URI为file://\&lt;bundleName&gt;/\&lt;sandboxPath&gt;。沙箱路径需要使用[fileUri.getUriFromPath(path)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包路径下的文件有可读权限。          - 支持Base64字符串。          卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
-| width | number \| string | 否 | 是 | 图片宽度。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。          默认值：0          单位：vp          卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
-| height | number \| string | 否 | 是 | 图片高度。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。          默认值：0          单位：vp          卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
-| top | number \| string | 否 | 是 | 图片相对于组件左上角的纵向坐标。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。          默认值：0          单位：vp          卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
-| left | number \| string | 否 | 是 | 图片相对于组件左上角的横向坐标。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。          默认值：0          单位：vp          卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
-| duration | number | 否 | 是 | 每帧图片的播放时长，单位毫秒。          默认值：0          不支持负数。设置为负数将导致图片在当前帧长时间停留，影响正常播放。 |
+| src | string \| Resource9+ \| PixelMap12+ | 否 | 否 | 图片路径，图片格式为jpg、jpeg、svg、png、bmp、webp、ico和heif，从API version9开始支持Resource类型的路径，从API version 12开始支持PixelMap类型。 string格式说明： - 支持加载本地图片路径和网络图片地址。使用相对路径引用本地图片时，不支持跨包或跨模块调用。resources目录下的文件不支持通过相对路径访问，需使用Resource类型（如$r或$rawfile）来引用，引用方式请参考加载图片资源。 - 支持http和https网络图片地址，使用网络图片时需要申请权限ohos.permission.INTERNET。 - 支持file://路径前缀的字符串，应用沙箱URI为file://\&lt;bundleName&gt;/\&lt;sandboxPath&gt;。沙箱路径需要使用fileUri.getUriFromPath(path)方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包路径下的文件有可读权限。 - 支持Base64字符串。 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用。 |
+| width | number \| string | 否 | 是 | 图片宽度。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。 默认值：0 单位：vp 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
+| height | number \| string | 否 | 是 | 图片高度。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。 默认值：0 单位：vp 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
+| top | number \| string | 否 | 是 | 图片相对于组件左上角的纵向坐标。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。 默认值：0 单位：vp 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
+| left | number \| string | 否 | 是 | 图片相对于组件左上角的横向坐标。string类型支持number类型取值的字符串形式，可以附带单位，例如"2"、"2px"。 默认值：0 单位：vp 卡片能力： 从API version 10开始，该接口支持在ArkTS卡片中使用 |
+| duration | number | 否 | 是 | 每帧图片的播放时长，单位毫秒。 默认值：0 不支持负数。设置为负数将导致图片在当前帧长时间停留，影响正常播放。 |
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 事件
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
-
-### onStart
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### onStart
 onStart(event: () => void)
-
 状态回调，动画开始播放时触发。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -262,19 +185,13 @@ onStart(event: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () =&gt; void | 是 | 状态回调，动画开始播放时触发。 |
+| event | () => void | 是 | 状态回调，动画开始播放时触发。 |
 
-
-### onPause
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### onPause
 onPause(event: () => void)
-
 状态回调，动画暂停播放时触发。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -283,38 +200,26 @@ onPause(event: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () =&gt; void | 是 | 状态回调，动画暂停播放时触发。 |
+| event | () => void | 是 | 状态回调，动画暂停播放时触发。 |
 
-
-### onRepeat
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### onRepeat
 onRepeat(event: () => void)
-
 状态回调，动画重复播放时触发。
-
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () =&gt; void | 是 | 状态回调，动画重复播放时触发。 |
+| event | () => void | 是 | 状态回调，动画重复播放时触发。 |
 
-
-### onCancel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### onCancel
 onCancel(event: () => void)
-
 状态回调，动画返回最初状态时触发。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -323,19 +228,13 @@ onCancel(event: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () =&gt; void | 是 | 状态回调，动画返回最初状态时触发。 |
+| event | () => void | 是 | 状态回调，动画返回最初状态时触发。 |
 
-
-### onFinish
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### onFinish
 onFinish(event: () => void)
-
 状态回调，动画播放完成时或者停止播放时触发。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -344,20 +243,13 @@ onFinish(event: () => void)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | () =&gt; void | 是 | 状态回调，动画播放完成时或者停止播放时触发。 |
+| event | () => void | 是 | 状态回调，动画播放完成时或者停止播放时触发。 |
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### 示例1（播放Resource动画）
-
+#### 示例
+#### 示例1（播放Resource动画）
 通过ImageAnimator组件播放Resource动画。
-
 
 ```ts
 // xxx.ets
@@ -371,48 +263,48 @@ struct ImageAnimatorExample {
   build() {
     Column({ space: 10 }) {
       ImageAnimator()
-      .images([
-      {
-        // $r('app.media.img1')需要替换为开发者所需的图像资源文件。
-        src: $r('app.media.img1')
-      },
-      {
-        // $r('app.media.img2')需要替换为开发者所需的图像资源文件。
-        src: $r('app.media.img2')
-      },
-      {
-        // $r('app.media.img3')需要替换为开发者所需的图像资源文件。
-        src: $r('app.media.img3')
-      },
-      {
-        // $r('app.media.img4')需要替换为开发者所需的图像资源文件。
-        src: $r('app.media.img4')
-      }
-      ])
-      .duration(4000)
-      .state(this.state)
-      .reverse(this.reverse)
-      .fillMode(FillMode.None)
-      .iterations(this.iterations)
-      .width(340)
-      .height(240)
-      .margin({ top: 100 })
-      .onStart(() => {
-        console.info('Start')
-      })
-      .onPause(() => {
-        console.info('Pause')
-      })
-      .onRepeat(() => {
-        console.info('Repeat')
-      })
-      .onCancel(() => {
-        console.info('Cancel')
-      })
-      .onFinish(() => {
-        console.info('Finish')
-        this.state = AnimationStatus.Stopped
-      })
+        .images([
+          {
+            // $r('app.media.img1')需要替换为开发者所需的图像资源文件。
+            src: $r('app.media.img1')
+          },
+          {
+            // $r('app.media.img2')需要替换为开发者所需的图像资源文件。
+            src: $r('app.media.img2')
+          },
+          {
+            // $r('app.media.img3')需要替换为开发者所需的图像资源文件。
+            src: $r('app.media.img3')
+          },
+          {
+            // $r('app.media.img4')需要替换为开发者所需的图像资源文件。
+            src: $r('app.media.img4')
+          }
+        ])
+        .duration(4000)
+        .state(this.state)
+        .reverse(this.reverse)
+        .fillMode(FillMode.None)
+        .iterations(this.iterations)
+        .width(340)
+        .height(240)
+        .margin({ top: 100 })
+        .onStart(() => {
+          console.info('Start')
+        })
+        .onPause(() => {
+          console.info('Pause')
+        })
+        .onRepeat(() => {
+          console.info('Repeat')
+        })
+        .onCancel(() => {
+          console.info('Cancel')
+        })
+        .onFinish(() => {
+          console.info('Finish')
+          this.state = AnimationStatus.Stopped
+        })
       Row() {
         Button('start').width(100).padding(5).onClick(() => {
           this.state = AnimationStatus.Running
@@ -441,13 +333,10 @@ struct ImageAnimatorExample {
 }
 ```
 
-![](assets/ImageAnimator/file-20260514164050496-0.gif)
+![](assets/ImageAnimator/file-20260525091243359-001.gif)
 
-
-### 示例2（播放PixelMap动画）
-
+#### 示例2（播放PixelMap动画）
 通过ImageAnimator组件播放PixelMap动画。
-
 
 ```ts
 // xxx.ets
@@ -480,31 +369,31 @@ struct ImageAnimatorExample {
   build() {
     Column({ space: 10 }) {
       ImageAnimator()
-      .images(this.images)
-      .duration(2000)
-      .state(this.state)
-      .reverse(this.reverse)
-      .fillMode(FillMode.None)
-      .iterations(this.iterations)
-      .width(340)
-      .height(240)
-      .margin({ top: 100 })
-      .onStart(() => {
-        console.info('Start');
-      })
-      .onPause(() => {
-        console.info('Pause');
-      })
-      .onRepeat(() => {
-        console.info('Repeat');
-      })
-      .onCancel(() => {
-        console.info('Cancel');
-      })
-      .onFinish(() => {
-        console.info('Finish');
-        this.state = AnimationStatus.Stopped;
-      })
+        .images(this.images)
+        .duration(2000)
+        .state(this.state)
+        .reverse(this.reverse)
+        .fillMode(FillMode.None)
+        .iterations(this.iterations)
+        .width(340)
+        .height(240)
+        .margin({ top: 100 })
+        .onStart(() => {
+          console.info('Start');
+        })
+        .onPause(() => {
+          console.info('Pause');
+        })
+        .onRepeat(() => {
+          console.info('Repeat');
+        })
+        .onCancel(() => {
+          console.info('Cancel');
+        })
+        .onFinish(() => {
+          console.info('Finish');
+          this.state = AnimationStatus.Stopped;
+        })
       Row() {
         Button('start').width(100).padding(5).onClick(() => {
           this.state = AnimationStatus.Running;
@@ -543,13 +432,10 @@ struct ImageAnimatorExample {
 }
 ```
 
-![](assets/ImageAnimator/file-20260514164050496-1.gif)
+![](assets/ImageAnimator/file-20260525091243359-002.gif)
 
-
-### 示例3（设置不可见自动停播）
-
+#### 示例3（设置不可见自动停播）
 通过[monitorInvisibleArea](#monitorinvisiblearea17)属性实现了当ImageAnimator的[state](#state)属性为AnimationStatus.Running时，控制组件在不可见时停止播放，在可见时恢复播放。
-
 
 ```ts
 @Entry
@@ -567,61 +453,61 @@ struct ImageAnimatorAutoPauseTest {
       Scroll(this.scroller) {
         Column() {
           ImageAnimator()
-          .images([
-          {
-            // $r('app.media.Clouds')需要替换为开发者所需的图像资源文件。
-            src: $r('app.media.Clouds')
-          },
-          {
-            // $r('app.media.landscape')需要替换为开发者所需的图像资源文件。
-            src: $r('app.media.landscape')
-          },
-          {
-            // $r('app.media.sky')需要替换为开发者所需的图像资源文件。
-            src: $r('app.media.sky')
-          },
-          {
-            // $r('app.media.mountain')需要替换为开发者所需的图像资源文件。
-            src: $r('app.media.mountain')
-          }
-          ])
-          .borderRadius(10)
-          .monitorInvisibleArea(true)
-          .clip(true)
-          .duration(4000)
-          .state(this.state)
-          .reverse(this.reverse)
-          .fillMode(FillMode.Forwards)
-          .iterations(this.iterations)
-          .width(340)
-          .height(240)
-          .margin({ top: 100 })
-          .onStart(() => {
-            this.preCallBack = 'Start';
-            console.info('ImageAnimator Start');
-          })
-          .onPause(() => {
-            this.preCallBack = 'Pause';
-            console.info('ImageAnimator Pause');
-          })
-          .onRepeat(() => {
-            console.info('ImageAnimator Repeat');
-          })
-          .onCancel(() => {
-            console.info('ImageAnimator Cancel');
-          })
-          .onFinish(() => {
-            console.info('ImageAnimator Finish');
-          })
+            .images([
+              {
+                // $r('app.media.Clouds')需要替换为开发者所需的图像资源文件。
+                src: $r('app.media.Clouds')
+              },
+              {
+                // $r('app.media.landscape')需要替换为开发者所需的图像资源文件。
+                src: $r('app.media.landscape')
+              },
+              {
+                // $r('app.media.sky')需要替换为开发者所需的图像资源文件。
+                src: $r('app.media.sky')
+              },
+              {
+                // $r('app.media.mountain')需要替换为开发者所需的图像资源文件。
+                src: $r('app.media.mountain')
+              }
+            ])
+            .borderRadius(10)
+            .monitorInvisibleArea(true)
+            .clip(true)
+            .duration(4000)
+            .state(this.state)
+            .reverse(this.reverse)
+            .fillMode(FillMode.Forwards)
+            .iterations(this.iterations)
+            .width(340)
+            .height(240)
+            .margin({ top: 100 })
+            .onStart(() => {
+              this.preCallBack = 'Start';
+              console.info('ImageAnimator Start');
+            })
+            .onPause(() => {
+              this.preCallBack = 'Pause';
+              console.info('ImageAnimator Pause');
+            })
+            .onRepeat(() => {
+              console.info('ImageAnimator Repeat');
+            })
+            .onCancel(() => {
+              console.info('ImageAnimator Cancel');
+            })
+            .onFinish(() => {
+              console.info('ImageAnimator Finish');
+            })
           ForEach(this.arr, (item: number) => {
             Text(item.toString())
-            .width('90%')
-            .height(150)
-            .backgroundColor(0xFFFFFF)
-            .borderRadius(15)
-            .fontSize(16)
-            .textAlign(TextAlign.Center)
-            .margin({ top: 10 })
+              .width('90%')
+              .height(150)
+              .backgroundColor(0xFFFFFF)
+              .borderRadius(15)
+              .fontSize(16)
+              .textAlign(TextAlign.Center)
+              .margin({ top: 10 })
           }, (item: string) => item)
         }.width('100%')
       }
@@ -642,10 +528,10 @@ struct ImageAnimatorAutoPauseTest {
       })
 
       Text('上次触发的回调（Pause/Start）：' + this.preCallBack)
-      .margin({ top: 60, left: 20 })
+        .margin({ top: 60, left: 20 })
     }.width('100%').height('100%').backgroundColor(0xDCDCDC)
   }
 }
 ```
 
-![](assets/ImageAnimator/file-20260514164050496-2.gif)
+![](assets/ImageAnimator/file-20260525091243360-003.gif)

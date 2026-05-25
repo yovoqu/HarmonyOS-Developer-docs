@@ -1,63 +1,44 @@
 # 长时任务开发指导（TaskPool）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/long-time-task-guide
 
 此处提供使用TaskPool进行长时任务的开发指导，以定期采集传感器数据为例。
 
-
-## 使用TaskPool进行传感器数据监听
-
-导入所需的模块。
-```text
-// Index.ets
-import { sensor } from '@kit.SensorServiceKit';
+#### 使用TaskPool进行传感器数据监听
+1. 导入所需的模块。 import { sensor } from '@kit.SensorServiceKit';
 import { taskpool } from '@kit.ArkTS';
 import { BusinessError, emitter } from '@kit.BasicServicesKit';
-```
-
-定义长时任务，内部监听sensor数据，并通过emitter注册销毁通知。
-```text
-// Index.ets
-@Concurrent
-async function SensorListener() : Promise {
+2. 定义长时任务，内部监听sensor数据，并通过emitter注册销毁通知。 @Concurrent
+async function sensorListener(): Promise&lt;void&gt; {
   sensor.on(sensor.SensorId.ACCELEROMETER, (data) => {
-    emitter.emit({ eventId: 0 }, { data: data });
+ emitter.emit({ eventId: 0 }, { data: data });
   }, { interval: 1000000000 });
 
   emitter.on({ eventId: 1 }, () => {
-    sensor.off(sensor.SensorId.ACCELEROMETER)
-    emitter.off(1)
+ sensor.off(sensor.SensorId.ACCELEROMETER)
+ emitter.off(1)
   })
 }
-```
-
-给sensor添加ohos.permission.ACCELEROMETER权限。
-```text
-// module.json5
-"requestPermissions": [
+3. 给sensor添加ohos.permission.ACCELEROMETER权限。 "requestPermissions": [
   {
-    "name": "ohos.permission.ACCELEROMETER"
+ "name": "ohos.permission.ACCELEROMETER"
   }
 ]
-```
-
-宿主线程定义注册及销毁的行为。  注册：发起长时任务，并通过emitter接收监听数据。销毁：发送取消传感器监听的事件，并结束长时任务。
-```text
-import { sensor } from '@kit.SensorServiceKit';
+4. 宿主线程定义注册及销毁的行为。 注册：发起长时任务，并通过emitter接收监听数据。销毁：发送取消传感器监听的事件，并结束长时任务。 import { sensor } from '@kit.SensorServiceKit';
 import { taskpool } from '@kit.ArkTS';
 import { BusinessError, emitter } from '@kit.BasicServicesKit';
 
 @Concurrent
-async function sensorListener(): Promise {
+async function sensorListener(): Promise&lt;void&gt; {
   sensor.on(sensor.SensorId.ACCELEROMETER, (data) => {
-    emitter.emit({ eventId: 0 }, { data: data });
+ emitter.emit({ eventId: 0 }, { data: data });
   }, { interval: 1000000000 });
 
   emitter.on({ eventId: 1 }, () => {
-    sensor.off(sensor.SensorId.ACCELEROMETER)
-    emitter.off(1)
+ sensor.off(sensor.SensorId.ACCELEROMETER)
+ emitter.off(1)
   })
 }
 
@@ -69,41 +50,40 @@ struct Index {
   @State deleteListener: string = 'Delete listener';
 
   build() {
-    Column() {
-      Text(this.addListener)
-        .id('Add listener')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          this.sensorTask = new taskpool.LongTask(sensorListener);
-          emitter.on({ eventId: 0 }, (data) => {
-            // Do something here
-            console.info(`Receive ACCELEROMETER data: {${data.data?.x}, ${data.data?.y}, ${data.data?.z}`);
-          });
-          taskpool.execute(this.sensorTask).then(() => {
-            console.info('Add listener of ACCELEROMETER success');
-          }).catch((e: BusinessError) => {
-            // Process error
-          })
-          this.addListener = 'success';
-        })
-      Text(this.deleteListener)
-        .id('Delete listener')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .onClick(() => {
-          emitter.emit({ eventId: 1 });
-          emitter.off(0);
-          if (this.sensorTask != undefined) {
-            taskpool.terminateTask(this.sensorTask);
-          } else {
-            console.error('sensorTask is undefined.');
-          }
-          this.deleteListener = 'success';
-        })
-    }
-    .height('100%')
-    .width('100%')
+ Column() {
+ Text(this.addListener)
+ .id('Add listener')
+ .fontSize(50)
+ .fontWeight(FontWeight.Bold)
+ .onClick(() => {
+ this.sensorTask = new taskpool.LongTask(sensorListener);
+ emitter.on({ eventId: 0 }, (data) => {
+ // Do something here
+ console.info(`Receive ACCELEROMETER data: {${data.data?.x}, ${data.data?.y}, ${data.data?.z}`);
+ });
+ taskpool.execute(this.sensorTask).then(() => {
+ console.info('Add listener of ACCELEROMETER success');
+ }).catch((e: BusinessError) => {
+ // Process error
+ })
+ this.addListener = 'success';
+ })
+ Text(this.deleteListener)
+ .id('Delete listener')
+ .fontSize(50)
+ .fontWeight(FontWeight.Bold)
+ .onClick(() => {
+ emitter.emit({ eventId: 1 });
+ emitter.off(0);
+ if (this.sensorTask != undefined) {
+ taskpool.terminateTask(this.sensorTask);
+ } else {
+ console.error('sensorTask is undefined.');
+ }
+ this.deleteListener = 'success';
+ })
+ }
+ .height('100%')
+ .width('100%')
   }
 }
-```

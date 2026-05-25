@@ -1,27 +1,26 @@
 # @Env：环境变量
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-env-system-property
 
 在多设备开发的场景中，开发者可以使用[@Env](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property)装饰器监听系统环境变量的改变，并根据系统环境变量来进行相应的场景判断，以减少不同设备间的适配逻辑和重复开发。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 22开始，@Env支持在@Component和@ComponentV2中使用。 从API version 22开始，该装饰器支持在元服务中使用。
 
+#### 概述
+@Env是响应式系统环境变量装饰器，其功能包括：
+- 根据入参读取相应的环境变量信息，详情见[@Env支持参数](#env支持参数)。目前支持以下几种环境变量： SystemProperties.BREAK_POINT，用于获取窗口不同宽高阈值下对应的断点值信息。 SystemProperties.WINDOW_SIZE23+，用于获取窗口的大小信息，单位为vp。 SystemProperties.WINDOW_SIZE_PX23+，用于获取窗口的大小信息，单位为px。 SystemProperties.WINDOW_AVOID_AREA23+，用于获取窗口的避让区域信息，单位为vp。 SystemProperties.WINDOW_AVOID_AREA_PX23+，用于获取窗口的避让区域信息，单位为px。
+- 系统环境变量改变时，通知@Env装饰的变量更新，并触发@Env关联组件刷新，以实现界面内容的同步更新。
+- @Env装饰的变量不允许开发者初始化。@Env会返回给开发者可观察的环境变量类（由[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，且其由属性[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰）的实例。开发者如果想监听环境变量的变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)，具体示例见[在@ComponentV2中使用@Env](#在componentv2中使用env)。
 
-## 概述
-
-@Env是响应式系统环境变量装饰器，其功能包括： 根据入参读取相应的环境变量信息，详情见[@Env支持参数](#env支持参数)。目前支持以下几种环境变量： [SystemProperties.BREAK_POINT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口不同宽高阈值下对应的断点值信息。 [SystemProperties.WINDOW_SIZE23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的大小信息，单位为vp。 [SystemProperties.WINDOW_SIZE_PX23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的大小信息，单位为px。 [SystemProperties.WINDOW_AVOID_AREA23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的避让区域信息，单位为vp。 [SystemProperties.WINDOW_AVOID_AREA_PX23+](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)，用于获取窗口的避让区域信息，单位为px。 系统环境变量改变时，通知@Env装饰的变量更新，并触发@Env关联组件刷新，以实现界面内容的同步更新。 @Env装饰的变量不允许开发者初始化。@Env会返回给开发者可观察的环境变量类（由[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰，且其由属性[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰）的实例。开发者如果想监听环境变量的变化，可以使用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)，具体示例见[在@ComponentV2中使用@Env](#在componentv2中使用env)。
-
-## @Env支持参数
-
+#### @Env支持参数
 @Env支持的参数请参考[SystemProperties枚举类型说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)。
 
-## @Env和Environment能力对比
-
+#### @Env和Environment能力对比
 @Env和[Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment)都是系统环境变量相关，但两者能力有较大的不同，具体能力对比见下表。
+
 | 能力 | @Env | Environment |
 | --- | --- | --- |
 | 起始API version | 从API version 22开始支持。 | 从API version 7开始支持。 |
@@ -29,12 +28,8 @@
 | 使用形式 | @Env为装饰器，可声明在@Component或@ComponentV2中，获取对应参数的环境变量信息。 | 通过[envProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#envprop10)等接口获取当前应用的环境变量，并存入[AppStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage)中，开发者可通过AppStorage的接口访问系统环境变量的值，具体例子见[从ui中访问environment参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment#从ui中访问environment参数)。 |
 | 是否有响应式能力 | 有，当系统环境变量变化时，会通知@Env装饰的环境变量的改变，并通知@Env关联组件刷新。 | 无，系统环境变量变化时，不会通知Environment改变。 |
 
-
-## 限制条件
-
-@Env仅支持在@Component和@ComponentV2中使用，否则会有编译时报错。如果开发者绕过编译时检查，则会有运行时报错。
-```text
-import { uiObserver } from '@kit.ArkUI';
+#### 限制条件
+- @Env仅支持在@Component和@ComponentV2中使用，否则会有编译时报错。如果开发者绕过编译时检查，则会有运行时报错。 import { uiObserver } from '@kit.ArkUI';
 
 class Info {
   @Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo; // 错误用法，编译时报错
@@ -48,33 +43,25 @@ struct Index {
   build() {
   }
 }
-```
-
-@Env装饰的变量为只读属性，不允许开发者进行初始化或赋值操作，否则会有编译时报错。如果开发者绕过编译时检查，则会有运行时报错。
-```text
-import { uiObserver } from '@kit.ArkUI';
+- @Env装饰的变量为只读属性，不允许开发者进行初始化或赋值操作，否则会有编译时报错。如果开发者绕过编译时检查，则会有运行时报错。 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct Index {
   @Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo =
-    new uiObserver.WindowSizeLayoutBreakpointInfo(); // 错误用法，编译时报错
+ new uiObserver.WindowSizeLayoutBreakpointInfo(); // 错误用法，编译时报错
 
   build() {
-    Column() {
-      Text(`breakpoint height ${this.breakpoint.heightBreakpoint}`).fontSize(20)
-      Text(`breakpoint width ${this.breakpoint.widthBreakpoint}`).fontSize(20)
-      Button('change breakpoint').onClick(() => {
-        this.breakpoint = new uiObserver.WindowSizeLayoutBreakpointInfo(); // 错误用法，编译时报错
-      })
-    }
+ Column() {
+ Text(`breakpoint height ${this.breakpoint.heightBreakpoint}`).fontSize(20)
+ Text(`breakpoint width ${this.breakpoint.widthBreakpoint}`).fontSize(20)
+ Button('change breakpoint').onClick(() => {
+ this.breakpoint = new uiObserver.WindowSizeLayoutBreakpointInfo(); // 错误用法，编译时报错
+ })
+ }
   }
 }
-```
-
-@Env当前支持[SystemProperties的枚举值](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-env-system-property#systemproperties)。若使用不支持的参数，将触发编译时报错。
-```text
-import { uiObserver } from '@kit.ArkUI';
+- @Env当前支持SystemProperties的枚举值。若使用不支持的参数，将触发编译时报错。 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -83,14 +70,10 @@ struct Index {
   @Env('unsupported_key') breakpoint2: uiObserver.WindowSizeLayoutBreakpointInfo; // 错误写法，@Env非法入参，编译时报错。
 
   build() {
-    Text(`breakpoint2 width: ${this.breakpoint2.widthBreakpoint} height: ${this.breakpoint2.heightBreakpoint}`)
+ Text(`breakpoint2 width: ${this.breakpoint2.widthBreakpoint} height: ${this.breakpoint2.heightBreakpoint}`)
   }
 }
-```
-
-@Env使用不同的key值时，装饰的变量类型必须一一对应，否则会有编译时报错。 @Env使用SystemProperties.BREAK_POINT时，装饰的变量类型必须为uiObserver.WindowSizeLayoutBreakpointInfo类型。 @Env使用SystemProperties.WINDOW_SIZE时，装饰的变量类型必须为window.SizeInVP类型。 @Env使用SystemProperties.WINDOW_SIZE_PX时，装饰的变量类型必须为window.Size类型。 @Env使用SystemProperties.WINDOW_AVOID_AREA时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoVP类型。 @Env使用SystemProperties.WINDOW_AVOID_AREA_PX时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoPX类型。
-```text
-import { uiObserver } from '@kit.ArkUI';
+- @Env使用不同的key值时，装饰的变量类型必须一一对应，否则会有编译时报错。  @Env使用SystemProperties.BREAK_POINT时，装饰的变量类型必须为uiObserver.WindowSizeLayoutBreakpointInfo类型。 @Env使用SystemProperties.WINDOW_SIZE时，装饰的变量类型必须为window.SizeInVP类型。 @Env使用SystemProperties.WINDOW_SIZE_PX时，装饰的变量类型必须为window.Size类型。 @Env使用SystemProperties.WINDOW_AVOID_AREA时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoVP类型。 @Env使用SystemProperties.WINDOW_AVOID_AREA_PX时，装饰的变量类型必须为window.UIEnvWindowAvoidAreaInfoPX类型。  import { uiObserver } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -101,19 +84,11 @@ struct Index {
   build() {
   }
 }
-```
-
-@Env只能单独使用，不能和其他V1V2状态变量装饰器或@Require联用，否则会有编译时报错。
-```text
-@Env(SystemProperties.BREAK_POINT) breakpoint1: uiObserver.WindowSizeLayoutBreakpointInfo; // 正确写法
+- @Env只能单独使用，不能和其他V1V2状态变量装饰器或@Require联用，否则会有编译时报错。 @Env(SystemProperties.BREAK_POINT) breakpoint1: uiObserver.WindowSizeLayoutBreakpointInfo; // 正确写法
 @State @Env(SystemProperties.BREAK_POINT) breakpoint2: uiObserver.WindowSizeLayoutBreakpointInfo; // 错误写法，编译时报错
 @Require @Env(SystemProperties.BREAK_POINT) breakpoint3: uiObserver.WindowSizeLayoutBreakpointInfo; // 错误写法，编译时报错
 @Local @Env(SystemProperties.BREAK_POINT) breakpoint4: uiObserver.WindowSizeLayoutBreakpointInfo; // 错误写法，编译时报错
-```
-
-@Env装饰的变量在@Component和@ComponentV2传递遵循以下规则： @Env装饰的变量仅能用于初始化@ComponentV2中@Param装饰的变量，否则会有编译时报错。 @Env装饰的变量仅能用于初始化@Component中常规变量，否则会有编译时报错。需要注意，通过[BuilderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode)切换窗口，会导致@Env依据新的窗口更新环境变量实例。在切换窗口的场景中，不建议开发者使用@Env变量来初始化子组件的常规变量，否则会造成该常规变量无法被@Env通知触发其关联UI组件刷新。具体示例可见[通过BuilderNode切换窗口](#通过buildernode切换窗口)。
-```text
-import { uiObserver } from '@kit.ArkUI';
+- @Env装饰的变量在@Component和@ComponentV2传递遵循以下规则：  @Env装饰的变量仅能用于初始化@ComponentV2中@Param装饰的变量，否则会有编译时报错。 @Env装饰的变量仅能用于初始化@Component中常规变量，否则会有编译时报错。需要注意，通过BuilderNode切换窗口，会导致@Env依据新的窗口更新环境变量实例。在切换窗口的场景中，不建议开发者使用@Env变量来初始化子组件的常规变量，否则会造成该常规变量无法被@Env通知触发其关联UI组件刷新。具体示例可见通过BuilderNode切换窗口。  import { uiObserver } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -121,13 +96,13 @@ struct Index {
   @Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo; // 正确写法
 
   build() {
-    Column() {
-      CompV2({ breakpoint: this.breakpoint }) // 正确写法
-      Comp({ breakpoint: this.breakpoint }) // 正确写法
+ Column() {
+ CompV2({ breakpoint: this.breakpoint }) // 正确写法
+ Comp({ breakpoint: this.breakpoint }) // 正确写法
 
-      CompV2Invalid({ breakpoint: this.breakpoint }) // 错误写法，@Env装饰的变量仅能初始化V2的@Param变量
-      CompInvalid({ breakpoint: this.breakpoint }) // 错误写法，@Env装饰的变量仅能初始化V1的常规变量
-    }
+ CompV2Invalid({ breakpoint: this.breakpoint }) // 错误写法，@Env装饰的变量仅能初始化V2的@Param变量
+ CompInvalid({ breakpoint: this.breakpoint }) // 错误写法，@Env装饰的变量仅能初始化V1的常规变量
+ }
   }
 }
 
@@ -162,17 +137,23 @@ struct CompInvalid {
   build() {
   }
 }
-```
 
+#### @Env初始化流程
+@Env变量不允许开发者初始化，其值由框架根据当前窗口的环境变量自动提供，@Env变量在被第一次读值的时候，会触发初始化。@Env变量初始化遵循以下流程：
+1. 从父组件中查找已有实例： 向上递归查找父组件。 如果某个父组件在同一窗口中已经初始化过相同key的@Env变量，则直接复用该实例。 若未找到，则继续向上查找，直到父组件为空。需要注意，向上查找父组件的流程会被BuilderNode打断。
+2. 查找当前窗口的@Env实例。 如果在父组件中未找到对应的实例，则检查当前窗口是否已有相同key的@Env变量实例。 如存在，则复用该窗口内的@Env实例。
+3. 首次请求：创建新环境变量实例。 若以上两步都无法得到实例，则说明当前窗口第一次读取该环境变量。 框架会创建一个新的可观察环境变量实例并与当前窗口绑定，然后完成初始化。
+流程图如下。
 
-## @Env初始化流程
-
-@Env变量不允许开发者初始化，其值由框架根据当前窗口的环境变量自动提供，@Env变量在被第一次读值的时候，会触发初始化。@Env变量初始化遵循以下流程： 从父组件中查找已有实例： 向上递归查找父组件。 如果某个父组件在同一窗口中已经初始化过相同key的@Env变量，则直接复用该实例。 若未找到，则继续向上查找，直到父组件为空。需要注意，向上查找父组件的流程会被BuilderNode打断。 查找当前窗口的@Env实例。 如果在父组件中未找到对应的实例，则检查当前窗口是否已有相同key的@Env变量实例。 如存在，则复用该窗口内的@Env实例。 首次请求：创建新环境变量实例。 若以上两步都无法得到实例，则说明当前窗口第一次读取该环境变量。 框架会创建一个新的可观察环境变量实例并与当前窗口绑定，然后完成初始化。 流程图如下。
-![](assets/@Env：环境变量/file-20260514130545745-0.png)
+![](assets/@Env：环境变量/file-20260525091538406-001.png)
 基于上面流程，下面的示例中以@Env使用SystemProperties.BREAK_POINT为例，各个组件中的初始化如下图。
-![](assets/@Env：环境变量/file-20260514130545745-1.png)
-Child1初始化@Env(SystemProperties.BREAK_POINT)： 递归查找直到父组件为空：向上查找父组件Index，没有@Env对应的SystemProperties.BREAK_POINT实例。 查找当前窗口：没有@Env对应的SystemProperties.BREAK_POINT实例。 创建SystemProperties.BREAK_POINT对应的可观察的环境变量实例，并和当前窗口绑定。 GrandChild1初始化@Env(SystemProperties.BREAK_POINT)： 递归查找父组件，直到父组件为空：向上查找父组件Child1，查找到Child1有@Env对应的SystemProperties.BREAK_POINT实例。 复用Child1中@Env对应的SystemProperties.BREAK_POINT实例。 GrandChild2初始化@Env(SystemProperties.BREAK_POINT)： 递归查找直到父组件为空：向上查找父组件Child2和祖先节点Index，均没有@Env对应的SystemProperties.BREAK_POINT实例。 查找当前窗口：有@Env对应的SystemProperties.BREAK_POINT实例。 复用窗口中SystemProperties.BREAK_POINT对应的环境变量实例。
-```text
+
+![](assets/@Env：环境变量/file-20260525091538406-002.png)
+1. Child1初始化@Env(SystemProperties.BREAK_POINT)： 递归查找直到父组件为空：向上查找父组件Index，没有@Env对应的SystemProperties.BREAK_POINT实例。 查找当前窗口：没有@Env对应的SystemProperties.BREAK_POINT实例。 创建SystemProperties.BREAK_POINT对应的可观察的环境变量实例，并和当前窗口绑定。
+2. GrandChild1初始化@Env(SystemProperties.BREAK_POINT)： 递归查找父组件，直到父组件为空：向上查找父组件Child1，查找到Child1有@Env对应的SystemProperties.BREAK_POINT实例。 复用Child1中@Env对应的SystemProperties.BREAK_POINT实例。
+3. GrandChild2初始化@Env(SystemProperties.BREAK_POINT)： 递归查找直到父组件为空：向上查找父组件Child2和祖先节点Index，均没有@Env对应的SystemProperties.BREAK_POINT实例。 查找当前窗口：有@Env对应的SystemProperties.BREAK_POINT实例。 复用窗口中SystemProperties.BREAK_POINT对应的环境变量实例。
+
+```ts
 import { uiObserver } from '@kit.ArkUI';
 
 @Entry
@@ -238,14 +219,16 @@ struct GrandChild2 {
 }
 ```
 
+#### 使用场景
+#### 在@ComponentV2中使用@Env
+下面的例子中：
+- 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口尺寸的布局断点信息，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.breakpoint的属性的变化。
+- 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口的大小信息，单位为vp，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.sizeInVP的属性的变化。
+- 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口的大小信息，单位为px，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.sizeInPX的属性的变化。
+- 将@Env装饰的变量传递给CompV2中[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)装饰的变量和Comp中的常规变量。
+- 点击Button('Landscape')和Button('Portrait')切换横竖屏，Index、CompV2和Comp关联组件进行对应的刷新，orientationChange被触发监听回调。
 
-## 使用场景
-
-
-## 在@ComponentV2中使用@Env
-
-下面的例子中： 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口尺寸的布局断点信息，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.breakpoint的属性的变化。 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口的大小信息，单位为vp，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.sizeInVP的属性的变化。 在@ComponentV2中声明@Env，获取当前@ComponentV2组件创建时所在窗口的大小信息，单位为px，并用[addMonitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-addmonitor-clearmonitor)监听this.sizeInPX的属性的变化。 将@Env装饰的变量传递给CompV2中[@Param](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-param)装饰的变量和Comp中的常规变量。 点击Button('Landscape')和Button('Portrait')切换横竖屏，Index、CompV2和Comp关联组件进行对应的刷新，orientationChange被触发监听回调。
-```text
+```ts
 import { uiObserver, UIUtils, window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -336,11 +319,10 @@ struct Comp {
 }
 ```
 
-
-## 在@Component中使用@Env
-
+#### 在@Component中使用@Env
 @Env在@Component中使用和其在@ComponentV2中使用类似，示例如下。
-```text
+
+```ts
 import { uiObserver, UIUtils, window } from '@kit.ArkUI';
 import { common } from '@kit.AbilityKit';
 
@@ -431,11 +413,16 @@ struct Comp {
 }
 ```
 
+#### 通过BuilderNode切换窗口
+@Env用于展示@Component/@ComponentV2所在[窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)的环境变量信息。开发者通过BuilderNode切换@Component@ComponentV2所在的窗口实例时，@Env会根据新的窗口获取对应的环境变量信息，并触发关联的UI组件刷新。以SystemProperties.BREAK_POINT为例。
+在下面的示例中：
+1. 点击Button('add node to tree')，创建BuilderNode节点挂载到NodeContainer下。
+2. 点击Button('remove node from tree')，将BuilderNode节点从NodeContainer上移除。
+3. 点击Button(`create sub window`)，创建子窗并显示SubWindow窗口。
+4. 点击SubWindow窗口内的Button('add node to tree')，将BuilderNode节点重新挂载到SubWindow内的NodeContainer下。 ComponentUnderBuilderNode在被挂载到新的窗口下时，会触发@Env重新获取新的环境变量。 @Env重新获取新的环境变量后，触发其关联组件的刷新。其中ComponentUnderBuilderNode中@Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo会通知CompV2内的@Param breakpoint刷新，但是并不会通知Comp内的常规变量breakpoint触发UI刷新。所以在切换窗口，@Env重新获取环境变量的场景下，建议开发者不要将@Env传递给常规变量，以避免常规变量不能被通知UI刷新的问题。
+下面的示例包含了创建子窗的流程，具体可参考[管理应用窗口（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage)。
 
-## 通过BuilderNode切换窗口
-
-@Env用于展示@Component/@ComponentV2所在[窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window)的环境变量信息。开发者通过BuilderNode切换@Component@ComponentV2所在的窗口实例时，@Env会根据新的窗口获取对应的环境变量信息，并触发关联的UI组件刷新。以SystemProperties.BREAK_POINT为例。 在下面的示例中： 点击Button('add node to tree')，创建BuilderNode节点挂载到NodeContainer下。 点击Button('remove node from tree')，将BuilderNode节点从NodeContainer上移除。 点击Button(`create sub window`)，创建子窗并显示SubWindow窗口。 点击SubWindow窗口内的Button('add node to tree')，将BuilderNode节点重新挂载到SubWindow内的NodeContainer下。 ComponentUnderBuilderNode在被挂载到新的窗口下时，会触发@Env重新获取新的环境变量。 @Env重新获取新的环境变量后，触发其关联组件的刷新。其中ComponentUnderBuilderNode中@Env(SystemProperties.BREAK_POINT) breakpoint: uiObserver.WindowSizeLayoutBreakpointInfo会通知CompV2内的@Param breakpoint刷新，但是并不会通知Comp内的常规变量breakpoint触发UI刷新。所以在切换窗口，@Env重新获取环境变量的场景下，建议开发者不要将@Env传递给常规变量，以避免常规变量不能被通知UI刷新的问题。 下面的示例包含了创建子窗的流程，具体可参考[管理应用窗口（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage)。
-```text
+```ts
 // EntryAbility.ets
 import { UIAbility } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -460,7 +447,7 @@ export default class EntryAbility extends UIAbility {
 ```
 
 
-```text
+```ts
 // Index.ets
 import { BuilderNode, FrameNode, NodeController, uiObserver, window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -470,7 +457,7 @@ const DOMAIN = 0x0000;
 
 let windowStage_: window.WindowStage | undefined = undefined;
 let sub_windowClass: window.Window | undefined = undefined;
-let globalBuilderNode: BuilderNode | undefined = undefined;
+let globalBuilderNode: BuilderNode<[]> | undefined = undefined;
 
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
@@ -485,7 +472,7 @@ export class MyNodeController extends NodeController {
   addBuilderNode(): void {
     if (!globalBuilderNode && this.uiContext) {
       globalBuilderNode = new BuilderNode(this.uiContext);
-      globalBuilderNode.build(wrapBuilder(buildComponent), undefined);
+      globalBuilderNode.build(wrapBuilder<[]>(buildComponent), undefined);
     }
     if (this.rootNode && globalBuilderNode) {
       this.rootNode.appendChild(globalBuilderNode.getFrameNode());
@@ -665,7 +652,7 @@ struct Comp {
 ```
 
 
-```text
+```ts
 // SubWindow.ets
 import { MyNodeController } from './Index';
 
@@ -697,9 +684,12 @@ struct SubWindow {
 ```
 
 运行效果图如下。
-![](assets/@Env：环境变量/file-20260514130545745-2.gif)
-可以使用lambda闭包函数将ComponentUnderBuilderNode中的@Env向下传递。通过这种方式ComponentUnderBuilderNode中的@Env可以收集到子组件Comp内组件的依赖，在切换窗口实例的时候触发Comp内组件的刷新。 具体示例如下。
-```text
+
+![](assets/@Env：环境变量/file-20260525091538407-003.gif)
+可以使用lambda闭包函数将ComponentUnderBuilderNode中的@Env向下传递。通过这种方式ComponentUnderBuilderNode中的@Env可以收集到子组件Comp内组件的依赖，在切换窗口实例的时候触发Comp内组件的刷新。
+具体示例如下。
+
+```ts
 import { BuilderNode, FrameNode, NodeController, uiObserver, window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
@@ -708,7 +698,7 @@ const DOMAIN = 0x0000;
 
 let windowStage_: window.WindowStage | undefined = undefined;
 let sub_windowClass: window.Window | undefined = undefined;
-let globalBuilderNode: BuilderNode | undefined = undefined;
+let globalBuilderNode: BuilderNode<[]> | undefined = undefined;
 
 export class MyNodeController extends NodeController {
   private rootNode: FrameNode | null = null;
@@ -723,7 +713,7 @@ export class MyNodeController extends NodeController {
   addBuilderNode(): void {
     if (!globalBuilderNode && this.uiContext) {
       globalBuilderNode = new BuilderNode(this.uiContext);
-      globalBuilderNode.build(wrapBuilder(buildComponent), undefined);
+      globalBuilderNode.build(wrapBuilder<[]>(buildComponent), undefined);
     }
     if (this.rootNode && globalBuilderNode) {
       this.rootNode.appendChild(globalBuilderNode.getFrameNode());
@@ -905,4 +895,5 @@ struct Comp {
 ```
 
 运行效果图如下。
-![](assets/@Env：环境变量/file-20260514130545745-3.gif)
+
+![](assets/@Env：环境变量/file-20260525091538408-004.gif)

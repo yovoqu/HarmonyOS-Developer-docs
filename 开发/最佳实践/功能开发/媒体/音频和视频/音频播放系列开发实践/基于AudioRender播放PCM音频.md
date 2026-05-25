@@ -1,68 +1,50 @@
 # 基于AudioRender播放PCM音频
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-05-18 00:55:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer
 
-## 概述
-
-
+#### 概述
 AudioRender是用于音频播放的ArkTS API，仅支持PCM格式的音频。指导开发者使用AudioRender接口实现播放PCM音频的功能，主要涉及基本播控、精准跳转、静音播放、倍速播放、音量控制、焦点管理、后台播放与接入播控中心、冷启动等开发场景。
-
 本文是音频播放系列文章的第1篇，实现的功能效果如下：
 
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-0.gif)
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-1.gif)
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-2.gif)
+![](assets/基于AudioRender播放PCM音频/file-20260525090728433-001.gif)
 
 
-## 场景分析
+![](assets/基于AudioRender播放PCM音频/file-20260525090728433-002.gif)
 
+
+![](assets/基于AudioRender播放PCM音频/file-20260525090728433-003.gif)
+
+#### 场景分析
 
 | 场景名称 | 描述 | 实现方案 |
 | --- | --- | --- |
-| [基础播控](#section1764813377511) | 音频资源的加载、播放、暂停、退出等操作。 | 使用[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)接口实现。 |
-| [跳转播放](#section16920851193717) | 滑动进度条精准跳转到指定时间进行播放。 | 使用[Slider组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-slider)实现进度条，在AudioRenderer的[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中触发进度调节。 |
-| [静音播放](#section125715278533) | 点击按钮设置静音播放。 | 使用[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSilentModeAndMixWithOthers()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setsilentmodeandmixwithothers12)方法控制静音状态。 |
-| [切换歌曲播放](#section590418431566) | 点击上一首或下一首或歌单列表中的歌曲进行不同歌曲播放。 | 在AudioRenderer的[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，将获取到的不同的歌曲资源写入数据缓冲区，实现播放不同歌曲的功能。 |
-| [倍速设置](#section189460361122) | 滑动倍速调节面板调节播放速度。 | 使用[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)设置播放倍速。 |
-| [音量设置](#section88718617116) | 滑动音量调节面板调节播放音量。 | 使用[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setvolume9)设置播放音量。 |
-| [接入播控中心](#section06660114245) | 通过播控中心，控制播放、暂停、切换音频、调整播放进度、切换循环模式 | 通过[AVSessionKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-kit)音频播控服务实现音频应用接入播控中心。 |
-| [后台播放](#section1749719114143) | 音频切换到后台播放。 | 接入播控中心，在此基础上申请后台运行权限并创建长时后台任务，从而实现音频在后台持续播放的功能。 |
-| [接入播控中心冷启动和历史歌单](#section476545143517) | 应用退出后，播控中心显示历史歌单，点击播控中心播放按钮拉起应用播放，或者点击歌单拉起应用播放。 | 注册并适配后台启动模式的[播放意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)，即可实现接入。 |
-| [低功耗音频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/power-saving-for-playback) | 低功耗音频播放是一种通过软硬芯协同设计实现的音频渲染方案。其核心机制是增大音频渲染器的内部缓存，使系统能够一次性填充大量音频数据，从而允许主处理器长时间休眠，减少频繁处理音频数据的功耗，显著降低系统级功耗负载。 | 具体介绍和实现方案参考：[低功耗音频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/power-saving-for-playback)。 |
+| 基础播控 | 音频资源的加载、播放、暂停、退出等操作。 | 使用AudioRenderer接口实现。 |
+| 跳转播放 | 滑动进度条精准跳转到指定时间进行播放。 | 使用Slider组件实现进度条，在AudioRenderer的on('writeData')回调中触发进度调节。 |
+| 静音播放 | 点击按钮设置静音播放。 | 使用AudioRenderer的setSilentModeAndMixWithOthers()方法控制静音状态。 |
+| 切换歌曲播放 | 点击上一首或下一首或歌单列表中的歌曲进行不同歌曲播放。 | 在AudioRenderer的on('writeData')回调中，将获取到的不同的歌曲资源写入数据缓冲区，实现播放不同歌曲的功能。 |
+| 倍速设置 | 滑动倍速调节面板调节播放速度。 | 使用AudioRenderer的setSpeed()设置播放倍速。 |
+| 音量设置 | 滑动音量调节面板调节播放音量。 | 使用AudioRenderer的setVolume()设置播放音量。 |
+| 接入播控中心 | 通过播控中心，控制播放、暂停、切换音频、调整播放进度、切换循环模式 | 通过AVSessionKit音频播控服务实现音频应用接入播控中心。 |
+| 后台播放 | 音频切换到后台播放。 | 接入播控中心，在此基础上申请后台运行权限并创建长时后台任务，从而实现音频在后台持续播放的功能。 |
+| 接入播控中心冷启动和历史歌单 | 应用退出后，播控中心显示历史歌单，点击播控中心播放按钮拉起应用播放，或者点击歌单拉起应用播放。 | 注册并适配后台启动模式的播放意图，即可实现接入。 |
+| 低功耗音频播放 | 低功耗音频播放是一种通过软硬芯协同设计实现的音频渲染方案。其核心机制是增大音频渲染器的内部缓存，使系统能够一次性填充大量音频数据，从而允许主处理器长时间休眠，减少频繁处理音频数据的功耗，显著降低系统级功耗负载。 | 具体介绍和实现方案参考：低功耗音频播放。 |
 
+#### 基础播控
+#### 场景描述
+通过[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)实现基础的音频播放控制能力，包括音频资源加载、播放、暂停、停止及退出等操作。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728434-004.gif)
 
-## 基础播控
+#### 实现原理
+开发者可以通过[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的接口，创建AudioRenderer实例，在AudioRenderer的[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，将获取的歌曲资源写入回调事件中，实现资源加载。通过AudioRenderer的[start()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#start8)、[pause()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#pause8)、[stop()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#stop8)和[release()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#release8)接口实现音频的播放、暂停、停止和资源释放操作。
+[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)中的不同接口调用和其状态的变化关系参考[AudioRenderer状态变化示意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback)。
 
-
-### 场景描述
-
-
-通过AudioRenderer实现基础的音频播放控制能力，包括音频资源加载、播放、暂停、停止及退出等操作。
-
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-3.gif)
-
-
-### 实现原理
-
-
-开发者可以通过AudioRenderer的接口，创建AudioRenderer实例，在AudioRenderer的on('writeData')回调中，将获取的歌曲资源写入回调事件中，实现资源加载。通过AudioRenderer的start()、pause()、stop()和release()接口实现音频的播放、暂停、停止和资源释放操作。
-
-AudioRenderer中的不同接口调用和其状态的变化关系参考AudioRenderer状态变化示意图。
-
-
-### 开发步骤
-
-
+#### 开发步骤
 1. 创建AudioRenderer实例。
 
-```ts
+```ArkTS
 public async initAudioRenderer() {
   if (this.audioRenderer) {
     await this.audioRenderer.release();
@@ -98,7 +80,7 @@ public async initAudioRenderer() {
 
 2. 加载歌曲资源。
 
-```ts
+```ArkTS
 public async loadSongAssent(songRawFileDescriptor: resourceManager.RawFileDescriptor) {
   if (!songRawFileDescriptor) {
     Logger.error(TAG, `loadSongAssent faile : songRawFileDescriptor get failed`);
@@ -113,9 +95,9 @@ public async loadSongAssent(songRawFileDescriptor: resourceManager.RawFileDescri
 }
 ```
 
-3. 设置on('writeData')回调，将获取的歌曲资源写入回调事件中，实现资源加载。
+3. 设置[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调，将获取的歌曲资源写入回调事件中，实现资源加载。
 
-```ts
+```ArkTS
 // Set the data read retrieval call function
 private setWriteDataCallback() {
   if (!this.audioRenderer) {
@@ -156,7 +138,7 @@ private setWriteDataCallback() {
 
 4. 开始播放。
 
-```ts
+```ArkTS
 // play music.
 public async play() {
   if (!this.audioRenderer) {
@@ -175,7 +157,7 @@ public async play() {
 
 5. 暂停播放。
 
-```ts
+```ArkTS
 // Pause music.
 public async pause() {
   if (this.audioRenderer) {
@@ -193,7 +175,7 @@ public async pause() {
 
 6. 停止播放。
 
-```ts
+```ArkTS
 // Stop music
 public async stop() {
   if (this.audioRenderer) {
@@ -213,7 +195,7 @@ public async stop() {
 
 7. 释放实例，退出播放。
 
-```ts
+```ArkTS
 // Release audioRenderer
 public async release() {
   if (this.audioRenderer && this.context) {
@@ -229,37 +211,23 @@ public async release() {
       Logger.info(TAG, 'release success');
     } catch (err) {
       Logger.error(TAG,
-      `release failed,audioRenderer is undefined, code is ${JSON.stringify(err.code)},message is ${JSON.stringify(err.message)}`);
+        `release failed,audioRenderer is undefined, code is ${JSON.stringify(err.code)},message is ${JSON.stringify(err.message)}`);
     }
   }
 }
 ```
 
-
-## 跳转播放
-
-
-### 场景描述
-
-
+#### 跳转播放
+#### 场景描述
 通过点击或拖动进度条精准跳转到指定时间进行播放。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728434-005.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-4.gif)
+#### 实现原理
+在pcm文件中，每1秒时间对应的音频帧数是固定的，并且每音频帧的字节数是固定的，所以歌曲在不同时长对应的资源起始位置也可以计算出来。当用户拖动进度条到指定时间后，计算出当前时间对应当前资源的起始位置，在AudioRenderer的on('writeData')回调中，从对应的起始位置开始获取歌曲资源并写入回调中，从而实现跳转播放。另外一种方案可以参考[基于OHAudio播放PCM音频](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-ohaudio)中[跳转播放](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-ohaudio#section16920851193717)的[实现原理](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-ohaudio#section5752111843915)一节。
 
-
-### 实现原理
-
-
-在pcm文件中，每1秒时间对应的音频帧数是固定的，并且每音频帧的字节数是固定的，所以歌曲在不同时长对应的资源起始位置也可以计算出来。当用户拖动进度条到指定时间后，计算出当前时间对应当前资源的起始位置，在AudioRenderer的on('writeData')回调中，从对应的起始位置开始获取歌曲资源并写入回调中，从而实现跳转播放。另外一种方案可以参考基于OHAudio播放PCM音频中跳转播放的实现原理一节。
-
-
-> [!NOTE]
-> 音频帧大小 =  通道数 * （采样位深  / 8），单位为字节。
->  每1秒PCM对应的字节数 =  1秒包含的音频帧数 * 音频帧大小 ，单位为字节。
->  采样率：等于每秒帧数，采样率为48000代表每秒包含48000音频帧。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的采样率samplingRate来设置。通道数：决定音频帧大小，1帧 = 所有声道各取1个采样点。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的通道数channels来设置。采样位深：决定音频帧大小，单位为位（bit)，1字节 = 8位。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的采样格式sampleFormat来获得，其对应关系如下表格。 按照[基础播控](#section1764813377511)的[开发步骤](#section167679401369)1创建AudioRenderer是配置的音频流信息是采样率48000，双声道，采样位深16bit。可以算出：
->  音频帧大小 = 2 * （16 / 8）= 4 字节；
->  每1秒PCM对应的字节数 = 48000 *  2 * （16 / 8） = 192000字节。
+> [!NOTE] 说明
+> 音频帧大小 =  通道数 * （采样位深  / 8），单位为字节。 每1秒PCM对应的字节数 =  1秒包含的音频帧数 * 音频帧大小 ，单位为字节。 采样率：等于每秒帧数，采样率为48000代表每秒包含48000音频帧。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的采样率samplingRate来设置。通道数：决定音频帧大小，1帧 = 所有声道各取1个采样点。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的通道数channels来设置。采样位深：决定音频帧大小，单位为位（bit)，1字节 = 8位。使用createAudioRenderer()接口创建AudioRenderer实例时，通过配置options属性，设置音频流信息streamInfo中的采样格式sampleFormat来获得，其对应关系如下表格。 按照基础播控的开发步骤1创建AudioRenderer是配置的音频流信息是采样率48000，双声道，采样位深16bit。可以算出： 音频帧大小 = 2 * （16 / 8）= 4 字节； 每1秒PCM对应的字节数 = 48000 *  2 * （16 / 8） = 192000字节。
 
 
 | AudioSampleFormat枚举值 | 对应采样位深 |
@@ -270,20 +238,16 @@ public async release() {
 | SAMPLE_FORMAT_S32LE | 32bit |
 | SAMPLE_FORMAT_F32LE | 32bit |
 
-
-
-### 开发步骤
-
-
+#### 开发步骤
 1. 计算每1秒PCM对应的字节数。
 
-```ts
+```ArkTS
 export const SECOND_BUFFER_WALK = 48000 * 2 * (16 / 8);
 ```
 
 2. 计算跳转的目标时间对应的字节数。
 
-```ts
+```ArkTS
 static getOffsetFromTime(curMs: number) {
   return (curMs / 1000) * SECOND_BUFFER_WALK;
 }
@@ -291,7 +255,7 @@ static getOffsetFromTime(curMs: number) {
 
 3. 执行seek，结合文件的初始偏移值，算出目标时间对应的数据偏移位置。
 
-```ts
+```ArkTS
 // Seek play music.
 public seek(ms: number) {
   if (ms < 0) {
@@ -303,9 +267,9 @@ public seek(ms: number) {
 }
 ```
 
-4. 在AudioRenderer的on('writeData')回调中，从对应的数据偏移位置开始获取歌曲资源并写入回调中。
+4. 在AudioRenderer的[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，从对应的数据偏移位置开始获取歌曲资源并写入回调中。
 
-```ts
+```ArkTS
 // Set the data read retrieval call function
 private setWriteDataCallback() {
   if (!this.audioRenderer) {
@@ -344,31 +308,19 @@ private setWriteDataCallback() {
 }
 ```
 
-
-## 静音播放
-
-
-### 场景描述
-
-
+#### 静音播放
+#### 场景描述
 通过界面按钮快捷切换音频播放静音模式，实现一键开启或关闭静音模式。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-006.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-5.gif)
+#### 实现原理
+使用[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSilentModeAndMixWithOthers()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setsilentmodeandmixwithothers12)方法来开启或关闭静音模式，参数设置为true，表示开启静音播放模式。
 
+#### 开发步骤
+调用[setSilentModeAndMixWithOthers()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setsilentmodeandmixwithothers12)接口，开启或关闭静音模式。
 
-### 实现原理
-
-
-使用AudioRenderer的setSilentModeAndMixWithOthers()方法来开启或关闭静音模式，参数设置为true，表示开启静音播放模式。
-
-
-### 开发步骤
-
-
-调用setSilentModeAndMixWithOthers()接口，开启或关闭静音模式。
-
-```ts
+```ArkTS
 // Set the silent mode
 public async setSilentMode(isSupportSilent: boolean = false) {
   if (!this.audioRenderer || !this.context) {
@@ -379,31 +331,19 @@ public async setSilentMode(isSupportSilent: boolean = false) {
 }
 ```
 
-
-## 切换歌曲播放
-
-
-### 场景描述
-
-
+#### 切换歌曲播放
+#### 场景描述
 点击上一首或下一首或歌单列表中的歌曲进行不同歌曲播放。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-007.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-6.gif)
+#### 实现原理
+通过加载不同的资源文件，并在AudioRenderer的[on('writeData')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onwritedata11)回调中，读取资源数据，从而完成歌曲切换场景。
 
-
-### 实现原理
-
-
-通过加载不同的资源文件，并在AudioRenderer的on('writeData')回调中，读取资源数据，从而完成歌曲切换场景。
-
-
-### 开发步骤
-
-
+#### 开发步骤
 1. 停止当前播放的歌曲，并且清空缓存，防止杂音。
 
-```ts
+```ArkTS
 // Stop music
 public async stop() {
   if (this.audioRenderer) {
@@ -423,25 +363,25 @@ public async stop() {
 
 2. 根据切换模式，获取下一首歌曲的资源后，执行播放。
 
-```ts
+```ArkTS
 public async playNext() {
   await this.stop();
   let nextIndex = this.musicIndex;
   switch (this.playMode) {
     case MusicPlayMode.SINGLE_CYCLE:
-    break;
+      break;
     case MusicPlayMode.ORDER:
-    if (this.musicIndex === this.songList.length - 1) {
-      nextIndex = 0;
-    } else {
-      nextIndex += 1;
-    }
-    break;
+      if (this.musicIndex === this.songList.length - 1) {
+        nextIndex = 0;
+      } else {
+        nextIndex += 1;
+      }
+      break;
     case MusicPlayMode.RANDOM:
-    nextIndex = this.setRandom();
-    break;
+      nextIndex = this.setRandom();
+      break;
     default:
-    break;
+      break;
   }
   this.updateMusicIndex(nextIndex);
   await this.loadSongAssent();
@@ -450,31 +390,19 @@ public async playNext() {
 }
 ```
 
-
-## 倍速设置
-
-
-### 场景描述
-
-
+#### 倍速设置
+#### 场景描述
 滑动倍速调节面板调节播放速度。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-008.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-7.gif)
+#### 实现原理
+通过调节面板面板获取目标速度值，输入到[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中，实现设置播放速度的功能。
 
+#### 开发步骤
+1. 通过调节面板获取速度值，传入[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中。
 
-### 实现原理
-
-
-通过调节面板面板获取目标速度值，输入到AudioRenderer的setSpeed()接口中，实现设置播放速度的功能。
-
-
-### 开发步骤
-
-
-1. 通过调节面板获取速度值，传入setSpeed()接口中。
-
-```ts
+```ArkTS
 Slider({
   value: this.speed,
   min: 0.25,
@@ -482,10 +410,12 @@ Slider({
   step: 0.25,
   style: SliderStyle.InSet,
 })
-  .blockSize({
-    width: 28,
-    height: 28,
-  })
+  .blockSize(
+    {
+      width: 28,
+      height: 28
+    }
+  )
   .trackThickness(35)
   .trackColor($r('sys.color.button_background_color_transparent'))
   .selectedColor(Color.Transparent)
@@ -497,12 +427,12 @@ Slider({
     this.speed = value;
     MediaControlCenter.getInstance().setSpeed(this.speed);
     Logger.info(TAG, 'value:' + value + 'mode:' + mode.toString());
-  });
+  })
 ```
 
-2. 根据支持的倍数范围，通过setSpeed()接口设置播放的倍数值。
+2. 根据支持的倍数范围，通过[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口设置播放的倍数值。
 
-```ts
+```ArkTS
 // Set the playback speed
 public setSpeed(speed: number) {
   if (this.audioRenderer) {
@@ -515,47 +445,36 @@ public setSpeed(speed: number) {
 }
 ```
 
-
-## 音量设置
-
-
-### 场景描述
-
-
+#### 音量设置
+#### 场景描述
 滑动音量调节面板调节播放音量。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-009.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-8.gif)
+#### 实现原理
+通过调节面板获取目标音量值，输入到[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setvolume9)接口中，实现设置播放音量的功能。
 
+#### 开发步骤
+1. 通过调节面板获取音量值，传入[setVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setvolume9)接口中。
 
-### 实现原理
-
-
-通过调节面板获取目标音量值，输入到AudioRenderer的setVolume()接口中，实现设置播放音量的功能。
-
-
-### 开发步骤
-
-
-1. 通过调节面板获取音量值，传入setVolume()接口中。
-
-```ts
+```ArkTS
 Slider({
   value: this.volume,
   min: 0,
   max: 1,
   step: 0.1,
-  style: SliderStyle.InSet,
+  style: SliderStyle.InSet
 })
   .showTips(false)
   .layoutWeight(1)
   .onChange((value: number, mode: SliderChangeMode) => {
     this.volume = value;
     // ...
-  });
+  })
 ```
 
-```ts
+
+```ArkTS
 @StorageLink('currentVolume') @Watch('currentVolumeChange') volume: number = 0;
 // ...
 currentVolumeChange() {
@@ -563,9 +482,9 @@ currentVolumeChange() {
 }
 ```
 
-2. 通过setVolume()接口设置播放音量。
+2. 通过[setVolume()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setvolume9)接口设置播放音量。
 
-```ts
+```ArkTS
 public setVolume(volume: number) {
   if (!this.audioRenderer) {
     Logger.error(TAG, `audioRenderer is undefined`)
@@ -575,35 +494,25 @@ public setVolume(volume: number) {
 }
 ```
 
-
-## 接入播控中心
-
-
-### 场景描述
-
-
+#### 接入播控中心
+#### 场景描述
 通过播控中心，控制播放、暂停、切换上一首或者下一首音频。
 
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-9.gif)
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-10.gif)
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-11.gif)
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-010.gif)
 
 
-### 实现原理
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-011.gif)
 
 
-通过AVSessionKit音频播控服务实现音频应用接入播控中心。应用和播控中心的状态交互过程可参考播控中心控制音乐状态一节。
+![](assets/基于AudioRender播放PCM音频/file-20260525090728435-012.gif)
 
+#### 实现原理
+通过[AVSessionKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-kit)音频播控服务实现音频应用接入播控中心。
 
-### 开发步骤
+#### 开发步骤
+1. 通过[createAVSession()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-f#avsessioncreateavsession10)创建AVSession实例并激活媒体会话，[AVSessionType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-t#avsessiontype10)设置为audio。
 
-
-1. 通过createAVSession()创建AVSession实例并激活媒体会话，AVSessionType设置为audio。
-
-```ts
+```ArkTS
 public async initAVSession() {
   this.context = AppStorage.get('context');
   if (!this.context) {
@@ -623,9 +532,9 @@ public async initAVSession() {
 }
 ```
 
-2. 通过setAVMetadata()把会话的一些元数据信息设置给系统，从而在播控中心界面进行展示。如媒体ID（assetId）、标题（title）、播控中心显示的图片（mediaImage）、媒体时长（duration）等。
+2. 通过[setAVMetadata()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavmetadata10)把会话的一些元数据信息设置给系统，从而在播控中心界面进行展示。如媒体ID（assetId）、标题（title）、播控中心显示的图片（mediaImage）、媒体时长（duration）等。
 
-```ts
+```ArkTS
 // Set metadata
 public async setAVMetadata() {
   this.musicIndex = AppStorage.get('selectIndex') ? AppStorage.get('selectIndex') : 0;
@@ -636,7 +545,7 @@ public async setAVMetadata() {
   try {
     if (this.context) {
       let mediaImage = await MediaTools.getPixelMapFromResource(this.context,
-      this.songList[this.musicIndex].label as resourceManager.Resource);
+        this.songList[this.musicIndex].label as resourceManager.Resource);
       Logger.info(TAG, 'getPixelMapFromResource success' + JSON.stringify(mediaImage));
       let title = '';
       let artist = '';
@@ -681,7 +590,7 @@ public async setAVMetadata() {
 
 3. 设置用于被播控中心拉起的UIAbility。
 
-```ts
+```ArkTS
 // Set LaunchAbility.
 private setLaunchAbility() {
   if (!this.context) {
@@ -689,10 +598,10 @@ private setLaunchAbility() {
   }
   let wantAgentInfo: wantAgent.WantAgentInfo = {
     wants: [
-    {
-      bundleName: this.context.abilityInfo.bundleName,
-      abilityName: this.context.abilityInfo.name
-    }
+      {
+        bundleName: this.context.abilityInfo.bundleName,
+        abilityName: this.context.abilityInfo.name
+      }
     ],
     operationType: wantAgent.OperationType.START_ABILITIES,
     requestCode: 0,
@@ -703,15 +612,15 @@ private setLaunchAbility() {
       this.AVSession.setLaunchAbility(agent);
     }
   })
-  .catch((err: BusinessError) => {
-    Logger.error(TAG, `getWantAgent failed: code: ${err.code}, message: ${err.message}`);
-  });
+    .catch((err: BusinessError) => {
+      Logger.error(TAG, `getWantAgent failed: code: ${err.code}, message: ${err.message}`);
+    });
 }
 ```
 
-4. 注册播控命令事件监听，便于响应用户通过播控中心下发的播控命令，比如播放on('play')、暂停on('pause')、上一曲on('playPrevious')、下一曲on('playNext')等。
+4. 注册播控命令事件监听，便于响应用户通过播控中心下发的播控命令，比如播放[on('play')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplay10)、暂停[on('pause')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onpause10)、上一曲[on('playPrevious')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplayprevious10)、下一曲[on('playNext')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#onplaynext10)等。
 
-```ts
+```ArkTS
 // Set listening events
 async setListenerForMesFromController() {
   if (!this.AVSession) {
@@ -727,9 +636,9 @@ async setListenerForMesFromController() {
 }
 ```
 
-5. 应用状态上报播控中心，当音频状态发生改变时，需要通过setAVPlaybackState()向播控中心上报视频状态，来达到播控中心与应用的状态同步，包括播放状态（state）、播放位置（position）、当前媒体播放时长（duration）等。
+5. 应用状态上报播控中心，当音频状态发生改变时，需要通过[setAVPlaybackState()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavplaybackstate10)向播控中心上报视频状态，来达到播控中心与应用的状态同步，包括播放状态（state）、播放位置（position）、当前媒体播放时长（duration）等。
 
-```ts
+```ArkTS
 // Set favorite state.
 private setFavoriteState(isFavorite: boolean) {
   if (this.AVSession) {
@@ -779,54 +688,42 @@ public setPlayState(isPlay: boolean) {
 }
 ```
 
-
-## 后台播放
-
-
-### 场景描述
-
-
+#### 后台播放
+#### 场景描述
 音频切换到后台播放。
 
+![](assets/基于AudioRender播放PCM音频/file-20260525090728436-013.gif)
 
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-12.gif)
-
-
-### 实现原理
-
-
+#### 实现原理
 首先需实现播控中心的接入，在此基础上申请后台运行权限并设置后台模式，同时为音频应用创建长时后台任务，从而实现音频在后台持续播放的功能。
 
+#### 开发步骤
+1. 在module.json5配置文件中配置[ohos.permission.KEEP_BACKGROUND_RUNNING](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-all#ohospermissionkeep_background_running)权限和后台模式audioPlayback。
 
-### 开发步骤
-
-
-1. 在module.json5配置文件中配置ohos.permission.KEEP_BACKGROUND_RUNNING权限和后台模式audioPlayback。
-
-```ts
+```json
 {
   "module": {
     // ...
     "requestPermissions": [
-    {
-      "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
-      "reason": "$string:reason_background",
-      "usedScene": {
-        "abilities": [
-        "EntryAbility"
-        ],
-        "when": "always"
-      }
-    },
+      {
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
+        "reason": "$string:reason_background",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
+      },
     ],
     // ...
   }
 }
 ```
 
-2. 创建后台任务管理类，实现后台任务的申请（startContinuousTask）与取消（stopContinuousTask），长时任务类型选择AUDIO_PLAYBACK，表示音频后台播放。
+2. 创建后台任务管理类，实现后台任务的申请（startContinuousTask）与取消（stopContinuousTask），长时任务类型选择[AUDIO_PLAYBACK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundmode)，表示音频后台播放。
 
-```ts
+```ArkTS
 export class BackgroundUtil {
   /**
    * Start background task.
@@ -842,45 +739,28 @@ export class BackgroundUtil {
       wants: [
         {
           bundleName: context.abilityInfo.bundleName,
-          abilityName: context.abilityInfo.name,
-        },
+          abilityName: context.abilityInfo.name
+        }
       ],
       operationType: wantAgent.OperationType.START_ABILITY,
       requestCode: 0,
-      wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG],
+      wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]
     };
 
-    wantAgent
-      .getWantAgent(wantAgentInfo)
-      .then((wantAgentObj: Object) => {
-        try {
-          backgroundTaskManager
-            .startBackgroundRunning(
-              context,
-              backgroundTaskManager.BackgroundMode.AUDIO_PLAYBACK,
-              wantAgentObj,
-            )
-            .then(() => {
-              Logger.info(TAG, 'startBackgroundRunning succeeded');
-            })
-            .catch((error: BusinessError) => {
-              Logger.error(
-                TAG,
-                `startBackgroundRunning failed Cause: code ${error.code}`,
-              );
-            });
-        } catch (error) {
-          Logger.error(
-            TAG,
-            `startBackgroundRunning failed.message ${(error as BusinessError).message}`,
-          );
-        }
-      })
+    wantAgent.getWantAgent(wantAgentInfo).then((wantAgentObj: Object) => {
+      try {
+        backgroundTaskManager.startBackgroundRunning(context,
+          backgroundTaskManager.BackgroundMode.AUDIO_PLAYBACK, wantAgentObj).then(() => {
+          Logger.info(TAG, 'startBackgroundRunning succeeded');
+        }).catch((error: BusinessError) => {
+          Logger.error(TAG, `startBackgroundRunning failed Cause: code ${error.code}`);
+        });
+      } catch (error) {
+        Logger.error(TAG, `startBackgroundRunning failed.message ${(error as BusinessError).message}`);
+      }
+    })
       .catch((error: BusinessError) => {
-        Logger.error(
-          'this audioRenderer: ',
-          `getWantAgent failed Cause: code ${error.code}`,
-        );
+        Logger.error('this audioRenderer: ', `getWantAgent failed Cause: code ${error.code}`);
       });
   }
 
@@ -891,20 +771,11 @@ export class BackgroundUtil {
    */
   public static stopContinuousTask(context: common.UIAbilityContext): void {
     try {
-      backgroundTaskManager
-        .stopBackgroundRunning(context)
-        .then(() => {
-          Logger.info(
-            'this audioRenderer: ',
-            'stopBackgroundRunning succeeded',
-          );
-        })
-        .catch((error: BusinessError) => {
-          Logger.error(
-            'this audioRenderer: ',
-            `stopBackgroundRunning failed Cause: code ${error.code}`,
-          );
-        });
+      backgroundTaskManager.stopBackgroundRunning(context).then(() => {
+        Logger.info('this audioRenderer: ', 'stopBackgroundRunning succeeded');
+      }).catch((error: BusinessError) => {
+        Logger.error('this audioRenderer: ', `stopBackgroundRunning failed Cause: code ${error.code}`);
+      });
     } catch (error) {
       Logger.error(TAG, `stopBackgroundRunning failed. message ${error}`);
     }
@@ -914,7 +785,7 @@ export class BackgroundUtil {
 
 3.在播放和暂停时，分别申请和销毁后台长时任务。
 
-```ts
+```ArkTS
 public async play(index: number = this.musicIndex) {
   Logger.info(TAG, `index is ${index},musicIndex is ${this.musicIndex}`)
   if (!this.mediaControlCenterHandle) {
@@ -942,44 +813,29 @@ public pause() {
 }
 ```
 
-
-## 接入播控中心冷启动和历史歌单
-
-
-### 场景描述
-
-
+#### 接入播控中心冷启动和历史歌单
+#### 场景描述
 用户在应用内播放后，上滑结束应用进程，再进入播控中心，点击播放键拉起应用播放，或者点击历史歌单拉起应用播放，播控中心正确显示当前播放信息及播放状态。
 
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-13.gif)
-
-![](assets/基于AudioRender播放PCM音频/file-20260515114702674-14.gif)
+![](assets/基于AudioRender播放PCM音频/file-20260525090728436-014.gif)
 
 
-### 实现原理
+![](assets/基于AudioRender播放PCM音频/file-20260525090728436-015.gif)
 
+#### 实现原理
+注册并适配[意图调用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)，实现一键冷启动播放和历史歌单。
 
-注册并适配意图调用，实现一键冷启动播放和历史歌单。
-
-
-### 开发步骤
-
-
-1. 注册播放意图。应用按照播放业务，选择PlayMusicList意图，编辑对应的意图配置PROJECT_HOME/entry/src/main/resources/base/profile/insight_intent.json文件，实现播放意图注册，具体步骤参考：意图注册。
-
+#### 开发步骤
+1. 注册播放意图。应用按照播放业务，选择PlayMusicList意图，编辑对应的意图配置PROJECT_HOME/entry/src/main/resources/base/profile/insight_intent.json文件，实现播放意图注册，具体步骤参考：[意图注册](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)。
 2. 注册成功后，在配置文件中，配置歌曲播放方法，则实现一键冷启动播放。触发播控冷启动播放时，系统会在意图参数intentParam的歌单id为空，即解析出得的entityId为空字符串，由应用决定播放内容。触发歌单播放时，系统会将歌单的唯一标识id传回应用，应用可以在意图调用接口中，通过解析意图参数intentParam中的entityId，获取到歌单的id，实现对应歌单的播放。
 
-```ts
+```ArkTS
 export default class InsightIntentExecutorImpl extends InsightIntentExecutor {
-  async onExecuteInUIAbilityBackgroundMode(
-    intentName: string,
-    intentParam: Record<string, Object>,
-  ): Promise<insightIntent.ExecuteResult> {
+  async onExecuteInUIAbilityBackgroundMode(intentName: string, intentParam: Record<string, Object>):
+    Promise<insightIntent.ExecuteResult> {
     switch (intentName) {
       case 'PlayMusicList':
-        let entityId: string = (intentParam.items as Array<EntityIdObj>)?.[0]
-          ?.entityId;
+        let entityId: string = (intentParam.items as Array<EntityIdObj>)?.[0]?.entityId;
         return this.playFunc(entityId);
       case 'PlayAudio':
         let data = intentParam as Record<string, string>;
@@ -990,18 +846,18 @@ export default class InsightIntentExecutorImpl extends InsightIntentExecutor {
     return Promise.resolve({
       code: -1,
       result: {
-        message: 'unknown intent',
-      },
-    } as insightIntent.ExecuteResult);
+        message: 'unknown intent'
+      }
+    } as insightIntent.ExecuteResult)
   }
 
   // ...
 }
 ```
 
-3. 设置歌单信息，通过setAVMetadata接口设置当前播放的歌单信息，系统媒体信息根据应用上报实时刷新，若应用接入歌单功能，则确保在AVMetadata中一直携带歌单数据。
+3. 设置歌单信息，通过[setAVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avsession#setavmetadata10)接口设置当前播放的歌单信息，系统媒体信息根据应用上报实时刷新，若应用接入歌单功能，则确保在[AVMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i#avmetadata10)中一直携带歌单数据。
 
-```ts
+```ArkTS
 // Set metadata
 public async setAVMetadata() {
   this.musicIndex = AppStorage.get('selectIndex') ? AppStorage.get('selectIndex') : 0;
@@ -1012,7 +868,7 @@ public async setAVMetadata() {
   try {
     if (this.context) {
       let mediaImage = await MediaTools.getPixelMapFromResource(this.context,
-      this.songList[this.musicIndex].label as resourceManager.Resource);
+        this.songList[this.musicIndex].label as resourceManager.Resource);
       Logger.info(TAG, 'getPixelMapFromResource success' + JSON.stringify(mediaImage));
       let title = '';
       let artist = '';
@@ -1055,8 +911,5 @@ public async setAVMetadata() {
 }
 ```
 
-
-## 示例代码
-
-
+#### 示例代码
 - [基于AudioRenderer播放PCM音频](https://gitcode.com/HarmonyOS_Samples/audio-renderer-play-pcm)

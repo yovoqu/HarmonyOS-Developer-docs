@@ -1,31 +1,23 @@
 # site（地点搜索）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-site
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable
 
 本模块提供地点搜索服务。
-
 **起始版本：** 4.1.0(11)
 
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### 导入模块
 
 ```ts
 import { site } from '@kit.MapKit';
 ```
 
-
-## searchByText
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-searchByText(searchByTextParams: SearchByTextParams): Promise<SearchByTextResult>
-
+#### searchByText
+searchByText(searchByTextParams: SearchByTextParams): Promise&lt;SearchByTextResult&gt;
 通过指定的关键字和可选的地理范围，查询诸如旅游景点、企业和学校之类的地点。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -36,24 +28,18 @@ searchByText(searchByTextParams: SearchByTextParams): Promise<SearchByTextResult
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | searchByTextParams | [SearchByTextParams](#searchbytextparams) | 是 | 关键字搜索的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SearchByTextResult](#searchbytextresult)&gt; | Promise对象，返回[SearchByTextResult](#searchbytextresult)。 |
-
+| Promise<[SearchByTextResult](#searchbytextresult)> | Promise对象，返回[SearchByTextResult](#searchbytextresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -64,32 +50,25 @@ searchByText(searchByTextParams: SearchByTextParams): Promise<SearchByTextResult
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.SearchByTextParams = {
-  query: 'Piazzale Dante, 41, 55049 Viareggio, Tuscany, Italy',
+  query: "Piazzale Dante, 41, 55049 Viareggio, Tuscany, Italy",
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
   radius: 10000,
-  language: 'en',
+  language: "en"
 };
 const result = await site.searchByText(params);
-console.info('Succeeded in searching by text.');
+console.info("Succeeded in searching by text.");
 ```
 
-
-## searchByText
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-searchByText(context: common.Context, searchByTextParams: SearchByTextParams): Promise<SearchByTextResult>
-
+#### searchByText
+searchByText(context: common.Context, searchByTextParams: SearchByTextParams): Promise&lt;SearchByTextResult&gt;
 通过指定的关键字和可选的地理范围，查询诸如旅游景点、企业和学校之类的地点，支持传入Context上下文。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -100,25 +79,19 @@ searchByText(context: common.Context, searchByTextParams: SearchByTextParams): P
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | searchByTextParams | [SearchByTextParams](#searchbytextparams) | 是 | 关键字搜索的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SearchByTextResult](#searchbytextresult)&gt; | Promise对象，返回[SearchByTextResult](#searchbytextresult)。 |
-
+| Promise<[SearchByTextResult](#searchbytextresult)> | Promise对象，返回[SearchByTextResult](#searchbytextresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -129,35 +102,25 @@ searchByText(context: common.Context, searchByTextParams: SearchByTextParams): P
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.SearchByTextParams = {
-  query: 'Piazzale Dante, 41, 55049 Viareggio, Tuscany, Italy',
+  query: "Piazzale Dante, 41, 55049 Viareggio, Tuscany, Italy",
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
   radius: 10000,
-  language: 'en',
+  language: "en"
 };
-const result = await site.searchByText(
-  this.getUIContext().getHostContext(),
-  params,
-);
-console.info('Succeeded in searching by text.');
+const result = await site.searchByText(this.getUIContext().getHostContext(), params);
+console.info("Succeeded in searching by text.");
 ```
 
-
-## nearbySearch
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-nearbySearch(nearbySearchParams: NearbySearchParams): Promise<NearbySearchResult>
-
+#### nearbySearch
+nearbySearch(nearbySearchParams: NearbySearchParams): Promise&lt;NearbySearchResult&gt;
 通过用户传入自己的位置，可以返回周边地点列表。您可以通过提供关键字或指定要搜索的地点的类型来优化搜索结果。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -168,24 +131,18 @@ nearbySearch(nearbySearchParams: NearbySearchParams): Promise<NearbySearchResult
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | nearbySearchParams | [NearbySearchParams](#nearbysearchparams) | 是 | 周边搜索的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NearbySearchResult](#nearbysearchresult)&gt; | Promise对象，返回[NearbySearchResult](#nearbysearchresult)。 |
-
+| Promise<[NearbySearchResult](#nearbysearchresult)> | Promise对象，返回[NearbySearchResult](#nearbysearchresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -196,36 +153,29 @@ nearbySearch(nearbySearchParams: NearbySearchParams): Promise<NearbySearchResult
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.NearbySearchParams = {
   location: {
-    latitude: 51.50811219132287,
-    longitude: -0.07594896472392065,
+    latitude:51.50811219132287,
+    longitude:-0.07594896472392065
   },
   poiTypes: [
-    'Watch_Store',
-    'SUBWAY',
-    'PRIMARY_SCHOOL',
-    'GENERAL_AUTO_REPAIR_SERVICE_CENTER',
-  ],
-};
+    "Watch_Store",
+    "SUBWAY",
+    "PRIMARY_SCHOOL",
+    "GENERAL_AUTO_REPAIR_SERVICE_CENTER"
+  ]
+}
 // 返回周边搜索结果
 const result = await site.nearbySearch(params);
 console.info(`Succeeded in searching nearby. result is ${result}`);
 ```
 
-
-## nearbySearch
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-nearbySearch(context: common.Context, nearbySearchParams: NearbySearchParams): Promise<NearbySearchResult>
-
+#### nearbySearch
+nearbySearch(context: common.Context, nearbySearchParams: NearbySearchParams): Promise&lt;NearbySearchResult&gt;
 通过用户传入自己的位置，可以返回周边地点列表，支持传入Context上下文。您可以通过提供关键字或指定要搜索的地点的类型来优化搜索结果。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -236,25 +186,19 @@ nearbySearch(context: common.Context, nearbySearchParams: NearbySearchParams): P
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | nearbySearchParams | [NearbySearchParams](#nearbysearchparams) | 是 | 周边搜索的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[NearbySearchResult](#nearbysearchresult)&gt; | Promise对象，返回[NearbySearchResult](#nearbysearchresult)。 |
-
+| Promise<[NearbySearchResult](#nearbysearchresult)> | Promise对象，返回[NearbySearchResult](#nearbysearchresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -265,39 +209,29 @@ nearbySearch(context: common.Context, nearbySearchParams: NearbySearchParams): P
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.NearbySearchParams = {
   location: {
-    latitude: 51.50811219132287,
-    longitude: -0.07594896472392065,
+    latitude:51.50811219132287,
+    longitude:-0.07594896472392065
   },
   poiTypes: [
-    'Watch_Store',
-    'SUBWAY',
-    'PRIMARY_SCHOOL',
-    'GENERAL_AUTO_REPAIR_SERVICE_CENTER',
-  ],
-};
+    "Watch_Store",
+    "SUBWAY",
+    "PRIMARY_SCHOOL",
+    "GENERAL_AUTO_REPAIR_SERVICE_CENTER"
+  ]
+}
 // 返回周边搜索结果
-const result = await site.nearbySearch(
-  this.getUIContext().getHostContext(),
-  params,
-);
+const result = await site.nearbySearch(this.getUIContext().getHostContext(), params);
 console.info(`Succeeded in searching nearby. result is ${result}`);
 ```
 
-
-## queryAutoComplete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-queryAutoComplete(queryAutoCompleteParams: QueryAutoCompleteParams): Promise<QueryAutoCompleteResult>
-
+#### queryAutoComplete
+queryAutoComplete(queryAutoCompleteParams: QueryAutoCompleteParams): Promise&lt;QueryAutoCompleteResult&gt;
 根据输入的关键字返回预测的输入关键字和地点查询建议。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -308,24 +242,18 @@ queryAutoComplete(queryAutoCompleteParams: QueryAutoCompleteParams): Promise<Que
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | queryAutoCompleteParams | [QueryAutoCompleteParams](#queryautocompleteparams) | 是 | 自动补全的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QueryAutoCompleteResult](#queryautocompleteresult)&gt; | Promise对象，返回[QueryAutoCompleteResult](#queryautocompleteresult)。 |
-
+| Promise<[QueryAutoCompleteResult](#queryautocompleteresult)> | Promise对象，返回[QueryAutoCompleteResult](#queryautocompleteresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -336,32 +264,25 @@ queryAutoComplete(queryAutoCompleteParams: QueryAutoCompleteParams): Promise<Que
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.QueryAutoCompleteParams = {
-  query: 'hotel',
+  query: "hotel",
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
-  language: 'en',
-  isChildren: true,
+  language: "en",
+  isChildren: true
 };
 const result = await site.queryAutoComplete(params);
-console.info('Succeeded in querying.');
+console.info("Succeeded in querying.");
 ```
 
-
-## queryAutoComplete
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-queryAutoComplete(context: common.Context, queryAutoCompleteParams: QueryAutoCompleteParams): Promise<QueryAutoCompleteResult>
-
+#### queryAutoComplete
+queryAutoComplete(context: common.Context, queryAutoCompleteParams: QueryAutoCompleteParams): Promise&lt;QueryAutoCompleteResult&gt;
 根据输入的关键字返回预测的输入关键字和地点查询建议，支持传入Context上下文。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -372,25 +293,19 @@ queryAutoComplete(context: common.Context, queryAutoCompleteParams: QueryAutoCom
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | queryAutoCompleteParams | [QueryAutoCompleteParams](#queryautocompleteparams) | 是 | 自动补全的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[QueryAutoCompleteResult](#queryautocompleteresult)&gt; | Promise对象，返回[QueryAutoCompleteResult](#queryautocompleteresult)。 |
-
+| Promise<[QueryAutoCompleteResult](#queryautocompleteresult)> | Promise对象，返回[QueryAutoCompleteResult](#queryautocompleteresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -401,35 +316,25 @@ queryAutoComplete(context: common.Context, queryAutoCompleteParams: QueryAutoCom
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.QueryAutoCompleteParams = {
-  query: 'hotel',
+  query: "hotel",
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
-  language: 'en',
-  isChildren: true,
+  language: "en",
+  isChildren: true
 };
-const result = await site.queryAutoComplete(
-  this.getUIContext().getHostContext(),
-  params,
-);
-console.info('Succeeded in querying.');
+const result = await site.queryAutoComplete(this.getUIContext().getHostContext(), params);
+console.info("Succeeded in querying.");
 ```
 
-
-## searchById
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-searchById(searchByIdParams: SearchByIdParams): Promise<SearchByIdResult>
-
+#### searchById
+searchById(searchByIdParams: SearchByIdParams): Promise&lt;SearchByIdResult&gt;
 根据地点ID获取地点详情。地点详情包括：地点名称、地址详细信息、经纬度等。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -440,24 +345,18 @@ searchById(searchByIdParams: SearchByIdParams): Promise<SearchByIdResult>
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | searchByIdParams | [SearchByIdParams](#searchbyidparams) | 是 | 地点详情的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SearchByIdResult](#searchbyidresult)&gt; | Promise对象，返回[SearchByIdResult](#searchbyidresult)。 |
-
+| Promise<[SearchByIdResult](#searchbyidresult)> | Promise对象，返回[SearchByIdResult](#searchbyidresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -468,28 +367,21 @@ searchById(searchByIdParams: SearchByIdParams): Promise<SearchByIdResult>
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.SearchByIdParams = {
-  siteId: '144129739873977856',
-  language: 'en',
-  isChildren: true,
+  siteId: "144129739873977856",
+  language: "en",
+  isChildren: true
 };
 const result = await site.searchById(params);
-console.info('Succeeded in searching by id.');
+console.info("Succeeded in searching by id.");
 ```
 
-
-## searchById
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-searchById(context: common.Context, searchByIdParams: SearchByIdParams): Promise<SearchByIdResult>
-
+#### searchById
+searchById(context: common.Context, searchByIdParams: SearchByIdParams): Promise&lt;SearchByIdResult&gt;
 根据地点ID获取地点详情，支持传入Context上下文。地点详情包括：地点名称、地址详细信息、经纬度等。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -500,25 +392,19 @@ searchById(context: common.Context, searchByIdParams: SearchByIdParams): Promise
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | searchByIdParams | [SearchByIdParams](#searchbyidparams) | 是 | 地点详情的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[SearchByIdResult](#searchbyidresult)&gt; | Promise对象，返回[SearchByIdResult](#searchbyidresult)。 |
-
+| Promise<[SearchByIdResult](#searchbyidresult)> | Promise对象，返回[SearchByIdResult](#searchbyidresult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -529,33 +415,23 @@ searchById(context: common.Context, searchByIdParams: SearchByIdParams): Promise
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.SearchByIdParams = {
-  siteId: '144129739873977856',
-  language: 'en',
-  isChildren: true,
+  siteId: "144129739873977856",
+  language: "en",
+  isChildren: true
 };
-const result = await site.searchById(
-  this.getUIContext().getHostContext(),
-  params,
-);
-console.info('Succeeded in searching by id.');
+const result = await site.searchById(this.getUIContext().getHostContext(), params);
+console.info("Succeeded in searching by id.");
 ```
 
-
-## geocode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-geocode(geocodeParams: GeocodeParams): Promise<GeocodeResult>
-
+#### geocode
+geocode(geocodeParams: GeocodeParams): Promise&lt;GeocodeResult&gt;
 根据结构化地址获取地点的经纬度。使用Promise异步回调。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 根据地址获取地点的空间坐标，如经纬度，最多返回10条记录。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -568,24 +444,18 @@ geocode(geocodeParams: GeocodeParams): Promise<GeocodeResult>
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | geocodeParams | [GeocodeParams](#geocodeparams) | 是 | 正地理编码的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[GeocodeResult](#geocoderesult)&gt; | Promise对象，返回[GeocodeResult](#geocoderesult)。 |
-
+| Promise<[GeocodeResult](#geocoderesult)> | Promise对象，返回[GeocodeResult](#geocoderesult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -596,29 +466,22 @@ geocode(geocodeParams: GeocodeParams): Promise<GeocodeResult>
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.GeocodeParams = {
-  query: 'Piazzale Dante, 41, 55049 Viareggio',
-  language: 'en',
+  "query": "Piazzale Dante, 41, 55049 Viareggio",
+  "language": "en"
 };
 const result = await site.geocode(params);
-console.info('Succeeded in geocoding.');
+console.info("Succeeded in geocoding.");
 ```
 
-
-## geocode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-geocode(context: common.Context, geocodeParams: GeocodeParams): Promise<GeocodeResult>
-
+#### geocode
+geocode(context: common.Context, geocodeParams: GeocodeParams): Promise&lt;GeocodeResult&gt;
 根据结构化地址获取地点的经纬度，支持传入Context上下文。使用Promise异步回调。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 根据地址获取地点的空间坐标，如经纬度，最多返回10条记录。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -631,25 +494,19 @@ geocode(context: common.Context, geocodeParams: GeocodeParams): Promise<GeocodeR
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | geocodeParams | [GeocodeParams](#geocodeparams) | 是 | 正地理编码的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[GeocodeResult](#geocoderesult)&gt; | Promise对象，返回[GeocodeResult](#geocoderesult)。 |
-
+| Promise<[GeocodeResult](#geocoderesult)> | Promise对象，返回[GeocodeResult](#geocoderesult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -660,27 +517,20 @@ geocode(context: common.Context, geocodeParams: GeocodeParams): Promise<GeocodeR
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.GeocodeParams = {
-  query: 'Piazzale Dante, 41, 55049 Viareggio',
-  language: 'en',
+  "query": "Piazzale Dante, 41, 55049 Viareggio",
+  "language": "en"
 };
 const result = await site.geocode(this.getUIContext().getHostContext(), params);
-console.info('Succeeded in geocoding.');
+console.info("Succeeded in geocoding.");
 ```
 
-
-## reverseGeocode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-reverseGeocode(reverseGeocodeParams: ReverseGeocodeParams): Promise<ReverseGeocodeResult>
-
+#### reverseGeocode
+reverseGeocode(reverseGeocodeParams: ReverseGeocodeParams): Promise&lt;ReverseGeocodeResult&gt;
 逆地理编码接口能够根据经纬度返回对应的地址信息，包括位置描述信息、结构化区划信息、周边POI地点等详细信息。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -691,24 +541,18 @@ reverseGeocode(reverseGeocodeParams: ReverseGeocodeParams): Promise<ReverseGeoco
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | reverseGeocodeParams | [ReverseGeocodeParams](#reversegeocodeparams) | 是 | 逆地理编码的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ReverseGeocodeResult](#reversegeocoderesult)&gt; | Promise对象，返回[ReverseGeocodeResult](#reversegeocoderesult)。 |
-
+| Promise<[ReverseGeocodeResult](#reversegeocoderesult)> | Promise对象，返回[ReverseGeocodeResult](#reversegeocoderesult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -719,31 +563,24 @@ reverseGeocode(reverseGeocodeParams: ReverseGeocodeParams): Promise<ReverseGeoco
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.ReverseGeocodeParams = {
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
-  language: 'en',
-  radius: 200,
+  language: "en",
+  radius: 200
 };
 const result = await site.reverseGeocode(params);
-console.info('Succeeded in reversing geocode.');
+console.info("Succeeded in reversing geocode.");
 ```
 
-
-## reverseGeocode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-reverseGeocode(context: common.Context, reverseGeocodeParams: ReverseGeocodeParams): Promise<ReverseGeocodeResult>
-
+#### reverseGeocode
+reverseGeocode(context: common.Context, reverseGeocodeParams: ReverseGeocodeParams): Promise&lt;ReverseGeocodeResult&gt;
 逆地理编码接口能够根据经纬度返回对应的地址信息，包括位置描述信息、结构化区划信息、周边POI地点等详细信息，支持传入Context上下文。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -754,25 +591,19 @@ reverseGeocode(context: common.Context, reverseGeocodeParams: ReverseGeocodePara
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | context | [common.Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | Context上下文。 |
 | reverseGeocodeParams | [ReverseGeocodeParams](#reversegeocodeparams) | 是 | 逆地理编码的参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ReverseGeocodeResult](#reversegeocoderesult)&gt; | Promise对象，返回[ReverseGeocodeResult](#reversegeocoderesult)。 |
-
+| Promise<[ReverseGeocodeResult](#reversegeocoderesult)> | Promise对象，返回[ReverseGeocodeResult](#reversegeocoderesult)。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -783,32 +614,23 @@ reverseGeocode(context: common.Context, reverseGeocodeParams: ReverseGeocodePara
 | 1002600004 | The Map permission is not enabled. |
 | 1002603001 | Zero result. |
 
-
 **示例：**
-
 
 ```ts
 let params: site.ReverseGeocodeParams = {
   location: {
     latitude: 31.984410259206815,
-    longitude: 118.76625379397866,
+    longitude: 118.76625379397866
   },
-  language: 'en',
-  radius: 200,
+  language: "en",
+  radius: 200
 };
-const result = await site.reverseGeocode(
-  this.getUIContext().getHostContext(),
-  params,
-);
-console.info('Succeeded in reversing geocode.');
+const result = await site.reverseGeocode(this.getUIContext().getHostContext(), params);
+console.info("Succeeded in reversing geocode.");
 ```
 
-
-## SortRule
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### SortRule
 结果排序规则。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -816,19 +638,14 @@ console.info('Succeeded in reversing geocode.');
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | COMPOSITE | 0 | 综合排序。 |
 | DISTANCE | 1 | 按距离排序。 |
 
-
-## SearchByTextParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### SearchByTextParams
 SearchByTextParams定义了搜索关键字的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -837,51 +654,41 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | query | string | 否 | 否 | 搜索关键字，例如“故宫”。参数的长度范围：[1, 512]。 |
 | location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 搜索结果的经纬度。 |
 | radius | number | 否 | 是 | Location的搜索半径，单位：m。取值范围：[1, 50000]，默认50000米。小数点后数字忽略。异常值返回错误码401。 |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。 |
-| countryCodes | Array&lt;string&gt; | 否 | 是 | 在指定的国家内搜索，采用ISO 3166-1 alpha-2。          最多传5个国家或地区码。 |
-| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。          说明：          - 支持中国大陆和港澳的中文城市名。          - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见[城市码及区划代码表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-citycode)。          - 支持传入16-18位数字cityId。 |
-| isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。          - true：强限制在指定城市内          - false：不强限制在指定城市内 |
-| language | string | 否 | 是 | 返回结果的语言类型，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
+| countryCodes | Array&lt;string&gt; | 否 | 是 | 在指定的国家内搜索，采用ISO 3166-1 alpha-2。 最多传5个国家或地区码。 |
+| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 |
+| isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。 - true：强限制在指定城市内 - false：不强限制在指定城市内 |
+| language | string | 否 | 是 | 返回结果的语言类型，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
 | pageSize | number | 否 | 是 | 每页返回的记录数。取值范围：[1, 20]，默认值为20。 |
-| pageIndex | number | 否 | 是 | 当前页数。取值范围：[1, 500]，默认值为1。          说明：          pageIndex * pageSize &lt;= 500 |
-| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。          - true：如果有子节点信息，则返回子节点的全量信息          - false：不返回 |
+| pageIndex | number | 否 | 是 | 当前页数。取值范围：[1, 500]，默认值为1。 说明： pageIndex * pageSize <= 500 |
+| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。 - true：如果有子节点信息，则返回子节点的全量信息 - false：不返回 |
 
-
-## NearbySearchParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### NearbySearchParams
 周边搜索的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 否 | 当前用户的定位。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| radius | number | 否 | 是 | 搜索结果限定的半径范围，单位：m。取值范围：[1, 50000]，默认值为1000米。小数点后数字忽略。异常值返回错误码401。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| query | string | 否 | 是 | 搜索关键字，参数的长度范围：[1, 512]。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| pageSize | number | 否 | 是 | 每页返回的记录数。取值范围：[1, 20]，默认值为20。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| pageIndex | number | 否 | 是 | 当前页数。取值范围：[1, 500]，默认值为1。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。          说明：          pageIndex * pageSize &lt;= 500 |
-| sortRule | [SortRule](#sortrule) | 否 | 是 | 排序规则，默认值为[SortRule](#sortrule).COMPOSITE。          起始版本： 5.0.0(12)          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 否 | 当前用户的定位。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| radius | number | 否 | 是 | 搜索结果限定的半径范围，单位：m。取值范围：[1, 50000]，默认值为1000米。小数点后数字忽略。异常值返回错误码401。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| query | string | 否 | 是 | 搜索关键字，参数的长度范围：[1, 512]。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见HwLocationType。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| pageSize | number | 否 | 是 | 每页返回的记录数。取值范围：[1, 20]，默认值为20。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| pageIndex | number | 否 | 是 | 当前页数。取值范围：[1, 500]，默认值为1。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： pageIndex * pageSize <= 500 |
+| sortRule | [SortRule](#sortrule) | 否 | 是 | 排序规则，默认值为SortRule.COMPOSITE。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 
-
-## QueryAutoCompleteParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### QueryAutoCompleteParams
 自动补全的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -890,24 +697,19 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | query | string | 否 | 否 | 搜索关键字，参数的长度范围：[1, 512]。 |
 | location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 搜索结果的经纬度。 |
 | radius | number | 否 | 是 | Location的搜索半径，单位：m。取值范围：[1, 50000]，默认值为50000米。小数点后数字忽略。异常值返回错误码401。 |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。 |
-| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。          说明：          - 支持中国大陆和港澳的中文城市名。          - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见[城市码及区划代码表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-citycode)。          - 支持传入16-18位数字cityId。 |
-| isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。          - true：强限制在指定城市内          - false：不强限制在指定城市内 |
-| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
-| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。          - true：如果有子节点信息，则返回子节点的全量信息          - false：不返回 |
+| cityId | string | 否 | 是 | 在指定的城市内搜索，参数的长度范围：[1, 32]。 说明： - 支持中国大陆和港澳的中文城市名。 - 对中国大陆城市及港澳地区，支持传入3-4位数字cityCode或6位数字adminCode，参见城市码及区划代码表。 - 支持传入16-18位数字cityId。 |
+| isCityLimit | boolean | 否 | 是 | 搜索结果是否强限制在指定城市内，默认值：false，需配合cityId参数使用，若未传cityId按默认值false处理。 - true：强限制在指定城市内 - false：不强限制在指定城市内 |
+| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
+| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。 - true：如果有子节点信息，则返回子节点的全量信息 - false：不返回 |
 
-
-## SearchByIdParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### SearchByIdParams
 地点详情的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -916,42 +718,32 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | siteId | string | 否 | 否 | 地址ID，参数的长度范围：[1, 256]。 |
-| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
-| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。          - true：如果有子节点信息，则返回子节点的全量信息          - false：不返回 |
+| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
+| isChildren | boolean | 否 | 是 | 是否返回子节点，默认为false。 - true：如果有子节点信息，则返回子节点的全量信息 - false：不返回 |
 
-
-## ReverseGeocodeParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### ReverseGeocodeParams
 逆地理编码的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 否 | 经纬度。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| radius | number | 否 | 是 | 搜索半径，单位：m。取值范围：[0, 1000]，默认值为1000。小数点后数字忽略。异常值返回错误码401。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| isExtension | boolean | 否 | 是 | 是否扩展返回POI、Aoi、Road、交叉口等信息，推荐设置为true，默认为false。          - true：扩展信息          - false：不扩展，仅返回区划信息          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。          说明：          拓展返回信息时，POI信息最多展示30个，Aoi信息最多展示10个，Road信息最多展示3个，交叉口信息最多展示1个。 |
-| poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| isNearbyAoi | boolean | 否 | 是 | 是否返回附近的Aoi。          仅当isExtension=true时生效。          推荐设置为true，默认值为false。          - true：返回附近的Aoi          - false：仅返回传入经纬度所在的Aoi          起始版本： 5.0.0(12)          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| sortRule | [SortRule](#sortrule) | 否 | 是 | POI的排序规则。          默认值为[SortRule](#sortrule).DISTANCE，即按距离排序。          起始版本： 5.0.0(12)          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 否 | 经纬度。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| radius | number | 否 | 是 | 搜索半径，单位：m。取值范围：[0, 1000]，默认值为1000。小数点后数字忽略。异常值返回错误码401。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| isExtension | boolean | 否 | 是 | 是否扩展返回POI、Aoi、Road、交叉口等信息，推荐设置为true，默认为false。 - true：扩展信息 - false：不扩展，仅返回区划信息 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 拓展返回信息时，POI信息最多展示30个，Aoi信息最多展示10个，Road信息最多展示3个，交叉口信息最多展示1个。 |
+| poiTypes | Array&lt;string&gt; | 否 | 是 | 返回指定的华为分类体系的地点，取值范围参见HwLocationType。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| isNearbyAoi | boolean | 否 | 是 | 是否返回附近的Aoi。 仅当isExtension=true时生效。 推荐设置为true，默认值为false。 - true：返回附近的Aoi - false：仅返回传入经纬度所在的Aoi 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| sortRule | [SortRule](#sortrule) | 否 | 是 | POI的排序规则。 默认值为SortRule.DISTANCE，即按距离排序。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 
-
-## GeocodeParams
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### GeocodeParams
 正地理编码的参数。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -960,19 +752,14 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | query | string | 否 | 否 | 地址信息，参数的长度范围：[1, 512]。 |
-| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见[位置搜索支持语言](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-language#位置搜索支持语言)列表。          如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
+| language | string | 否 | 是 | 输入语言，参数的长度范围：[1, 16]。语种取值请参见位置搜索支持语言列表。 如果不传，默认返回地点的当地语言。异常值按默认值处理。 |
 | bounds | [mapCommon.LatLngBounds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlngbounds) | 否 | 是 | 查询结果的搜索范围。 |
 
-
-## SearchByTextResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### SearchByTextResult
 关键字搜索的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -981,18 +768,13 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | totalCount | number | 否 | 否 | 如果查询成功，返回满足搜索条件的记录总数。 |
-| sites | Array&lt;[Site](#site)&gt; | 否 | 是 | 如果查询成功，返回搜索结果。 |
+| sites | Array<[Site](#site)> | 否 | 是 | 如果查询成功，返回搜索结果。 |
 
-
-## NearbySearchResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### NearbySearchResult
 周边搜索的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1001,18 +783,13 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | totalCount | number | 否 | 否 | 如果查询成功，返回满足搜索条件的记录总数。 |
-| sites | Array&lt;[Site](#site)&gt; | 否 | 是 | 如果查询成功，返回搜索结果。 |
+| sites | Array<[Site](#site)> | 否 | 是 | 如果查询成功，返回搜索结果。 |
 
-
-## QueryAutoCompleteResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### QueryAutoCompleteResult
 自动补全的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1021,17 +798,12 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| sites | Array&lt;[Site](#site)&gt; | 否 | 是 | 如果查询成功，返回搜索结果。 |
+| sites | Array<[Site](#site)> | 否 | 是 | 如果查询成功，返回搜索结果。 |
 
-
-## SearchByIdResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### SearchByIdResult
 地点详情的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1040,17 +812,12 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | site | [Site](#site) | 否 | 是 | 如果查询成功，返回地点详情。 |
 
-
-## ReverseGeocodeResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### ReverseGeocodeResult
 逆地理编码的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1059,22 +826,17 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | addressComponent | [AddressComponent](#addresscomponent) | 否 | 否 | 地址详细信息。 |
 | addressDescription | string | 否 | 否 | 非结构化的地址文本。 |
-| aois | Array&lt;[Aoi](#aoi)&gt; | 否 | 是 | Aoi面信息。 |
-| pois | Array&lt;[ReverseGeocodePoi](#reversegeocodepoi)&gt; | 否 | 是 | POI信息。 |
-| roads | Array&lt;[Road](#road)&gt; | 否 | 是 | 道路信息。 |
-| intersections | Array&lt;[Intersection](#intersection)&gt; | 否 | 是 | 交叉点信息。 |
+| aois | Array<[Aoi](#aoi)> | 否 | 是 | Aoi面信息。 |
+| pois | Array<[ReverseGeocodePoi](#reversegeocodepoi)> | 否 | 是 | POI信息。 |
+| roads | Array<[Road](#road)> | 否 | 是 | 道路信息。 |
+| intersections | Array<[Intersection](#intersection)> | 否 | 是 | 交叉点信息。 |
 
-
-## GeocodeResult
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### GeocodeResult
 正地理编码的结果。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1083,43 +845,33 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| sites | Array&lt;[Site](#site)&gt; | 否 | 是 | 如果查询成功，返回搜索结果。 |
+| sites | Array<[Site](#site)> | 否 | 是 | 如果查询成功，返回搜索结果。 |
 
-
-## Site
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Site
 地点详情。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| siteId | string | 否 | 否 | 地点的唯一主键。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| name | string | 否 | 是 | 地点名称。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| formatAddress | string | 否 | 是 | 格式化的地点详细地址。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| addressComponent | [AddressComponent](#addresscomponent) | 否 | 否 | 地址详细信息。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 地点的经纬度。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| viewport | [mapCommon.LatLngBounds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlngbounds) | 否 | 是 | 地点的视口范围。          说明：          [queryAutoComplete](#queryautocomplete)不支持返回此字段。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| distance | number | 否 | 是 | 预测地点和传参location之间的直线距离，单位：m。          说明：          目前仅关键字搜索和周边搜索支持返回此字段。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| poi | [Poi](#poi) | 否 | 是 | 如果地点是POI类型，返回POI信息。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| utcOffset | number | 否 | 是 | 位置所在时区和UTC时区的差值，单位：分钟。          说明： 自动补全不支持返回此字段。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| reliability | number | 否 | 是 | 相关性，可用于判断搜索结果是否准确。取值范围：[0, 1]，数值越大相关性越高，1表示完全相关。          起始版本： 6.1.1(24)          元服务API： 从版本6.1.1(24)开始，该接口支持在元服务中使用。 |
+| siteId | string | 否 | 否 | 地点的唯一主键。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 是 | 地点名称。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| formatAddress | string | 否 | 是 | 格式化的地点详细地址。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| addressComponent | [AddressComponent](#addresscomponent) | 否 | 否 | 地址详细信息。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 地点的经纬度。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| viewport | [mapCommon.LatLngBounds](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlngbounds) | 否 | 是 | 地点的视口范围。 说明： queryAutoComplete不支持返回此字段。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| distance | number | 否 | 是 | 预测地点和传参location之间的直线距离，单位：m。 说明： 目前仅关键字搜索和周边搜索支持返回此字段。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| poi | [Poi](#poi) | 否 | 是 | 如果地点是POI类型，返回POI信息。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| utcOffset | number | 否 | 是 | 位置所在时区和UTC时区的差值，单位：分钟。 说明： 自动补全不支持返回此字段。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| reliability | number | 否 | 是 | 相关性，可用于判断搜索结果是否准确。取值范围：[0, 1]，数值越大相关性越高，1表示完全相关。 起始版本： 6.1.1(24) 元服务API： 从版本6.1.1(24)开始，该接口支持在元服务中使用。 |
 
-
-## AddressComponent
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### AddressComponent
 地址详细信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1128,8 +880,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | countryCode | string | 否 | 是 | 国家/地区码。 |
 | countryName | string | 否 | 是 | 国家名。 |
@@ -1142,17 +893,13 @@ SearchByTextParams定义了搜索关键字的参数。
 | subLocality1 | string | 否 | 是 | 一级子区域。 |
 | subLocality2 | string | 否 | 是 | 二级子区域。 |
 | neighborhoods | Array&lt;string&gt; | 否 | 是 | 街区、城区。 |
-| adminCode | string | 否 | 是 | [行政区划码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-citycode)。          说明：          接口返回的行政区划码覆盖中国大陆及港澳地区，包括省份、城市、区/县、乡镇/街道等层级，文档附录中仅提供部分城市行政区划码示例。 |
+| adminCode | string | 否 | 是 | 行政区划码。 说明： 接口返回的行政区划码覆盖中国大陆及港澳地区，包括省份、城市、区/县、乡镇/街道等层级，文档附录中仅提供部分城市行政区划码示例。 |
 | postalCode | string | 否 | 是 | 邮政编码。 |
 | city | [City](#city) | 否 | 是 | 城市信息。 |
 | streetNumber | [StreetNumber](#streetnumber) | 否 | 是 | 街道号。 |
 
-
-## City
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### City
 城市信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1161,19 +908,14 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | cityCode | string | 否 | 是 | 城市码。 |
 | cityId | string | 否 | 是 | 城市ID。 |
 | cityName | string | 否 | 是 | 城市名称。 |
 
-
-## StreetNumber
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### StreetNumber
 街道号。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1182,8 +924,7 @@ SearchByTextParams定义了搜索关键字的参数。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | direction | string | 否 | 是 | 该输入点在街道的方向。 |
 | distance | number | 否 | 是 | 地点和传参location之间的直线距离，单位：m。 |
@@ -1192,12 +933,8 @@ SearchByTextParams定义了搜索关键字的参数。
 | streetName | string | 否 | 是 | 街道名称。 |
 | formatAddress | string | 否 | 是 | 格式化的街道地址。 |
 
-
-## Poi
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Poi
 POI信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1206,8 +943,7 @@ POI信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 华为POI分类体系，取值范围请参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。 |
 | poiTypeIds | Array&lt;string&gt; | 否 | 是 | 华为POI分类体系Id，预留字段，当前无使用场景。 |
@@ -1216,22 +952,18 @@ POI信息。
 | rating | number | 否 | 是 | 评分。 |
 | websiteUrl | string | 否 | 是 | 网址。 |
 | openingHours | [OpeningHours](#openinghours) | 否 | 是 | 营业时间。 |
-| businessStatus | string | 否 | 是 | 营业状态，其中包括：          - OPEN_NOW：正在营业。          - CLOSE_NOW：已休息。          - CLOSED_TEMPORARILY：临时关闭。          - CLOSED_PERMANENTLY：永久关闭。          - STATUS_UNKNOWN：未知。          说明：          仅地点详情接口返回。 |
+| businessStatus | string | 否 | 是 | 营业状态，其中包括： - OPEN_NOW：正在营业。 - CLOSE_NOW：已休息。 - CLOSED_TEMPORARILY：临时关闭。 - CLOSED_PERMANENTLY：永久关闭。 - STATUS_UNKNOWN：未知。 说明： 仅地点详情接口返回。 |
 | brand | string | 否 | 是 | 品牌名称。 |
 | email | string | 否 | 是 | 邮箱地址。 |
 | starRating | number | 否 | 是 | 星级评定。 |
-| childNodes | Array&lt;[ChildNode](#childnode)&gt; | 否 | 是 | POI的子节点信息。 |
+| childNodes | Array<[ChildNode](#childnode)> | 否 | 是 | POI的子节点信息。 |
 | icon | string | 否 | 是 | POI图标地址。 |
 | description | string | 否 | 是 | 描述信息。 |
 | abstractText | string | 否 | 是 | 摘要信息。 |
 | comment | [Comment](#comment) | 否 | 是 | POI的评论信息。 |
 
-
-## OpeningHours
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### OpeningHours
 营业时间。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1240,18 +972,13 @@ POI信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | texts | Array&lt;string&gt; | 否 | 是 | 每个星期的开放时间段的描述。 |
-| periods | Array&lt;[Period](#period)&gt; | 否 | 是 | 开放时间段的详细说明。 |
+| periods | Array<[Period](#period)> | 否 | 是 | 开放时间段的详细说明。 |
 
-
-## Period
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Period
 开放时间段的详细说明。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1260,18 +987,13 @@ POI信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | open | [TimeOfWeek](#timeofweek) | 否 | 是 | 开放时间。 |
 | close | [TimeOfWeek](#timeofweek) | 否 | 是 | 关闭时间。 |
 
-
-## TimeOfWeek
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### TimeOfWeek
 时间模型。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1280,18 +1002,13 @@ POI信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| week | number | 否 | 是 | 0：星期日          1：星期一          2：星期二          3：星期三          4：星期四          5：星期五          6：星期六 |
+| week | number | 否 | 是 | 0：星期日 1：星期一 2：星期二 3：星期三 4：星期四 5：星期五 6：星期六 |
 | time | string | 否 | 是 | 24小时制时间，hhmm格式。 |
 
-
-## ChildNode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### ChildNode
 POI的子节点信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1300,8 +1017,7 @@ POI的子节点信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | siteId | string | 否 | 是 | 位置ID。 |
 | name | string | 否 | 是 | 地点名称。 |
@@ -1309,12 +1025,8 @@ POI的子节点信息。
 | location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 地点的经纬度。 |
 | poiTypes | Array&lt;string&gt; | 否 | 是 | 华为分类体系，取值范围参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。 |
 
-
-## Comment
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Comment
 POI的评论信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1323,41 +1035,31 @@ POI的评论信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | averageRating | number | 否 | 是 | 平均分。 |
 | total | number | 否 | 是 | 总数。 |
 
-
-## Aoi
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Aoi
 Aoi面信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
-| area | number | 否 | 是 | Aoi面积。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| distance | number | 否 | 是 | 地点和传参location之间的直线距离，单位：m。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| siteId | string | 否 | 是 | Aoi ID。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 地点的经纬度。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| name | string | 否 | 是 | 地点名称。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| poiType | string | 否 | 是 | 华为POI分类体系，取值范围请参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。          元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| direction | string | 否 | 是 | 该Aoi在输入点的方向。          起始版本： 5.0.0(12)          元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| area | number | 否 | 是 | Aoi面积，单位：m2。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| distance | number | 否 | 是 | 地点和传参location之间的直线距离，单位：m。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| siteId | string | 否 | 是 | Aoi ID。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 地点的经纬度。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| name | string | 否 | 是 | 地点名称。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| poiType | string | 否 | 是 | 华为POI分类体系，取值范围请参见HwLocationType。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
+| direction | string | 否 | 是 | 该Aoi在输入点的方向。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 
-
-## ReverseGeocodePoi
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### ReverseGeocodePoi
 逆地理结果POI信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1366,8 +1068,7 @@ Aoi面信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | address | string | 否 | 是 | 地址。 |
 | direction | string | 否 | 是 | 该输入点在POI的方向。 |
@@ -1377,12 +1078,8 @@ Aoi面信息。
 | name | string | 否 | 是 | 地点名称。 |
 | poiType | string | 否 | 是 | 华为POI分类体系，取值范围请参见[HwLocationType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-poi#hwlocationtype)。 |
 
-
-## Road
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Road
 道路信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1391,8 +1088,7 @@ Aoi面信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | direction | string | 否 | 是 | 该输入点在道路的方向。 |
 | distance | number | 否 | 是 | 道路和传参location之间的直线距离，单位：m。 |
@@ -1400,12 +1096,8 @@ Aoi面信息。
 | location | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 否 | 是 | 道路的经纬度。 |
 | name | string | 否 | 是 | 道路名称。 |
 
-
-## Intersection
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### Intersection
 交叉点信息。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -1414,8 +1106,7 @@ Aoi面信息。
 
 **起始版本：** 4.1.0(11)
 
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
+| **名称** | **类型** | 只读 | 可选 | **说明** |
 | --- | --- | --- | --- | --- |
 | direction | string | 否 | 是 | 该输入点与交叉口的方位关系。 |
 | distance | number | 否 | 是 | 交叉点和传参location之间的直线距离，单位：m。 |

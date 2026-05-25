@@ -1,16 +1,13 @@
 # image_mdk_common.h
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-mdk-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 概述
 声明图像常用的枚举值和结构体。
-
 **引用文件：** <multimedia/image_framework/image_mdk_common.h>
 
 **库：** libimage_ndk.z.so
@@ -21,56 +18,35 @@
 
 **相关模块：** [Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image)
 
-
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 汇总
+#### 宏定义
 
 | 名称 | 描述 |
 | --- | --- |
 | IMAGE_RESULT_BASE 62980096 | 通用图像错误码，含义为操作失败。 起始版本： 10 |
 
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | [OhosImageSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagesize) | - | 定义图像大小。是[OhosImageDecodingOps](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-ohosimagedecodingops)的成员变量。 |
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | [IRNdkErrCode](#irndkerrcode) | IRNdkErrCode | 被使用的接口返回值的枚举。 |
 
+#### 枚举类型说明
+#### IRNdkErrCode
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### IRNdkErrCode
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum IRNdkErrCode
 ```
 
 **描述**
-
 被使用的接口返回值的枚举。
-
 **起始版本：** 10
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -161,8 +137,8 @@ enum IRNdkErrCode
 | IMAGE_RESULT_CREATE_SURFACE_FAILED = IMAGE_RESULT_BASE + 156 | 创建surface失败。 |
 | IMAGE_RESULT_SURFACE_GET_PARAMETER_FAILED = IMAGE_RESULT_BASE + 157 | 从surface获取参数失败。 |
 | IMAGE_RESULT_GET_SURFACE_FAILED = IMAGE_RESULT_BASE + 158 | 获取surface失败。 |
-| IMAGE_RESULT_SURFACE_ACQUIRE_BUFFER_FAILED = IMAGE_RESULT_BASE + 159 | 申请内存失败。 |
-| IMAGE_RESULT_SURFACE_REQUEST_BUFFER_FAILED = IMAGE_RESULT_BASE + 160 | 申请内存失败。 |
+| IMAGE_RESULT_SURFACE_ACQUIRE_BUFFER_FAILED = IMAGE_RESULT_BASE + 159 | 消费者申请内存失败。 |
+| IMAGE_RESULT_SURFACE_REQUEST_BUFFER_FAILED = IMAGE_RESULT_BASE + 160 | 生产者申请内存失败。 |
 | IMAGE_RESULT_REGISTER_LISTENER_FAILED = IMAGE_RESULT_BASE + 161 | 注册监听失败。 |
 | IMAGE_RESULT_REGISTER_BUFFER_FAILED = IMAGE_RESULT_BASE + 162 | 注册内存失败。 |
 | IMAGE_RESULT_FREAD_FAILED = IMAGE_RESULT_BASE + 163 | 读取文件失败。 |

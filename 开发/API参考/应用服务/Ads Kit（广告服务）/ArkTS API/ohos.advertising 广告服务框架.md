@@ -1,51 +1,39 @@
 # @ohos.advertising (广告服务框架)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising
-**支持设备：** Phone / PC/2in1 / Tablet
+
+支持设备：Phone | PC/2in1 | Tablet
 
 本模块提供广告操作能力，包括请求广告、展示广告。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### 导入模块
 
 ```ts
 import { advertising } from '@kit.AdsKit';
 ```
 
-
-## advertising.showAd
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### advertising.showAd
 showAd(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityContext): void
-
 展示全屏广告。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | ad | [Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement) | 是 | 广告对象。 |
 | options | [AdDisplayOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#addisplayoptions) | 是 | 广告展示参数。 |
 | context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 否 | UIAbility的上下文环境，不设置从api: [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common)中获取。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -54,19 +42,17 @@ showAd(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityC
 | 21800004 | Failed to display the ad. |
 
 
+> [!NOTE] 说明
+> 为了保证广告能正确展示，该接口必须和请求广告接口配套使用。 该接口仅支持展示激励广告和插屏广告。
+
 **示例：**
-
 其中context的获取方式参见[各类context的获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#context的获取方式)。
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
 import { advertising } from '@kit.AdsKit';
 
-function showAd(
-  ad: advertising.Advertisement,
-  context?: common.UIAbilityContext,
-): void {
+function showAd(ad: advertising.Advertisement, context?: common.UIAbilityContext): void {
   // 广告展示参数，开发者可根据项目实际情况设置
   const adDisplayOptions: advertising.AdDisplayOptions = {};
   // 调用全屏广告展示接口
@@ -74,37 +60,26 @@ function showAd(
 }
 ```
 
-
-## advertising.getAdRequestBody12+
-**支持设备：** Phone / PC/2in1 / Tablet
-
-getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise<string>
-
+#### advertising.getAdRequestBody12+
+getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise&lt;string&gt;
 获取广告请求体，使用Promise异步回调（该接口仅对部分系统预置应用开放）。
-
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParams | [AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams)[] | 是 | 广告请求参数。 说明： 该接口体的adId参数可以为空。 |
 | adOptions | [AdOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adoptions) | 是 | 广告配置参数。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;string&gt; | Promise对象，返回字符类型的广告数据。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -112,63 +87,39 @@ getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise<str
 | 801 | Device not supported. |
 | 21800001 | System internal error. |
 
-
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-async function getAdRequestBody(
-  adRequestParamsArray: advertising.AdRequestParams[],
-): Promise<void> {
+async function getAdRequestBody(adRequestParamsArray: advertising.AdRequestParams[]): Promise<void> {
   // 广告配置参数，开发者可根据项目实际情况设置
   const adOptions: advertising.AdOptions = {};
-  await advertising
-    .getAdRequestBody(adRequestParamsArray, adOptions)
-    .then((data: string) => {
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Succeeded in getting ad request body. Data is ${data}`,
-      );
-    })
-    .catch((error: BusinessError) => {
-      hilog.info(
-        0x0000,
-        'testTag',
-        `Failed to get ad request body. Code is ${error.code}, message is ${error.message}`,
-      );
-    });
+  await advertising.getAdRequestBody(adRequestParamsArray, adOptions).then((data: string) => {
+    hilog.info(0x0000, 'testTag', `Succeeded in getting ad request body. Data is ${data}`);
+  }).catch((error: BusinessError) => {
+    hilog.error(0x0000, 'testTag', `Failed to get ad request body. Code is ${error.code}, message is ${error.message}`);
+  });
 }
 ```
 
-
-## advertising.parseAdResponse12+
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### advertising.parseAdResponse12+
 parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void
-
 解析并处理广告响应体（该接口仅对部分系统预置应用开放）。
-
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adResponse | string | 是 | 广告响应体。 |
 | listener | [MultiSlotsAdLoadListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#multislotsadloadlistener) | 是 | 请求广告回调监听。 |
 | context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | UIAbility的上下文环境。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -177,76 +128,55 @@ parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context:
 | 21800001 | System internal error. |
 | 21800005 | Failed to parse the ad response. |
 
-
 **示例：**
-
 其中context的获取方式参见[各类context的获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#context的获取方式)。
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
 import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-function parseAdResponse(
-  adResponse: string,
-  context: common.UIAbilityContext,
-): void {
+function parseAdResponse(adResponse: string, context: common.UIAbilityContext): void {
   // 广告解析处理回调监听
   const multiSlotsAdLoaderListener: advertising.MultiSlotsAdLoadListener = {
     onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `Failed to load multiSlots ad. Code is ${errorCode}, message is ${errorMsg}`,
-      );
+      hilog.error(0x0000, 'testTag', `Failed to load multiSlots ad. Code is ${errorCode}, message is ${errorMsg}`);
     },
     onAdLoadSuccess: (ads: Map<string, Array<advertising.Advertisement>>) => {
       hilog.info(0x0000, 'testTag', 'Succeeded in loading multiSlots ad');
       // 保存解析处理完成的广告内容用于展示
       const returnAds: advertising.Advertisement[] = [];
       ads.forEach((adsArray) => returnAds.push(...adsArray));
-    },
+    }
   };
   // 调用响应体解析接口
   advertising.parseAdResponse(adResponse, multiSlotsAdLoaderListener, context);
 }
 ```
 
-
-## advertising.registerWebAdInterface12+
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### advertising.registerWebAdInterface12+
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void
-
 注入广告JavaScript对象到Web组件中（该接口仅对部分系统预置应用开放）。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller) | 是 | Web组件控制器。 |
 | context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | UIAbility的上下文环境。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Invalid input parameter. Possible causes: 1. Mandatory parameters are left unspecified. |
 | 21800001 | System internal error. |
 
-
 **示例：**
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
@@ -262,9 +192,9 @@ struct Index {
   build() {
     Column() {
       Button('registerWebAdInterface')
-      .onClick(() => {
-        advertising.registerWebAdInterface(this.webViewController, this.context);
-      })
+        .onClick(() => {
+          advertising.registerWebAdInterface(this.webViewController, this.context);
+        })
       // ...
 
       Web({ src: 'https://www.example.com', controller: this.webViewController })
@@ -275,41 +205,30 @@ struct Index {
 }
 ```
 
-
-## advertising.registerWebAdInterface16+
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### advertising.registerWebAdInterface16+
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void
-
 注入广告JavaScript对象到Web组件中（该接口仅对部分系统预置应用开放）。
-
 **元服务API：** 从API version 16开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller) | 是 | Web组件控制器。 |
 | context | common.[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext) | 是 | UIAbility的上下文环境。 |
 | needRefresh | boolean | 是 | 是否需要刷新页面（true: 需要；false: 不需要）。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Invalid input parameter. Possible causes: Mandatory parameters are left unspecified. |
 | 21800001 | System internal error. |
 
-
 **示例：**
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
@@ -326,9 +245,9 @@ struct Index {
     Column() {
       // ...
       Button('registerWebAdInterface')
-      .onClick(() => {
-        advertising.registerWebAdInterface(this.webViewController, this.context, true);
-      })
+        .onClick(() => {
+          advertising.registerWebAdInterface(this.webViewController, this.context, true);
+        })
 
       Web({ src: 'https://www.example.com', controller: this.webViewController })
     }
@@ -338,40 +257,29 @@ struct Index {
 }
 ```
 
-
-## advertising.deleteWebAdInterface16+
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### advertising.deleteWebAdInterface16+
 deleteWebAdInterface(controller: web_webview.WebviewController, needRefresh: boolean): void
-
 删除通过registerWebAdInterface注入的广告JavaScript对象（该接口仅对部分系统预置应用开放）。
-
 **元服务API：** 从API version 16开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | controller | web_webview.[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller) | 是 | Web组件控制器。 |
 | needRefresh | boolean | 是 | 是否需要刷新页面（true: 需要；false: 不需要）。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Invalid input parameter. Possible causes: Mandatory parameters are left unspecified. |
 | 21800001 | System internal error. |
 
-
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
@@ -385,9 +293,9 @@ struct Index {
   build() {
     Column() {
       Button('deleteWebAdInterface')
-      .onClick(() => {
-        advertising.deleteWebAdInterface(this.webViewController, true);
-      })
+        .onClick(() => {
+          advertising.deleteWebAdInterface(this.webViewController, true);
+        })
 
       Web({ src: 'https://www.example.com', controller: this.webViewController })
     }
@@ -397,40 +305,27 @@ struct Index {
 }
 ```
 
-
-## AdLoader
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdLoader
 提供加载广告的功能
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### constructor
 constructor(context: common.Context)
-
 构造函数。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context) | 是 | ability或application的上下文环境。 |
 
-
 **示例：**
-
 其中context的获取方式参见[各类context的获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#context的获取方式)。
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
@@ -442,32 +337,23 @@ function createAdLoader(context: common.Context): void {
 }
 ```
 
-
-### loadAd
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### loadAd
 loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void
-
 请求单广告位广告。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParam | [AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams) | 是 | 广告请求参数。 |
 | adOptions | [AdOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adoptions) | 是 | 广告配置参数。 |
 | listener | [AdLoadListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adloadlistener) | 是 | 请求广告回调监听。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -476,11 +362,8 @@ loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener)
 | 21800001 | System internal error. |
 | 21800003 | Failed to load the ad request. |
 
-
 **示例：**
-
 其中context的获取方式参见[各类context的获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#context的获取方式)。
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
@@ -488,26 +371,19 @@ import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 // ...
-function loadAd(
-  context: common.Context,
-  adRequestParams: advertising.AdRequestParams,
-): void {
+function loadAd(context: common.Context, adRequestParams: advertising.AdRequestParams): void {
   // 广告配置参数，开发者可根据项目实际情况设置
   const adOptions: advertising.AdOptions = {};
   // 广告请求回调监听
   const adLoaderListener: advertising.AdLoadListener = {
     onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`,
-      );
+      hilog.error(0x0000, 'testTag', `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`);
     },
     onAdLoadSuccess: (ads: Array<advertising.Advertisement>) => {
       hilog.info(0x0000, 'testTag', 'Succeeded in loading ad');
       // 保存请求到的广告内容用于展示
       const returnAds: advertising.Advertisement[] = ads;
-    },
+    }
   };
   // 创建AdLoader广告对象
   const adLoader: advertising.AdLoader = new advertising.AdLoader(context);
@@ -516,32 +392,23 @@ function loadAd(
 }
 ```
 
-
-### loadAdWithMultiSlots
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### loadAdWithMultiSlots
 loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void
-
 请求多广告位广告。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | adParams | [AdRequestParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adrequestparams)[] | 是 | 广告请求参数。 |
 | adOptions | [AdOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#adoptions) | 是 | 广告配置参数。 |
 | listener | [MultiSlotsAdLoadListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#multislotsadloadlistener) | 是 | 请求广告回调监听。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[广告服务框架错误码参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ads)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -550,11 +417,8 @@ loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener
 | 21800001 | System internal error. |
 | 21800003 | Failed to load the ad request. |
 
-
 **示例：**
-
 其中context的获取方式参见[各类context的获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#context的获取方式)。
-
 
 ```ts
 import { common } from '@kit.AbilityKit';
@@ -562,70 +426,47 @@ import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 // ...
-function loadAdWithMultiSlots(
-  context: common.Context,
-  adRequestParamsArray: advertising.AdRequestParams[],
-): void {
+function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: advertising.AdRequestParams[]): void {
   // 广告配置参数，开发者可根据项目实际情况设置
   const adOptions: advertising.AdOptions = {};
   // 广告请求回调监听
   const multiSlotsAdLoaderListener: advertising.MultiSlotsAdLoadListener = {
     onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-      hilog.error(
-        0x0000,
-        'testTag',
-        `Failed to load multiSlots ad. Code is ${errorCode}, message is ${errorMsg}`,
-      );
+      hilog.error(0x0000, 'testTag', `Failed to load multiSlots ad. Code is ${errorCode}, message is ${errorMsg}`);
     },
     onAdLoadSuccess: (ads: Map<string, Array<advertising.Advertisement>>) => {
       hilog.info(0x0000, 'testTag', 'Succeeded in loading multiSlots ad');
       // 保存请求到的广告内容用于展示
       const returnAds: advertising.Advertisement[] = [];
       ads.forEach((adsArray) => returnAds.push(...adsArray));
-    },
+    }
   };
   // 创建AdLoader广告对象
   const adLoader: advertising.AdLoader = new advertising.AdLoader(context);
   // 调用广告请求接口
-  adLoader.loadAdWithMultiSlots(
-    adRequestParamsArray,
-    adOptions,
-    multiSlotsAdLoaderListener,
-  );
+  adLoader.loadAdWithMultiSlots(adRequestParamsArray, adOptions, multiSlotsAdLoaderListener);
 }
 ```
 
-
-## AdLoadListener
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdLoadListener
 单广告位广告请求回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-### onAdLoadFailure
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### onAdLoadFailure
 onAdLoadFailure(errorCode: number, errorMsg: string): void
-
 广告请求失败回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-| 名称 | 类型 | 必填 | 说明 |
+| 名称 | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errorCode | number | 是 | 广告请求失败的错误码。 |
 | errorMsg | string | 是 | 广告请求失败的错误信息。 |
 
-
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
@@ -633,38 +474,26 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const adLoaderListener: advertising.AdLoadListener = {
   onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-    hilog.error(
-      0x0000,
-      'testTag',
-      `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`,
-    );
+    hilog.error(0x0000, 'testTag', `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`);
   },
   onAdLoadSuccess: (ads: Array<advertising.Advertisement>) => {
     hilog.info(0x0000, 'testTag', 'Succeeded in loading ad');
-  },
-};
+  }
+}
 ```
 
-
-### onAdLoadSuccess
-**支持设备：** Phone / PC/2in1 / Tablet
-
-onAdLoadSuccess(ads: Array<Advertisement>): void
-
+#### onAdLoadSuccess
+onAdLoadSuccess(ads: Array&lt;Advertisement&gt;): void
 广告请求成功后回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-| 名称 | 类型 | 必填 | 说明 |
+| 名称 | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
-| ads | Array&lt;[Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement)&gt; | 是 | 广告数据。 |
-
+| ads | Array<[Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement)> | 是 | 广告数据。 |
 
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
@@ -672,49 +501,33 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const adLoaderListener: advertising.AdLoadListener = {
   onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-    hilog.error(
-      0x0000,
-      'testTag',
-      `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`,
-    );
+    hilog.error(0x0000, 'testTag', `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`);
   },
   onAdLoadSuccess: (ads: Array<advertising.Advertisement>) => {
     hilog.info(0x0000, 'testTag', 'Succeeded in loading ad');
-  },
-};
+  }
+}
 ```
 
-
-## MultiSlotsAdLoadListener
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### MultiSlotsAdLoadListener
 多广告位广告请求回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-### onAdLoadFailure
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### onAdLoadFailure
 onAdLoadFailure(errorCode: number, errorMsg: string): void
-
 多广告位广告请求失败回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-| 名称 | 类型 | 必填 | 说明 |
+| 名称 | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
 | errorCode | number | 是 | 广告请求失败的错误码。 |
 | errorMsg | string | 是 | 广告请求失败的错误信息。 |
 
-
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
@@ -722,38 +535,26 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
   onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-    hilog.error(
-      0x0000,
-      'testTag',
-      `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`,
-    );
+    hilog.error(0x0000, 'testTag', `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`);
   },
   onAdLoadSuccess: (adsMap: Map<string, Array<advertising.Advertisement>>) => {
     hilog.info(0x0000, 'testTag', 'Succeeded in loading ad');
-  },
-};
+  }
+}
 ```
 
-
-### onAdLoadSuccess
-**支持设备：** Phone / PC/2in1 / Tablet
-
-onAdLoadSuccess(adsMap: Map<string, Array<Advertisement>>): void
-
+#### onAdLoadSuccess
+onAdLoadSuccess(adsMap: Map<string, Array&lt;Advertisement&gt;>): void
 多广告位广告请求成功后回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | 说明 |
 | --- | --- | --- | --- |
-| adsMap | Map&lt;string, Array&lt;[Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement)&gt;&gt; | 是 | 广告数据。 |
-
+| adsMap | Map<string, Array<[Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement)>> | 是 | 广告数据，是以广告位ID为键，存储请求到的广告内容的映射集合。 |
 
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
@@ -761,42 +562,28 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
   onAdLoadFailure: (errorCode: number, errorMsg: string) => {
-    hilog.error(
-      0x0000,
-      'testTag',
-      `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`,
-    );
+    hilog.error(0x0000, 'testTag', `Failed to load ad. Code is ${errorCode}, message is ${errorMsg}`);
   },
   onAdLoadSuccess: (adsMap: Map<string, Array<advertising.Advertisement>>) => {
     hilog.info(0x0000, 'testTag', 'Succeeded in loading ad');
-  },
-};
+  }
+}
 ```
 
-
-## AdInteractionListener
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdInteractionListener
 广告状态变化回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
-### onStatusChanged
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### onStatusChanged
 onStatusChanged(status: string, ad: Advertisement, data: string)
-
 广告状态回调。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -804,20 +591,14 @@ onStatusChanged(status: string, ad: Advertisement, data: string)
 | ad | [Advertisement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement#advertisement) | 是 | 发生状态变化的广告内容。 |
 | data | string | 是 | 扩展信息。 当status参数为onAdClose时，data值为关闭原因，关闭原因描述如下： - adShowEnded：广告展示结束。 - adCloseBtnClicked：点击关闭按钮。 - adSkipBtnClicked：点击跳过。 - adFeedbackClosed：负反馈关闭。 - adBackgroundClosed：开屏切后台关闭。 |
 
-
 **示例：**
-
 
 ```ts
 import { advertising } from '@kit.AdsKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const adInteractionListener: advertising.AdInteractionListener = {
-  onStatusChanged: (
-    status: string,
-    ad: advertising.Advertisement,
-    data: string,
-  ) => {
+  onStatusChanged: (status: string, ad: advertising.Advertisement, data: string) => {
     switch (status) {
       case 'onAdLoad':
         hilog.info(0x0000, 'testTag', 'Status is onAdLoad');
@@ -833,11 +614,7 @@ const adInteractionListener: advertising.AdInteractionListener = {
         break;
       case 'onAdClose':
         // data值为关闭原因
-        hilog.info(
-          0x0000,
-          'testTag',
-          `Status is onAdClose, Close Reason is ${data}`,
-        );
+        hilog.info(0x0000, 'testTag', `Status is onAdClose, Close Reason is ${data}`);
         if (data === 'adShowEnded') {
           // 关闭原因为广告展示结束，可根据实际场景添加处理逻辑
         }
@@ -875,20 +652,15 @@ const adInteractionListener: advertising.AdInteractionListener = {
       default:
         break;
     }
-  },
-};
+  }
+}
 ```
 
-
-## AdOptions
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdOptions
 广告配置参数。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
-
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -897,37 +669,27 @@ const adInteractionListener: advertising.AdInteractionListener = {
 | nonPersonalizedAd | number | 否 | 设置是否只请求非个性化广告。  0：请求个性化广告与非个性化广告。  1：只请求非个性化广告。 不填以业务逻辑为准。 |
 | [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - totalDuration：类型number，单位：s。贴片广告必填自定义参数，用于设置贴片广告展示时长。 - allowMobileTraffic：类型number。可选自定义参数，设置是否允许使用流量下载广告素材。0：不允许，1：允许，不设置以广告主设置为准。 - tagForUnderAgeOfPromise：类型number。可选自定义参数，设置未成年保护标签。是否希望按适合未达到法定承诺年龄的欧洲经济区 (EEA) 用户的方式处理该广告请求。-1：默认值，不确定， 0：不希望 ， 1：希望。 |
 
-
-## AdRequestParams
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdRequestParams
 广告请求参数。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
 
-
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| adId | string | 是 | 广告位ID。 说明：[getAdRequestBody](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertising#advertisinggetadrequestbody12)接口可以不传该参数。 |
+| adId | string | 是 | 广告位ID。 说明：getAdRequestBody接口可以不传该参数。 |
 | adType | number | 否 | 请求的广告类型。 - 1：开屏广告。 - 3：原生广告。 - 7：激励广告。 - 8：横幅广告。 - 12：插屏广告。 - 60：贴片广告。 不填默认为原生广告类型。 |
 | adCount | number | 否 | 请求的广告数量。不填以业务逻辑为准。 |
 | adWidth | number | 否 | 请求广告时期望的创意宽度，单位vp（横幅广告必填）。不填以业务逻辑为准。 |
 | adHeight | number | 否 | 请求广告时期望的创意高度，单位vp（横幅广告必填）。不填以业务逻辑为准。 |
 | adSearchKeyword | string | 否 | 广告关键字。不填默认""。 说明：暂不支持使用。 |
-| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - isPreload：类型boolean，请求贴片广告时，用于区分普通在线请求和素材预加载请求。true：素材预加载请求，false：普通在线请求。默认值false。仅对贴片广告生效，其他广告请求不解析该参数。 - enableDirectReturnVideoAd：类型boolean，原生广告自定义扩展参数，是否直接返回广告，不用等待所有广告素材下载完成。true：不等待广告素材下载完成，展示广告时在线加载素材；false：等待广告素材下载完成，展示广告时从本地缓存中加载素材。如果不填以云侧配置为准。仅对原生广告生效，其他广告请求不解析该参数。 - oaid: 类型string，开放匿名设备标识符，用于精准推送广告。不填无法获取到个性化广告。默认值为""。 - tMax：类型number，交易的最大超时时间（包含网络延迟）单位ms。 - cur：类型string，竞价请求支持的币种，支持传多个，用英文逗号分隔。当前支持五种货币：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元），不填则默认是CNY。 - bidFloor：类型number，实时竞价广告位的底价。 - bidFloorCur：类型string，广告位底价使用的币种。如果bidFloor非空，则bidFloorCur也非空。当前只支持五种货币中的一种：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元），不填则默认是CNY。 - bpkgName：类型string，广告位禁投的APP包名，支持传多个，用英文逗号分隔。 - orientation ：类型number，媒体请求广告的屏幕方向。1表示竖屏，0表示横屏，不设置则默认为1。当前未上架横屏开屏素材，若设置请求屏幕方向为横屏则不展示开屏广告。如果媒体设置应用固定横屏展示，但该参数未设置或者设置为1，则展示效果会受影响。 |
+| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - isPreload：类型boolean，请求贴片广告时，用于区分普通在线请求和素材预加载请求。true：素材预加载请求，false：普通在线请求。默认值false。仅对贴片广告生效，其他广告请求不解析该参数。 - enableDirectReturnVideoAd：类型boolean，原生广告自定义扩展参数，是否直接返回广告，不用等待所有广告素材下载完成。true：不等待广告素材下载完成，展示广告时在线加载素材；false：等待广告素材下载完成，展示广告时从本地缓存中加载素材。如果不填以云侧配置为准。仅对原生广告生效，其他广告请求不解析该参数。 - oaid: 类型string，开放匿名设备标识符，用于精准推送广告。不填无法获取到个性化广告。默认值为""。 - tMax：类型number，交易的最大超时时间（包含网络延迟）单位ms。 - cur：类型string，竞价请求支持的币种，支持传多个，用英文逗号分隔。当前支持五种货币：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元），不填则默认是CNY。 - bidFloor：类型number或者string，实时竞价广告位的底价。如果底价是小数，请传入string避免丢失精度。 - bidFloorCur：类型string，广告位底价使用的币种。如果bidFloor非空，则bidFloorCur也非空。当前只支持五种货币中的一种：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元），不填则默认是CNY。 - bpkgName：类型string，广告位禁投的APP包名，支持传多个，用英文逗号分隔。 - orientation ：类型number，媒体请求广告的屏幕方向。1表示竖屏，0表示横屏，不设置则默认为1。当前未上架横屏开屏素材，若设置请求屏幕方向为横屏则不展示开屏广告。如果媒体设置应用固定横屏展示，但该参数未设置或者设置为1，则展示效果会受影响。 |
 
-
-## AdDisplayOptions
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### AdDisplayOptions
 广告展示参数。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Advertising.Ads
-
 
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -936,4 +698,4 @@ const adInteractionListener: advertising.AdInteractionListener = {
 | useMobileDataReminder | boolean | 否 | 使用移动数据播放视频或下载应用时是否弹框通知用户。 - true：弹框通知。 - false：不弹框通知。 - 该参数依赖流量弹窗功能，当前不支持完整功能的使用，暂不确定默认值。 |
 | mute | boolean | 否 | 广告视频播放是否静音。 - true：静音播放。 - false：非静音播放。 不填以业务逻辑为准。 |
 | audioFocusType | number | 否 | 视频播放过程中获得音频焦点的场景类型。 - 0：视频播放静音、非静音时都获取焦点。 - 1：视频静音播放时不获取焦点。 - 2：视频播放静音、非静音时都不获取焦点。 - 该接口依赖的相关功能当前不支持使用，暂不确定默认值。 |
-| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - refreshTime：类型number，单位：ms，取值范围[30000, 120000]。AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。填写了该参数，则广告按照参数配置的时间间隔轮播，否则广告不会轮播，只会展示广告响应中的第一个广告内容。 |
+| [key: string] | number \| boolean \| string \| undefined | 否 | 自定义参数。 - refreshTime：AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。类型number，单位：ms，取值范围[30000, 120000]。如果不设置或取值为非数字或小于等于0的数字，则不轮播，只会展示广告响应中的第一个广告内容。设置小于30000的数字取值30000，设置大于120000的数字取值120000。 - colorMode：广告的主题色。类型number。0：深色主题， 1：浅色主题 ， 2：跟随系统。设置主题色功能从8.4.80.300版本开始支持，查看方式：可在设备上选择“设置> 应用和元服务” ，右上角点击“更多应用”，在应用界面查看智慧营销服务版本。 |

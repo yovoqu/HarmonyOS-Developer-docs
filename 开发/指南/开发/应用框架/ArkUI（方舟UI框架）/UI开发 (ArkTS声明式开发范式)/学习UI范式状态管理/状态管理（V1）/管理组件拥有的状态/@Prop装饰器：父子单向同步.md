@@ -1,37 +1,32 @@
 # @Prop装饰器：父子单向同步
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop
 
 @Prop装饰的变量可以和父组件建立单向同步关系。
-
 在阅读@Prop文档前，建议开发者首先了解[@State](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state)的基本用法。最佳实践请参考[状态管理最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-status-management)。常见问题请参考[状态管理常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq)。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
+#### 概述
+@Prop装饰的变量具有以下特性：
+- @Prop装饰的变量允许本地修改，但修改不会同步回父组件。
+- 当数据源更改时，@Prop装饰的变量都会更新，并且会覆盖本地所有更改。
 
-## 概述
-
-@Prop装饰的变量具有以下特性： @Prop装饰的变量允许本地修改，但修改不会同步回父组件。 当数据源更改时，@Prop装饰的变量都会更新，并且会覆盖本地所有更改。
-
-## 装饰器使用规则说明
-
+#### 装饰器使用规则说明
 
 | @Prop变量装饰器 | 说明 |
 | --- | --- |
 | 装饰器参数 | 无。 |
-| 同步类型 | 单向同步。对父组件状态变量值的修改，将同步给子组件@Prop装饰的变量，子组件@Prop装饰的变量的修改不会同步到父组件的状态变量上。          嵌套类型的场景请参考[观察变化](#观察变化)。 |
-| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。          API version 10开始支持[Date类型](#装饰date类型变量)。          API version 11及以上支持[Map](#装饰map类型变量)、[Set](#装饰set类型变量)类型、undefined和null类型、ArkUI框架定义的联合类型[Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length)、[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)、[ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor)类型以及这些类型的联合类型，示例见[Prop支持联合类型实例](#prop支持联合类型实例)。          支持类型的场景请参考[观察变化](#观察变化)。 |
+| 同步类型 | 单向同步。对父组件状态变量值的修改，将同步给子组件@Prop装饰的变量，子组件@Prop装饰的变量的修改不会同步到父组件的状态变量上。 嵌套类型的场景请参考观察变化。 |
+| 允许装饰的变量类型 | Object、class、string、number、boolean、enum类型，以及这些类型的数组。 API version 10开始支持Date类型。 API version 11及以上支持Map、Set类型、undefined和null类型、ArkUI框架定义的联合类型Length、ResourceStr、ResourceColor类型以及这些类型的联合类型，示例见Prop支持联合类型实例。 支持类型的场景请参考观察变化。 |
 | 不允许装饰的变量类型 | 不支持装饰Function类型。 |
 | 嵌套传递层数 | 在组件复用场景，建议@Prop深度嵌套数据不要超过5层，嵌套太多会导致深拷贝占用的空间过大以及GarbageCollection(垃圾回收)，引起性能问题，此时更建议使用[@ObjectLink](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-observed-and-objectlink)。 |
 | 被装饰变量的初始值 | 允许本地初始化。API version 11及以上，如果和[@Require](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-require)结合使用，则必须父组件构造传参。 |
 
-
-## 变量的传递/访问规则说明
-
+#### 变量的传递/访问规则说明
 
 | 装饰器使用规则 | 说明 |
 | --- | --- |
@@ -40,16 +35,13 @@
 | 是否支持组件外访问 | @Prop装饰的变量是私有的，只能在组件内访问。 |
 
 初始化规则图示：
-![](assets/@Prop装饰器：父子单向同步/file-20260514130517322-0.png)
 
-## 观察变化和行为表现
+![](assets/@Prop装饰器：父子单向同步/file-20260525091526151-001.png)
 
-
-## 观察变化
-
-@Prop装饰的数据可以观察到以下变化。 当装饰支持类型，可以观察到赋值的变化。简单类型完整示例请参考[父组件@State到子组件@Prop简单数据类型同步](#父组件state到子组件prop简单数据类型同步)。
-```text
-// 简单类型
+#### 观察变化和行为表现
+#### 观察变化
+@Prop装饰的数据可以观察到以下变化。
+- 当装饰支持类型，可以观察到赋值的变化。简单类型完整示例请参考父组件@State到子组件@Prop简单数据类型同步。 // 简单类型
 @Prop count: number;
 // 赋值的变化可以被观察到
 this.count = 1;
@@ -57,16 +49,12 @@ this.count = 1;
 @Prop title: Model;
 // 可以观察到赋值的变化
 this.title = new Model('Hi');
-```
-
-当装饰的类型是Object或者class复杂类型时，可以观察到自身的赋值和第一层的属性的变化，属性即object.keys(observedObject)返回的所有属性。复杂类型完整示例请参考[从父组件中的@State类对象属性到@Prop简单类型的同步](#从父组件中的state类对象属性到prop简单类型的同步)。
-```text
-// 定义嵌套类
+- 当装饰的类型是Object或者class复杂类型时，可以观察到自身的赋值和第一层的属性的变化，属性即object.keys(observedObject)返回的所有属性。复杂类型完整示例请参考从父组件中的@State类对象属性到@Prop简单类型的同步。 // 定义嵌套类
 class Info {
   public value: string;
 
   constructor(value: string) {
-    this.value = value;
+ this.value = value;
   }
 }
 
@@ -75,32 +63,14 @@ class Model {
   public info: Info;
 
   constructor(value: string, info: Info) {
-    this.value = value;
-    this.info = info;
+ this.value = value;
+ this.info = info;
   }
-}
-```
-
-
-```text
-@Prop title: Model;
-```
-
-
-```text
-// 可以观察到第一层的变化
-this.title.value = 'Hi';
-```
-
-
-```text
-// 观察不到第二层的变化
+} @Prop title: Model; // 可以观察到第一层的变化
+this.title.value = 'Hi'; // 观察不到第二层的变化
 this.title.info.value = 'ArkUI';
-```
-
-对于嵌套场景，如果class是被@Observed装饰的，可以观察到class属性的变化，示例请参考[@Prop嵌套场景](#prop嵌套场景)。 当装饰的类型是数组的时候，可以观察到数组本身的赋值和数组项的添加、删除和更新。数组类型完整示例请参考[父组件@State数组项到子组件@Prop简单数据类型同步](#父组件state数组项到子组件prop简单数据类型同步)。
-```text
-// @Prop装饰的对象为数组时
+对于嵌套场景，如果class是被@Observed装饰的，可以观察到class属性的变化，示例请参考[@Prop嵌套场景](#prop嵌套场景)。
+- 当装饰的类型是数组的时候，可以观察到数组本身的赋值和数组项的添加、删除和更新。数组类型完整示例请参考父组件@State数组项到子组件@Prop简单数据类型同步。 // @Prop装饰的对象为数组时
 @Prop title: string[];
 // 数组自身的赋值可以观察到
 this.title = ['1'];
@@ -110,18 +80,26 @@ this.title[0] = '2';
 this.title.pop();
 // 新增数组项可以观察到
 this.title.push('3');
-```
+对于@State和@Prop的同步场景：
+- 使用父组件中@State变量的值初始化子组件中的@Prop装饰的变量。当@State变量变化时，该变量值也会同步更新至@Prop装饰的变量。
+- @Prop装饰的变量的修改不会影响其数据源@State装饰变量的值。
+- 除了@State，数据源也可以用@Link或@Prop装饰，对@Prop的同步机制是相同的。
+- 数据源和@Prop装饰的变量的类型需要相同。
+- 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds 更新Date的属性，详见装饰Date类型变量。
+- 当装饰的变量是Map时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。详见装饰Map类型变量。
+- 当装饰的变量是Set时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。详见装饰Set类型变量。
 
-对于@State和@Prop的同步场景： 使用父组件中@State变量的值初始化子组件中的@Prop装饰的变量。当@State变量变化时，该变量值也会同步更新至@Prop装饰的变量。 @Prop装饰的变量的修改不会影响其数据源@State装饰变量的值。 除了@State，数据源也可以用@Link或@Prop装饰，对@Prop的同步机制是相同的。 数据源和@Prop装饰的变量的类型需要相同。 当装饰的对象是Date时，可以观察到Date整体的赋值，同时可通过调用Date的接口setFullYear, setMonth, setDate, setHours, setMinutes, setSeconds, setMilliseconds, setTime, setUTCFullYear, setUTCMonth, setUTCDate, setUTCHours, setUTCMinutes, setUTCSeconds, setUTCMilliseconds 更新Date的属性，详见[装饰Date类型变量](#装饰date类型变量)。 当装饰的变量是Map时，可以观察到Map整体的赋值，同时可通过调用Map的接口set, clear, delete 更新Map的值。详见[装饰Map类型变量](#装饰map类型变量)。 当装饰的变量是Set时，可以观察到Set整体的赋值，同时可通过调用Set的接口add, clear, delete 更新Set的值。详见[装饰Set类型变量](#装饰set类型变量)。
+#### 框架行为
+理解@Prop装饰的变量值初始化和更新机制，需要了解父组件和子组件的渲染和更新流程。
+1. 初始渲染：  执行父组件的build()函数，创建子组件的新实例并传递数据源。 初始化子组件@Prop装饰的变量。
+2. 更新：  子组件@Prop更新时，更新仅停留在当前子组件，不会同步回父组件。 当父组件的数据源更新时，子组件的@Prop装饰的变量将被来自父组件的数据源重置，所有@Prop装饰变量的本地修改将被父组件的更新覆盖。
 
-## 框架行为
-
-理解@Prop装饰的变量值初始化和更新机制，需要了解父组件和子组件的渲染和更新流程。 初始渲染： 执行父组件的build()函数，创建子组件的新实例并传递数据源。 初始化子组件@Prop装饰的变量。 更新： 子组件@Prop更新时，更新仅停留在当前子组件，不会同步回父组件。 当父组件的数据源更新时，子组件的@Prop装饰的变量将被来自父组件的数据源重置，所有@Prop装饰变量的本地修改将被父组件的更新覆盖。
-> [!NOTE]
+> [!NOTE] 说明
 > @Prop同步数据源依赖于数据源所在组件的刷新，而应用进入后台后无法触发刷新，因此应用进入后台后，@Prop无法从数据源更新。在此场景下，若需即时数据同步，推荐使用@Link代替。
 
 以下示例中，当@State装饰的变量message改变时，Father组件会刷新。由于Son组件使用@Prop接收了该变量，因此Father组件刷新的过程中会使用message的最新值去更新@Prop的值。@Prop更新后，会触发Son组件的刷新。
-```text
+
+```ArkTS
 @Component
 struct Son {
   @Prop message: string = 'Hi';
@@ -151,23 +129,21 @@ struct Father {
 }
 ```
 
-
-## 限制条件
-
-@Prop装饰变量时会进行深拷贝，在拷贝的过程中除了基本类型、Map、Set、Date、Array外，都会丢失类型。例如，对于通过NAPI提供的复杂类型（如[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)），由于其部分实现在Native侧，因此无法在ArkTS侧通过深拷贝获得完整的数据；同样，RegExp类型在拷贝过程中会丢失原类型，导致被@Prop装饰后无法调用正则相关函数。 @Prop不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。 从API version 23开始，添加对@Prop装饰Function类型变量的校验，编译期会报错。 父组件传入undefined时，@Prop装饰的变量仍使用本地默认值进行初始化。
-```text
-@Entry
+#### 限制条件
+- @Prop装饰变量时会进行深拷贝，在拷贝的过程中除了基本类型、Map、Set、Date、Array外，都会丢失类型。例如，对于通过NAPI提供的复杂类型（如PixelMap），由于其部分实现在Native侧，因此无法在ArkTS侧通过深拷贝获得完整的数据；同样，RegExp类型在拷贝过程中会丢失原类型，导致被@Prop装饰后无法调用正则相关函数。
+- @Prop不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。 从API version 23开始，在应用编译时添加了相关校验，@Prop装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@Prop装饰器。
+- 父组件传入undefined时，@Prop装饰的变量仍使用本地默认值进行初始化。 @Entry
 @Component
 struct Parent {
   @State count: number | undefined = undefined;
 
   build() {
-    Column() {
-      Text(`Parent count value: ${this.count}`)
-        .fontSize(20)
-        .margin(10)
-      Child({ count: this.count })
-    }
+ Column() {
+ Text(`Parent count value: ${this.count}`)
+ .fontSize(20)
+ .margin(10)
+ Child({ count: this.count })
+ }
   }
 }
 
@@ -177,23 +153,20 @@ struct Child {
   @Prop count: number | undefined = 0;
 
   build() {
-    Column() {
-      Text(`Child count value: ${this.count}`)
-        .fontSize(20)
-        .margin(10)
-    }
+ Column() {
+ Text(`Child count value: ${this.count}`)
+ .fontSize(20)
+ .margin(10)
+ }
   }
 }
-```
 
+#### 使用场景
+#### 父组件@State到子组件@Prop简单数据类型同步
+以下示例是@State到子组件@Prop简单数据同步，父组件ParentComponent的状态变量countDownStartValue初始化子组件CountDownComponent中@Prop装饰的count，点击“Try again”，count的修改仅保留在CountDownComponent，不会同步给父组件ParentComponent。
+ParentComponent的状态变量countDownStartValue的变化将重置CountDownComponent的count。
 
-## 使用场景
-
-
-## 父组件@State到子组件@Prop简单数据类型同步
-
-以下示例是@State到子组件@Prop简单数据同步，父组件ParentComponent的状态变量countDownStartValue初始化子组件CountDownComponent中@Prop装饰的count，点击“Try again”，count的修改仅保留在CountDownComponent，不会同步给父组件ParentComponent。 ParentComponent的状态变量countDownStartValue的变化将重置CountDownComponent的count。
-```text
+```ArkTS
 @Component
 struct CountDownComponent {
   @Prop count: number = 0;
@@ -236,12 +209,17 @@ struct ParentComponent {
 }
 ```
 
-在上面的示例中： CountDownComponent子组件首次创建时其@Prop装饰的count变量将从父组件@State装饰的countDownStartValue变量初始化。 按“+1”或“-1”按钮时，父组件的@State装饰的countDownStartValue值会变化，这将触发父组件重新渲染，在父组件重新渲染过程中会刷新使用countDownStartValue状态变量的UI组件，并单向同步更新CountDownComponent子组件中的count值。 更新count状态变量值也会触发CountDownComponent的重新渲染，在重新渲染过程中，评估使用count状态变量的if语句条件（this.count > 0），并执行true分支中的使用count状态变量的UI组件相关描述来更新Text组件的UI显示。 当按下子组件CountDownComponent的“Try again”按钮时，其@Prop装饰的变量count将被更改，但是count值的更改不会影响父组件的countDownStartValue值。 父组件的countDownStartValue值变化时，父组件的修改将覆盖掉子组件CountDownComponent中count本地的修改。
+在上面的示例中：
+1. CountDownComponent子组件首次创建时其@Prop装饰的count变量将从父组件@State装饰的countDownStartValue变量初始化。
+2. 按“+1”或“-1”按钮时，父组件的@State装饰的countDownStartValue值会变化，这将触发父组件重新渲染，在父组件重新渲染过程中会刷新使用countDownStartValue状态变量的UI组件，并单向同步更新CountDownComponent子组件中的count值。
+3. 更新count状态变量值也会触发CountDownComponent的重新渲染，在重新渲染过程中，评估使用count状态变量的if语句条件（this.count > 0），并执行true分支中的使用count状态变量的UI组件相关描述来更新Text组件的UI显示。
+4. 当按下子组件CountDownComponent的“Try again”按钮时，其@Prop装饰的变量count将被更改，但是count值的更改不会影响父组件的countDownStartValue值。
+5. 父组件的countDownStartValue值变化时，父组件的修改将覆盖掉子组件CountDownComponent中count本地的修改。
 
-## 父组件@State数组项到子组件@Prop简单数据类型同步
-
+#### 父组件@State数组项到子组件@Prop简单数据类型同步
 父组件中@State如果装饰数组类型的变量，其数组项也可以初始化@Prop。以下示例中，父组件Index中@State装饰数组arr，将其数组项初始化子组件Child中@Prop装饰的value。
-```text
+
+```ArkTS
 @Component
 struct Child {
   @Prop value: number = 0;
@@ -287,8 +265,10 @@ struct Index {
 }
 ```
 
-初始渲染创建6个子组件实例，每个@Prop装饰的变量初始化都在本地拷贝了一份数组项。子组件onClick事件处理程序会更改局部变量值。 如果点击界面上的“1”六次，“2”五次、“3”四次，将所有变量的本地取值都变为“7”。
-```text
+初始渲染创建6个子组件实例，每个@Prop装饰的变量初始化都在本地拷贝了一份数组项。子组件onClick事件处理程序会更改局部变量值。
+如果点击界面上的“1”六次，“2”五次、“3”四次，将所有变量的本地取值都变为“7”。
+
+```ts
 7
 7
 7
@@ -299,7 +279,8 @@ struct Index {
 ```
 
 点击replace entire arr后，屏幕将显示以下信息。
-```text
+
+```ts
 3
 4
 5
@@ -309,12 +290,16 @@ struct Index {
 5
 ```
 
-在子组件Child中做的所有的修改都不会同步回父组件Index组件，所以即使6个组件显示都为7，但在父组件Index中，this.arr保存的值依旧是[1,2,3]。 点击replace entire arr，this.arr[0] == 1成立，将this.arr赋值为[3, 4, 5]。 因为this.arr[0]已更改，Child({value: this.arr[0]})组件将this.arr[0]更新同步到实例@Prop装饰的变量。Child({value: this.arr[1]})和Child({value: this.arr[2]})的情况也类似。 this.arr的更改触发ForEach更新，this.arr更新的前后都有数值为3的数组项：[3, 4, 5] 和[1, 2, 3]。根据diff算法，数组项“3”将被保留，删除“1”和“2”的数组项，添加为“4”和“5”的数组项。这就意味着，数组项“3”的组件不会重新生成，而是将其移动到第一位。所以“3”对应的组件不会更新，此时“3”对应的组件数值为“7”，ForEach最终的渲染结果是“7”，“4”，“5”。
+- 在子组件Child中做的所有的修改都不会同步回父组件Index组件，所以即使6个组件显示都为7，但在父组件Index中，this.arr保存的值依旧是[1,2,3]。
+- 点击replace entire arr，this.arr[0] == 1成立，将this.arr赋值为[3, 4, 5]。
+- 因为this.arr[0]已更改，Child({value: this.arr[0]})组件将this.arr[0]更新同步到实例@Prop装饰的变量。Child({value: this.arr[1]})和Child({value: this.arr[2]})的情况也类似。
+- this.arr的更改触发ForEach更新，this.arr更新的前后都有数值为3的数组项：[3, 4, 5] 和[1, 2, 3]。根据diff算法，数组项“3”将被保留，删除“1”和“2”的数组项，添加为“4”和“5”的数组项。这就意味着，数组项“3”的组件不会重新生成，而是将其移动到第一位。所以“3”对应的组件不会更新，此时“3”对应的组件数值为“7”，ForEach最终的渲染结果是“7”，“4”，“5”。
 
-## 从父组件中的@State类对象属性到@Prop简单类型的同步
+#### 从父组件中的@State类对象属性到@Prop简单类型的同步
+如果图书馆有一本图书和两位用户，每位用户都可以将图书标记为已读，此标记行为不会影响其他用户。从代码角度讲，对@Prop图书对象的本地更改不会同步给图书馆组件中的@State图书对象。
+在此示例中，图书类可以使用@Observed装饰器，但不是必须的，只有在嵌套结构时需要此装饰器。这一点会在[从父组件中的@State数组项到@Prop class类型的同步](#从父组件中的state数组项到prop-class类型的同步)说明。
 
-如果图书馆有一本图书和两位用户，每位用户都可以将图书标记为已读，此标记行为不会影响其他用户。从代码角度讲，对@Prop图书对象的本地更改不会同步给图书馆组件中的@State图书对象。 在此示例中，图书类可以使用@Observed装饰器，但不是必须的，只有在嵌套结构时需要此装饰器。这一点会在[从父组件中的@State数组项到@Prop class类型的同步](#从父组件中的state数组项到prop-class类型的同步)说明。
-```text
+```ArkTS
 class Book {
   public title: string;
   public pages: number;
@@ -356,11 +341,10 @@ struct Library {
 }
 ```
 
-
-## 从父组件中的@State数组项到@Prop class类型的同步
-
+#### 从父组件中的@State数组项到@Prop class类型的同步
 以下示例中，更改了@State装饰的allBooks数组中Book对象的属性，但点击“Mark read for everyone”时，没有触发UI更新。这是因为该属性是第二层的嵌套属性，@State装饰器只能观察到第一层属性，不会观察到此属性更改，所以框架不会更新ReaderComp。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;
@@ -454,7 +438,15 @@ struct Library {
             this.allBooks.shift();
           } else {
             // allBooks为空时输出提示信息
-            hilog.info(DOMAIN, TAG, 'length  {
+            hilog.info(DOMAIN, TAG, 'length <= 0');
+          }
+        })
+      Button('Mark read for everyone')
+        .width(312)
+        .height(40)
+        .margin(12)
+        .fontColor('#FFFFFF')
+        .onClick(() => {
           this.allBooks.forEach((book) => book.readIt = true)
         })
     }
@@ -463,7 +455,8 @@ struct Library {
 ```
 
 使用@Observed装饰class Book，Book的属性变化将被观察。需要注意的是，@Prop在子组件装饰的状态变量和父组件的数据源是单向同步关系，即ReaderComp中的@Prop book的修改不会同步给父组件Library。而父组件只会在状态变量发生变化的时候，才会触发UI的重新渲染。
-```text
+
+```ts
 @Observed
 class Book {
   public id: number;
@@ -480,12 +473,16 @@ class Book {
 ```
 
 @Observed装饰的类的实例会被不透明的代理对象包装，此代理可以检测到包装对象内的所有属性更改。如果发生这种情况，此时，代理通知@Prop，@Prop对象值被更新。
-![](assets/@Prop装饰器：父子单向同步/file-20260514130517322-1.gif)
 
-## @Prop本地初始化不和父组件同步
+![](assets/@Prop装饰器：父子单向同步/file-20260525091526154-002.gif)
 
-为了支持@Component装饰的组件复用场景，@Prop支持本地初始化，这样可以让@Prop是否与父组件建立同步关系变得可选。当且仅当@Prop有本地初始化时，从父组件向子组件传递@Prop的数据源才是可选的。 下面的示例中，子组件包含两个@Prop装饰的变量： @Prop customCounter没有本地初始化，所以需要父组件提供数据源去初始化@Prop，并当父组件的数据源变化时，@Prop也将被更新。 @Prop customCounter2有本地初始化，在这种情况下，@Prop依旧允许但非强制父组件同步数据源给@Prop。
-```text
+#### @Prop本地初始化不和父组件同步
+为了支持@Component装饰的组件复用场景，@Prop支持本地初始化，这样可以让@Prop是否与父组件建立同步关系变得可选。当且仅当@Prop有本地初始化时，从父组件向子组件传递@Prop的数据源才是可选的。
+下面的示例中，子组件包含两个@Prop装饰的变量：
+- @Prop customCounter没有本地初始化，所以需要父组件提供数据源去初始化@Prop，并当父组件的数据源变化时，@Prop也将被更新。
+- @Prop customCounter2有本地初始化，在这种情况下，@Prop依旧允许但非强制父组件同步数据源给@Prop。
+
+```ArkTS
 @Component
 struct MyComponent {
   @Prop customCounter: number;
@@ -548,12 +545,12 @@ struct MainProgram {
 }
 ```
 
-![](assets/@Prop装饰器：父子单向同步/file-20260514130517322-2.gif)
+![](assets/@Prop装饰器：父子单向同步/file-20260525091526154-003.gif)
 
-## @Prop嵌套场景
-
+#### @Prop嵌套场景
 在嵌套场景下，每一层都要用@Observed装饰，且每一层都要被@Prop接收，这样才能观察到嵌套场景。
-```text
+
+```ArkTS
 // 以下是嵌套类对象的数据结构。
 @Observed
 class Son {
@@ -577,7 +574,8 @@ class Father {
 ```
 
 以下组件层次结构展示了@Prop嵌套场景的数据结构。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct Person {
@@ -656,12 +654,12 @@ struct Child {
 }
 ```
 
-![](assets/@Prop装饰器：父子单向同步/file-20260514130517322-3.gif)
+![](assets/@Prop装饰器：父子单向同步/file-20260525091526155-004.gif)
 
-## 装饰Array类型变量
-
+#### 装饰Array类型变量
 在下面的示例中，message类型为number[]，点击Button改变message的值，视图会随之刷新。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct Index {
@@ -722,18 +720,17 @@ struct Child {
 }
 ```
 
+#### 装饰Map类型变量
 
-## 装饰Map类型变量
-
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 11开始，@Prop支持Map类型。
 
-在下面的示例中，value类型为Map，点击Button改变value的值，视图会随之刷新。
-```text
+在下面的示例中，value类型为Map<number, string>，点击Button改变value的值，视图会随之刷新。
+
+```ArkTS
 @Component
 struct Child {
-  @Prop value: Map = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @Prop value: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
 
   build() {
     Column() {
@@ -766,7 +763,7 @@ struct Child {
 @Entry
 @Component
 struct MapSample {
-  @State message: Map = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
+  @State message: Map<number, string> = new Map([[0, 'a'], [1, 'b'], [3, 'c']]);
 
   build() {
     Row() {
@@ -780,18 +777,17 @@ struct MapSample {
 }
 ```
 
+#### 装饰Set类型变量
 
-## 装饰Set类型变量
-
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 11开始，@Prop支持Set类型。
 
-在下面的示例中，message类型为Set，点击Button改变message的值，视图会随之刷新。
-```text
+在下面的示例中，message类型为Set&lt;number&gt;，点击Button改变message的值，视图会随之刷新。
+
+```ArkTS
 @Component
 struct Child {
-  @Prop message: Set = new Set([0, 1, 2, 3, 4]);
+  @Prop message: Set<number> = new Set([0, 1, 2, 3, 4]);
 
   build() {
     Column() {
@@ -821,7 +817,7 @@ struct Child {
 @Entry
 @Component
 struct SetSample {
-  @State message: Set = new Set([0, 1, 2, 3, 4]);
+  @State message: Set<number> = new Set([0, 1, 2, 3, 4]);
 
   build() {
     Row() {
@@ -835,11 +831,10 @@ struct SetSample {
 }
 ```
 
-
-## 装饰Date类型变量
-
+#### 装饰Date类型变量
 在下面的示例中，selectedDate类型为Date，点击Button改变Date的值，视图会随之刷新。
-```text
+
+```ArkTS
 @Component
 struct DateComponent {
   @Prop selectedDate: Date = new Date('');
@@ -893,11 +888,10 @@ struct ParentComponent {
 }
 ```
 
-
-## Prop支持联合类型实例
-
+#### Prop支持联合类型实例
 @Prop支持联合类型和undefined和null，在下面的示例中，animal类型为Animals | undefined，点击父组件Zoo中的Button改变animal的属性或者类型，Child中也会对应刷新。
-```text
+
+```ArkTS
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
 const DOMAIN = 0x0001;

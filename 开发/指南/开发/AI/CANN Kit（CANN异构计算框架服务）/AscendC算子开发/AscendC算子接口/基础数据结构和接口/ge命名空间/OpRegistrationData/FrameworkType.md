@@ -1,24 +1,20 @@
 # FrameworkType
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-frameworktype
 
-## 函数功能
-
+#### 函数功能
 设置原始模型的框架类型。
 
-## 函数原型
+#### 函数原型
 
-
-```text
+```cpp
 OpRegistrationData &FrameworkType(const domi::FrameworkType &fmk_type)
 ```
 
-
-## 参数说明
-
+#### 参数说明
 
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| fmk_type | 输入 | 框架类型。 - CAFFE - TENSORFLOW - ONNX FrameworkType枚举值的如下：CAFFE、MINDSPORE、TENSORFLOW、ANDROID_NN、ONNX、FRAMEWORK_RESERVED。 |
+| fmk_type | 输入 | 框架类型。 - CAFFE - TENSORFLOW - ONNX FrameworkType枚举值如下：CAFFE、MINDSPORE、TENSORFLOW、ANDROID_NN、ONNX、FRAMEWORK_RESERVED。 |

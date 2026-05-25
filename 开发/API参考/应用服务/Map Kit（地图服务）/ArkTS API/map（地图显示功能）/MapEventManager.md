@@ -1,25 +1,19 @@
-# MapEventManager
+# Interface (MapEventManager)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### 导入模块
 
 ```ts
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
-
-## MapEventManager
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### MapEventManager
 地图监听事件管理器。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -29,20 +23,14 @@ import { map, mapCommon } from '@kit.MapKit';
 **起始版本：** 5.0.0(12)
 
 **示例：**
-
 
 ```ts
 let mapEventManager: map.MapEventManager = this.mapController.getEventManager();
 ```
 
-
-### on('cameraChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'cameraChange', callback: Callback<mapCommon.LatLng>): void
-
+#### on('cameraChange')
+on(type: 'cameraChange', callback: Callback&lt;mapCommon.LatLng&gt;): void
 监听地图相机状态变化。支持传递多个callback异步回调。此回调不会在动画过程中触发，而是在动画结束时触发。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -50,42 +38,33 @@ on(type: 'cameraChange', callback: Callback<mapCommon.LatLng>): void
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 5.0.0(12)
-
 **参数**：
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraChange'：监听地图相机状态变化事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图相机状态变化事件。该回调不会在动画过程中触发，而是在动画结束时触发。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图相机状态变化事件。该回调不会在动画过程中触发，而是在动画结束时触发。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback1 position = ${position.longitude}`);
+  console.info("cameraChange", `callback1 position = ${position.longitude}`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback2 position = ${position.longitude}`);
+  console.info("cameraChange", `callback2 position = ${position.longitude}`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback3 position = ${position.longitude}`);
+  console.info("cameraChange", `callback3 position = ${position.longitude}`);
 };
-mapEventManager.on('cameraChange', callback1);
-mapEventManager.on('cameraChange', callback2);
-mapEventManager.on('cameraChange', callback3);
+mapEventManager.on("cameraChange", callback1);
+mapEventManager.on("cameraChange", callback2);
+mapEventManager.on("cameraChange", callback3);
 ```
 
-
-### off('cameraChange')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'cameraChange', callback?: Callback<mapCommon.LatLng>): void
-
+#### off('cameraChange')
+off(type: 'cameraChange', callback?: Callback&lt;mapCommon.LatLng&gt;): void
 取消监听地图相机状态变化事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -93,46 +72,37 @@ off(type: 'cameraChange', callback?: Callback<mapCommon.LatLng>): void
 **系统能力：** SystemCapability.Map.Core
 
 **起始版本：** 5.0.0(12)
-
 **参数**：
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraChange'：监听地图相机状态变化事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 否 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，取消监听地图相机状态变化事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 否 | 回调函数，返回mapCommon.LatLng，取消监听地图相机状态变化事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback1 position`);
+  console.info("cameraChange", `callback1 position`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback2 position`);
+  console.info("cameraChange", `callback2 position`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('cameraChange', `callback3 position`);
+  console.info("cameraChange", `callback3 position`);
 };
-mapEventManager.on('cameraChange', callback1);
-mapEventManager.on('cameraChange', callback2);
-mapEventManager.on('cameraChange', callback3);
+mapEventManager.on("cameraChange", callback1);
+mapEventManager.on("cameraChange", callback2);
+mapEventManager.on("cameraChange", callback3);
 // 只取消callback1对象的事件响应，当cameraChange事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('cameraChange', callback1);
 // 取消所有cameraChange事件响应
 mapEventManager.off('cameraChange');
 ```
 
-
-### on('cameraIdle')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'cameraIdle', callback: Callback<void>): void
-
+#### on('cameraIdle')
+on(type: 'cameraIdle', callback: Callback&lt;void&gt;): void
 监听相机移动结束事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -143,39 +113,31 @@ on(type: 'cameraIdle', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraIdle'：监听相机移动结束事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听相机移动结束事件。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraIdle', `callback1`);
+  console.info("cameraIdle", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraIdle', `callback2`);
+  console.info("cameraIdle", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraIdle', `callback3`);
+  console.info("cameraIdle", `callback3`);
 };
-mapEventManager.on('cameraIdle', callback1);
-mapEventManager.on('cameraIdle', callback2);
-mapEventManager.on('cameraIdle', callback3);
+mapEventManager.on("cameraIdle", callback1);
+mapEventManager.on("cameraIdle", callback2);
+mapEventManager.on("cameraIdle", callback3);
 ```
 
-
-### off('cameraIdle')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'cameraIdle', callback?: Callback<void>): void
-
+#### off('cameraIdle')
+off(type: 'cameraIdle', callback?: Callback&lt;void&gt;): void
 取消监听相机移动结束事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -186,43 +148,35 @@ off(type: 'cameraIdle', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraIdle'：监听相机移动结束事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听相机移动结束事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraIdle', `callback1`);
+  console.info("cameraIdle", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraIdle', `callback2`);
+  console.info("cameraIdle", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraIdle', `callback3`);
+  console.info("cameraIdle", `callback3`);
 };
-mapEventManager.on('cameraIdle', callback1);
-mapEventManager.on('cameraIdle', callback2);
-mapEventManager.on('cameraIdle', callback3);
+mapEventManager.on("cameraIdle", callback1);
+mapEventManager.on("cameraIdle", callback2);
+mapEventManager.on("cameraIdle", callback3);
 // 只取消callback1对象的事件响应，当cameraIdle事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('cameraIdle', callback1);
 // 取消全部cameraIdle事件响应
 mapEventManager.off('cameraIdle');
 ```
 
-
-### on('cameraMoveCancel')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'cameraMoveCancel', callback: Callback<void>): void
-
+#### on('cameraMoveCancel')
+on(type: 'cameraMoveCancel', callback: Callback&lt;void&gt;): void
 监听相机移动取消事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -233,39 +187,31 @@ on(type: 'cameraMoveCancel', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMoveCancel'：监听地图相机移动取消事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听地图相机移动取消事件。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraMoveCancel', `callback1`);
+  console.info("cameraMoveCancel", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraMoveCancel', `callback2`);
+  console.info("cameraMoveCancel", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraMoveCancel', `callback3`);
+  console.info("cameraMoveCancel", `callback3`);
 };
-mapEventManager.on('cameraMoveCancel', callback1);
-mapEventManager.on('cameraMoveCancel', callback2);
-mapEventManager.on('cameraMoveCancel', callback3);
+mapEventManager.on("cameraMoveCancel", callback1);
+mapEventManager.on("cameraMoveCancel", callback2);
+mapEventManager.on("cameraMoveCancel", callback3);
 ```
 
-
-### off('cameraMoveCancel')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'cameraMoveCancel', callback?: Callback<void>): void
-
+#### off('cameraMoveCancel')
+off(type: 'cameraMoveCancel', callback?: Callback&lt;void&gt;): void
 取消监听相机移动取消事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -276,43 +222,35 @@ off(type: 'cameraMoveCancel', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMoveCancel'：监听地图相机移动取消事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听地图相机移动取消事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraMoveCancel', `callback1`);
+  console.info("cameraMoveCancel", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraMoveCancel', `callback2`);
+  console.info("cameraMoveCancel", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraMoveCancel', `callback3`);
+  console.info("cameraMoveCancel", `callback3`);
 };
-mapEventManager.on('cameraMoveCancel', callback1);
-mapEventManager.on('cameraMoveCancel', callback2);
-mapEventManager.on('cameraMoveCancel', callback3);
+mapEventManager.on("cameraMoveCancel", callback1);
+mapEventManager.on("cameraMoveCancel", callback2);
+mapEventManager.on("cameraMoveCancel", callback3);
 // 只取消callback1对象的事件响应，当cameraMoveCancel事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('cameraMoveCancel', callback1);
 // 取消全部cameraMoveCancel事件响应
 mapEventManager.off('cameraMoveCancel');
 ```
 
-
-### on('cameraMove')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'cameraMove', callback: Callback<void>): void
-
+#### on('cameraMove')
+on(type: 'cameraMove', callback: Callback&lt;void&gt;): void
 监听相机移动事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -323,39 +261,31 @@ on(type: 'cameraMove', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMove'：监听相机移动事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听相机移动事件。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraMove', `callback1`);
+  console.info("cameraMove", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraMove', `callback2`);
+  console.info("cameraMove", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraMove', `callback3`);
+  console.info("cameraMove", `callback3`);
 };
-mapEventManager.on('cameraMove', callback1);
-mapEventManager.on('cameraMove', callback2);
-mapEventManager.on('cameraMove', callback3);
+mapEventManager.on("cameraMove", callback1);
+mapEventManager.on("cameraMove", callback2);
+mapEventManager.on("cameraMove", callback3);
 ```
 
-
-### off('cameraMove')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'cameraMove', callback?: Callback<void>): void
-
+#### off('cameraMove')
+off(type: 'cameraMove', callback?: Callback&lt;void&gt;): void
 取消监听相机移动事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -366,43 +296,35 @@ off(type: 'cameraMove', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMove'：监听相机移动事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听相机移动事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('cameraMove', `callback1`);
+  console.info("cameraMove", `callback1`);
 };
 let callback2 = () => {
-  console.info('cameraMove', `callback2`);
+  console.info("cameraMove", `callback2`);
 };
 let callback3 = () => {
-  console.info('cameraMove', `callback3`);
+  console.info("cameraMove", `callback3`);
 };
-mapEventManager.on('cameraMove', callback1);
-mapEventManager.on('cameraMove', callback2);
-mapEventManager.on('cameraMove', callback3);
+mapEventManager.on("cameraMove", callback1);
+mapEventManager.on("cameraMove", callback2);
+mapEventManager.on("cameraMove", callback3);
 // 只取消callback1对象的事件响应，当cameraMove事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('cameraMove', callback1);
 // 取消全部cameraMove事件响应
 mapEventManager.off('cameraMove');
 ```
 
-
-### on('cameraMoveStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'cameraMoveStart', callback: Callback<number>): void
-
+#### on('cameraMoveStart')
+on(type: 'cameraMoveStart', callback: Callback&lt;number&gt;): void
 监听相机移动开始事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -413,39 +335,31 @@ on(type: 'cameraMoveStart', callback: Callback<number>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMoveStart'：监听相机移动开始事件。 |
 | callback | Callback&lt;number&gt; | 是 | 回调函数，返回number，监听相机移动开始事件。 number表示相机改变的原因： 1：地图上的用户手势 2：用户交互产生的默认动画 3：开发人员启动的动画 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = (reason: number) => {
-  console.info('cameraMoveStart', `callback1 reason = ${reason}`);
+  console.info("cameraMoveStart", `callback1 reason = ${reason}`);
 };
 let callback2 = (reason: number) => {
-  console.info('cameraMoveStart', `callback2 reason = ${reason}`);
+  console.info("cameraMoveStart", `callback2 reason = ${reason}`);
 };
 let callback3 = (reason: number) => {
-  console.info('cameraMoveStart', `callback3 reason = ${reason}`);
+  console.info("cameraMoveStart", `callback3 reason = ${reason}`);
 };
-mapEventManager.on('cameraMoveStart', callback1);
-mapEventManager.on('cameraMoveStart', callback2);
-mapEventManager.on('cameraMoveStart', callback3);
+mapEventManager.on("cameraMoveStart", callback1);
+mapEventManager.on("cameraMoveStart", callback2);
+mapEventManager.on("cameraMoveStart", callback3);
 ```
 
-
-### off('cameraMoveStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'cameraMoveStart', callback?: Callback<number>): void
-
+#### off('cameraMoveStart')
+off(type: 'cameraMoveStart', callback?: Callback&lt;number&gt;): void
 取消监听相机移动开始事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -456,29 +370,26 @@ off(type: 'cameraMoveStart', callback?: Callback<number>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'cameraMoveStart'：监听相机移动开始事件。 |
 | callback | Callback&lt;number&gt; | 否 | 回调函数，取消监听相机移动开始事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 number表示相机改变的原因： 1：地图上的用户手势 2：用户交互产生的默认动画 3：开发人员启动的动画 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = (reason: number) => {
-  console.info('cameraMoveStart', `callback1`);
+  console.info("cameraMoveStart", `callback1`);
 };
 let callback2 = (reason: number) => {
-  console.info('cameraMoveStart', `callback2`);
+  console.info("cameraMoveStart", `callback2`);
 };
 let callback3 = (reason: number) => {
-  console.info('cameraMoveStart', `callback3`);
+  console.info("cameraMoveStart", `callback3`);
 };
-mapEventManager.on('cameraMoveStart', callback1);
-mapEventManager.on('cameraMoveStart', callback2);
-mapEventManager.on('cameraMoveStart', callback3);
+mapEventManager.on("cameraMoveStart", callback1);
+mapEventManager.on("cameraMoveStart", callback2);
+mapEventManager.on("cameraMoveStart", callback3);
 
 // 只取消callback1对象的事件响应，当cameraMoveStart事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('cameraMoveStart', callback1);
@@ -486,14 +397,9 @@ mapEventManager.off('cameraMoveStart', callback1);
 mapEventManager.off('cameraMoveStart');
 ```
 
-
-### on('mapClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'mapClick', callback: Callback<mapCommon.LatLng>): void
-
+#### on('mapClick')
+on(type: 'mapClick', callback: Callback&lt;mapCommon.LatLng&gt;): void
 监听地图点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -504,39 +410,31 @@ on(type: 'mapClick', callback: Callback<mapCommon.LatLng>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapClick'：监听地图点击事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图点击事件。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback1 position = ${position.longitude}`);
+  console.info("mapClick", `callback1 position = ${position.longitude}`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback2 position = ${position.longitude}`);
+  console.info("mapClick", `callback2 position = ${position.longitude}`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback3 position = ${position.longitude}`);
+  console.info("mapClick", `callback3 position = ${position.longitude}`);
 };
-mapEventManager.on('mapClick', callback1);
-mapEventManager.on('mapClick', callback2);
-mapEventManager.on('mapClick', callback3);
+mapEventManager.on("mapClick", callback1);
+mapEventManager.on("mapClick", callback2);
+mapEventManager.on("mapClick", callback3);
 ```
 
-
-### off('mapClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### off('mapClick')
 off(type: 'mapClick', callback?: Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)>): void
-
 取消监听地图点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -547,29 +445,26 @@ off(type: 'mapClick', callback?: Callback<[mapCommon.LatLng](https://developer.h
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapClick'：监听地图点击事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 否 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，取消监听地图点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 否 | 回调函数，返回mapCommon.LatLng，取消监听地图点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback1 position`);
+  console.info("mapClick", `callback1 position`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback2 position`);
+  console.info("mapClick", `callback2 position`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('mapClick', `callback3 position`);
+  console.info("mapClick", `callback3 position`);
 };
-mapEventManager.on('mapClick', callback1);
-mapEventManager.on('mapClick', callback2);
-mapEventManager.on('mapClick', callback3);
+mapEventManager.on("mapClick", callback1);
+mapEventManager.on("mapClick", callback2);
+mapEventManager.on("mapClick", callback3);
 
 // 只取消callback1对象的事件响应，当mapClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('mapClick', callback1);
@@ -577,14 +472,9 @@ mapEventManager.off('mapClick', callback1);
 mapEventManager.off('mapClick');
 ```
 
-
-### on('mapLoad')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'mapLoad', callback: Callback<void>): void
-
+#### on('mapLoad')
+on(type: 'mapLoad', callback: Callback&lt;void&gt;): void
 监听地图加载事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -595,39 +485,31 @@ on(type: 'mapLoad', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapLoad'：监听地图加载事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听地图加载事件。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('mapLoad', `callback1`);
+  console.info("mapLoad", `callback1`);
 };
 let callback2 = () => {
-  console.info('mapLoad', `callback2`);
+  console.info("mapLoad", `callback2`);
 };
 let callback3 = () => {
-  console.info('mapLoad', `callback3`);
+  console.info("mapLoad", `callback3`);
 };
-mapEventManager.on('mapLoad', callback1);
-mapEventManager.on('mapLoad', callback2);
-mapEventManager.on('mapLoad', callback3);
+mapEventManager.on("mapLoad", callback1);
+mapEventManager.on("mapLoad", callback2);
+mapEventManager.on("mapLoad", callback3);
 ```
 
-
-### off('mapLoad')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'mapLoad', callback?: Callback<void>): void
-
+#### off('mapLoad')
+off(type: 'mapLoad', callback?: Callback&lt;void&gt;): void
 取消监听地图加载事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -638,29 +520,26 @@ off(type: 'mapLoad', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapLoad'：监听地图加载事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听地图加载事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('mapLoad', `callback1`);
+  console.info("mapLoad", `callback1`);
 };
 let callback2 = () => {
-  console.info('mapLoad', `callback2`);
+  console.info("mapLoad", `callback2`);
 };
 let callback3 = () => {
-  console.info('mapLoad', `callback3`);
+  console.info("mapLoad", `callback3`);
 };
-mapEventManager.on('mapLoad', callback1);
-mapEventManager.on('mapLoad', callback2);
-mapEventManager.on('mapLoad', callback3);
+mapEventManager.on("mapLoad", callback1);
+mapEventManager.on("mapLoad", callback2);
+mapEventManager.on("mapLoad", callback3);
 
 // 只取消callback1对象的事件响应，当mapLoad事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('mapLoad', callback1);
@@ -668,14 +547,9 @@ mapEventManager.off('mapLoad', callback1);
 mapEventManager.off('mapLoad');
 ```
 
-
-### on('mapLongClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'mapLongClick', callback: Callback<mapCommon.LatLng>): void
-
+#### on('mapLongClick')
+on(type: 'mapLongClick', callback: Callback&lt;mapCommon.LatLng&gt;): void
 监听地图长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -686,39 +560,31 @@ on(type: 'mapLongClick', callback: Callback<mapCommon.LatLng>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapLongClick'：监听地图长按事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图长按事件。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听地图长按事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback1 position = ${position.longitude}`);
+  console.info("mapLongClick", `callback1 position = ${position.longitude}`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback2 position = ${position.longitude}`);
+  console.info("mapLongClick", `callback2 position = ${position.longitude}`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback3 position = ${position.longitude}`);
+  console.info("mapLongClick", `callback3 position = ${position.longitude}`);
 };
-mapEventManager.on('mapLongClick', callback1);
-mapEventManager.on('mapLongClick', callback2);
-mapEventManager.on('mapLongClick', callback3);
+mapEventManager.on("mapLongClick", callback1);
+mapEventManager.on("mapLongClick", callback2);
+mapEventManager.on("mapLongClick", callback3);
 ```
 
-
-### off('mapLongClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'mapLongClick', callback?: Callback<mapCommon.LatLng>): void
-
+#### off('mapLongClick')
+off(type: 'mapLongClick', callback?: Callback&lt;mapCommon.LatLng&gt;): void
 取消监听地图长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -729,29 +595,26 @@ off(type: 'mapLongClick', callback?: Callback<mapCommon.LatLng>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'mapLongClick'：监听地图长按事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 否 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，取消监听地图长按事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 否 | 回调函数，返回mapCommon.LatLng，取消监听地图长按事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback1 position`);
+  console.info("mapLongClick", `callback1 position`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback2 position`);
+  console.info("mapLongClick", `callback2 position`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('mapLongClick', `callback3 position`);
+  console.info("mapLongClick", `callback3 position`);
 };
-mapEventManager.on('mapLongClick', callback1);
-mapEventManager.on('mapLongClick', callback2);
-mapEventManager.on('mapLongClick', callback3);
+mapEventManager.on("mapLongClick", callback1);
+mapEventManager.on("mapLongClick", callback2);
+mapEventManager.on("mapLongClick", callback3);
 
 // 只取消callback1对象的事件响应，当mapLongClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('mapLongClick', callback1);
@@ -759,14 +622,9 @@ mapEventManager.off('mapLongClick', callback1);
 mapEventManager.off('mapLongClick');
 ```
 
-
-### on('myLocationButtonClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'myLocationButtonClick', callback: Callback<void>): void
-
+#### on('myLocationButtonClick')
+on(type: 'myLocationButtonClick', callback: Callback&lt;void&gt;): void
 监听我的位置按钮点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -777,39 +635,31 @@ on(type: 'myLocationButtonClick', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'myLocationButtonClick'：监听我的位置按钮点击事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听我的位置按钮点击事件。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('myLocationButtonClick', `callback1`);
+  console.info("myLocationButtonClick", `callback1`);
 };
 let callback2 = () => {
-  console.info('myLocationButtonClick', `callback2`);
+  console.info("myLocationButtonClick", `callback2`);
 };
 let callback3 = () => {
-  console.info('myLocationButtonClick', `callback3`);
+  console.info("myLocationButtonClick", `callback3`);
 };
-mapEventManager.on('myLocationButtonClick', callback1);
-mapEventManager.on('myLocationButtonClick', callback2);
-mapEventManager.on('myLocationButtonClick', callback3);
+mapEventManager.on("myLocationButtonClick", callback1);
+mapEventManager.on("myLocationButtonClick", callback2);
+mapEventManager.on("myLocationButtonClick", callback3);
 ```
 
-
-### off('myLocationButtonClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'myLocationButtonClick', callback?: Callback<void>): void
-
+#### off('myLocationButtonClick')
+off(type: 'myLocationButtonClick', callback?: Callback&lt;void&gt;): void
 取消监听我的位置按钮点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -820,29 +670,26 @@ off(type: 'myLocationButtonClick', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'myLocationButtonClick'：监听我的位置按钮点击事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听我的位置按钮点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
-
 **示例：**
-
 
 ```ts
 let callback1 = () => {
-  console.info('myLocationButtonClick', `callback1`);
+  console.info("myLocationButtonClick", `callback1`);
 };
 let callback2 = () => {
-  console.info('myLocationButtonClick', `callback2`);
+  console.info("myLocationButtonClick", `callback2`);
 };
 let callback3 = () => {
-  console.info('myLocationButtonClick', `callback3`);
+  console.info("myLocationButtonClick", `callback3`);
 };
-mapEventManager.on('myLocationButtonClick', callback1);
-mapEventManager.on('myLocationButtonClick', callback2);
-mapEventManager.on('myLocationButtonClick', callback3);
+mapEventManager.on("myLocationButtonClick", callback1);
+mapEventManager.on("myLocationButtonClick", callback2);
+mapEventManager.on("myLocationButtonClick", callback3);
 
 // 只取消callback1对象的事件响应，当myLocationButtonClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('myLocationButtonClick', callback1);
@@ -850,14 +697,9 @@ mapEventManager.off('myLocationButtonClick', callback1);
 mapEventManager.off('myLocationButtonClick');
 ```
 
-
-### on('myLocationClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'myLocationClick', callback: Callback<mapCommon.LatLng>): void
-
+#### on('myLocationClick')
+on(type: 'myLocationClick', callback: Callback&lt;mapCommon.LatLng&gt;): void
 监听我的位置点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -868,39 +710,31 @@ on(type: 'myLocationClick', callback: Callback<mapCommon.LatLng>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'myLocationClick'：监听我的位置点击事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听我的位置点击事件。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 是 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，监听我的位置点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback1 position = ${position.longitude}`);
+  console.info("myLocationClick", `callback1 position = ${position.longitude}`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback2 position = ${position.longitude}`);
+  console.info("myLocationClick", `callback2 position = ${position.longitude}`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback3 position = ${position.longitude}`);
+  console.info("myLocationClick", `callback3 position = ${position.longitude}`);
 };
-mapEventManager.on('myLocationClick', callback1);
-mapEventManager.on('myLocationClick', callback2);
-mapEventManager.on('myLocationClick', callback3);
+mapEventManager.on("myLocationClick", callback1);
+mapEventManager.on("myLocationClick", callback2);
+mapEventManager.on("myLocationClick", callback3);
 ```
 
-
-### off('myLocationClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'myLocationClick', callback?: Callback<mapCommon.LatLng>): void
-
+#### off('myLocationClick')
+off(type: 'myLocationClick', callback?: Callback&lt;mapCommon.LatLng&gt;): void
 取消监听我的位置点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -911,29 +745,26 @@ off(type: 'myLocationClick', callback?: Callback<mapCommon.LatLng>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'myLocationClick'：监听我的位置点击事件。 |
-| callback | Callback&lt;[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)&gt; | 否 | 回调函数，返回[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)，取消监听我的位置点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)> | 否 | 回调函数，返回mapCommon.LatLng，取消监听我的位置点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback1 position`);
+  console.info("myLocationClick", `callback1 position`);
 };
 let callback2 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback2 position`);
+  console.info("myLocationClick", `callback2 position`);
 };
 let callback3 = (position: mapCommon.LatLng) => {
-  console.info('myLocationClick', `callback3 position`);
+  console.info("myLocationClick", `callback3 position`);
 };
-mapEventManager.on('myLocationClick', callback1);
-mapEventManager.on('myLocationClick', callback2);
-mapEventManager.on('myLocationClick', callback3);
+mapEventManager.on("myLocationClick", callback1);
+mapEventManager.on("myLocationClick", callback2);
+mapEventManager.on("myLocationClick", callback3);
 
 // 只取消callback1对象的事件响应，当myLocationClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('myLocationClick', callback1);
@@ -941,14 +772,9 @@ mapEventManager.off('myLocationClick', callback1);
 mapEventManager.off('myLocationClick');
 ```
 
-
-### on('poiClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'poiClick', callback: Callback<mapCommon.Poi>): void
-
+#### on('poiClick')
+on(type: 'poiClick', callback: Callback&lt;mapCommon.Poi&gt;): void
 监听POI点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -959,39 +785,31 @@ on(type: 'poiClick', callback: Callback<mapCommon.Poi>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'poiClick'：监听POI点击事件。 |
-| callback | Callback&lt;[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)&gt; | 是 | 回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)，监听POI点击事件。 |
-
+| callback | Callback<[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)> | 是 | 回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)，监听POI点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback1 poi = ${poi.id}`);
+  console.info("poiClick", `callback1 poi = ${poi.id}`);
 };
 let callback2 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback2 poi = ${poi.id}`);
+  console.info("poiClick", `callback2 poi = ${poi.id}`);
 };
 let callback3 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback3 poi = ${poi.id}`);
+  console.info("poiClick", `callback3 poi = ${poi.id}`);
 };
-mapEventManager.on('poiClick', callback1);
-mapEventManager.on('poiClick', callback2);
-mapEventManager.on('poiClick', callback3);
+mapEventManager.on("poiClick", callback1);
+mapEventManager.on("poiClick", callback2);
+mapEventManager.on("poiClick", callback3);
 ```
 
-
-### off('poiClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'poiClick', callback?: Callback<mapCommon.Poi>): void
-
+#### off('poiClick')
+off(type: 'poiClick', callback?: Callback&lt;mapCommon.Poi&gt;): void
 取消监听POI点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1002,29 +820,26 @@ off(type: 'poiClick', callback?: Callback<mapCommon.Poi>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'poiClick'：监听POI点击事件。 |
-| callback | Callback&lt;[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)&gt; | 否 | 回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)，取消监听POI点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)> | 否 | 回调函数，返回mapCommon.Poi，取消监听POI点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback1 poi`);
+  console.info("poiClick", `callback1 poi`);
 };
 let callback2 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback2 poi`);
+  console.info("poiClick", `callback2 poi`);
 };
 let callback3 = (poi: mapCommon.Poi) => {
-  console.info('poiClick', `callback3 poi`);
+  console.info("poiClick", `callback3 poi`);
 };
-mapEventManager.on('poiClick', callback1);
-mapEventManager.on('poiClick', callback2);
-mapEventManager.on('poiClick', callback3);
+mapEventManager.on("poiClick", callback1);
+mapEventManager.on("poiClick", callback2);
+mapEventManager.on("poiClick", callback3);
 
 // 只取消callback1对象的事件响应，当poiClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('poiClick', callback1);
@@ -1032,14 +847,9 @@ mapEventManager.off('poiClick', callback1);
 mapEventManager.off('poiClick');
 ```
 
-
-### on('markerClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'markerClick', callback: Callback<Marker>): void
-
+#### on('markerClick')
+on(type: 'markerClick', callback: Callback&lt;Marker&gt;): void
 监听标记点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1050,39 +860,31 @@ on(type: 'markerClick', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerClick'：监听标记点击事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记点击事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerClick', `callback1 marker = ${marker.getId()}`);
+  console.info("markerClick", `callback1 marker = ${marker.getId()}`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerClick', `callback2 marker = ${marker.getId()}`);
+  console.info("markerClick", `callback2 marker = ${marker.getId()}`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerClick', `callback3 marker = ${marker.getId()}`);
+  console.info("markerClick", `callback3 marker = ${marker.getId()}`);
 };
-mapEventManager.on('markerClick', callback1);
-mapEventManager.on('markerClick', callback2);
-mapEventManager.on('markerClick', callback3);
+mapEventManager.on("markerClick", callback1);
+mapEventManager.on("markerClick", callback2);
+mapEventManager.on("markerClick", callback3);
 ```
 
-
-### off('markerClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'markerClick', callback?: Callback<Marker>): void
-
+#### off('markerClick')
+off(type: 'markerClick', callback?: Callback&lt;Marker&gt;): void
 取消监听标记点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1093,29 +895,26 @@ off(type: 'markerClick', callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerClick'：监听标记点击事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听标记点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听标记点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerClick', `callback1 marker`);
+  console.info("markerClick", `callback1 marker`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerClick', `callback2 marker`);
+  console.info("markerClick", `callback2 marker`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerClick', `callback3 marker`);
+  console.info("markerClick", `callback3 marker`);
 };
-mapEventManager.on('markerClick', callback1);
-mapEventManager.on('markerClick', callback2);
-mapEventManager.on('markerClick', callback3);
+mapEventManager.on("markerClick", callback1);
+mapEventManager.on("markerClick", callback2);
+mapEventManager.on("markerClick", callback3);
 
 // 只取消callback1对象的事件响应，当markerClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('markerClick', callback1);
@@ -1123,14 +922,9 @@ mapEventManager.off('markerClick', callback1);
 mapEventManager.off('markerClick');
 ```
 
-
-### on('markerDragStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'markerDragStart', callback: Callback<Marker>): void
-
+#### on('markerDragStart')
+on(type: 'markerDragStart', callback: Callback&lt;Marker&gt;): void
 监听标记开始拖拽事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1141,39 +935,31 @@ on(type: 'markerDragStart', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDragStart'：监听标记开始拖拽事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记开始拖拽事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记开始拖拽事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback1 marker = ${marker.getId()}`);
+  console.info("markerDragStart", `callback1 marker = ${marker.getId()}`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback2 marker = ${marker.getId()}`);
+  console.info("markerDragStart", `callback2 marker = ${marker.getId()}`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback3 marker = ${marker.getId()}`);
+  console.info("markerDragStart", `callback3 marker = ${marker.getId()}`);
 };
-mapEventManager.on('markerDragStart', callback1);
-mapEventManager.on('markerDragStart', callback2);
-mapEventManager.on('markerDragStart', callback3);
+mapEventManager.on("markerDragStart", callback1);
+mapEventManager.on("markerDragStart", callback2);
+mapEventManager.on("markerDragStart", callback3);
 ```
 
-
-### off('markerDragStart')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'markerDragStart', callback?: Callback<Marker>): void
-
+#### off('markerDragStart')
+off(type: 'markerDragStart', callback?: Callback&lt;Marker&gt;): void
 取消监听标记开始拖拽事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1184,29 +970,26 @@ off(type: 'markerDragStart', callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDragStart'：监听标记开始拖拽事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听标记开始拖拽事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听标记开始拖拽事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback1 marker`);
+  console.info("markerDragStart", `callback1 marker`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback2 marker`);
+  console.info("markerDragStart", `callback2 marker`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDragStart', `callback3 marker`);
+  console.info("markerDragStart", `callback3 marker`);
 };
-mapEventManager.on('markerDragStart', callback1);
-mapEventManager.on('markerDragStart', callback2);
-mapEventManager.on('markerDragStart', callback3);
+mapEventManager.on("markerDragStart", callback1);
+mapEventManager.on("markerDragStart", callback2);
+mapEventManager.on("markerDragStart", callback3);
 
 // 只取消callback1对象的事件响应，当markerDragStart事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('markerDragStart', callback1);
@@ -1214,14 +997,9 @@ mapEventManager.off('markerDragStart', callback1);
 mapEventManager.off('markerDragStart');
 ```
 
-
-### on('markerDrag')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'markerDrag', callback: Callback<Marker>): void
-
+#### on('markerDrag')
+on(type: 'markerDrag', callback: Callback&lt;Marker&gt;): void
 监听标记拖拽事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1232,39 +1010,31 @@ on(type: 'markerDrag', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDrag'：监听标记拖拽事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记拖拽事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记拖拽事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback1 marker = ${marker.getId()}`);
+  console.info("markerDrag", `callback1 marker = ${marker.getId()}`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback2 marker = ${marker.getId()}`);
+  console.info("markerDrag", `callback2 marker = ${marker.getId()}`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback3 marker = ${marker.getId()}`);
+  console.info("markerDrag", `callback3 marker = ${marker.getId()}`);
 };
-mapEventManager.on('markerDrag', callback1);
-mapEventManager.on('markerDrag', callback2);
-mapEventManager.on('markerDrag', callback3);
+mapEventManager.on("markerDrag", callback1);
+mapEventManager.on("markerDrag", callback2);
+mapEventManager.on("markerDrag", callback3);
 ```
 
-
-### off('markerDrag')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'markerDrag', callback?: Callback<Marker>): void
-
+#### off('markerDrag')
+off(type: 'markerDrag', callback?: Callback&lt;Marker&gt;): void
 取消监听标记拖拽事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1275,29 +1045,26 @@ off(type: 'markerDrag', callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDrag'：监听标记拖拽事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听标记拖拽事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听标记拖拽事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback1 marker`);
+  console.info("markerDrag", `callback1 marker`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback2 marker`);
+  console.info("markerDrag", `callback2 marker`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDrag', `callback3 marker`);
+  console.info("markerDrag", `callback3 marker`);
 };
-mapEventManager.on('markerDrag', callback1);
-mapEventManager.on('markerDrag', callback2);
-mapEventManager.on('markerDrag', callback3);
+mapEventManager.on("markerDrag", callback1);
+mapEventManager.on("markerDrag", callback2);
+mapEventManager.on("markerDrag", callback3);
 
 // 只取消callback1对象的事件响应，当markerDrag事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('markerDrag', callback1);
@@ -1305,14 +1072,9 @@ mapEventManager.off('markerDrag', callback1);
 mapEventManager.off('markerDrag');
 ```
 
-
-### on('markerDragEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'markerDragEnd', callback: Callback<Marker>): void
-
+#### on('markerDragEnd')
+on(type: 'markerDragEnd', callback: Callback&lt;Marker&gt;): void
 监听标记拖拽结束事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1323,39 +1085,31 @@ on(type: 'markerDragEnd', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDragEnd'：监听标记拖拽结束事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记拖拽结束事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听标记拖拽结束事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback1 marker = ${marker.getId()}`);
+  console.info("markerDragEnd", `callback1 marker = ${marker.getId()}`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback2 marker = ${marker.getId()}`);
+  console.info("markerDragEnd", `callback2 marker = ${marker.getId()}`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback3 marker = ${marker.getId()}`);
+  console.info("markerDragEnd", `callback3 marker = ${marker.getId()}`);
 };
-mapEventManager.on('markerDragEnd', callback1);
-mapEventManager.on('markerDragEnd', callback2);
-mapEventManager.on('markerDragEnd', callback3);
+mapEventManager.on("markerDragEnd", callback1);
+mapEventManager.on("markerDragEnd", callback2);
+mapEventManager.on("markerDragEnd", callback3);
 ```
 
-
-### off('markerDragEnd')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'markerDragEnd', callback?: Callback<Marker>): void
-
+#### off('markerDragEnd')
+off(type: 'markerDragEnd', callback?: Callback&lt;Marker&gt;): void
 取消监听标记拖动结束事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1366,29 +1120,26 @@ off(type: 'markerDragEnd', callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'markerDragEnd'：监听标记拖动结束事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听标记拖拽结束事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听标记拖拽结束事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback1 marker`);
+  console.info("markerDragEnd", `callback1 marker`);
 };
 let callback2 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback2 marker`);
+  console.info("markerDragEnd", `callback2 marker`);
 };
 let callback3 = (marker: map.Marker) => {
-  console.info('markerDragEnd', `callback3 marker`);
+  console.info("markerDragEnd", `callback3 marker`);
 };
-mapEventManager.on('markerDragEnd', callback1);
-mapEventManager.on('markerDragEnd', callback2);
-mapEventManager.on('markerDragEnd', callback3);
+mapEventManager.on("markerDragEnd", callback1);
+mapEventManager.on("markerDragEnd", callback2);
+mapEventManager.on("markerDragEnd", callback3);
 
 // 只取消callback1对象的事件响应，当markerDragEnd事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('markerDragEnd', callback1);
@@ -1396,14 +1147,9 @@ mapEventManager.off('markerDragEnd', callback1);
 mapEventManager.off('markerDragEnd');
 ```
 
-
-### on('circleClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'circleClick', callback: Callback<MapCircle>): void
-
+#### on('circleClick')
+on(type: 'circleClick', callback: Callback&lt;MapCircle&gt;): void
 监听圆点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1414,39 +1160,31 @@ on(type: 'circleClick', callback: Callback<MapCircle>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'circleClick'：监听圆点击事件。 |
-| callback | Callback&lt;[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)&gt; | 是 | 回调函数，返回[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)，监听圆点击事件。 |
-
+| callback | Callback<[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)> | 是 | 回调函数，返回[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)，监听圆点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback1 circle = ${circle.getId()}`);
+  console.info("circleClick", `callback1 circle = ${circle.getId()}`);
 };
 let callback2 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback2 circle = ${circle.getId()}`);
+  console.info("circleClick", `callback2 circle = ${circle.getId()}`);
 };
 let callback3 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback3 circle = ${circle.getId()}`);
+  console.info("circleClick", `callback3 circle = ${circle.getId()}`);
 };
-mapEventManager.on('circleClick', callback1);
-mapEventManager.on('circleClick', callback2);
-mapEventManager.on('circleClick', callback3);
+mapEventManager.on("circleClick", callback1);
+mapEventManager.on("circleClick", callback2);
+mapEventManager.on("circleClick", callback3);
 ```
 
-
-### off('circleClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'circleClick', callback?: Callback<MapCircle>): void
-
+#### off('circleClick')
+off(type: 'circleClick', callback?: Callback&lt;MapCircle&gt;): void
 取消监听圆点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1457,29 +1195,26 @@ off(type: 'circleClick', callback?: Callback<MapCircle>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'circleClick'：监听圆点击事件。 |
-| callback | Callback&lt;[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)&gt; | 否 | 回调函数，返回[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)，取消监听圆点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)> | 否 | 回调函数，返回MapCircle，取消监听圆点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback1 circle`);
+  console.info("circleClick", `callback1 circle`);
 };
 let callback2 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback2 circle`);
+  console.info("circleClick", `callback2 circle`);
 };
 let callback3 = (circle: map.MapCircle) => {
-  console.info('circleClick', `callback3 circle`);
+  console.info("circleClick", `callback3 circle`);
 };
-mapEventManager.on('circleClick', callback1);
-mapEventManager.on('circleClick', callback2);
-mapEventManager.on('circleClick', callback3);
+mapEventManager.on("circleClick", callback1);
+mapEventManager.on("circleClick", callback2);
+mapEventManager.on("circleClick", callback3);
 
 // 只取消callback1对象的事件响应，当circleClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('circleClick', callback1);
@@ -1487,14 +1222,9 @@ mapEventManager.off('circleClick', callback1);
 mapEventManager.off('circleClick');
 ```
 
-
-### on('polylineClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'polylineClick', callback: Callback<MapPolyline>): void
-
+#### on('polylineClick')
+on(type: 'polylineClick', callback: Callback&lt;MapPolyline&gt;): void
 监听折线点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1505,39 +1235,31 @@ on(type: 'polylineClick', callback: Callback<MapPolyline>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'polylineClick'：监听折线点击事件。 |
-| callback | Callback&lt;[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)&gt; | 是 | 回调函数，返回[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)，监听折线点击事件。 |
-
+| callback | Callback<[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)> | 是 | 回调函数，返回[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)，监听折线点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback1 polyline = ${polyline.getId()}`);
+  console.info("polylineClick", `callback1 polyline = ${polyline.getId()}`);
 };
 let callback2 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback2 polyline = ${polyline.getId()}`);
+  console.info("polylineClick", `callback2 polyline = ${polyline.getId()}`);
 };
 let callback3 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback3 polyline = ${polyline.getId()}`);
+  console.info("polylineClick", `callback3 polyline = ${polyline.getId()}`);
 };
-mapEventManager.on('polylineClick', callback1);
-mapEventManager.on('polylineClick', callback2);
-mapEventManager.on('polylineClick', callback3);
+mapEventManager.on("polylineClick", callback1);
+mapEventManager.on("polylineClick", callback2);
+mapEventManager.on("polylineClick", callback3);
 ```
 
-
-### off('polylineClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'polylineClick', callback?: Callback<MapPolyline>): void
-
+#### off('polylineClick')
+off(type: 'polylineClick', callback?: Callback&lt;MapPolyline&gt;): void
 取消监听折线点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1548,29 +1270,26 @@ off(type: 'polylineClick', callback?: Callback<MapPolyline>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'polylineClick'：监听折线点击事件。 |
-| callback | Callback&lt;[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)&gt; | 否 | 回调函数，返回[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)，取消监听折线点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)> | 否 | 回调函数，返回MapPolyline，取消监听折线点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback1 polyline`);
+  console.info("polylineClick", `callback1 polyline`);
 };
 let callback2 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback2 polyline`);
+  console.info("polylineClick", `callback2 polyline`);
 };
 let callback3 = (polyline: map.MapPolyline) => {
-  console.info('polylineClick', `callback3 polyline`);
+  console.info("polylineClick", `callback3 polyline`);
 };
-mapEventManager.on('polylineClick', callback1);
-mapEventManager.on('polylineClick', callback2);
-mapEventManager.on('polylineClick', callback3);
+mapEventManager.on("polylineClick", callback1);
+mapEventManager.on("polylineClick", callback2);
+mapEventManager.on("polylineClick", callback3);
 
 // 只取消callback1对象的事件响应，当polylineClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('polylineClick', callback1);
@@ -1578,14 +1297,9 @@ mapEventManager.off('polylineClick', callback1);
 mapEventManager.off('polylineClick');
 ```
 
-
-### on('polygonClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'polygonClick', callback: Callback<MapPolygon>): void
-
+#### on('polygonClick')
+on(type: 'polygonClick', callback: Callback&lt;MapPolygon&gt;): void
 监听多边形点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1596,39 +1310,31 @@ on(type: 'polygonClick', callback: Callback<MapPolygon>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'polygonClick'：监听多边形点击事件。 |
-| callback | Callback&lt;[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)&gt; | 是 | 回调函数，返回[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)，监听多边形点击事件。 |
-
+| callback | Callback<[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)> | 是 | 回调函数，返回[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)，监听多边形点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback1 polygon = ${polygon.getId()}`);
+  console.info("polygonClick", `callback1 polygon = ${polygon.getId()}`);
 };
 let callback2 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback2 polygon = ${polygon.getId()}`);
+  console.info("polygonClick", `callback2 polygon = ${polygon.getId()}`);
 };
 let callback3 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback3 polygon = ${polygon.getId()}`);
+  console.info("polygonClick", `callback3 polygon = ${polygon.getId()}`);
 };
-mapEventManager.on('polygonClick', callback1);
-mapEventManager.on('polygonClick', callback2);
-mapEventManager.on('polygonClick', callback3);
+mapEventManager.on("polygonClick", callback1);
+mapEventManager.on("polygonClick", callback2);
+mapEventManager.on("polygonClick", callback3);
 ```
 
-
-### off('polygonClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'polygonClick', callback?: Callback<MapPolygon>): void
-
+#### off('polygonClick')
+off(type: 'polygonClick', callback?: Callback&lt;MapPolygon&gt;): void
 取消监听多边形点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1639,29 +1345,26 @@ off(type: 'polygonClick', callback?: Callback<MapPolygon>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'polygonClick'：监听多边形点击事件。 |
-| callback | Callback&lt;[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)&gt; | 否 | 回调函数，返回[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)，取消监听多边形点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)> | 否 | 回调函数，返回MapPolygon，取消监听多边形点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback1 polygon`);
+  console.info("polygonClick", `callback1 polygon`);
 };
 let callback2 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback2 polygon`);
+  console.info("polygonClick", `callback2 polygon`);
 };
 let callback3 = (polygon: map.MapPolygon) => {
-  console.info('polygonClick', `callback3 polygon`);
+  console.info("polygonClick", `callback3 polygon`);
 };
-mapEventManager.on('polygonClick', callback1);
-mapEventManager.on('polygonClick', callback2);
-mapEventManager.on('polygonClick', callback3);
+mapEventManager.on("polygonClick", callback1);
+mapEventManager.on("polygonClick", callback2);
+mapEventManager.on("polygonClick", callback3);
 
 // 只取消callback1对象的事件响应，当polygonClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('polygonClick', callback1);
@@ -1669,14 +1372,9 @@ mapEventManager.off('polygonClick', callback1);
 mapEventManager.off('polygonClick');
 ```
 
-
-### on('infoWindowClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'infoWindowClick', callback: Callback<Marker>): void
-
+#### on('infoWindowClick')
+on(type: 'infoWindowClick', callback: Callback&lt;Marker&gt;): void
 监听信息窗点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1687,48 +1385,31 @@ on(type: 'infoWindowClick', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'infoWindowClick'：监听信息窗点击事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听信息窗点击事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听信息窗点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClick',
-    `callback1 infoWindow = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClick", `callback1 infoWindow = ${infoWindow.getId()}`);
 };
 let callback2 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClick',
-    `callback2 infoWindow = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClick", `callback2 infoWindow = ${infoWindow.getId()}`);
 };
 let callback3 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClick',
-    `callback3 infoWindow = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClick", `callback3 infoWindow = ${infoWindow.getId()}`);
 };
-mapEventManager.on('infoWindowClick', callback1);
-mapEventManager.on('infoWindowClick', callback2);
-mapEventManager.on('infoWindowClick', callback3);
+mapEventManager.on("infoWindowClick", callback1);
+mapEventManager.on("infoWindowClick", callback2);
+mapEventManager.on("infoWindowClick", callback3);
 ```
 
-
-### off('infoWindowClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### off('infoWindowClick')
 off(type: 'infoWindowClick', callback?: Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)>): void
-
 取消监听信息窗点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1739,29 +1420,26 @@ off(type: 'infoWindowClick', callback?: Callback<[Marker](https://developer.huaw
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'infoWindowClick'：监听信息窗点击事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听信息窗点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听信息窗点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClick', `callback1 infoWindow`);
+  console.info("infoWindowClick", `callback1 infoWindow`);
 };
 let callback2 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClick', `callback2 infoWindow`);
+  console.info("infoWindowClick", `callback2 infoWindow`);
 };
 let callback3 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClick', `callback3 infoWindow`);
+  console.info("infoWindowClick", `callback3 infoWindow`);
 };
-mapEventManager.on('infoWindowClick', callback1);
-mapEventManager.on('infoWindowClick', callback2);
-mapEventManager.on('infoWindowClick', callback3);
+mapEventManager.on("infoWindowClick", callback1);
+mapEventManager.on("infoWindowClick", callback2);
+mapEventManager.on("infoWindowClick", callback3);
 
 // 只取消callback1对象的事件响应，当infoWindowClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('infoWindowClick', callback1);
@@ -1769,14 +1447,9 @@ mapEventManager.off('infoWindowClick', callback1);
 mapEventManager.off('infoWindowClick');
 ```
 
-
-### on('infoWindowClose')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'infoWindowClose', callback: Callback<Marker>): void
-
+#### on('infoWindowClose')
+on(type: 'infoWindowClose', callback: Callback&lt;Marker&gt;): void
 监听信息窗关闭事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1787,48 +1460,31 @@ on(type: 'infoWindowClose', callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'infoWindowClose'：监听信息窗关闭事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听信息窗关闭事件。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，监听信息窗关闭事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClose',
-    `callback1 infoWindowClose = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClose", `callback1 infoWindowClose = ${infoWindow.getId()}`);
 };
 let callback2 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClose',
-    `callback2 infoWindowClose = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClose", `callback2 infoWindowClose = ${infoWindow.getId()}`);
 };
 let callback3 = (infoWindow: map.Marker) => {
-  console.info(
-    'infoWindowClose',
-    `callback3 infoWindowClose = ${infoWindow.getId()}`,
-  );
+  console.info("infoWindowClose", `callback3 infoWindowClose = ${infoWindow.getId()}`);
 };
-mapEventManager.on('infoWindowClose', callback1);
-mapEventManager.on('infoWindowClose', callback2);
-mapEventManager.on('infoWindowClose', callback3);
+mapEventManager.on("infoWindowClose", callback1);
+mapEventManager.on("infoWindowClose", callback2);
+mapEventManager.on("infoWindowClose", callback3);
 ```
 
-
-### off('infoWindowClose')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'infoWindowClose', callback?: Callback<Marker>): void
-
+#### off('infoWindowClose')
+off(type: 'infoWindowClose', callback?: Callback&lt;Marker&gt;): void
 取消监听信息窗关闭事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1839,29 +1495,26 @@ off(type: 'infoWindowClose', callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'infoWindowClose'：监听信息窗关闭事件。 |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)，取消监听信息窗关闭事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 回调函数，返回Marker，取消监听信息窗关闭事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClose', `callback1 infoWindowClose`);
+  console.info("infoWindowClose", `callback1 infoWindowClose`);
 };
 let callback2 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClose', `callback2 infoWindowClose`);
+  console.info("infoWindowClose", `callback2 infoWindowClose`);
 };
 let callback3 = (infoWindow: map.Marker) => {
-  console.info('infoWindowClose', `callback3 infoWindowClose`);
+  console.info("infoWindowClose", `callback3 infoWindowClose`);
 };
-mapEventManager.on('infoWindowClose', callback1);
-mapEventManager.on('infoWindowClose', callback2);
-mapEventManager.on('infoWindowClose', callback3);
+mapEventManager.on("infoWindowClose", callback1);
+mapEventManager.on("infoWindowClose", callback2);
+mapEventManager.on("infoWindowClose", callback3);
 
 // 只取消callback1对象的事件响应，当infoWindowClose事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('infoWindowClose', callback1);
@@ -1869,14 +1522,9 @@ mapEventManager.off('infoWindowClose', callback1);
 mapEventManager.off('infoWindowClose');
 ```
 
-
-### on('pointAnnotationClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'pointAnnotationClick', callback: Callback<PointAnnotation>): void
-
+#### on('pointAnnotationClick')
+on(type: 'pointAnnotationClick', callback: Callback&lt;PointAnnotation&gt;): void
 监听点注释点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1887,48 +1535,31 @@ on(type: 'pointAnnotationClick', callback: Callback<PointAnnotation>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'pointAnnotationClick'：监听点注释点击事件。 |
-| callback | Callback&lt;[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)&gt; | 是 | 回调函数，返回[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)，监听点注释点击事件。 |
-
+| callback | Callback<[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)> | 是 | 回调函数，返回[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)，监听点注释点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (pointAnnotation: map.PointAnnotation) => {
-  console.info(
-    'pointAnnotationClick',
-    `callback1 pointAnnotation = ${pointAnnotation.getId()}`,
-  );
+  console.info("pointAnnotationClick", `callback1 pointAnnotation = ${pointAnnotation.getId()}`);
 };
 let callback2 = (pointAnnotation: map.PointAnnotation) => {
-  console.info(
-    'pointAnnotationClick',
-    `callback2 pointAnnotation = ${pointAnnotation.getId()}`,
-  );
+  console.info("pointAnnotationClick", `callback2 pointAnnotation = ${pointAnnotation.getId()}`);
 };
 let callback3 = (pointAnnotation: map.PointAnnotation) => {
-  console.info(
-    'pointAnnotationClick',
-    `callback3 pointAnnotation = ${pointAnnotation.getId()}`,
-  );
+  console.info("pointAnnotationClick", `callback3 pointAnnotation = ${pointAnnotation.getId()}`);
 };
-mapEventManager.on('pointAnnotationClick', callback1);
-mapEventManager.on('pointAnnotationClick', callback2);
-mapEventManager.on('pointAnnotationClick', callback3);
+mapEventManager.on("pointAnnotationClick", callback1);
+mapEventManager.on("pointAnnotationClick", callback2);
+mapEventManager.on("pointAnnotationClick", callback3);
 ```
 
-
-### off('pointAnnotationClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'pointAnnotationClick', callback?: Callback<PointAnnotation>): void
-
+#### off('pointAnnotationClick')
+off(type: 'pointAnnotationClick', callback?: Callback&lt;PointAnnotation&gt;): void
 取消监听点注释点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1939,29 +1570,26 @@ off(type: 'pointAnnotationClick', callback?: Callback<PointAnnotation>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'pointAnnotationClick'：监听点注释点击事件。 |
-| callback | Callback&lt;[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)&gt; | 否 | 回调函数，返回[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)，取消监听点注释点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)> | 否 | 回调函数，返回PointAnnotation，取消监听点注释点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (pointAnnotation: map.PointAnnotation) => {
-  console.info('pointAnnotationClick', `callback1 pointAnnotation`);
+  console.info("pointAnnotationClick", `callback1 pointAnnotation`);
 };
 let callback2 = (pointAnnotation: map.PointAnnotation) => {
-  console.info('pointAnnotationClick', `callback2 pointAnnotation`);
+  console.info("pointAnnotationClick", `callback2 pointAnnotation`);
 };
 let callback3 = (pointAnnotation: map.PointAnnotation) => {
-  console.info('pointAnnotationClick', `callback3 pointAnnotation`);
+  console.info("pointAnnotationClick", `callback3 pointAnnotation`);
 };
-mapEventManager.on('pointAnnotationClick', callback1);
-mapEventManager.on('pointAnnotationClick', callback2);
-mapEventManager.on('pointAnnotationClick', callback3);
+mapEventManager.on("pointAnnotationClick", callback1);
+mapEventManager.on("pointAnnotationClick", callback2);
+mapEventManager.on("pointAnnotationClick", callback3);
 
 // 只取消callback1对象的事件响应，当pointAnnotationClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('pointAnnotationClick', callback1);
@@ -1969,14 +1597,9 @@ mapEventManager.off('pointAnnotationClick', callback1);
 mapEventManager.off('pointAnnotationClick');
 ```
 
-
-### on('bubbleClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'bubbleClick', callback: Callback<Bubble>): void
-
+#### on('bubbleClick')
+on(type: 'bubbleClick', callback: Callback&lt;Bubble&gt;): void
 监听气泡点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1987,39 +1610,31 @@ on(type: 'bubbleClick', callback: Callback<Bubble>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'bubbleClick'：监听气泡点击事件。 |
-| callback | Callback&lt;[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)&gt; | 是 | 回调函数，返回[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)，监听气泡点击事件。 |
-
+| callback | Callback<[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)> | 是 | 回调函数，返回[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)，监听气泡点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback1 bubble = ${bubble.getId()}`);
+  console.info("bubbleClick", `callback1 bubble = ${bubble.getId()}`);
 };
 let callback2 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback2 bubble = ${bubble.getId()}`);
+  console.info("bubbleClick", `callback2 bubble = ${bubble.getId()}`);
 };
 let callback3 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback3 bubble = ${bubble.getId()}`);
+  console.info("bubbleClick", `callback3 bubble = ${bubble.getId()}`);
 };
-mapEventManager.on('bubbleClick', callback1);
-mapEventManager.on('bubbleClick', callback2);
-mapEventManager.on('bubbleClick', callback3);
+mapEventManager.on("bubbleClick", callback1);
+mapEventManager.on("bubbleClick", callback2);
+mapEventManager.on("bubbleClick", callback3);
 ```
 
-
-### off('bubbleClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'bubbleClick', callback?: Callback<Bubble>): void
-
+#### off('bubbleClick')
+off(type: 'bubbleClick', callback?: Callback&lt;Bubble&gt;): void
 取消监听气泡点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -2030,29 +1645,26 @@ off(type: 'bubbleClick', callback?: Callback<Bubble>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'bubbleClick'：监听气泡点击事件。 |
-| callback | Callback&lt;[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)&gt; | 否 | 回调函数，返回[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)，取消监听气泡点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)> | 否 | 回调函数，返回Bubble，取消监听气泡点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback1 bubble`);
+  console.info("bubbleClick", `callback1 bubble`);
 };
 let callback2 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback2 bubble`);
+  console.info("bubbleClick", `callback2 bubble`);
 };
 let callback3 = (bubble: map.Bubble) => {
-  console.info('bubbleClick', `callback3 bubble`);
+  console.info("bubbleClick", `callback3 bubble`);
 };
-mapEventManager.on('bubbleClick', callback1);
-mapEventManager.on('bubbleClick', callback2);
-mapEventManager.on('bubbleClick', callback3);
+mapEventManager.on("bubbleClick", callback1);
+mapEventManager.on("bubbleClick", callback2);
+mapEventManager.on("bubbleClick", callback3);
 
 // 只取消callback1对象的事件响应，当bubbleClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('bubbleClick', callback1);
@@ -2060,14 +1672,9 @@ mapEventManager.off('bubbleClick', callback1);
 mapEventManager.off('bubbleClick');
 ```
 
-
-### on('imageOverlayClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'imageOverlayClick', callback: Callback<ImageOverlay>): void
-
+#### on('imageOverlayClick')
+on(type: 'imageOverlayClick', callback: Callback&lt;ImageOverlay&gt;): void
 监听覆盖物点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -2078,48 +1685,31 @@ on(type: 'imageOverlayClick', callback: Callback<ImageOverlay>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'imageOverlayClick'：监听覆盖物点击事件。 |
-| callback | Callback&lt;[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)&gt; | 是 | 回调函数，返回[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)，监听覆盖物点击事件。 |
-
+| callback | Callback<[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)> | 是 | 回调函数，返回[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)，监听覆盖物点击事件。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (imageOverlay: map.ImageOverlay) => {
-  console.info(
-    'imageOverlayClick',
-    `callback1 imageOverlay = ${imageOverlay.getId()}`,
-  );
+  console.info("imageOverlayClick", `callback1 imageOverlay = ${imageOverlay.getId()}`);
 };
 let callback2 = (imageOverlay: map.ImageOverlay) => {
-  console.info(
-    'imageOverlayClick',
-    `callback2 imageOverlay = ${imageOverlay.getId()}`,
-  );
+  console.info("imageOverlayClick", `callback2 imageOverlay = ${imageOverlay.getId()}`);
 };
 let callback3 = (imageOverlay: map.ImageOverlay) => {
-  console.info(
-    'imageOverlayClick',
-    `callback3 imageOverlay = ${imageOverlay.getId()}`,
-  );
+  console.info("imageOverlayClick", `callback3 imageOverlay = ${imageOverlay.getId()}`);
 };
-mapEventManager.on('imageOverlayClick', callback1);
-mapEventManager.on('imageOverlayClick', callback2);
-mapEventManager.on('imageOverlayClick', callback3);
+mapEventManager.on("imageOverlayClick", callback1);
+mapEventManager.on("imageOverlayClick", callback2);
+mapEventManager.on("imageOverlayClick", callback3);
 ```
 
-
-### off('imageOverlayClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'imageOverlayClick', callback?: Callback<ImageOverlay>): void
-
+#### off('imageOverlayClick')
+off(type: 'imageOverlayClick', callback?: Callback&lt;ImageOverlay&gt;): void
 取消监听覆盖物点击事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -2130,44 +1720,36 @@ off(type: 'imageOverlayClick', callback?: Callback<ImageOverlay>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'imageOverlayClick'：监听覆盖物点击事件。 |
-| callback | Callback&lt;[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)&gt; | 否 | 回调函数，返回[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)，取消监听覆盖物点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)> | 否 | 回调函数，返回ImageOverlay，取消监听覆盖物点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (imageOverlay: map.ImageOverlay) => {
-  console.info('imageOverlayClick', `callback1 imageOverlay`);
+  console.info("imageOverlayClick", `callback1 imageOverlay`);
 };
 let callback2 = (imageOverlay: map.ImageOverlay) => {
-  console.info('imageOverlayClick', `callback2 imageOverlay`);
+  console.info("imageOverlayClick", `callback2 imageOverlay`);
 };
 let callback3 = (imageOverlay: map.ImageOverlay) => {
-  console.info('imageOverlayClick', `callback3 imageOverlay`);
+  console.info("imageOverlayClick", `callback3 imageOverlay`);
 };
-mapEventManager.on('imageOverlayClick', callback1);
-mapEventManager.on('imageOverlayClick', callback2);
-mapEventManager.on('imageOverlayClick', callback3);
+mapEventManager.on("imageOverlayClick", callback1);
+mapEventManager.on("imageOverlayClick", callback2);
+mapEventManager.on("imageOverlayClick", callback3);
 
 // 只取消callback1对象的事件响应，当imageOverlayClick事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('imageOverlayClick', callback1);
-// 取消��部imageOverlayClick事件响应
+// 取消全部imageOverlayClick事件响应
 mapEventManager.off('imageOverlayClick');
 ```
 
-
-### on('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### on('error')
 on(type: 'error', callback: ErrorCallback): void
-
 监听异常事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -2178,50 +1760,33 @@ on(type: 'error', callback: ErrorCallback): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'error'：监听异常事件。 |
 | callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 是 | 回调函数，返回[ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)，监听异常事件。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let callback1 = (error: BusinessError) => {
-  console.error(
-    'error',
-    `callback1 code: ${error.code}, message: ${error.message}`,
-  );
+  console.error("error", `callback1 code: ${error.code}, message: ${error.message}`);
 };
 let callback2 = (error: BusinessError) => {
-  console.error(
-    'error',
-    `callback2 code: ${error.code}, message: ${error.message}`,
-  );
+  console.error("error", `callback2 code: ${error.code}, message: ${error.message}`);
 };
 let callback3 = (error: BusinessError) => {
-  console.error(
-    'error',
-    `callback3 code: ${error.code}, message: ${error.message}`,
-  );
+  console.error("error", `callback3 code: ${error.code}, message: ${error.message}`);
 };
-mapEventManager.on('error', callback1);
-mapEventManager.on('error', callback2);
-mapEventManager.on('error', callback3);
+mapEventManager.on("error", callback1);
+mapEventManager.on("error", callback2);
+mapEventManager.on("error", callback3);
 ```
 
-
-### off('error')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### off('error')
 off(type: 'error', callback?: ErrorCallback): void
-
 取消监听异常事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -2232,31 +1797,28 @@ off(type: 'error', callback?: ErrorCallback): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'error'：监听异常事件。 |
-| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，返回[ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback)，取消监听异常事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | [ErrorCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#errorcallback) | 否 | 回调函数，返回ErrorCallback，取消监听异常事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let callback1 = (error: BusinessError) => {
-  console.info('error', `callback1`);
+  console.info("error", `callback1`);
 };
 let callback2 = (error: BusinessError) => {
-  console.info('error', `callback2`);
+  console.info("error", `callback2`);
 };
 let callback3 = (error: BusinessError) => {
-  console.info('error', `callback3`);
+  console.info("error", `callback3`);
 };
-mapEventManager.on('error', callback1);
-mapEventManager.on('error', callback2);
-mapEventManager.on('error', callback3);
+mapEventManager.on("error", callback1);
+mapEventManager.on("error", callback2);
+mapEventManager.on("error", callback3);
 
 // 只取消callback1对象的事件响应，当error事件发生时，callback2和callback3会正常被调用
 mapEventManager.off('error', callback1);
@@ -2264,14 +1826,9 @@ mapEventManager.off('error', callback1);
 mapEventManager.off('error');
 ```
 
-
-### on('indoorMapEnter')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'indoorMapEnter', callback: Callback<IndoorMapInfo>): void
-
+#### on('indoorMapEnter')
+on(type: 'indoorMapEnter', callback: Callback&lt;IndoorMapInfo&gt;): void
 监听室内图进入事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -2284,41 +1841,30 @@ on(type: 'indoorMapEnter', callback: Callback<IndoorMapInfo>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'indoorMapEnter'：监听室内图进入事件。 |
-| callback | Callback&lt;[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)&gt; | 是 | 回调函数，返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)，监听室内图进入事件。 |
-
+| callback | Callback<[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)> | 是 | 回调函数，返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)，监听室内图进入事件。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
-
 **示例：**
-
 
 ```ts
 let callback = (indoorMapInfo: map.IndoorMapInfo) => {
-  console.info('indoorMapEnter', `callback indoorMapInfo`);
+  console.info("indoorMapEnter", `callback indoorMapInfo`);
 };
-mapEventManager.on('indoorMapEnter', callback);
+mapEventManager.on("indoorMapEnter", callback);
 ```
 
-
-### off('indoorMapEnter')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'indoorMapEnter', callback?: Callback<IndoorMapInfo>): void
-
+#### off('indoorMapEnter')
+off(type: 'indoorMapEnter', callback?: Callback&lt;IndoorMapInfo&gt;): void
 取消监听室内图进入事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -2331,44 +1877,33 @@ off(type: 'indoorMapEnter', callback?: Callback<IndoorMapInfo>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'indoorMapEnter'：监听室内图进入事件。 |
-| callback | Callback&lt;[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)&gt; | 否 | 回调函数，返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)，取消监听室内图进入事件。 |
-
+| callback | Callback<[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)> | 否 | 回调函数，返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)，取消监听室内图进入事件。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
-
 **示例：**
-
 
 ```ts
 let callback = (indoorMapInfo: map.IndoorMapInfo) => {
-  console.info('indoorMapEnter', `callback`);
+  console.info("indoorMapEnter", `callback`);
 };
-mapEventManager.on('indoorMapEnter', callback);
+mapEventManager.on("indoorMapEnter", callback);
 
 // 取消callback对象的事件响应
 mapEventManager.off('indoorMapEnter', callback);
 ```
 
-
-### on('indoorMapExit')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-on(type: 'indoorMapExit', callback: Callback<void>): void
-
+#### on('indoorMapExit')
+on(type: 'indoorMapExit', callback: Callback&lt;void&gt;): void
 监听室内图退出事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -2381,41 +1916,30 @@ on(type: 'indoorMapExit', callback: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'indoorMapExit'：监听室内图退出事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果，监听室内图退出事件。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
-
 **示例：**
-
 
 ```ts
 let callback = () => {
-  console.info('indoorMapExit', `callback`);
+  console.info("indoorMapExit", `callback`);
 };
-mapEventManager.on('indoorMapExit', callback);
+mapEventManager.on("indoorMapExit", callback);
 ```
 
-
-### off('indoorMapExit')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-off(type: 'indoorMapExit', callback?: Callback<void>): void
-
+#### off('indoorMapExit')
+off(type: 'indoorMapExit', callback?: Callback&lt;void&gt;): void
 取消监听室内图退出事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -2428,44 +1952,33 @@ off(type: 'indoorMapExit', callback?: Callback<void>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'indoorMapExit'：监听室内图退出事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果，取消监听室内图退出事件。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
-
 **示例：**
-
 
 ```ts
 let callback = () => {
-  console.info('indoorMapExit', `callback`);
+  console.info("indoorMapExit", `callback`);
 };
-mapEventManager.on('indoorMapExit', callback);
+mapEventManager.on("indoorMapExit", callback);
 
 // 取消callback对象的事件响应
 mapEventManager.off('indoorMapExit', callback);
 ```
 
-
-### on('massPointOverlayClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### on('massPointOverlayClick')
 on(type: 'massPointOverlayClick', callback: MassPointOverlayCallback): void
-
 监听海量点图层点击事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -2476,34 +1989,26 @@ on(type: 'massPointOverlayClick', callback: MassPointOverlayCallback): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'massPointOverlayClick'：用于监听海量点图层的点击事件。 |
-| callback | [MassPointOverlayCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-masspointoverlaycallback) | 是 | 回调函数，无返回结果，监听海量点图层点击事件。 |
-
+| callback | [MassPointOverlayCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-types#masspointoverlaycallback) | 是 | 回调函数，无返回结果，监听海量点图层点击事件。 |
 
 **示例：**
-
 
 ```ts
 // 初始化地图组件的监听事件管理接口
 let mapEventManager = this.mapController.getEventManager();
 let massCallback: map.MassPointOverlayCallback = (overlay, item) => {
   console.info(`overlayId:${overlay.getId()},item :${JSON.stringify(item)}`);
-};
+}
 // 启动海量点点击事件监听
 mapEventManager.on('massPointOverlayClick', massCallback);
 ```
 
-
-### off('massPointOverlayClick')
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### off('massPointOverlayClick')
 off(type: 'massPointOverlayClick', callback?: MassPointOverlayCallback): void
-
 取消监听海量点图层点击事件。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -2514,22 +2019,19 @@ off(type: 'massPointOverlayClick', callback?: MassPointOverlayCallback): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | type | string | 是 | 'massPointOverlayClick'：监听海量点图层点击退出事件。 |
-| callback | [MassPointOverlayCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-masspointoverlaycallback) | 否 | 回调函数，无返回结果，取消监听海量点图层点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | [MassPointOverlayCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-types#masspointoverlaycallback) | 否 | 回调函数，无返回结果，取消监听海量点图层点击事件。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
-
 
 ```ts
 // 初始化地图组件的监听事件管理接口
 let mapEventManager = this.mapController.getEventManager();
 let massCallback: map.MassPointOverlayCallback = (overlay, item) => {
   console.info(`overlayId:${overlay.getId()},item :${JSON.stringify(item)}`);
-};
+}
 // 启动海量点点击事件监听
 mapEventManager.on('massPointOverlayClick', massCallback);
 // 停止海量点点击事件监听,传入指定callback
@@ -2538,14 +2040,9 @@ mapEventManager.off('massPointOverlayClick', massCallback);
 mapEventManager.off('massPointOverlayClick');
 ```
 
-
-### onMarkerLongClick
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-onMarkerLongClick(callback: Callback<Marker>): void
-
+#### onMarkerLongClick
+onMarkerLongClick(callback: Callback&lt;Marker&gt;): void
 监听标记长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -2556,47 +2053,30 @@ onMarkerLongClick(callback: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 是 | 标记长按事件的回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 是 | 标记长按事件的回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback1 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback1 markerLongClick = ${markerLong.getId()}`);
 };
 let callback2 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback2 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback2 markerLongClick = ${markerLong.getId()}`);
 };
 let callback3 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback3 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback3 markerLongClick = ${markerLong.getId()}`);
 };
 mapEventManager.onMarkerLongClick(callback1);
 mapEventManager.onMarkerLongClick(callback2);
 mapEventManager.onMarkerLongClick(callback3);
 ```
 
-
-### offMarkerLongClick
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-offMarkerLongClick(callback?: Callback<Marker>): void
-
+#### offMarkerLongClick
+offMarkerLongClick(callback?: Callback&lt;Marker&gt;): void
 取消监听标记长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -2607,33 +2087,21 @@ offMarkerLongClick(callback?: Callback<Marker>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)&gt; | 否 | 标记长按事件的回调函数，返回[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)> | 否 | 标记长按事件的回调函数，返回Marker。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback1 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback1 markerLongClick = ${markerLong.getId()}`);
 };
 let callback2 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback2 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback2 markerLongClick = ${markerLong.getId()}`);
 };
 let callback3 = (markerLong: map.Marker) => {
-  console.info(
-    'markerLongClick',
-    `callback3 markerLongClick = ${markerLong.getId()}`,
-  );
+  console.info("markerLongClick", `callback3 markerLongClick = ${markerLong.getId()}`);
 };
 mapEventManager.onMarkerLongClick(callback1);
 mapEventManager.onMarkerLongClick(callback2);
@@ -2645,14 +2113,9 @@ mapEventManager.offMarkerLongClick(callback1);
 mapEventManager.offMarkerLongClick();
 ```
 
-
-### onPoiLongClick
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-onPoiLongClick(callback: Callback<mapCommon.Poi>): void
-
+#### onPoiLongClick
+onPoiLongClick(callback: Callback&lt;mapCommon.Poi&gt;): void
 监听地图上POI长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -2663,38 +2126,30 @@ onPoiLongClick(callback: Callback<mapCommon.Poi>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)&gt; | 是 | 地图上POI长按事件的回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)。 |
-
+| callback | Callback<[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)> | 是 | 地图上POI长按事件的回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback1 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback1 poi = ${poi.id}`);
 };
 let callback2 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback2 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback2 poi = ${poi.id}`);
 };
 let callback3 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback3 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback3 poi = ${poi.id}`);
 };
 mapEventManager.onPoiLongClick(callback1);
 mapEventManager.onPoiLongClick(callback2);
 mapEventManager.onPoiLongClick(callback3);
 ```
 
-
-### offPoiLongClick
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
-offPoiLongClick(callback?: Callback<mapCommon.Poi>): void
-
+#### offPoiLongClick
+offPoiLongClick(callback?: Callback&lt;mapCommon.Poi&gt;): void
 取消监听地图上POI长按事件。支持传递多个callback异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -2705,24 +2160,21 @@ offPoiLongClick(callback?: Callback<mapCommon.Poi>): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
-| callback | Callback&lt;[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)&gt; | 否 | 地图上POI长按事件的回调函数，返回[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
-
+| callback | Callback<[mapCommon.Poi](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#poi)> | 否 | 地图上POI长按事件的回调函数，返回mapCommon.Poi。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 **示例：**
 
-
 ```ts
 let callback1 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback1 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback1 poi = ${poi.id}`);
 };
 let callback2 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback2 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback2 poi = ${poi.id}`);
 };
 let callback3 = (poi: mapCommon.Poi) => {
-  console.info('poiLongClick', `callback3 poi = ${poi.id}`);
+  console.info("poiLongClick", `callback3 poi = ${poi.id}`);
 };
 mapEventManager.onPoiLongClick(callback1);
 mapEventManager.onPoiLongClick(callback2);

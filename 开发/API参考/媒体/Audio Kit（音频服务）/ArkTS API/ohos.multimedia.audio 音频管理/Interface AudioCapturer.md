@@ -1,37 +1,31 @@
 # Interface (AudioCapturer)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供音频采集的相关接口。
-
 在使用AudioCapturer的接口之前，需先通过[createAudioCapturer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-f#audiocreateaudiocapturer8)获取AudioCapturer实例。
 
+> [!NOTE] 说明
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Interface首批接口从API version 8开始支持。
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 导入模块
 
 ```ts
 import { audio } from '@kit.AudioKit';
 ```
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 属性
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| state8+ | [AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8) | 是 | 否 | 音频采集器状态。 |
-
+| state^8+ | [AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8) | 是 | 否 | 音频采集器状态。 |
 
 **示例：**
-
 
 ```ts
 import { audio } from '@kit.AudioKit';
@@ -39,228 +33,157 @@ import { audio } from '@kit.AudioKit';
 let state: audio.AudioState = audioCapturer.state;
 ```
 
-
-## getCapturerInfo8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getCapturerInfo(callback: AsyncCallback<AudioCapturerInfo>): void
-
+#### getCapturerInfo8+
+getCapturerInfo(callback: AsyncCallback&lt;AudioCapturerInfo&gt;): void
 获取音频采集器信息。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8)&gt; | 是 | 回调函数。当获取音频采集器信息成功，err为undefined，data为获取到的音频采集器信息；否则为错误对象。 |
-
+| callback | AsyncCallback<[AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8)> | 是 | 回调函数。当获取音频采集器信息成功，err为undefined，data为获取到的音频采集器信息；否则为错误对象。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer.getCapturerInfo(
-  (err: BusinessError, capturerInfo: audio.AudioCapturerInfo) => {
-    if (err) {
-      console.error('Failed to get capture info');
-    } else {
-      console.info('Capturer getCapturerInfo:');
-      console.info(`Capturer source: ${capturerInfo.source}`);
-      console.info(`Capturer flags: ${capturerInfo.capturerFlags}`);
-    }
-  },
-);
+audioCapturer.getCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapturerInfo) => {
+  if (err) {
+    console.error('Failed to get capture info');
+  } else {
+    console.info('Capturer getCapturerInfo:');
+    console.info(`Capturer source: ${capturerInfo.source}`);
+    console.info(`Capturer flags: ${capturerInfo.capturerFlags}`);
+  }
+});
 ```
 
-
-## getCapturerInfo8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getCapturerInfo(): Promise<AudioCapturerInfo>
-
+#### getCapturerInfo8+
+getCapturerInfo(): Promise&lt;AudioCapturerInfo&gt;
 获取音频采集器信息。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8)&gt; | Promise对象，返回音频采集器信息。 |
-
+| Promise<[AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8)> | Promise对象，返回音频采集器信息。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getCapturerInfo()
-  .then((audioParamsGet: audio.AudioCapturerInfo) => {
-    if (audioParamsGet != undefined) {
-      console.info('AudioFrameworkRecLog: Capturer CapturerInfo:');
-      console.info(
-        `AudioFrameworkRecLog: Capturer SourceType: ${audioParamsGet.source}`,
-      );
-      console.info(
-        `AudioFrameworkRecLog: Capturer capturerFlags: ${audioParamsGet.capturerFlags}`,
-      );
-    } else {
-      console.info(
-        `AudioFrameworkRecLog: audioParamsGet is : ${audioParamsGet}`,
-      );
-      console.info(
-        'AudioFrameworkRecLog: audioParams getCapturerInfo are incorrect',
-      );
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(`AudioFrameworkRecLog: CapturerInfo :ERROR: ${err}`);
-  });
+audioCapturer.getCapturerInfo().then((audioParamsGet: audio.AudioCapturerInfo) => {
+  if (audioParamsGet != undefined) {
+    console.info('AudioFrameworkRecLog: Capturer CapturerInfo:');
+    console.info(`AudioFrameworkRecLog: Capturer SourceType: ${audioParamsGet.source}`);
+    console.info(`AudioFrameworkRecLog: Capturer capturerFlags: ${audioParamsGet.capturerFlags}`);
+  } else {
+    console.info(`AudioFrameworkRecLog: audioParamsGet is : ${audioParamsGet}`);
+    console.info('AudioFrameworkRecLog: audioParams getCapturerInfo are incorrect');
+  }
+}).catch((err: BusinessError) => {
+  console.error(`AudioFrameworkRecLog: CapturerInfo :ERROR: ${err}`);
+})
 ```
 
-
-## getCapturerInfoSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getCapturerInfoSync10+
 getCapturerInfoSync(): AudioCapturerInfo
-
 获取音频采集器信息。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [AudioCapturerInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerinfo8) | 返回音频采集器信息。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioParamsGet: audio.AudioCapturerInfo =
-    audioCapturer.getCapturerInfoSync();
-  console.info(
-    `AudioFrameworkRecLog: Capturer SourceType: ${audioParamsGet.source}`,
-  );
-  console.info(
-    `AudioFrameworkRecLog: Capturer capturerFlags: ${audioParamsGet.capturerFlags}`,
-  );
+  let audioParamsGet: audio.AudioCapturerInfo = audioCapturer.getCapturerInfoSync();
+  console.info(`AudioFrameworkRecLog: Capturer SourceType: ${audioParamsGet.source}`);
+  console.info(`AudioFrameworkRecLog: Capturer capturerFlags: ${audioParamsGet.capturerFlags}`);
 } catch (err) {
   let error = err as BusinessError;
   console.error(`AudioFrameworkRecLog: CapturerInfo :ERROR: ${error}`);
 }
 ```
 
-
-## getStreamInfo8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getStreamInfo(callback: AsyncCallback<AudioStreamInfo>): void
-
+#### getStreamInfo8+
+getStreamInfo(callback: AsyncCallback&lt;AudioStreamInfo&gt;): void
 获取音频采集器流信息。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)&gt; | 是 | 回调函数。当获取音频采集器流信息成功，err为undefined，data为获取到的音频采集器流信息；否则为错误对象。 |
-
+| callback | AsyncCallback<[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)> | 是 | 回调函数。当获取音频采集器流信息成功，err为undefined，data为获取到的音频采集器流信息；否则为错误对象。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer.getStreamInfo(
-  (err: BusinessError, streamInfo: audio.AudioStreamInfo) => {
-    if (err) {
-      console.error('Failed to get stream info');
-    } else {
-      console.info('Capturer GetStreamInfo:');
-      console.info(`Capturer sampling rate: ${streamInfo.samplingRate}`);
-      console.info(`Capturer channel: ${streamInfo.channels}`);
-      console.info(`Capturer format: ${streamInfo.sampleFormat}`);
-      console.info(`Capturer encoding type: ${streamInfo.encodingType}`);
-    }
-  },
-);
+audioCapturer.getStreamInfo((err: BusinessError, streamInfo: audio.AudioStreamInfo) => {
+  if (err) {
+    console.error('Failed to get stream info');
+  } else {
+    console.info('Capturer GetStreamInfo:');
+    console.info(`Capturer sampling rate: ${streamInfo.samplingRate}`);
+    console.info(`Capturer channel: ${streamInfo.channels}`);
+    console.info(`Capturer format: ${streamInfo.sampleFormat}`);
+    console.info(`Capturer encoding type: ${streamInfo.encodingType}`);
+  }
+});
 ```
 
-
-## getStreamInfo8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getStreamInfo(): Promise<AudioStreamInfo>
-
+#### getStreamInfo8+
+getStreamInfo(): Promise&lt;AudioStreamInfo&gt;
 获取音频采集器流信息。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)&gt; | Promise对象，返回音频流信息。 |
-
+| Promise<[AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8)> | Promise对象，返回音频流信息。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getStreamInfo()
-  .then((audioParamsGet: audio.AudioStreamInfo) => {
-    console.info('getStreamInfo:');
-    console.info(`sampleFormat: ${audioParamsGet.sampleFormat}`);
-    console.info(`samplingRate: ${audioParamsGet.samplingRate}`);
-    console.info(`channels: ${audioParamsGet.channels}`);
-    console.info(`encodingType: ${audioParamsGet.encodingType}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`getStreamInfo :ERROR: ${err}`);
-  });
+audioCapturer.getStreamInfo().then((audioParamsGet: audio.AudioStreamInfo) => {
+  console.info('getStreamInfo:');
+  console.info(`sampleFormat: ${audioParamsGet.sampleFormat}`);
+  console.info(`samplingRate: ${audioParamsGet.samplingRate}`);
+  console.info(`channels: ${audioParamsGet.channels}`);
+  console.info(`encodingType: ${audioParamsGet.encodingType}`);
+}).catch((err: BusinessError) => {
+  console.error(`getStreamInfo :ERROR: ${err}`);
+});
 ```
 
-
-## getStreamInfoSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getStreamInfoSync10+
 getStreamInfoSync(): AudioStreamInfo
-
 获取音频采集器流信息。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [AudioStreamInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiostreaminfo8) | 返回音频流信息。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -277,26 +200,18 @@ try {
 }
 ```
 
-
-## getAudioStreamId9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAudioStreamId(callback: AsyncCallback<number>): void
-
+#### getAudioStreamId9+
+getAudioStreamId(callback: AsyncCallback&lt;number&gt;): void
 获取音频流id。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取音频流id成功，err为undefined，data为获取到的音频流id；否则为错误对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -306,60 +221,41 @@ audioCapturer.getAudioStreamId((err: BusinessError, streamId: number) => {
 });
 ```
 
-
-## getAudioStreamId9+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAudioStreamId(): Promise<number>
-
+#### getAudioStreamId9+
+getAudioStreamId(): Promise&lt;number&gt;
 获取音频流id。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回音频流id。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getAudioStreamId()
-  .then((streamId: number) => {
-    console.info(`audioCapturer getAudioStreamId: ${streamId}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`ERROR: ${err}`);
-  });
+audioCapturer.getAudioStreamId().then((streamId: number) => {
+  console.info(`audioCapturer getAudioStreamId: ${streamId}`);
+}).catch((err: BusinessError) => {
+  console.error(`ERROR: ${err}`);
+});
 ```
 
-
-## getAudioStreamIdSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getAudioStreamIdSync10+
 getAudioStreamIdSync(): number
-
 获取音频流id。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回音频流id。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -373,26 +269,18 @@ try {
 }
 ```
 
-
-## start8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-start(callback: AsyncCallback<void>): void
-
+#### start8+
+start(callback: AsyncCallback&lt;void&gt;): void
 启动音频采集器，开始获取音频数据。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动音频采集器成功，err为undefined，否则为错误对象。异常将返回error对象：          错误码6800301：表示包含状态检查异常、焦点抢占失败、系统处理异常（具体错误查看系统日志）。 |
-
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当启动音频采集器成功，err为undefined，否则为错误对象。异常将返回error对象： 错误码6800301：表示包含状态检查异常、焦点抢占失败、系统处理异常（具体错误查看系统日志）。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -406,65 +294,44 @@ audioCapturer.start((err: BusinessError) => {
 });
 ```
 
-
-## start8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-start(): Promise<void>
-
+#### start8+
+start(): Promise&lt;void&gt;
 启动音频采集器，开始获取音频数据。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，成功表示启动音频采集器成功。异常将返回error对象：          错误码6800301：表示包含状态检查异常、焦点抢占失败、系统处理异常（具体错误查看系统日志）。 |
-
+| Promise&lt;void&gt; | Promise对象，成功表示启动音频采集器成功。异常将返回error对象： 错误码6800301：表示包含状态检查异常、焦点抢占失败、系统处理异常（具体错误查看系统日志）。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .start()
-  .then(() => {
-    console.info('Succeeded in doing start.');
-    if (audioCapturer.state == audio.AudioState.STATE_RUNNING) {
-      console.info('AudioFrameworkRecLog: AudioCapturer is in Running State');
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to start. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioCapturer.start().then(() => {
+  console.info('Succeeded in doing start.');
+  if (audioCapturer.state == audio.AudioState.STATE_RUNNING) {
+    console.info('AudioFrameworkRecLog: AudioCapturer is in Running State');
+  }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to start. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## stop8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-stop(callback: AsyncCallback<void>): void
-
+#### stop8+
+stop(callback: AsyncCallback&lt;void&gt;): void
 停止音频采集器，停止输入音频流。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当停止音频采集成功，err为undefined，否则为错误对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -478,63 +345,44 @@ audioCapturer.stop((err: BusinessError) => {
 });
 ```
 
-
-## stop8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-stop(): Promise<void>
-
+#### stop8+
+stop(): Promise&lt;void&gt;
 停止音频采集器，停止输入音频流。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .stop()
-  .then(() => {
-    console.info('Succeeded in doing stop.');
-    if (audioCapturer.state == audio.AudioState.STATE_STOPPED) {
-      console.info('AudioFrameworkRecLog: State is Stopped:');
-    }
-  })
-  .catch((err: BusinessError) => {
-    console.error(`Failed to stop. Code: ${err.code}, message: ${err.message}`);
-  });
+audioCapturer.stop().then(() => {
+  console.info('Succeeded in doing stop.');
+  if (audioCapturer.state == audio.AudioState.STATE_STOPPED){
+    console.info('AudioFrameworkRecLog: State is Stopped:');
+  }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to stop. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## release8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-release(callback: AsyncCallback<void>): void
-
+#### release8+
+release(callback: AsyncCallback&lt;void&gt;): void
 释放音频采集器。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当释放音频采集器成功，err为undefined，否则为错误对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -548,64 +396,43 @@ audioCapturer.release((err: BusinessError) => {
 });
 ```
 
-
-## release8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-release(): Promise<void>
-
+#### release8+
+release(): Promise&lt;void&gt;
 释放音频采集器。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .release()
-  .then(() => {
-    console.info('AudioFrameworkRecLog: ---------RELEASE RECORD---------');
-    console.info('AudioFrameworkRecLog: Capturer release : SUCCESS');
-    console.info(
-      `AudioFrameworkRecLog: AudioCapturer : STATE : ${audioCapturer.state}`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(`AudioFrameworkRecLog: Capturer stop: ERROR: ${err}`);
-  });
+audioCapturer.release().then(() => {
+  console.info('AudioFrameworkRecLog: ---------RELEASE RECORD---------');
+  console.info('AudioFrameworkRecLog: Capturer release : SUCCESS');
+  console.info(`AudioFrameworkRecLog: AudioCapturer : STATE : ${audioCapturer.state}`);
+}).catch((err: BusinessError) => {
+  console.error(`AudioFrameworkRecLog: Capturer stop: ERROR: ${err}`);
+});
 ```
 
-
-## getAudioTime8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAudioTime(callback: AsyncCallback<number>): void
-
+#### getAudioTime8+
+getAudioTime(callback: AsyncCallback&lt;number&gt;): void
 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取时间戳成功，err为undefined，data为获取到的时间戳；否则为错误对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -615,62 +442,41 @@ audioCapturer.getAudioTime((err: BusinessError, timestamp: number) => {
 });
 ```
 
-
-## getAudioTime8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAudioTime(): Promise<number>
-
+#### getAudioTime8+
+getAudioTime(): Promise&lt;number&gt;
 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，返回时间戳（从1970年1月1日开始）。          单位为纳秒。 |
-
+| Promise&lt;number&gt; | Promise对象，返回时间戳（从1970年1月1日开始）。 单位为纳秒。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getAudioTime()
-  .then((timestamp: number) => {
-    console.info(`Succeeded in getting audio time. Timestamp: ${timestamp}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get audio time. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioCapturer.getAudioTime().then((timestamp: number) => {
+  console.info(`Succeeded in getting audio time. Timestamp: ${timestamp}`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get audio time. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## getAudioTimeSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getAudioTimeSync10+
 getAudioTimeSync(): number
-
 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回时间戳。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -680,95 +486,66 @@ try {
   console.info(`Succeeded in getting audio time. Timestamp: ${timestamp}`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get audio time. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get audio time. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
-
-## getAudioTimestampInfo19+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getAudioTimestampInfo(): Promise<AudioTimestampInfo>
-
+#### getAudioTimestampInfo19+
+getAudioTimestampInfo(): Promise&lt;AudioTimestampInfo&gt;
 获取输入音频流时间戳和当前数据帧位置信息。
-
 该接口可以获取到音频通道实际录制位置（framePos）以及录制到该位置时候的时间戳（timestamp），时间戳单位为纳秒。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[AudioTimestampInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiotimestampinfo19)&gt; | Promise对象，返回音频流时间戳和当前数据帧位置信息。 |
-
+| Promise<[AudioTimestampInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiotimestampinfo19)> | Promise对象，返回音频流时间戳和当前数据帧位置信息。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800103 | Operation not permit at current state. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getAudioTimestampInfo()
-  .then((audioTimestampInfo: audio.AudioTimestampInfo) => {
-    console.info(`Current timestamp: ${audioTimestampInfo.timestamp}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`ERROR: ${err}`);
-  });
+audioCapturer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimestampInfo) => {
+  console.info(`Current timestamp: ${audioTimestampInfo.timestamp}`);
+}).catch((err: BusinessError) => {
+  console.error(`ERROR: ${err}`);
+});
 ```
 
-
-## getAudioTimestampInfoSync19+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getAudioTimestampInfoSync19+
 getAudioTimestampInfoSync(): AudioTimestampInfo
-
 获取音频流时间戳和当前数据帧位置信息。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [AudioTimestampInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiotimestampinfo19) | 返回音频流时间戳和当前数据帧位置信息。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800103 | Operation not permit at current state. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
-  let audioTimestampInfo: audio.AudioTimestampInfo =
-    audioCapturer.getAudioTimestampInfoSync();
+  let audioTimestampInfo: audio.AudioTimestampInfo = audioCapturer.getAudioTimestampInfoSync();
   console.info(`Current timestamp: ${audioTimestampInfo.timestamp}`);
 } catch (err) {
   let error = err as BusinessError;
@@ -776,101 +553,66 @@ try {
 }
 ```
 
-
-## getBufferSize8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getBufferSize(callback: AsyncCallback<number>): void
-
+#### getBufferSize8+
+getBufferSize(callback: AsyncCallback&lt;number&gt;): void
 获取采集器合理的最小缓冲区大小。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取采集器合理的最小缓冲区大小成功，err为undefined，data为获取到的采集器合理的最小缓冲区大小；否则为错误对象。          单位为字节。 |
-
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当获取采集器合理的最小缓冲区大小成功，err为undefined，data为获取到的采集器合理的最小缓冲区大小；否则为错误对象。 单位为字节。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
 audioCapturer.getBufferSize((err: BusinessError, bufferSize: number) => {
   if (err) {
-    console.error(
-      `Failed to get buffer size. Code: ${err.code}, message: ${err.message}`,
-    );
+    console.error(`Failed to get buffer size. Code: ${err.code}, message: ${err.message}`);
   } else {
-    console.info(
-      `Succeeded in getting buffer size, BufferSize: ${bufferSize}.`,
-    );
+    console.info(`Succeeded in getting buffer size, BufferSize: ${bufferSize}.`);
   }
 });
 ```
 
-
-## getBufferSize8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getBufferSize(): Promise<number>
-
+#### getBufferSize8+
+getBufferSize(): Promise&lt;number&gt;
 获取采集器合理的最小缓冲区大小。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | Promise对象，返回缓冲区大小。          单位为字节。 |
-
+| Promise&lt;number&gt; | Promise对象，返回缓冲区大小。 单位为字节。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getBufferSize()
-  .then((bufferSize: number) => {
-    console.info(
-      `Succeeded in getting buffer size, BufferSize: ${bufferSize}.`,
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to get buffer size. Code: ${err.code}, message: ${err.message}`,
-    );
-  });
+audioCapturer.getBufferSize().then((bufferSize: number) => {
+  console.info(`Succeeded in getting buffer size, BufferSize: ${bufferSize}.`);
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get buffer size. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## getBufferSizeSync10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getBufferSizeSync10+
 getBufferSizeSync(): number
-
 获取采集器合理的最小缓冲区大小。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回缓冲区大小，单位为字节。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -880,36 +622,25 @@ try {
   console.info(`Succeeded in getting buffer size, BufferSize: ${bufferSize}.`);
 } catch (err) {
   let error = err as BusinessError;
-  console.error(
-    `Failed to get buffer size. Code: ${error.code}, message: ${error.message}`,
-  );
+  console.error(`Failed to get buffer size. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
-
-## getCurrentInputDevices11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getCurrentInputDevices11+
 getCurrentInputDevices(): AudioDeviceDescriptors
-
 获取录音流输入设备信息。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) | 同步接口，返回设备属性数组类型数据。 |
 
-
 **示例：**
 
-
 ```ts
-let deviceDescriptors: audio.AudioDeviceDescriptors =
-  audioCapturer.getCurrentInputDevices();
+let deviceDescriptors: audio.AudioDeviceDescriptors = audioCapturer.getCurrentInputDevices();
 console.info(`Device id: ${deviceDescriptors[0].id}`);
 console.info(`Device type: ${deviceDescriptors[0].deviceType}`);
 console.info(`Device role: ${deviceDescriptors[0].deviceRole}`);
@@ -919,36 +650,25 @@ console.info(`Device samplerates: ${deviceDescriptors[0].sampleRates[0]}`);
 console.info(`Device channelcounts: ${deviceDescriptors[0].channelCounts[0]}`);
 console.info(`Device channelmask: ${deviceDescriptors[0].channelMasks[0]}`);
 if (deviceDescriptors[0].encodingTypes) {
-  console.info(
-    `Device encodingTypes: ${deviceDescriptors[0].encodingTypes[0]}`,
-  );
+  console.info(`Device encodingTypes: ${deviceDescriptors[0].encodingTypes[0]}`);
 }
 ```
 
-
-## getCurrentAudioCapturerChangeInfo11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getCurrentAudioCapturerChangeInfo11+
 getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo
-
 获取录音流配置。同步返回结果。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9) | 同步接口，返回描述音频采集器更改信息。 |
 
-
 **示例：**
 
-
 ```ts
-let info: audio.AudioCapturerChangeInfo =
-  audioCapturer.getCurrentAudioCapturerChangeInfo();
+let info: audio.AudioCapturerChangeInfo = audioCapturer.getCurrentAudioCapturerChangeInfo();
 console.info(`Info streamId: ${info.streamId}`);
 console.info(`Info source: ${info.capturerInfo.source}`);
 console.info(`Info capturerFlags: ${info.capturerInfo.capturerFlags}`);
@@ -958,53 +678,36 @@ console.info(`Info role: ${info.deviceDescriptors[0].deviceRole}`);
 console.info(`Info name: ${info.deviceDescriptors[0].name}`);
 console.info(`Info address: ${info.deviceDescriptors[0].address}`);
 console.info(`Info samplerates: ${info.deviceDescriptors[0].sampleRates[0]}`);
-console.info(
-  `Info channelcounts: ${info.deviceDescriptors[0].channelCounts[0]}`,
-);
+console.info(`Info channelcounts: ${info.deviceDescriptors[0].channelCounts[0]}`);
 console.info(`Info channelmask: ${info.deviceDescriptors[0].channelMasks[0]}`);
 if (info.deviceDescriptors[0].encodingTypes) {
-  console.info(
-    `Device encodingTypes: ${info.deviceDescriptors[0].encodingTypes[0]}`,
-  );
+  console.info(`Device encodingTypes: ${info.deviceDescriptors[0].encodingTypes[0]}`);
 }
 ```
 
-
-## on('audioInterrupt')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'audioInterrupt', callback: Callback<InterruptEvent>): void
-
+#### on('audioInterrupt')10+
+on(type: 'audioInterrupt', callback: Callback&lt;InterruptEvent&gt;): void
 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
-
 AudioCapturer对象在start事件时获取焦点，在pause、stop等事件时释放焦点，无需开发者主动申请。
-
 调用此方法后，如果AudioCapturer对象获取焦点失败或发生中断事件（如被其他音频打断等），会收到[InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)。建议应用根据InterruptEvent的信息进行进一步处理。更多信息请参阅文档[音频焦点介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-playback-concurrency)。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Interrupt
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioInterrupt'，当音频焦点状态发生变化时，触发该事件。 |
-| callback | Callback&lt;[InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)&gt; | 是 | 回调函数，返回中断事件信息。 |
-
+| callback | Callback<[InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)> | 是 | 回调函数，返回中断事件信息。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 import { audio } from '@kit.AudioKit';
@@ -1033,9 +736,7 @@ audioCapturer.on('audioInterrupt', (interruptEvent: audio.InterruptEvent) => {
         console.info('Invalid interruptEvent');
         break;
     }
-  } else if (
-    interruptEvent.forceType == audio.InterruptForceType.INTERRUPT_SHARE
-  ) {
+  } else if (interruptEvent.forceType == audio.InterruptForceType.INTERRUPT_SHARE) {
     // 音频焦点事件需由应用进行操作，应用可以自主选择如何处理该事件，建议应用遵从InterruptHint提示处理。
     switch (interruptEvent.hintType) {
       case audio.InterruptHint.INTERRUPT_HINT_RESUME:
@@ -1052,127 +753,89 @@ audioCapturer.on('audioInterrupt', (interruptEvent: audio.InterruptEvent) => {
 });
 ```
 
-
-## off('audioInterrupt')10+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### off('audioInterrupt')10+
 off(type: 'audioInterrupt'): void
-
 取消监听音频中断事件。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Interrupt
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioInterrupt'，当取消监听音频中断事件时，触发该事件。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 audioCapturer.off('audioInterrupt');
 ```
 
-
-## on('inputDeviceChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void
-
+#### on('inputDeviceChange')11+
+on(type: 'inputDeviceChange', callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 监听音频输入设备变化事件（当音频输入设备发生变化时触发）。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'inputDeviceChange'，当音频输入设备发生变化时，触发该事件。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) &gt; | 是 | 回调函数，返回变化后的音频输入设备信息。 |
-
+| callback | Callback<[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) > | 是 | 回调函数，返回变化后的音频输入设备信息。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
 
-
 ```ts
-audioCapturer.on(
-  'inputDeviceChange',
-  (deviceChangeInfo: audio.AudioDeviceDescriptors) => {
-    console.info(`inputDevice id: ${deviceChangeInfo[0].id}`);
-    console.info(`inputDevice deviceRole: ${deviceChangeInfo[0].deviceRole}`);
-    console.info(`inputDevice deviceType: ${deviceChangeInfo[0].deviceType}`);
-  },
-);
+audioCapturer.on('inputDeviceChange', (deviceChangeInfo: audio.AudioDeviceDescriptors) => {
+  console.info(`inputDevice id: ${deviceChangeInfo[0].id}`);
+  console.info(`inputDevice deviceRole: ${deviceChangeInfo[0].deviceRole}`);
+  console.info(`inputDevice deviceType: ${deviceChangeInfo[0].deviceType}`);
+});
 ```
 
-
-## off('inputDeviceChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'inputDeviceChange', callback?: Callback<AudioDeviceDescriptors>): void
-
+#### off('inputDeviceChange')11+
+off(type: 'inputDeviceChange', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 取消监听音频输入设备更改事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Device
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'inputDeviceChange'，当取消监听音频输入设备更改事件时，触发该事件。 |
-| callback | Callback&lt;[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) &gt; | 否 | 回调函数，返回音频输入设备信息。 |
-
+| callback | Callback<[AudioDeviceDescriptors](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-t#audiodevicedescriptors) > | 否 | 回调函数，返回音频输入设备信息。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
 audioCapturer.off('inputDeviceChange');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
-let inputDeviceChangeCallback = (
-  deviceChangeInfo: audio.AudioDeviceDescriptors,
-) => {
+let inputDeviceChangeCallback = (deviceChangeInfo: audio.AudioDeviceDescriptors) => {
   console.info(`inputDevice id: ${deviceChangeInfo[0].id}`);
   console.info(`inputDevice deviceRole: ${deviceChangeInfo[0].deviceRole}`);
   console.info(`inputDevice deviceType: ${deviceChangeInfo[0].deviceType}`);
@@ -1183,94 +846,63 @@ audioCapturer.on('inputDeviceChange', inputDeviceChangeCallback);
 audioCapturer.off('inputDeviceChange', inputDeviceChangeCallback);
 ```
 
-
-## on('audioCapturerChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void
-
+#### on('audioCapturerChange')11+
+on(type: 'audioCapturerChange', callback: Callback&lt;AudioCapturerChangeInfo&gt;): void
 监听录音流配置变化事件（当音频录制流状态变化、设备变化时触发）。使用callback异步回调。订阅内部是异步实现，是非精确回调，在录音流配置变化的同时注册回调，收到的返回结果存在变化可能性。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioCapturerChange'，当音频录制流状态变化、设备变化时，触发该事件。 |
-| callback | Callback&lt;[AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | 是 | 回调函数，录音流配置或状态变化时返回监听的录音流当前配置和状态信息。 |
-
+| callback | Callback<[AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)> | 是 | 回调函数，录音流配置或状态变化时返回监听的录音流当前配置和状态信息。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
 
-
 ```ts
-audioCapturer.on(
-  'audioCapturerChange',
-  (capturerChangeInfo: audio.AudioCapturerChangeInfo) => {
-    console.info(
-      `Succeeded in using on function, AudioCapturerChangeInfo: ${capturerChangeInfo}.`,
-    );
-  },
-);
+audioCapturer.on('audioCapturerChange', (capturerChangeInfo: audio.AudioCapturerChangeInfo) => {
+  console.info(`Succeeded in using on function, AudioCapturerChangeInfo: ${capturerChangeInfo}.`);
+});
 ```
 
-
-## off('audioCapturerChange')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void
-
+#### off('audioCapturerChange')11+
+off(type: 'audioCapturerChange', callback?: Callback&lt;AudioCapturerChangeInfo&gt;): void
 取消监听录音流配置变化事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'audioCapturerChange'，当取消监听录音流配置变化事件时，触发该事件。 |
-| callback | Callback&lt;[AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)&gt; | 否 | 回调函数，返回取消监听的录音流配置或状态变化。 |
-
+| callback | Callback<[AudioCapturerChangeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiocapturerchangeinfo9)> | 否 | 回调函数，返回取消监听的录音流配置或状态变化。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
 audioCapturer.off('audioCapturerChange');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
-let audioCapturerChangeCallback = (
-  capturerChangeInfo: audio.AudioCapturerChangeInfo,
-) => {
-  console.info(
-    `Succeeded in using on or off function, AudioCapturerChangeInfo: ${capturerChangeInfo}.`,
-  );
+let audioCapturerChangeCallback = (capturerChangeInfo: audio.AudioCapturerChangeInfo) => {
+  console.info(`Succeeded in using on or off function, AudioCapturerChangeInfo: ${capturerChangeInfo}.`);
 };
 
 audioCapturer.on('audioCapturerChange', audioCapturerChangeCallback);
@@ -1278,20 +910,13 @@ audioCapturer.on('audioCapturerChange', audioCapturerChangeCallback);
 audioCapturer.off('audioCapturerChange', audioCapturerChangeCallback);
 ```
 
-
-## on('markReach')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'markReach', frame: number, callback: Callback<number>): void
-
+#### on('markReach')8+
+on(type: 'markReach', frame: number, callback: Callback&lt;number&gt;): void
 监听标记到达事件（当采集的帧数达到frame参数的值时触发，仅调用一次）。使用callback异步回调。
-
 如果将frame设置为100，当采集帧数到达第100帧时，系统将上报信息。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1299,9 +924,7 @@ on(type: 'markReach', frame: number, callback: Callback<number>): void
 | frame | number | 是 | 触发事件的帧数。该值必须大于0。 |
 | callback | Callback&lt;number&gt; | 是 | 回调函数，返回frame参数的值。 |
 
-
 **示例：**
-
 
 ```ts
 audioCapturer.on('markReach', 1000, (position: number) => {
@@ -1311,27 +934,19 @@ audioCapturer.on('markReach', 1000, (position: number) => {
 });
 ```
 
-
-## off('markReach')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'markReach', callback?: Callback<number>): void
-
+#### off('markReach')8+
+off(type: 'markReach', callback?: Callback&lt;number&gt;): void
 取消监听标记到达事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'markReach'，当取消监听标记到达事件时，触发该事件。 |
-| callback18+ | Callback&lt;number&gt; | 否 | 回调函数，返回frame参数的值。 |
-
+| callback^18+ | Callback&lt;number&gt; | 否 | 回调函数，返回frame参数的值。 |
 
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
@@ -1349,20 +964,13 @@ audioCapturer.on('markReach', 1000, markReachCallback);
 audioCapturer.off('markReach', markReachCallback);
 ```
 
-
-## on('periodReach')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'periodReach', frame: number, callback: Callback<number>): void
-
+#### on('periodReach')8+
+on(type: 'periodReach', frame: number, callback: Callback&lt;number&gt;): void
 监听标记到达事件（当采集的帧数达到frame参数的值时触发，即按周期上报信息）。使用callback异步回调。
-
 如果将frame设置为10，每渲染10帧数据均会上报信息（例如：第10帧、第20帧、第30帧......）。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1370,9 +978,7 @@ on(type: 'periodReach', frame: number, callback: Callback<number>): void
 | frame | number | 是 | 触发事件的帧数。该值必须大于0。 |
 | callback | Callback&lt;number&gt; | 是 | 回调函数，返回frame参数的值。 |
 
-
 **示例：**
-
 
 ```ts
 audioCapturer.on('periodReach', 1000, (position: number) => {
@@ -1382,27 +988,19 @@ audioCapturer.on('periodReach', 1000, (position: number) => {
 });
 ```
 
-
-## off('periodReach')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'periodReach', callback?: Callback<number>): void
-
+#### off('periodReach')8+
+off(type: 'periodReach', callback?: Callback&lt;number&gt;): void
 取消监听标记到达事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'periodReach'，当取消监听标记到达事件时，触发该事件。 |
-| callback18+ | Callback&lt;number&gt; | 否 | 回调函数，返回frame参数的值。 |
-
+| callback^18+ | Callback&lt;number&gt; | 否 | 回调函数，返回frame参数的值。 |
 
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
@@ -1420,27 +1018,19 @@ audioCapturer.on('periodReach', 1000, periodReachCallback);
 audioCapturer.off('periodReach', periodReachCallback);
 ```
 
-
-## on('stateChange')8+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'stateChange', callback: Callback<AudioState>): void
-
+#### on('stateChange')8+
+on(type: 'stateChange', callback: Callback&lt;AudioState&gt;): void
 监听状态变化事件（当AudioCapturer状态发生变化时触发）。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'stateChange'，当AudioCapturer状态发生变化时，触发该事件。 |
-| callback | Callback&lt;[AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8)&gt; | 是 | 回调函数，返回当前音频的状态。 |
-
+| callback | Callback<[AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8)> | 是 | 回调函数，返回当前音频的状态。 |
 
 **示例：**
-
 
 ```ts
 audioCapturer.on('stateChange', (state: audio.AudioState) => {
@@ -1453,37 +1043,26 @@ audioCapturer.on('stateChange', (state: audio.AudioState) => {
 });
 ```
 
-
-## off('stateChange')18+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'stateChange', callback?: Callback<AudioState>): void
-
+#### off('stateChange')18+
+off(type: 'stateChange', callback?: Callback&lt;AudioState&gt;): void
 取消监听状态变化事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'stateChange'，当取消监听状态变化事件时，触发该事件。 |
-| callback | Callback&lt;[AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8)&gt; | 否 | 回调函数，返回当前音频的状态。 |
-
+| callback | Callback<[AudioState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiostate8)> | 否 | 回调函数，返回当前音频的状态。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
@@ -1504,42 +1083,29 @@ audioCapturer.on('stateChange', stateChangeCallback);
 audioCapturer.off('stateChange', stateChangeCallback);
 ```
 
-
-## on('readData')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-on(type: 'readData', callback: Callback<ArrayBuffer>): void
-
+#### on('readData')11+
+on(type: 'readData', callback: Callback&lt;ArrayBuffer&gt;): void
 监听音频数据读取回调事件（当需要读取音频流数据时触发）。使用callback异步回调。
-
 回调函数仅用来读取音频数据，请勿在回调函数中调用AudioCapturer相关接口。
-
 为了消除麦克风硬件设计带来的上电杂音，通常会对录音启动后的前100ms数据进行静音。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'readData'，当需要读取音频流数据时，触发该事件。 |
 | callback | Callback&lt;ArrayBuffer&gt; | 是 | 回调函数，返回读到的数据缓冲区。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1556,18 +1122,15 @@ let bufferSize: number = 0;
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let path = context.cacheDir;
 let filePath = path + '/StarWars10s-2C-48000-4SW.pcm';
-let file: fs.File = fs.openSync(
-  filePath,
-  fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE,
-);
+let file: fs.File = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
 let readDataCallback = (buffer: ArrayBuffer) => {
   let options: Options = {
     offset: bufferSize,
-    length: buffer.byteLength,
+    length: buffer.byteLength
   };
   fs.writeSync(file.fd, buffer, options);
   bufferSize += buffer.byteLength;
-};
+}
 
 audioCapturer.on('readData', readDataCallback);
 
@@ -1580,38 +1143,27 @@ audioCapturer.start((err: BusinessError) => {
 });
 ```
 
-
-## off('readData')11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-off(type: 'readData', callback?: Callback<ArrayBuffer>): void
-
+#### off('readData')11+
+off(type: 'readData', callback?: Callback&lt;ArrayBuffer&gt;): void
 取消监听音频数据读取回调事件。使用callback异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件回调类型，支持的事件为'readData'，当取消监听音频数据读取回调事件时，触发该事件。 |
 | callback | Callback&lt;ArrayBuffer&gt; | 否 | 回调函数，返回读到的数据缓冲区。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types. |
 | 6800101 | Parameter verification failed. |
 
-
 **示例：**
-
 
 ```ts
 // 取消该事件的所有监听。
@@ -1619,7 +1171,7 @@ audioCapturer.off('readData');
 
 // 同一监听事件中，on方法和off方法传入callback参数一致，off方法取消对应on方法订阅的监听。
 let readDataCallback = (data: ArrayBuffer) => {
-  console.info(`read data: ${data}`);
+    console.info(`read data: ${data}`);
 };
 
 audioCapturer.on('readData', readDataCallback);
@@ -1627,60 +1179,41 @@ audioCapturer.on('readData', readDataCallback);
 audioCapturer.off('readData', readDataCallback);
 ```
 
-
-## getOverflowCount12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getOverflowCount(): Promise<number>
-
+#### getOverflowCount12+
+getOverflowCount(): Promise&lt;number&gt;
 获取当前录制音频流的过载音频帧数量。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;number&gt; | Promise对象，返回音频流的过载音频帧数量。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getOverflowCount()
-  .then((value: number) => {
-    console.info(`Get overflow count Success! ${value}`);
-  })
-  .catch((err: BusinessError) => {
-    console.error(`Get overflow count Fail: ${err}`);
-  });
+audioCapturer.getOverflowCount().then((value: number) => {
+  console.info(`Get overflow count Success! ${value}`);
+}).catch((err: BusinessError) => {
+  console.error(`Get overflow count Fail: ${err}`);
+});
 ```
 
-
-## getOverflowCountSync12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getOverflowCountSync12+
 getOverflowCountSync(): number
-
 获取当前录制音频流的过载音频帧数量。同步返回数据。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回音频流的过载音频帧数量。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1694,129 +1227,52 @@ try {
 }
 ```
 
-
-## setWillMuteWhenInterrupted20+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>
-
+#### setWillMuteWhenInterrupted20+
+setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise&lt;void&gt;
 设置当前录制音频流是否启用[静音打断模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiocapturer-for-recording#设置静音打断模式)。使用Promise异步回调。
-
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | muteWhenInterrupted | boolean | 是 | 设置当前录制音频流是否启用静音打断模式, true表示启用，false表示不启用，保持为默认打断模式。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800103 | Operation not permitted at current state. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .setWillMuteWhenInterrupted(true)
-  .then(() => {
-    console.info('setWillMuteWhenInterrupted Success!');
-  })
-  .catch((err: BusinessError) => {
-    console.error(`setWillMuteWhenInterrupted Fail: ${err}`);
-  });
+audioCapturer.setWillMuteWhenInterrupted(true).then(() => {
+  console.info('setWillMuteWhenInterrupted Success!');
+}).catch((err: BusinessError) => {
+  console.error(`setWillMuteWhenInterrupted Fail: ${err}`);
+});
 ```
 
-
-## setMuteHint24
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-setMuteHint(mute: boolean): Promise<void>
-
-应用将当前录音流的自身静音状态传递给系统音频模块。该接口不会触发录音流静音，当前仅在部分PC/2in1设备上用于优化设备功耗。使用Promise异步回调。
-
-
-**模型约束：** 此接口仅可在Stage模型下使用。
-
-**系统能力：** SystemCapability.Multimedia.Audio.Capturer
-
-**参数：**
-
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| mute | boolean | 是 | 应用自身给系统音频模块上报的静音状态。true表示应用将当前流静音，false表示取消静音。 |
-
-
-**返回值：**
-
-
-| 类型 | 说明 |
-| --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果。 |
-
-
-**错误码：**
-
-以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
-
-| 错误码ID | 错误信息 |
-| --- | --- |
-| 6800103 | Operation not permitted at current state, stream is not running. |
-
-
-**示例：**
-
-
-```ts
-import { BusinessError } from '@kit.BasicServicesKit';
-
-audioCapturer
-  .setMuteHint(true)
-  .then(() => {
-    console.info('setMuteHint Success!');
-  })
-  .catch((err: BusinessError) => {
-    console.error(`setMuteHint Fail: ${err}`);
-  });
-```
-
-
-## read(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>): void
-
+#### read(deprecated)
+read(size: number, isBlockingRead: boolean, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
 读入缓冲区。使用callback异步回调。
 
-
-> [!NOTE]
-> 从API version 8开始支持，从API version 11开始废弃，建议使用[on('readData')](#onreaddata11)替代。
+> [!NOTE] 说明
+> 从API version 8开始支持，从API version 11开始废弃，建议使用on('readData')替代。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -1824,108 +1280,70 @@ read(size: number, isBlockingRead: boolean, callback: AsyncCallback<ArrayBuffer>
 | isBlockingRead | boolean | 是 | 是否阻塞读操作。true表示阻塞，false表示不阻塞。 |
 | callback | AsyncCallback&lt;ArrayBuffer&gt; | 是 | 回调函数。当读入缓冲区成功，err为undefined，data为获取到的缓冲区；否则为错误对象。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getBufferSize()
-  .then((bufferSize: number) => {
-    console.info('Succeeded in doing getBufferSize.');
-    audioCapturer.read(
-      bufferSize,
-      true,
-      (err: BusinessError, buffer: ArrayBuffer) => {
-        if (err) {
-          console.error(
-            `Failed to read. Code: ${err.code}, message: ${err.message}`,
-          );
-          return;
-        }
-        console.info('Succeeded in doing read.');
-      },
-    );
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to getBufferSize. Code: ${err.code}, message: ${err.message}`,
-    );
+audioCapturer.getBufferSize().then((bufferSize: number) => {
+  console.info('Succeeded in doing getBufferSize.');
+  audioCapturer.read(bufferSize, true, (err: BusinessError, buffer: ArrayBuffer) => {
+    if (err) {
+      console.error(`Failed to read. Code: ${err.code}, message: ${err.message}`);
+      return;
+    }
+    console.info('Succeeded in doing read.');
   });
+}).catch((err: BusinessError) => {
+  console.error(`Failed to getBufferSize. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## read(deprecated)
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>
-
+#### read(deprecated)
+read(size: number, isBlockingRead: boolean): Promise&lt;ArrayBuffer&gt;
 读入缓冲区。使用Promise异步回调。
 
-
-> [!NOTE]
-> 从API version 8开始支持，从API version 11开始废弃，建议使用[on('readData')](#onreaddata11)替代。
+> [!NOTE] 说明
+> 从API version 8开始支持，从API version 11开始废弃，建议使用on('readData')替代。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | size | number | 是 | 读入的字节数。 |
 | isBlockingRead | boolean | 是 | 是否阻塞读操作。true表示阻塞，false表示不阻塞。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回读取的缓冲区数据。 |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 
-audioCapturer
-  .getBufferSize()
-  .then((bufferSize: number) => {
-    console.info('Succeeded in doing getBufferSize.');
-    audioCapturer
-      .read(bufferSize, true)
-      .then((buffer: ArrayBuffer) => {
-        console.info('Succeeded in doing read.');
-      })
-      .catch((err: BusinessError) => {
-        console.error(
-          `Failed to read. Code: ${err.code}, message: ${err.message}`,
-        );
-      });
-  })
-  .catch((err: BusinessError) => {
-    console.error(
-      `Failed to getBufferSize. Code: ${err.code}, message: ${err.message}`,
-    );
+audioCapturer.getBufferSize().then((bufferSize: number) => {
+  console.info('Succeeded in doing getBufferSize.');
+  audioCapturer.read(bufferSize, true).then((buffer: ArrayBuffer) => {
+    console.info('Succeeded in doing read.');
+  }).catch((err: BusinessError) => {
+    console.error(`Failed to read. Code: ${err.code}, message: ${err.message}`);
   });
+}).catch((err: BusinessError) => {
+  console.error(`Failed to getBufferSize. Code: ${err.code}, message: ${err.message}`);
+});
 ```
 
-
-## setIndependentAudioSessionStrategy24+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### setIndependentAudioSessionStrategy24+
 setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: number): void
-
 设置独立的音频会话策略和行为参数。
 
-
-> [!NOTE]
-> 当音频采集器在运行状态时调用此接口后，必须重新调用接口[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiocapturer#start8)使其生效。
+> [!NOTE] 说明
+> 当音频采集器在运行状态时调用此接口后，必须重新调用接口start使其生效。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1933,30 +1351,24 @@ setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: num
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | strategy | [AudioSessionStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiosessionstrategy12) | 是 | 音频会话策略。 |
-| behavior | number | 是 | 用于设置音频会话行为。          该参数可以是单个标志，也可以是多个标志的按位OR组合。          当前支持的音频会话行为详见[AudioSessionBehaviorFlags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audiosessionbehaviorflags24)中定义的标志。 |
-
+| behavior | number | 是 | 用于设置音频会话行为。 该参数可以是单个标志，也可以是多个标志的按位OR组合。 当前支持的音频会话行为详见AudioSessionBehaviorFlags中定义的标志。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 6800101 | Parameter verification failed. |
 | 6800103 | Operation not permit at current state. |
 
-
 **示例：**
-
 
 ```ts
 let strategy: audio.AudioSessionStrategy = {
-  concurrencyMode: audio.AudioConcurrencyMode.CONCURRENCY_MIX_WITH_OTHERS,
+  concurrencyMode: audio.AudioConcurrencyMode.CONCURRENCY_MIX_WITH_OTHERS
 };
 let behavior: number = audio.AudioSessionBehaviorFlags.MUTE_WHEN_INTERRUPTED;
 audioCapturer.setIndependentAudioSessionStrategy(strategy, behavior);

@@ -1,25 +1,19 @@
-# MassPointOverlay
+# Interface (MassPointOverlay)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-masspointoverlay
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### 导入模块
 
 ```ts
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
-
-## MassPointOverlay
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### MassPointOverlay
 海量点的管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addMassPointOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmasspointoverlay)方法时会返回该类型的实例。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -29,39 +23,35 @@ import { map, mapCommon } from '@kit.MapKit';
 **起始版本：** 6.0.0(20)
 
 **示例：**
-
 
 ```ts
 let items: mapCommon.MassPointItem[] = [];
 for (let i = 0; i < 1000; i++) {
   // 将海量点存入items
   items.push({
+    // itemId为开发者自定义标识符
     itemId: 'test' + i,
+    // 经纬度坐标
     position: {
       longitude: 118.11111 + Math.random() * 1 - 0.5,
-      latitude: 32.11111 + Math.random() * 1 - 0.5,
+      latitude: 32.11111 + Math.random() * 1 - 0.5
     },
     snippet: 'test' + i,
-    title: 'test' + i,
-  });
+    title: 'test' + i
+  })
 }
 let params: mapCommon.MassPointOverlayParams = {
   id: 'test',
   items: items,
   // 图标存放在resources/rawfile，icon参数传入rawfile文件夹下的相对路径
-  icon: 'icon/maps_blue_dot.png',
-};
+  icon: 'icon/maps_blue_dot.png'
+}
 let massPointOverlay = await this.mapController?.addMassPointOverlay(params);
 ```
 
-
-### getId
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### getId
 getId(): string
-
 获取海量点的ID。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -71,28 +61,20 @@ getId(): string
 **起始版本：** 6.0.0(20)
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | string | 海量点的ID。 |
 
-
 **示例：**
-
 
 ```ts
 let Id = massPointOverlay.getId();
 ```
 
-
-### setItems
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### setItems
 setItems(items: mapCommon.MassPointItem[]): void
-
 更新海量点列表。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -103,37 +85,29 @@ setItems(items: mapCommon.MassPointItem[]): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | items | [mapCommon.MassPointItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#masspointitem)[] | 是 | 海量点列表（建议数据量小于100000条）。 |
 
-
 **示例：**
-
 
 ```ts
 let items: mapCommon.MassPointItem[] = [
   {
     itemId: '1',
-    position: { latitude: 32.11111, longitude: 118.11111 },
+    position: { latitude: 32.11111, longitude: 118.11111 }
   },
   {
     itemId: '2',
-    position: { latitude: 32.22222, longitude: 118.22222 },
-  },
+    position: { latitude: 32.22222, longitude: 118.22222 }
+  }
 ];
 massPointOverlay.setItems(items);
 ```
 
-
-### getItems
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### getItems
 getItems(): mapCommon.MassPointItem[]
-
 获取海量点列表。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -143,28 +117,20 @@ getItems(): mapCommon.MassPointItem[]
 **起始版本：** 6.0.0(20)
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | [mapCommon.MassPointItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#masspointitem)[] | 海量点列表。 |
 
-
 **示例：**
-
 
 ```ts
 let MassPointItem: mapCommon.MassPointItem[] = this.massPointOverlay.getItems();
 ```
 
-
-### setAnchorU
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### setAnchorU
 setAnchorU(anchorU: number): void
-
 更新图标锚点在水平方向上的位置。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -175,27 +141,19 @@ setAnchorU(anchorU: number): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | anchorU | number | 是 | 更新图标锚点在水平方向上的位置，取值范围：[0, 1]。 |
 
-
 **示例：**
-
 
 ```ts
 massPointOverlay.setAnchorU(0.6);
 ```
 
-
-### getAnchorU
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### getAnchorU
 getAnchorU(): number
-
 获取图标锚点在水平方向上的位置。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -205,28 +163,20 @@ getAnchorU(): number
 **起始版本：** 6.0.0(20)
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | number | 图标锚点在水平方向上的位置。 |
 
-
 **示例：**
-
 
 ```ts
 let AnchorU: number = this.massPointOverlay.getAnchorU();
 ```
 
-
-### setAnchorV
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### setAnchorV
 setAnchorV(anchorV: number): void
-
 更新图标锚点在垂直方向上的位置。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -237,27 +187,19 @@ setAnchorV(anchorV: number): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | anchorV | number | 是 | 更新图标锚点在垂直方向上的位置，取值范围：[0, 1]。 |
 
-
 **示例：**
-
 
 ```ts
 massPointOverlay.setAnchorV(0.6);
 ```
 
-
-### getAnchorV
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### getAnchorV
 getAnchorV(): number
-
 获取图标锚点在垂直方向上的位置。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -268,27 +210,19 @@ getAnchorV(): number
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | number | 图标锚点在垂直方向上的位置。 |
 
-
 **示例：**
-
 
 ```ts
 let AnchorV: number = this.massPointOverlay.getAnchorV();
 ```
 
-
-### setVisible
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### setVisible
 setVisible(visible: boolean): void
-
 设置海量点是否可见。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -299,27 +233,19 @@ setVisible(visible: boolean): void
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 海量点是否可见。 - true：可见。 - false：不可见。 |
 
-
 **示例：**
-
 
 ```ts
 massPointOverlay.setVisible(true);
 ```
 
-
-### isVisible
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### isVisible
 isVisible(): boolean
-
 获取海量点是否可见。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -330,27 +256,19 @@ isVisible(): boolean
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | boolean | 海量点是否可见。 - true：可见。 - false：不可见。 |
 
-
 **示例：**
-
 
 ```ts
 let isVisible: boolean = massPointOverlay.isVisible();
 ```
 
-
-### remove
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### remove
 remove(): void
-
 删除海量点。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
@@ -360,7 +278,6 @@ remove(): void
 **起始版本：** 6.0.0(20)
 
 **示例：**
-
 
 ```ts
 massPointOverlay.remove();

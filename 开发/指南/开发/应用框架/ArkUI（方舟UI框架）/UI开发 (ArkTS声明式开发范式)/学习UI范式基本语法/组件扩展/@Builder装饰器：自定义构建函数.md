@@ -1,30 +1,26 @@
 # @Builder装饰器：自定义构建函数
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder
 
 ArkUI提供轻量的UI元素复用机制@Builder，其内部UI结构固定，仅与使用方进行数据传递。开发者可将重复使用的UI元素抽象成函数，在build函数中调用。
-
 @Builder装饰的函数也称为“自定义构建函数”。
-
 在阅读本文档前，建议提前阅读：[基本语法概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-basic-syntax-overview)、[声明式UI描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-declarative-ui-description)、[自定义组件-创建自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)。
-
 @Builder装饰器和[@Component装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)在功能和使用方式上的主要差异：
+1. @Builder装饰器用于封装可复用的UI结构，通过提取重复的布局代码提高开发效率。该装饰器严格禁止在其内部定义状态变量或使用自定义组件的生命周期函数，必须通过参数传递或者访问所属组件的状态变量完成数据交互。
+2. 在ArkUI框架中，@Component装饰器作为封装复杂UI组件的核心机制，允许开发者通过组合多个基础组件来构建可复用的复合界面。该装饰器不仅支持内部状态变量的定义，还能完整管理组件的生命周期。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 从API version 7开始支持。 从API version 9开始，该装饰器支持在ArkTS卡片中使用。 从API version 11开始，该装饰器支持在元服务中使用。
 
-
-## 装饰器使用说明
-
+#### 装饰器使用说明
 @Builder装饰器有两种使用方式，分别是定义在自定义组件内部的[私有自定义构建函数](#私有自定义构建函数)和定义在全局的[全局自定义构建函数](#全局自定义构建函数)。
 
-## 私有自定义构建函数
-
+#### 私有自定义构建函数
 示例：
-```text
+
+```ArkTS
 @Entry
 @Component
 struct BuilderDemo {
@@ -54,12 +50,15 @@ struct BuilderDemo {
 }
 ```
 
-使用方法： 允许在自定义组件内定义一个或多个@Builder函数，该函数被认为是该组件的私有、特殊类型的成员函数。 私有自定义构建函数允许在自定义组件内、build函数和其他自定义构建函数中调用。 在自定义组件中，this指代当前所属组件，组件的状态变量可在自定义构建函数内访问。建议通过this访问组件的状态变量，而不是通过参数传递。
+使用方法：
+- 允许在自定义组件内定义一个或多个@Builder函数，该函数被认为是该组件的私有、特殊类型的成员函数。
+- 私有自定义构建函数允许在自定义组件内、build函数和其他自定义构建函数中调用。
+- 在自定义组件中，this指代当前所属组件，组件的状态变量可在自定义构建函数内访问。建议通过this访问组件的状态变量，而不是通过参数传递。
 
-## 全局自定义构建函数
-
+#### 全局自定义构建函数
 示例：
-```text
+
+```ArkTS
 // 全局自定义构建函数showTextBuilder
 @Builder
 function showTextBuilder() {
@@ -79,20 +78,26 @@ struct BuilderSample {
 }
 ```
 
-如果不涉及组件状态变量变化，建议使用全局的自定义构建函数。 全局自定义构建函数允许在build函数和其他自定义构建函数中调用。
+- 如果不涉及组件状态变量变化，建议使用全局的自定义构建函数。
+- 全局自定义构建函数允许在build函数和其他自定义构建函数中调用。
 
-## 参数传递规则
+#### 参数传递规则
+自定义构建函数的参数传递有[按回调传递](#按回调传递参数)，[按引用传递](#按引用传递参数)和[按值传递](#按值传递参数)，均需遵守以下规则：
+- @Builder装饰的函数参数类型不允许为undefined、null和返回undefined、null的表达式。
+- 在@Builder装饰的函数内部，不允许改变参数值。
+- @Builder内UI语法遵循UI语法规则。
+- 按回调传递和按引用传递时，支持@Builder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@Builder函数内UI组件刷新。
+- 使用引用传递时，在@Builder函数中不能修改参数的属性，但使用UIUtils.makeBinding并传入写回调时，我们可以在@Builder函数内修改属性，并同步到调用@Builder的组件中。
 
-自定义构建函数的参数传递有[按回调传递](#按回调传递参数)，[按引用传递](#按引用传递参数)和[按值传递](#按值传递参数)，均需遵守以下规则： @Builder装饰的函数参数类型不允许为undefined、null和返回undefined、null的表达式。 在@Builder装饰的函数内部，不允许改变参数值。 @Builder内UI语法遵循[UI语法规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#build函数实现规则)。 按回调传递和按引用传递时，支持@Builder函数内UI组件刷新。按引用传递只在传入一个参数且该参数直接传入对象字面量时生效，有多个参数时不支持@Builder函数内UI组件刷新。 使用引用传递时，在@Builder函数中不能修改参数的属性，但使用UIUtils.makeBinding并传入写回调时，我们可以在@Builder函数内修改属性，并同步到调用@Builder的组件中。
+#### 按回调传递参数
+从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详细用例见[@Builder支持状态变量刷新](#builder支持状态变量刷新)。
+使用UIUtils.makeBinding()包装读取状态变量的回调函数作为参数传入@Builder函数，可以支持@Builder函数中UI组件刷新；UIUtils.makeBinding()中额外传入写状态变量的回调函数可以将@Builder函数内对参数的修改，传递到调用@Builder函数的组件中。
 
-## 按回调传递参数
-
-从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详细用例见[@Builder支持状态变量刷新](#builder支持状态变量刷新)。 使用UIUtils.makeBinding()包装读取状态变量的回调函数作为参数传入@Builder函数，可以支持@Builder函数中UI组件刷新；UIUtils.makeBinding()中额外传入写状态变量的回调函数可以将@Builder函数内对参数的修改，传递到调用@Builder函数的组件中。
-```text
+```ArkTS
 import { Binding, MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @Builder
-function customButton(num1: Binding, num2: MutableBinding) {
+function customButton(num1: Binding<number>, num2: MutableBinding<number>) {
   Row() {
     Column() {
       Text(`number1: ${num1.value}, number2: ${num2.value}`)
@@ -115,9 +120,9 @@ struct ParameterMakeBinding {
     Column() {
       customButton(
         // 使用makeBinding传入参数，需要传入读回调，返回Binding类型，支持@Builder内组件UI刷新。
-        UIUtils.makeBinding(() => this.number1),
+        UIUtils.makeBinding<number>(() => this.number1),
         // makeBinding额外传入写回调时返回MutableBinding类型，支持@Builder内组件UI刷新并且同步属性修改。
-        UIUtils.makeBinding(
+        UIUtils.makeBinding<number>(
           () => this.number2,
           (val: number) => {
             this.number2 = val;
@@ -128,11 +133,10 @@ struct ParameterMakeBinding {
 }
 ```
 
-
-## 按引用传递参数
-
+#### 按引用传递参数
 按引用传递参数时，传递的参数可为状态变量，且状态变量的改变会引起@Builder函数内的UI刷新。
-```text
+
+```ArkTS
 class Tmp {
   public paramA1: string = '';
 }
@@ -163,11 +167,10 @@ struct ParameterReference {
 }
 ```
 
-
-## 按值传递参数
-
+#### 按值传递参数
 调用@Builder装饰的函数默认按值传递。当传递的参数为状态变量时，状态变量的改变不会引起@Builder函数内的UI刷新。所以当使用状态变量的时候，推荐使用[按回调传递](#按回调传递参数)或[按引用传递](#按引用传递参数)。
-```text
+
+```ArkTS
 @Builder
 function overBuilderByValue(paramA1: string) {
   Row() {
@@ -189,18 +192,18 @@ struct ParameterValue {
 }
 ```
 
+#### 限制条件
+1. @Builder装饰的函数内部在没有使用MutableBinding时不允许修改参数值，修改不会触发UI刷新。若按引用传递参数且仅传入一个参数时，修改参数内部的属性会抛出运行时错误。使用MutableBinding可以帮助开发者在@Builder装饰的函数内部修改参数值，请参考在@Builder装饰的函数内部修改入参内容。
+2. @Builder按引用传递传入一个参数时，可以触发动态渲染UI，请参考按引用传递参数。
+3. 如果@Builder传入的参数是两个或两个以上，且未使用按回调传递参数，不会触发动态渲染UI，请参考@Builder存在两个或两个以上参数。
+4. @Builder传入的参数中同时包含按值传递和按引用传递，不会触发动态渲染UI，请参考@Builder存在两个或两个以上参数。
+5. 不允许在@Builder函数里修改参数的属性，否则会抛出运行时错误，从API version 23开始，将返回错误码140109，示例请参考在@Builder装饰的函数内部修改入参内容。
 
-## 限制条件
-
-@Builder装饰的函数内部在没有使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)时不允许修改参数值，修改不会触发UI刷新。若[按引用传递参数](#按引用传递参数)且仅传入一个参数时，修改参数内部的属性会抛出运行时错误。使用MutableBinding可以帮助开发者在@Builder装饰的函数内部修改参数值，请参考[在@Builder装饰的函数内部修改入参内容](#在builder装饰的函数内部修改入参内容)。 @Builder按引用传递传入一个参数时，可以触发动态渲染UI，请参考[按引用传递参数](#按引用传递参数)。 如果@Builder传入的参数是两个或两个以上，且未使用[按回调传递参数](#按回调传递参数)，不会触发动态渲染UI，请参考[@Builder存在两个或两个以上参数](#builder存在两个或两个以上参数)。 @Builder传入的参数中同时包含按值传递和按引用传递，不会触发动态渲染UI，请参考[@Builder存在两个或两个以上参数](#builder存在两个或两个以上参数)。 不允许在@Builder函数里修改参数的属性，否则会抛出运行时错误，从API version 23开始，将返回错误码[140109](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140109-builder非法触发参数属性赋值)，示例请参考[在@Builder装饰的函数内部修改入参内容](#在builder装饰的函数内部修改入参内容)。
-
-## 使用场景
-
-
-## 自定义组件内使用自定义构建函数
-
+#### 使用场景
+#### 自定义组件内使用自定义构建函数
 创建私有的@Builder函数，在Column中使用this.builder()调用。通过[aboutToAppear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttoappear)生命周期函数和按钮的点击事件更新builderValue，实现UI的动态渲染。
-```text
+
+```ArkTS
 @Entry
 @Component
 struct PrivateBuilder {
@@ -249,12 +252,13 @@ struct PrivateBuilder {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-0.gif)
 
-## 全局自定义构建函数
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513561-001.gif)
 
+#### 全局自定义构建函数
 创建全局的@Builder函数，并在Column中通过overBuilder()方式调用。传递参数时，可以使用对象字面量形式，无论是简单类型还是复杂类型，值的任何变化都会触发UI界面的刷新。
-```text
+
+```ArkTS
 class ChildTmp {
   public val: number = 1;
 }
@@ -263,7 +267,7 @@ class ParamTmp {
   public strValue: string = 'Hello';
   public numValue: number = 0;
   public tmpValue: ChildTmp = new ChildTmp();
-  public arrayTmpValue: Array = [];
+  public arrayTmpValue: Array<ChildTmp> = [];
 }
 
 @Builder
@@ -343,12 +347,13 @@ struct ParentDemo {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-1.gif)
 
-## 修改装饰器修饰的变量触发UI刷新
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513562-002.gif)
 
+#### 修改装饰器修饰的变量触发UI刷新
 在该场景中，@Builder被用来展示Text组件，不会参与动态UI刷新。Text组件中值的变化是通过使用装饰器的特性，监听到值的改变触发的UI刷新，而不是通过@Builder的能力触发的。
-```text
+
+```ArkTS
 class ChildrenTmp {
   public strValue: string = 'Hello';
 }
@@ -399,12 +404,14 @@ struct ParentSample {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-2.gif)
 
-## 将@Builder装饰的函数当作CustomBuilder类型使用
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513562-003.gif)
 
-当参数类型为[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)时，可以传入定义的@Builder函数。因为CustomBuilder实际上是Function(() => any)或void类型，而@Builder也是Function类型。所以通过传入@Builder可以实现特定效果。 全局@Builder函数当作CustomBuilder类型传递时需要绑定this上下文，开发者可以直接调用全局@Builder函数，编译工具链会自动生成绑定this上下文的代码。
-```text
+#### 将@Builder装饰的函数当作CustomBuilder类型使用
+当参数类型为[CustomBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#custombuilder8)时，可以传入定义的@Builder函数。因为CustomBuilder实际上是Function(() => any)或void类型，而@Builder也是Function类型。所以通过传入@Builder可以实现特定效果。
+全局@Builder函数当作CustomBuilder类型传递时需要绑定this上下文，开发者可以直接调用全局@Builder函数，编译工具链会自动生成绑定this上下文的代码。
+
+```ArkTS
 @Builder
 function overBuilderDemo() {
   Row() {
@@ -460,12 +467,13 @@ struct customBuilderDemo {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-3.gif)
 
-## 多层@Builder函数嵌套
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513562-004.gif)
 
-在@Builder函数内调用自定义组件或其他@Builder函数，实现多个@Builder嵌套使用。若要实现最内层的@Builder动态UI刷新功能，每层调用@Builder的地方必须使用按引用传递的方式。这里\$\$不是必须的参数形式，可以换成其他名称。
-```text
+#### 多层@Builder函数嵌套
+在@Builder函数内调用自定义组件或其他@Builder函数，实现多个@Builder嵌套使用。若要实现最内层的@Builder动态UI刷新功能，每层调用@Builder的地方必须使用按引用传递的方式。这里$$不是必须的参数形式，可以换成其他名称。
+
+```ArkTS
 class ThisTmp {
   public paramA1: string = '';
 }
@@ -602,12 +610,13 @@ struct ParentExample {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-4.gif)
 
-## @Builder函数联合V2装饰器
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513562-005.gif)
 
+#### @Builder函数联合V2装饰器
 由[@ObservedV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)和[@Trace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace)装饰的类对象实例具备深度观测属性变化的能力。在@ComponentV2装饰的自定义组件中，当调用全局Builder或局部Builder且使用值传递的方式传递参数时，修改@Trace装饰的对象属性可以触发UI刷新。
-```text
+
+```ArkTS
 @ObservedV2
 class Info {
   @Trace public name: string;
@@ -700,9 +709,11 @@ struct ParentPage {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-5.gif)
+
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513563-006.gif)
 当通过引用传递方式向@Builder传递参数时，若参数为[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰的对象，对该对象进行整体赋值会触发@Builder中UI刷新。
-```text
+
+```ArkTS
 class LocalInfo {
   public name: string = 'Tom';
   public age: number = 25;
@@ -787,12 +798,13 @@ struct ParentLocalPage {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-6.gif)
 
-## 跨组件复用的全局@Builder
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513563-007.gif)
 
+#### 跨组件复用的全局@Builder
 在跨组件的场景中调用全局@Builder，通过按引用传递的方式传递参数，可以实现UI的动态刷新功能。
-```text
+
+```ArkTS
 class ReusableTmp {
   public componentName: string = 'Child';
 }
@@ -840,7 +852,7 @@ struct ReusablePage {
 struct ReusableChildPage {
   @State message: string = 'Child';
 
-  aboutToReuse(params: Record): void {
+  aboutToReuse(params: Record<string, ESObject>): void {
     console.info('Recycle ====Child');
     this.message = params.message;
   }
@@ -866,7 +878,7 @@ struct ReusableChildPage {
 struct ReusableChildTwoPage {
   @State message: string = 'ChildTwo';
 
-  aboutToReuse(params: Record): void {
+  aboutToReuse(params: Record<string, ESObject>): void {
     console.info('Recycle ====ChildTwo');
     this.message = params.message;
   }
@@ -889,12 +901,13 @@ struct ReusableChildTwoPage {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-7.gif)
 
-## @Builder支持状态变量刷新
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513563-008.gif)
 
-从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详情请参考[状态管理API文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)。
-```text
+#### @Builder支持状态变量刷新
+从API version 20开始，开发者可以通过使用UIUtils.makeBinding()函数、Binding类和MutableBinding类实现@Builder函数中状态变量的刷新。详情请参考[makeBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)。
+
+```ArkTS
 import { Binding, MutableBinding, UIUtils } from '@kit.ArkUI';
 
 @ObservedV2
@@ -903,7 +916,7 @@ class ClassA {
 }
 
 @Builder
-function customButton(num1: Binding, num2: MutableBinding) {
+function customButton(num1: Binding<number>, num2: MutableBinding<number>) {
   Row() {
     Column() {
       Text(`number1 === ${num1.value},  number2 === ${num2.value}`)
@@ -924,7 +937,7 @@ function customButton(num1: Binding, num2: MutableBinding) {
 }
 
 @Builder
-function customButtonObj(obj1: MutableBinding) {
+function customButtonObj(obj1: MutableBinding<ClassA>) {
   Row() {
     Column() {
       Text(`props === ${obj1.value.props}`)
@@ -976,8 +989,8 @@ struct Single {
         .textAlign(TextAlign.Center)
       // 调用全局@Builder函数customButton
       customButton(
-        UIUtils.makeBinding(() => this.number1), // 使用UIUtils.makeBinding()函数实现@Builder函数中状态变量的刷新
-        UIUtils.makeBinding(
+        UIUtils.makeBinding<number>(() => this.number1), // 使用UIUtils.makeBinding()函数实现@Builder函数中状态变量的刷新
+        UIUtils.makeBinding<number>(
           () => this.number2,
           (val: number) => {
             this.number2 = val;
@@ -993,7 +1006,7 @@ struct Single {
         .textAlign(TextAlign.Center)
       // 调用全局@Builder函数customButtonObj
       customButtonObj(
-        UIUtils.makeBinding( // 使用UIUtils.makeBinding()函数实现@Builder函数中状态变量的刷新
+        UIUtils.makeBinding<ClassA>( // 使用UIUtils.makeBinding()函数实现@Builder函数中状态变量的刷新
           () => this.classA,
           (val: ClassA) => {
             this.classA = val;
@@ -1009,15 +1022,15 @@ struct Single {
 ```
 
 示例效果图
-![](assets/@Builder装饰器：自定义构建函数/file-20260514130507750-8.gif)
 
-## 常见问题
+![](assets/@Builder装饰器：自定义构建函数/file-20260525091513563-009.gif)
 
+#### 常见问题
+#### @Builder存在两个或两个以上参数
+当存在两个或两个以上的参数时，即使通过对象字面量形式传递，值的改变也不会触发UI刷新。
+【反例】
 
-## @Builder存在两个或两个以上参数
-
-当存在两个或两个以上的参数时，即使通过对象字面量形式传递，值的改变也不会触发UI刷新。 【反例】
-```text
+```ArkTS
 class GlobalTmp1 {
   public strValue: string = 'Hello';
 }
@@ -1056,7 +1069,8 @@ struct Parent1 {
 ```
 
 【反例】
-```text
+
+```ArkTS
 class GlobalTmp2 {
   public strValue: string = 'Hello';
 }
@@ -1098,8 +1112,10 @@ struct Parent2 {
 }
 ```
 
-@Builder只接受一个参数。当传入一个参数的时候，通过对象字面量的形式传递，值的改变会引起UI的刷新。 【正例】
-```text
+@Builder只接受一个参数。当传入一个参数的时候，通过对象字面量的形式传递，值的改变会引起UI的刷新。
+【正例】
+
+```ArkTS
 class GlobalTmp3 {
   public strValue: string = 'Hello';
   public numValue: number = 0;
@@ -1137,11 +1153,12 @@ struct Parent3 {
 }
 ```
 
+#### 使用@ComponentV2装饰器触发动态刷新
+在@ComponentV2装饰的组件中，配合@ObservedV2和@Trace装饰器，通过按值传递实现UI刷新功能。
+【反例】
+在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中，使用简单数据类型不可以触发UI的刷新。
 
-## 使用@ComponentV2装饰器触发动态刷新
-
-在@ComponentV2装饰的组件中，配合@ObservedV2和@Trace装饰器，通过按值传递实现UI刷新功能。 【反例】 在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)装饰的自定义组件中，使用简单数据类型不可以触发UI的刷新。
-```text
+```ArkTS
 @ObservedV2
 class ParamTemp {
   @Trace public count : number = 0;
@@ -1164,60 +1181,122 @@ struct PageBuilderIncorrectUsage {
 
   aboutToAppear(): void {
     this.progressTimer = setInterval(() => {
-      if (this.classValue.count 【正例】     在@ComponentV2装饰器装饰的自定义组件中，只有使用@ObservedV2装饰的ParamTmpClass类和使用@Trace装饰的count属性才能触发UI刷新。
-```text
+      if (this.classValue.count < 100) {
+        this.classValue.count += 5;
+        this.numValue += 5;
+      } else {
+        clearInterval(this.progressTimer);
+      }
+    }, 500);
+  }
+
+  build() {
+    Column() {
+      renderNumber(this.numValue)
+    }
+    .width('100%')
+    .height('100%')
+    .padding(50)
+  }
+}
+```
+
+【正例】
+在@ComponentV2装饰器装饰的自定义组件中，只有使用@ObservedV2装饰的ParamTmpClass类和使用@Trace装饰的count属性才能触发UI刷新。
+
+```ArkTS
 @ObservedV2
 class ParamTmpClass {
-@Trace public count: number = 0;
+  @Trace public count: number = 0;
 }
 
 @Builder
 function renderText(param: ParamTmpClass) {
-Column() {
-Text(`param : ${param.count}`)
-.fontSize(20)
-.fontWeight(FontWeight.Bold)
-}
-}
-
-@Builder
-function renderMap(paramMap: Map) {
-Text(`paramMap : ${paramMap.get('name')}`)
-.fontSize(20)
-.fontWeight(FontWeight.Bold)
+  Column() {
+    Text(`param : ${param.count}`)
+      .fontSize(20)
+      .fontWeight(FontWeight.Bold)
+  }
 }
 
 @Builder
-function renderSet(paramSet: Set) {
-Text(`paramSet : ${paramSet.size}`)
-.fontSize(20)
-.fontWeight(FontWeight.Bold)
+function renderMap(paramMap: Map<string, number>) {
+  Text(`paramMap : ${paramMap.get('name')}`)
+    .fontSize(20)
+    .fontWeight(FontWeight.Bold)
+}
+
+@Builder
+function renderSet(paramSet: Set<number>) {
+  Text(`paramSet : ${paramSet.size}`)
+    .fontSize(20)
+    .fontWeight(FontWeight.Bold)
 }
 
 @Builder
 function renderNumberArr(paramNumArr: number[]) {
-Text(`paramNumArr : ${paramNumArr[0]}`)
-.fontSize(20)
-.fontWeight(FontWeight.Bold)
+  Text(`paramNumArr : ${paramNumArr[0]}`)
+    .fontSize(20)
+    .fontWeight(FontWeight.Bold)
 }
 
 @Entry
 @ComponentV2
 struct PageBuilderCorrectUsage {
-@Local builderParams: ParamTmpClass = new ParamTmpClass();
-@Local mapValue: Map = new Map();
-@Local setValue: Set = new Set([0]);
-@Local numArrValue: number[] = [0];
-private progressTimer: number = -1;
+  @Local builderParams: ParamTmpClass = new ParamTmpClass();
+  @Local mapValue: Map<string, number> = new Map();
+  @Local setValue: Set<number> = new Set([0]);
+  @Local numArrValue: number[] = [0];
+  private progressTimer: number = -1;
 
-aboutToAppear(): void {
-this.progressTimer = setInterval(() => {
-if (this.builderParams.count
+  aboutToAppear(): void {
+    this.progressTimer = setInterval(() => {
+      if (this.builderParams.count < 100) {
+        // builderParams是被@ObservedV2装饰的ParamTmpClass类
+        // count属性被@Trace装饰
+        // count变化会引起UI刷新
+        this.builderParams.count += 5;
+        this.mapValue.set('name', this.builderParams.count);
+        this.setValue.add(this.builderParams.count);
+        this.numArrValue[0] = this.builderParams.count;
+      } else {
+        clearInterval(this.progressTimer);
+      }
+    }, 500);
+  }
 
-## 在@Builder内创建自定义组件传递参数不刷新问题
+  @Builder
+  localBuilder() {
+    Column() {
+      Text(`localBuilder : ${this.builderParams.count}`)
+        .fontSize(20)
+        .fontWeight(FontWeight.Bold)
+    }
+  }
 
-在parentBuilder1函数中创建自定义组件HelloComponent1，传递参数为class对象并修改对象内的值时，UI不会触发刷新功能。 【反例】
-```text
+  build() {
+    Column() {
+      this.localBuilder()
+      Text(`builderParams :${this.builderParams.count}`)
+        .fontSize(20)
+        .fontWeight(FontWeight.Bold)
+      renderText(this.builderParams)
+      renderText({ count: this.builderParams.count })
+      renderMap(this.mapValue)
+      renderSet(this.setValue)
+      renderNumberArr(this.numArrValue)
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+
+#### 在@Builder内创建自定义组件传递参数不刷新问题
+在parentBuilder1函数中创建自定义组件HelloComponent1，传递参数为class对象并修改对象内的值时，UI不会触发刷新功能。
+【反例】
+
+```ArkTS
 class Tmp4 {
   public name: string = 'Hello';
   public age: number = 16;
@@ -1271,8 +1350,10 @@ struct ParentPage1 {
 }
 ```
 
-在parentBuilder2函数中创建自定义组件HelloComponent2，传递参数为对象字面量形式并修改对象内的值时，UI触发刷新功能。 【正例】
-```text
+在parentBuilder2函数中创建自定义组件HelloComponent2，传递参数为对象字面量形式并修改对象内的值时，UI触发刷新功能。
+【正例】
+
+```ArkTS
 class Tmp5 {
   public name: string = 'Hello';
   public age: number = 16;
@@ -1327,11 +1408,11 @@ struct ParentPage2 {
 }
 ```
 
+#### 在UI语句外调用@Builder函数或方法影响节点正常刷新
+当@Builder方法赋值给变量或者数组后，在UI方法中无法使用，且会造成刷新时节点显示异常。
+【反例】
 
-## 在UI语句外调用@Builder函数或方法影响节点正常刷新
-
-当@Builder方法赋值给变量或者数组后，在UI方法中无法使用，且会造成刷新时节点显示异常。 【反例】
-```text
+```ArkTS
 @Entry
 @Component
 struct BackGround1 {
@@ -1351,7 +1432,7 @@ struct BackGround1 {
     }
   };
 
-  private bgList: Array = [this.myImages(), this.myImages2()]; // 错误用法，应避免在UI方法外调用@Builder方法
+  private bgList: Array<CustomBuilder> = [this.myImages(), this.myImages2()]; // 错误用法，应避免在UI方法外调用@Builder方法
   @State bgBuilder: CustomBuilder = this.myImages(); // 错误用法，应避免在UI方法外调用@Builder方法
   @State bgColor: ResourceColor = Color.Orange;
   @State bgColor2: ResourceColor = Color.Orange;
@@ -1388,8 +1469,10 @@ struct BackGround1 {
 }
 ```
 
-@Builder方法赋值给变量或数组后在UI方法中无法使用，开发者应避免将@Builder赋值给变量或数组后再使用。 【正例】
-```text
+@Builder方法赋值给变量或数组后在UI方法中无法使用，开发者应避免将@Builder赋值给变量或数组后再使用。
+【正例】
+
+```ArkTS
 @Entry
 @Component
 struct BackGround2 {
@@ -1444,11 +1527,11 @@ struct BackGround2 {
 }
 ```
 
+#### 在@Builder方法中使用MutableBinding未传递set访问器
+@Builder方法定义时使用MutableBinding，构造时没有给MutableBinding类型参数传递set访问器，触发set访问器会造成运行时错误。
+【反例】
 
-## 在@Builder方法中使用MutableBinding未传递set访问器
-
-@Builder方法定义时使用MutableBinding，构造时没有给MutableBinding类型参数传递set访问器，触发set访问器会造成运行时错误。 【反例】
-```text
+```ArkTS
 import { UIUtils, Binding, MutableBinding } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1457,7 +1540,7 @@ class GlobalTmp1 {
 }
 
 @Builder
-function builderWithTwoParams1(param1: Binding, param2: MutableBinding) {
+function builderWithTwoParams1(param1: Binding<GlobalTmp1>, param2: MutableBinding<number>) {
   Column() {
     Text(`strValue: ${param1.value.strValue}`)
     Button(`num: ${param2.value}`)
@@ -1477,7 +1560,7 @@ struct MakeBindingTest1 {
     Column() {
       Text(`${this.GlobalTmp1.strValue}`)
       builderWithTwoParams1(UIUtils.makeBinding(() => this.GlobalTmp1),
-        UIUtils.makeBinding(() => this.num)) // 构造MutableBinding类型参数时没有传SetterCallback
+        UIUtils.makeBinding<number>(() => this.num)) // 构造MutableBinding类型参数时没有传SetterCallback
       Button('Update Values').onClick(() => {
         this.GlobalTmp1.strValue = 'Hello World 2025';
         this.num = 1;
@@ -1487,8 +1570,10 @@ struct MakeBindingTest1 {
 }
 ```
 
-使用规格详见状态管理API文档中的[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)。 【正例】
-```text
+使用规格详见状态管理API文档中的[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)。
+【正例】
+
+```ArkTS
 import { UIUtils, Binding, MutableBinding } from '@kit.ArkUI';
 
 @ObservedV2
@@ -1497,7 +1582,7 @@ class GlobalTmp2 {
 }
 
 @Builder
-function builderWithTwoParams2(param1: Binding, param2: MutableBinding) {
+function builderWithTwoParams2(param1: Binding<GlobalTmp2>, param2: MutableBinding<number>) {
   Column() {
     Text(`strValue: ${param1.value.strValue}`)
     Button(`num: ${param2.value}`)
@@ -1517,7 +1602,7 @@ struct MakeBindingTest2 {
     Column() {
       Text(`${this.GlobalTmp2.strValue}`)
       builderWithTwoParams2(UIUtils.makeBinding(() => this.GlobalTmp2),
-        UIUtils.makeBinding(() => this.num,
+        UIUtils.makeBinding<number>(() => this.num,
           val => {
             this.num = val;
           }))
@@ -1530,11 +1615,11 @@ struct MakeBindingTest2 {
 }
 ```
 
+#### 在@Builder装饰的函数内部修改入参内容
+不使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)的情况下，在@Builder装饰的函数内部修改参数值，修改不会生效且可能造成运行时错误。从API version 23开始，将返回错误码[140109](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140109-builder非法触发参数属性赋值)。
+【反例】
 
-## 在@Builder装饰的函数内部修改入参内容
-
-不使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)的情况下，在@Builder装饰的函数内部修改参数值，修改不会生效且可能造成运行时错误。从API version 23开始，将返回错误码[140109](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statemanagement#section140109-builder非法触发参数属性赋值)。 【反例】
-```text
+```ArkTS
 @Builder
 function myGlobalBuilder(value: string) {
   Column() {
@@ -1599,13 +1684,15 @@ struct ParentMod1 {
 }
 ```
 
-正确使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)可以帮助开发者在@Builder装饰的函数内部修改参数值。 【正例】
-```text
+正确使用[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)可以帮助开发者在@Builder装饰的函数内部修改参数值。
+【正例】
+
+```ArkTS
 import { UIUtils, MutableBinding } from '@kit.ArkUI';
 
 // 使用MutableBinding在@Builder装饰的函数中修改参数值
 @Builder
-function myGlobalBuilderMod(str: MutableBinding) {
+function myGlobalBuilderMod(str: MutableBinding<string>) {
   Column() {
     Text(`Mod--MyGlobalBuilder: ${str.value}`)
       .fontSize(16)
@@ -1621,7 +1708,7 @@ interface TempMod2 {
 
 // 使用MutableBinding在@Builder装饰的函数内部修改参数值
 @Builder
-function overBuilderMod2(param: MutableBinding) {
+function overBuilderMod2(param: MutableBinding<TempMod2>) {
   Column() {
     Button(`Mod--overBuilder === ${param.value.paramA}`)
       .onClick(() => {
@@ -1655,7 +1742,7 @@ struct ParentMod2 {
     Column() {
       // 使用MutableBinding时无法传对象字面量，需要先将字面量对象抽出为状态变量
       overBuilderMod2(
-        UIUtils.makeBinding(
+        UIUtils.makeBinding<TempMod2>(
           () => this.objectOne,
           value => {
             this.objectOne = value; // 必须要传SetterCallback，否则触发时会造成运行时错误
@@ -1669,7 +1756,7 @@ struct ParentMod2 {
         })
       this.extendBlank();
       myGlobalBuilderMod(
-        UIUtils.makeBinding(
+        UIUtils.makeBinding<string>(
           () => this.message1,
           value => {
             this.message1 = value; // 必须要传SetterCallback，否则触发时会造成运行时错误
@@ -1681,11 +1768,11 @@ struct ParentMod2 {
 }
 ```
 
+#### 在@Watch函数中执行@Builder函数
+在[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)函数中执行@Builder函数，会导致UI刷新异常。
+【反例】
 
-## 在@Watch函数中执行@Builder函数
-
-在[@Watch](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch)函数中执行@Builder函数，会导致UI刷新异常。 【反例】
-```text
+```ArkTS
 @Entry
 @Component
 struct Child1 {
@@ -1714,8 +1801,10 @@ struct Child1 {
 }
 ```
 
-Button按钮会出现UI异常的情况，开发者需要避免在@Watch函数中使用@Builder函数。 【正例】
-```text
+Button按钮会出现UI异常的情况，开发者需要避免在@Watch函数中使用@Builder函数。
+【正例】
+
+```ArkTS
 @Entry
 @Component
 struct Child2 {

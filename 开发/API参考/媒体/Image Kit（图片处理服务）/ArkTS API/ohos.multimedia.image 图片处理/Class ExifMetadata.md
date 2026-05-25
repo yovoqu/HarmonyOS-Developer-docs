@@ -1,37 +1,28 @@
 # Class (ExifMetadata)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
 ExifMetadata implements Metadata
-
 Exif（Exchangeable image file format）元数据。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 本模块首批接口从API version 23开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 导入模块
 
 ```ts
 import { image } from '@kit.ImageKit';
 ```
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 属性
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
-
 各属性详细取值，请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -129,7 +120,7 @@ import { image } from '@kit.ImageKit';
 | meteringMode | number | 否 | 是 | 测光模式。 |
 | lightSource | number | 否 | 是 | 光源。 |
 | flash | number | 否 | 是 | 闪光。 |
-| focalLength | number | 否 | 是 | 焦距。单位为毫米。 |
+| focalLength | number | 否 | 是 | 焦距。单位为毫米（mm）。 |
 | subjectArea | number[] | 否 | 是 | 用于指示主要对象在整个场景中的位置和区域。 |
 | makerNote | ArrayBuffer | 否 | 是 | Exif/相机文件系统设计规则DCF（Design rule for Camera File system）写入器制造商记录所需信息的标签。 |
 | userComment | string | 否 | 是 | 用户评论。 |
@@ -176,91 +167,66 @@ import { image } from '@kit.ImageKit';
 | sourceExposureTimesOfCompositeImage | ArrayBuffer | 否 | 是 | 合成图像的源图像的曝光时间，例如1/33秒。 |
 | gamma | number | 否 | 是 | 每个组件的伽玛值。 |
 
-
-## createInstance
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### createInstance
 static createInstance(): ExifMetadata
-
 创建一个空的[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)实例。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | [ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata) | 返回ExifMetadata的空实例。 |
 
-
 **示例：**
-
 
 ```ts
 async function exifMetadataCreateInstance(context: Context) {
   let exifMetadata = image.ExifMetadata.createInstance();
   if (exifMetadata != undefined) {
-    console.info('createInstance success');
+    console.info("createInstance successfully.");
   }
 }
 ```
 
-
-## getProperties
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getProperties(key: Array<string>): Promise<Record<string, string | null>>
-
+#### getProperties
+getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
 获取图像的元数据属性值。使用Promise异步回调。
-
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | Array&lt;string&gt; | 是 | 要获取的值的属性名称。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Record&lt;string, string \| null&gt;&gt; | Promise对象，返回获取到的图像元数据属性值。 |
-
+| Promise<Record<string, string \| null>> | Promise对象，返回获取到的图像元数据属性值。 |
 
 **错误码：**
-
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -268,80 +234,55 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataGetProperties(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
-    await metaData.exifMetadata
-      .getProperties(['ImageWidth', 'ImageLength'])
-      .then((data) => {
-        console.info('Get properties ', JSON.stringify(data));
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Get properties failed error.code is ${error.code}, error.message is ${error.message}`,
-        );
-      });
+    await metaData.exifMetadata.getProperties(["ImageWidth", "ImageLength"]).then((data) => {
+      console.info('Get properties ',JSON.stringify(data));
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to get properties. error.code is ${error.code}, error.message is ${error.message}`);
+    });
   } else {
     console.error('Metadata is null.');
   }
 }
 ```
 
-
-## setProperties
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-setProperties(records: Record<string, string | null>): Promise<void>
-
+#### setProperties
+setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
 批量设置图片元数据中的指定属性的值。使用Promise异步回调。
-
 要查询的属性的具体信息请参考[PropertyKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#propertykey7)。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| records | Record&lt;string, string \| null&gt; | 是 | 用户要修改的ExifMetadata对象的属性和键值对的集合。 |
-
+| records | Record<string, string \| null> | 是 | 用户要修改的ExifMetadata对象的属性和键值对的集合。 |
 
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600202 | Unsupported metadata. Possible causes: unsupported metadata type. |
 
-
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -349,64 +290,45 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataSetProperties(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
     let setkey: Record<string, string | null> = {
-      ImageWidth: '200',
-      ImageLength: '300',
+      "ImageWidth": "200",
+      "ImageLength": "300"
     };
-    await metaData.exifMetadata
-      .setProperties(setkey)
-      .then(async () => {
-        console.info('Set properties success.');
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Failed to set metadata Properties. code is ${error.code}, message is ${error.message}`,
-        );
-      });
+    await metaData.exifMetadata.setProperties(setkey).then(async () => {
+      console.info('Succeeded in setting properties.');
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to set metadata Properties. code is ${error.code}, message is ${error.message}`);
+    })
   } else {
     console.error('metadata is null. ');
   }
 }
 ```
 
-
-## getAllProperties
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### getAllProperties
 getAllProperties(): Promise<Record<string, string | null>>
-
 获取图片中所有元数据的属性和值。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Record&lt;string, string \| null&gt;&gt; | Promise对象，返回元数据拥有的所有属性的值。 |
-
+| Promise<Record<string, string \| null>> | Promise对象，返回元数据拥有的所有属性的值。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -414,62 +336,43 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataGetAllProperties(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
-    await metaData.exifMetadata
-      .getAllProperties()
-      .then((data) => {
-        const count = Object.keys(data).length;
-        console.info('Metadata have ', count, ' properties');
-        console.info(`Get metadata all properties: ${data}`);
-      })
-      .catch((error: BusinessError) => {
-        console.error(
-          `Get metadata all properties failed error.code is ${error.code}, error.message is ${error.message}`,
-        );
-      });
+    await metaData.exifMetadata.getAllProperties().then((data) => {
+      const count = Object.keys(data).length;
+      console.info('Metadata have ', count, ' properties');
+      console.info(`Get metadata all properties: ${data}`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to get metadata all properties. error.code is ${error.code}, error.message is ${error.message}`);
+    });
   } else {
     console.error('Metadata is null.');
   }
 }
 ```
 
-
-## clone
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-clone(): Promise<ExifMetadata>
-
+#### clone
+clone(): Promise&lt;ExifMetadata&gt;
 对Exif元数据进行克隆。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)&gt; | Promise对象，成功返回Exif元数据实例。 |
-
+| Promise<[ExifMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-exifmetadata)> | Promise对象，成功返回Exif元数据实例。 |
 
 **示例：**
-
 
 ```ts
 import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -477,58 +380,41 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataClone(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
     let new_metadata = await metaData.exifMetadata.clone();
-    new_metadata
-      .getProperties(['ImageWidth'])
-      .then((data1) => {
-        console.info(`Clone new_metadata and get Properties: ${data1}`);
-      })
-      .catch((err: BusinessError) => {
-        console.error(`Clone new_metadata failed, error : ${err}`);
-      });
+    new_metadata.getProperties(["ImageWidth"]).then((data1) => {
+      console.info(`Clone new_metadata and get Properties: ${data1}`);
+    }).catch((err: BusinessError) => {
+      console.error(`Failed to clone new_metadata. error.code: ${err.code}, error.message: ${err.message}`);
+    });
   } else {
     console.error('Metadata is null.');
   }
 }
 ```
 
-
-## getBlob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-getBlob(): Promise<ArrayBuffer>
-
+#### getBlob
+getBlob(): Promise&lt;ArrayBuffer&gt;
 以二进制数据的形式获取元数据。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **返回值：**
 
-
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;ArrayBuffer&gt; | Promise对象，返回元数据的二进制数据。 |
 
-
 **示例：**
-
 
 ```ts
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -536,69 +422,50 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataGetBlob(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
     let blob = await metaData.exifMetadata.getBlob();
     if (blob != undefined) {
-      console.info('get blob success');
+      console.info("get blob success");
     }
   }
 }
 ```
 
-
-## setBlob
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-setBlob(blob: ArrayBuffer): Promise<void>
-
+#### setBlob
+setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
 使用二进制数据替换当前元数据。使用Promise异步回调。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blob | ArrayBuffer | 是 | 要替换的二进制数据。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
-
 **错误码：**
-
 以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7600206 | Invalid parameter. Possible causes: The blob is empty or has a length of 0. |
 
-
 **示例：**
-
 
 ```ts
 import { fileIo } from '@kit.CoreFileKit';
 
 function getFileFd(context: Context): number | undefined {
-  const filePath: string = context.cacheDir + '/exif.jpg'; // 图片包含exif metadata。
-  const file: fileIo.File = fileIo.openSync(
-    filePath,
-    fileIo.OpenMode.READ_WRITE,
-  );
+  const filePath: string = context.cacheDir + '/exif.jpg';  // 图片包含exif metadata。
+  const file: fileIo.File = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE);
   const fd: number = file?.fd;
   return fd;
 }
@@ -606,19 +473,16 @@ function getFileFd(context: Context): number | undefined {
 async function exifMetadataSetBlob(context: Context) {
   let fd = getFileFd(context);
   let imageSource = image.createImageSource(fd);
-  let metaData = await imageSource.readImageMetadata([
-    'ImageWidth',
-    'ImageLength',
-  ]);
+  let metaData = await imageSource.readImageMetadata(["ImageWidth", "ImageLength"]);
   if (metaData != undefined && metaData.exifMetadata != undefined) {
     let blob = await metaData.exifMetadata.getBlob();
     if (blob != undefined) {
-      console.info('get blob success');
+      console.info("Succeeded in getting blob.");
       metaData.exifMetadata.setBlob(blob);
     }
     let new_blob = metaData.exifMetadata.getBlob();
     if (new_blob != undefined) {
-      console.info('new_blob is not undefined');
+      console.info("new_blob is not undefined");
     }
   }
 }

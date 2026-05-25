@@ -1,25 +1,19 @@
-# TranslateAnimation
+# Class (TranslateAnimation)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-translateanimation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable
 
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### 导入模块
 
 ```ts
 import { map, mapCommon } from '@kit.MapKit';
 ```
 
-
-## TranslateAnimation
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### TranslateAnimation
 控制移动的动画类，继承[Animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation)。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -28,14 +22,9 @@ import { map, mapCommon } from '@kit.MapKit';
 
 **起始版本：** 4.1.0(11)
 
-
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable
-
+#### constructor
 constructor(target: mapCommon.LatLng)
-
 构造器，构造控制移动的动画实例。
-
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
@@ -46,19 +35,16 @@ constructor(target: mapCommon.LatLng)
 
 **参数：**
 
-
-| 参数名 | 类型 | 必填 | 说明 |
+| **参数名** | **类型** | 必填 | **说明** |
 | --- | --- | --- | --- |
 | target | [mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng) | 是 | 需要移动的目标位置，位置类型为经纬度，异常值不处理。 |
 
-
 **示例：**
-
 
 ```ts
 let target: mapCommon.LatLng = {
   latitude: 31,
-  longitude: 118,
+  longitude: 118
 };
 let animation: map.TranslateAnimation = new map.TranslateAnimation(target);
 ```

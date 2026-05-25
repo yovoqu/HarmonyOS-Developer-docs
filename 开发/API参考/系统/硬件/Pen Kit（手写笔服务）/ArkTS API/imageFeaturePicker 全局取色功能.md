@@ -1,35 +1,27 @@
 # imageFeaturePicker (全局取色功能)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker
-**支持设备：** Phone / PC/2in1 / Tablet
+
+支持设备：Phone | PC/2in1 | Tablet
 
 全局取色的功能入口类。
-
 **系统能力：** SystemCapability.Stylus.ColorPicker
 
 **起始版本：** 5.0.0(12)
 
-
-## 导入模块
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### 导入模块
 
 ```ts
 import { imageFeaturePicker } from '@kit.Penkit';
 ```
 
-
-## PickedColorInfo
-**支持设备：** Phone / PC/2in1 / Tablet
-
+#### PickedColorInfo
 全局取色结果对象，包含取色的基本信息。
-
 **系统能力：** SystemCapability.Stylus.ColorPicker
 
 **起始版本：** 5.0.0(12)
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -37,39 +29,28 @@ import { imageFeaturePicker } from '@kit.Penkit';
 | colorSpace | [colorSpaceManager.ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager#colorspace) | 否 | 否 | 色域空间。 |
 | timestamp | number | 否 | 否 | 时间戳，自系统启动以来经过的时间，单位：ms。 |
 
-
-## pickForResult
-**支持设备：** Phone / PC/2in1 / Tablet
-
-pickForResult(x?:number, y?:number):Promise<PickedColorInfo>
-
-全局取色，使用Promise异步回调。
-
+#### pickForResult
+pickForResult(x?:number, y?:number):Promise&lt;PickedColorInfo&gt;
+全局取色，不支持实时显示RGB值。使用Promise异步回调。
 **系统能力：** SystemCapability.Stylus.ColorPicker
 
 **起始版本：** 5.0.0(12)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | x | number | 否 | 取色器初始位置的x轴坐标。取值范围：0~屏幕的实际宽度，单位：像素。默认值：100 |
 | y | number | 否 | 取色器初始位置的y轴坐标。取值范围：0~屏幕的实际高度，单位：像素。默认值：100 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PickedColorInfo](#pickedcolorinfo)&gt; | Promise对象，返回取色执行的结果。 |
-
+| Promise<[PickedColorInfo](#pickedcolorinfo)> | Promise对象，返回取色执行的结果。 |
 
 **错误码**：
-
 以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -81,9 +62,7 @@ pickForResult(x?:number, y?:number):Promise<PickedColorInfo>
 | 1013900004 | multi app call. |
 | 1013900005 | background service call. |
 
-
 **示例：**
-
 
 ```ts
 async colorPick(x?: number, y?: number): Promise<imageFeaturePicker.PickedColorInfo> {
@@ -92,20 +71,14 @@ async colorPick(x?: number, y?: number): Promise<imageFeaturePicker.PickedColorI
 }
 ```
 
-
-## pickForResult
-**支持设备：** Phone / PC/2in1 / Tablet
-
-pickForResult(x?:number, y?:number, showValue?:boolean):Promise<PickedColorInfo>
-
-全局取色，使用Promise异步回调。
-
+#### pickForResult
+pickForResult(x?:number, y?:number, showValue?:boolean):Promise&lt;PickedColorInfo&gt;
+全局取色，支持实时显示RGB值。使用Promise异步回调。
 **系统能力：** SystemCapability.Stylus.ColorPicker
 
 **起始版本：** 5.1.0(18)
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
@@ -113,19 +86,14 @@ pickForResult(x?:number, y?:number, showValue?:boolean):Promise<PickedColorInfo>
 | y | number | 否 | 取色器初始位置的y轴坐标。取值范围：0~屏幕的实际高度，单位：像素。默认值：100 |
 | showValue | boolean | 否 | 是否显示RGB值。true：显示RGB值，false：不显示RGB值。 默认值：false。 |
 
-
 **返回值：**
-
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;[PickedColorInfo](#pickedcolorinfo)&gt; | Promise对象，返回取色执行的结果。 |
-
+| Promise<[PickedColorInfo](#pickedcolorinfo)> | Promise对象，返回取色执行的结果。 |
 
 **错误码**：
-
 以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
-
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -137,9 +105,7 @@ pickForResult(x?:number, y?:number, showValue?:boolean):Promise<PickedColorInfo>
 | 1013900004 | multi app call. |
 | 1013900005 | background service call. |
 
-
 **示例：**
-
 
 ```ts
 async colorPick(x?: number, y?: number): Promise<imageFeaturePicker.PickedColorInfo> {

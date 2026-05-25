@@ -1,6 +1,6 @@
-# 超帧和ABR支持的图形API有哪些？
+# 超帧和ABR支持的图形API有哪些
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-faq-1
 

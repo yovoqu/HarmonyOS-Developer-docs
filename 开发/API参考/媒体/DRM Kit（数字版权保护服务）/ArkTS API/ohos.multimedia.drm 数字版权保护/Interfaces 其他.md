@@ -1,56 +1,42 @@
 # Interfaces (其他)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-drm-i
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
 
-> [!NOTE]
+> [!NOTE] 说明
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
-
-## ProvisionRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### ProvisionRequest
 设备证书请求。
-
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | data | Uint8Array | 否 | 否 | 设备证书请求数据。 |
 | defaultURL | string | 否 | 否 | Provision服务（设备证书请求服务）URL。 |
 
-
-## OptionsData
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### OptionsData
 设备证书请求的可选数据。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 可选数据名。 |
 | value | string | 否 | 否 | 可选数据值。 |
 
-
-## MediaKeyRequest
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### MediaKeyRequest
 媒体密钥请求参数。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -58,96 +44,66 @@
 | data | Uint8Array | 否 | 否 | 媒体密钥请求数据。 |
 | defaultURL | string | 否 | 否 | 媒体密钥服务URL。 |
 
-
-## EventInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### EventInfo
 事件信息。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | info | Uint8Array | 否 | 否 | 事件信息数据。 |
 | extraInfo | string | 否 | 否 | 事件扩展信息。 |
 
-
-## StatisticKeyValue
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### StatisticKeyValue
 度量记录。
-
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 度量记录名。 |
 | value | string | 否 | 否 | 度量记录值。 |
 
-
-## MediaKeyStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### MediaKeyStatus
 媒体密钥状态。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| name | string | 否 | 否 | 媒体密钥状态名称（如媒体密钥过期时间、内容保护安全级别等）。 |
+| name | string | 否 | 否 | 媒体密钥状态名称。常见名称包括：媒体密钥过期时间、内容保护安全级别等。具体可选名称由DRM解决方案决定。 |
 | value | string | 否 | 否 | 媒体密钥状态值。 |
 
-
-## KeysInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### KeysInfo
 媒体密钥中密钥信息。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | keyId | Uint8Array | 否 | 否 | 媒体密钥标识。 |
 | value | string | 否 | 否 | 媒体密钥状态值。 |
 
-
-## MediaKeySystemInfo
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### MediaKeySystemInfo
 加密媒体内容的DRM信息。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uuid | string | 否 | 否 | DRM内容保护系统的唯一标识。 |
 | pssh | Uint8Array | 否 | 否 | DRM内容保护系统专用头（Protection System Specific Header）。 |
 
-
-## MediaKeySystemDescription12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### MediaKeySystemDescription12+
 插件信息。
-
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Drm.Core
-
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |

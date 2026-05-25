@@ -1,6 +1,6 @@
-# Kit支持的设备类型有哪些？
+# Kit支持的设备类型有哪些
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-faq-6
 

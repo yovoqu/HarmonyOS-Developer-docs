@@ -1,13 +1,13 @@
 # ArkUI
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-05-22 06:37:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-b105
+
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
 | API卡片权限变更 | 类名：TextAttribute； API声明：fontFeature(value: string): TextAttribute; 差异内容：NA | 类名：TextAttribute； API声明：fontFeature(value: string): TextAttribute; 差异内容：form | component/text.d.ts |
-| API废弃版本变更 | 类名：ToastShowMode； API声明：TOP_MOST = 1 差异内容：NA | 类名：ToastShowMode； API声明：TOP_MOST = 1 差异内容：12 | api/@ohos.promptAction.d.ts |
 | API废弃版本变更 | 类名：global； API声明： declare enum NavigationType 差异内容：NA | 类名：global； API声明： declare enum NavigationType 差异内容：13 | component/navigator.d.ts |
 | API废弃版本变更 | 类名：NavigationType； API声明：Push 差异内容：NA | 类名：NavigationType； API声明：Push 差异内容：13 | component/navigator.d.ts |
 | API废弃版本变更 | 类名：NavigationType； API声明：Back 差异内容：NA | 类名：NavigationType； API声明：Back 差异内容：13 | component/navigator.d.ts |
@@ -35,7 +35,7 @@
 | API废弃版本变更 | 类名：global； API声明：declare const NavRouterInstance: NavRouterAttribute; 差异内容：NA | 类名：global； API声明：declare const NavRouterInstance: NavRouterAttribute; 差异内容：13 | component/nav_router.d.ts |
 | 错误码变更 | 类名：componentUtils； API声明：function getRectangleById(id: string): ComponentInfo; 差异内容：NA | 类名：componentUtils； API声明：function getRectangleById(id: string): ComponentInfo; 差异内容：100001 | api/@ohos.arkui.componentUtils.d.ts |
 | 错误码变更 | 类名：ComponentUtils； API声明：getRectangleById(id: string): componentUtils.ComponentInfo; 差异内容：NA | 类名：ComponentUtils； API声明：getRectangleById(id: string): componentUtils.ComponentInfo; 差异内容：100001 | api/@ohos.arkui.UIContext.d.ts |
-| 函数变更 | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array<number>, event: (isVisible: boolean, currentRatio: number) => void): T; 差异内容：event: (isVisible: boolean, currentRatio: number) => void | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T; 差异内容：event: VisibleAreaChangeCallback | component/common.d.ts |
+| 函数变更 | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array&lt;number&gt;, event: (isVisible: boolean, currentRatio: number) => void): T; 差异内容：event: (isVisible: boolean, currentRatio: number) => void | 类名：CommonMethod； API声明：onVisibleAreaChange(ratios: Array&lt;number&gt;, event: VisibleAreaChangeCallback): T; 差异内容：event: VisibleAreaChangeCallback | component/common.d.ts |
 | 自定义类型变更 | 类名：global； API声明：declare type VisibleAreaChangeCallback = (isVisible: boolean, currentRatio: number) => void; 差异内容：isVisible: boolean, currentRatio: number | 类名：global； API声明：declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void; 差异内容：isExpanding: boolean, currentRatio: number | component/common.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：getWindowWidthBreakpoint(): WidthBreakpoint; 差异内容：getWindowWidthBreakpoint(): WidthBreakpoint; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：getWindowHeightBreakpoint(): HeightBreakpoint; 差异内容：getWindowHeightBreakpoint(): HeightBreakpoint; | api/@ohos.arkui.UIContext.d.ts |
@@ -50,7 +50,7 @@
 | 新增API | NA | 类名：ContextMenuOptions； API声明：layoutRegionMargin?: Margin; 差异内容：layoutRegionMargin?: Margin; | component/common.d.ts |
 | 新增API | NA | 类名：TextAttribute； API声明：enableHapticFeedback(isEnabled: boolean): TextAttribute; 差异内容：enableHapticFeedback(isEnabled: boolean): TextAttribute; | component/text.d.ts |
 | 新增API | NA | 类名：ComposeTitleBarMenuItem； API声明：label?: ResourceStr; 差异内容：label?: ResourceStr; | api/@ohos.arkui.advanced.ComposeTitleBar.d.ets |
-| 新增API | NA | 类名：SegmentButton； API声明：onItemClicked?: Callback<number>; 差异内容：onItemClicked?: Callback<number>; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
+| 新增API | NA | 类名：SegmentButton； API声明：onItemClicked?: Callback&lt;number&gt;; 差异内容：onItemClicked?: Callback&lt;number&gt;; | api/@ohos.arkui.advanced.SegmentButton.d.ets |
 | 新增API | NA | 类名：SelectTitleBarMenuItem； API声明：label?: ResourceStr; 差异内容：label?: ResourceStr; | api/@ohos.arkui.advanced.SelectTitleBar.d.ets |
 | 新增API | NA | 类名：TabTitleBarMenuItem； API声明：label?: ResourceStr; 差异内容：label?: ResourceStr; | api/@ohos.arkui.advanced.TabTitleBar.d.ets |
 | 新增API | NA | 类名：global； API声明： export interface ToolBarSymbolGlyphOptions 差异内容： export interface ToolBarSymbolGlyphOptions | api/@ohos.arkui.advanced.ToolBar.d.ets |
@@ -66,14 +66,14 @@
 | 新增API | NA | 类名：ToolBarModifier； API声明：backgroundColor(backgroundColor: ResourceColor): ToolBarModifier; 差异内容：backgroundColor(backgroundColor: ResourceColor): ToolBarModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
 | 新增API | NA | 类名：ToolBarModifier； API声明：padding(padding: LengthMetrics): ToolBarModifier; 差异内容：padding(padding: LengthMetrics): ToolBarModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
 | 新增API | NA | 类名：ToolBarModifier； API声明：stateEffect(stateEffect: boolean): ToolBarModifier; 差异内容：stateEffect(stateEffect: boolean): ToolBarModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
-| 新增API | NA | 类名：ToolBar； API声明：@Prop  dividerModifier?: DividerModifier; 差异内容：@Prop  dividerModifier?: DividerModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
-| 新增API | NA | 类名：ToolBar； API声明：@Prop  toolBarModifier?: ToolBarModifier; 差异内容：@Prop  toolBarModifier?: ToolBarModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
+| 新增API | NA | 类名：ToolBar； API声明：@Prop dividerModifier?: DividerModifier; 差异内容：@Prop dividerModifier?: DividerModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
+| 新增API | NA | 类名：ToolBar； API声明：@Prop toolBarModifier?: ToolBarModifier; 差异内容：@Prop toolBarModifier?: ToolBarModifier; | api/@ohos.arkui.advanced.ToolBar.d.ets |
 | 新增API | NA | 类名：global； API声明：declare type FrameNode = import('../api/arkui/FrameNode').FrameNode; 差异内容：declare type FrameNode = import('../api/arkui/FrameNode').FrameNode; | component/canvas.d.ts |
 | 新增API | NA | 类名：CanvasRenderingContext2D； API声明：readonly canvas: FrameNode; 差异内容：readonly canvas: FrameNode; | component/canvas.d.ts |
-| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：on(type: 'onAttach', callback: Callback<void>): void; 差异内容：on(type: 'onAttach', callback: Callback<void>): void; | component/canvas.d.ts |
-| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：off(type: 'onAttach', callback?: Callback<void>): void; 差异内容：off(type: 'onAttach', callback?: Callback<void>): void; | component/canvas.d.ts |
-| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：on(type: 'onDetach', callback: Callback<void>): void; 差异内容：on(type: 'onDetach', callback: Callback<void>): void; | component/canvas.d.ts |
-| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：off(type: 'onDetach', callback?: Callback<void>): void; 差异内容：off(type: 'onDetach', callback?: Callback<void>): void; | component/canvas.d.ts |
+| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：on(type: 'onAttach', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'onAttach', callback: Callback&lt;void&gt;): void; | component/canvas.d.ts |
+| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：off(type: 'onAttach', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'onAttach', callback?: Callback&lt;void&gt;): void; | component/canvas.d.ts |
+| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：on(type: 'onDetach', callback: Callback&lt;void&gt;): void; 差异内容：on(type: 'onDetach', callback: Callback&lt;void&gt;): void; | component/canvas.d.ts |
+| 新增API | NA | 类名：CanvasRenderingContext2D； API声明：off(type: 'onDetach', callback?: Callback&lt;void&gt;): void; 差异内容：off(type: 'onDetach', callback?: Callback&lt;void&gt;): void; | component/canvas.d.ts |
 | 新增API | NA | 类名：global； API声明： declare enum WidthBreakpoint 差异内容： declare enum WidthBreakpoint | component/enums.d.ts |
 | 新增API | NA | 类名：WidthBreakpoint； API声明：WIDTH_XS = 0 差异内容：WIDTH_XS = 0 | component/enums.d.ts |
 | 新增API | NA | 类名：WidthBreakpoint； API声明：WIDTH_SM = 1 差异内容：WIDTH_SM = 1 | component/enums.d.ts |

@@ -1,16 +1,13 @@
 # native_drm_common.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-drm-common-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 概述
 定义DRM数据类型。
-
 **引用文件：** <multimedia/drm_framework/native_drm_common.h>
 
 **库：** libnative_drm.so
@@ -21,14 +18,8 @@
 
 **相关模块：** [Drm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm)
 
-
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### 结构体
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 汇总
+#### 结构体
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,10 +35,7 @@
 | [MediaKeySystem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-mediakeysystem) | MediaKeySystem | MediaKeySystem结构。 |
 | [MediaKeySession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-mediakeysession) | MediaKeySession | MediaKeySession结构。 |
 
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -58,19 +46,13 @@
 | [DRM_OfflineMediaKeyStatus](#drm_offlinemediakeystatus) | DRM_OfflineMediaKeyStatus | 离线媒体密钥状态。 |
 | [DRM_CertificateStatus](#drm_certificatestatus) | DRM_CertificateStatus | 设备DRM证书状态。 |
 
-
-### 函数
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 函数
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| [typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)](#drm_mediakeysysteminfocallback) | DRM_MediaKeySystemInfoCallback | 应用为从媒体源获取DRM信息而设置的回调。 |
+| [typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)](#drm_mediakeysysteminfocallback) | DRM_MediaKeySystemInfoCallback | 应用为从媒体源获取DRM信息而设置的回调函数。 |
 
-
-### 宏定义
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 宏定义
 
 | 名称 | 描述 |
 | --- | --- |
@@ -98,27 +80,18 @@
 | MAX_MEDIA_KEY_SYSTEM_NAME_LEN 128 | MediaKeySystem名称的最大长度。 起始版本： 12 |
 | MAX_MEDIA_KEY_SYSTEM_NUM 8 | MediaKeySystem的最大数量。 起始版本： 12 |
 
+#### 枚举类型说明
+#### DRM_EventType
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### DRM_EventType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_EventType
 ```
 
 **描述**
-
 监听事件类型。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -129,23 +102,17 @@ enum DRM_EventType
 | EVENT_VENDOR_DEFINED = 204 | DRM解决方案自定义事件。 |
 | EVENT_EXPIRATION_UPDATE = 206 | 密钥过期更新事件。 |
 
+#### DRM_ContentProtectionLevel
 
-### DRM_ContentProtectionLevel
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_ContentProtectionLevel
 ```
 
 **描述**
-
 内容保护级别。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -155,46 +122,34 @@ enum DRM_ContentProtectionLevel
 | CONTENT_PROTECTION_LEVEL_ENHANCED_HW_CRYPTO | 硬件增强级别。 |
 | CONTENT_PROTECTION_LEVEL_MAX | 最大安全级别。 |
 
+#### DRM_MediaKeyType
 
-### DRM_MediaKeyType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_MediaKeyType
 ```
 
 **描述**
-
 媒体密钥类型。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
 | MEDIA_KEY_TYPE_OFFLINE = 0 | 离线。 |
 | MEDIA_KEY_TYPE_ONLINE | 在线。 |
 
+#### DRM_MediaKeyRequestType
 
-### DRM_MediaKeyRequestType
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_MediaKeyRequestType
 ```
 
 **描述**
-
 媒体密钥请求类型。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -205,23 +160,17 @@ enum DRM_MediaKeyRequestType
 | MEDIA_KEY_REQUEST_TYPE_NONE | 无请求。 |
 | MEDIA_KEY_REQUEST_TYPE_UPDATE | 更新请求。 |
 
+#### DRM_OfflineMediaKeyStatus
 
-### DRM_OfflineMediaKeyStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_OfflineMediaKeyStatus
 ```
 
 **描述**
-
 离线媒体密钥状态。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -229,23 +178,17 @@ enum DRM_OfflineMediaKeyStatus
 | OFFLINE_MEDIA_KEY_STATUS_USABLE | 可用状态。 |
 | OFFLINE_MEDIA_KEY_STATUS_INACTIVE | 失活状态。 |
 
+#### DRM_CertificateStatus
 
-### DRM_CertificateStatus
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum DRM_CertificateStatus
 ```
 
 **描述**
-
 设备DRM证书状态。
-
 **系统能力：** SystemCapability.Multimedia.Drm.Core
 
 **起始版本：** 11
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -255,28 +198,19 @@ enum DRM_CertificateStatus
 | CERT_STATUS_INVALID | 设备DRM证书无效。 |
 | CERT_STATUS_UNAVAILABLE | 设备DRM证书不可用。 |
 
+#### 函数说明
+#### DRM_MediaKeySystemInfoCallback()
 
-## 函数说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### DRM_MediaKeySystemInfoCallback()
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)
 ```
 
 **描述**
-
-应用为从媒体源获取DRM信息而设置的回调。
-
+应用为从媒体源获取DRM信息而设置的回调函数。
 **起始版本：** 11
 
 **参数：**
 
-
 | 参数项 | 描述 |
 | --- | --- |
-| [DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeysysteminfo) *mediaKeySystemInfo | 从媒体源获取的DRM信息。 |
+| [DRM_MediaKeySystemInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drm-drm-mediakeysysteminfo) *mediaKeySystemInfo | 输出参数，从媒体源获取的DRM信息，包含DRM内容保护系统的唯一标识和PSSH数据。 |

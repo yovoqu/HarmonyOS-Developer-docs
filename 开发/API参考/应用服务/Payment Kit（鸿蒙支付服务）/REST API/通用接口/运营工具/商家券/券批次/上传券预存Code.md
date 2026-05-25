@@ -1,37 +1,27 @@
 # 上传券预存Code
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-19 09:13:51
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ommon-promotion-service-merc-coup-coupbatch-upload
 
-
-## 功能介绍
-
+#### 功能介绍
 商家券的code码支持商户自定义。如商家已有自己的优惠券系统，可直接使用自定义模式。即商家预先向华为支付上传券code，当券在发放时，华为支付自动从已导入的code中随机取值（不能指定），派发给用户。
 
+#### 接口原型
+- 承载协议： HTTPS POST
+- 接口方向： 开发者服务器 -> 华为支付服务器
+- 接口URL： https://petalpay-developer.cloud.huawei.com.cn/api/merchantgrow/v1/merchantcoupon/couponbatch/codeupload
+- 数据格式： 请求消息：Content-Type: application/json 响应消息：Content-Type: application/json
 
-## 接口原型
-
-
-- **承载协议：** HTTPS POST
-- **接口方向：** 开发者服务器 -> 华为支付服务器
-- **接口URL：** https://petalpay-developer.cloud.huawei.com.cn/api/merchantgrow/v1/merchantcoupon/couponbatch/codeupload
-- **数据格式：**  请求消息：Content-Type: application/json  响应消息：Content-Type: application/json
-
-
-## 请求参数
-
+#### 请求参数
 **Request Header**
-
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json; charset=UTF-8 |
 | PayMercAuth | 是 | String | 取值为：[PayMercAuth](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#paymercauth)的JSON字符串 |
 
-
 **Request Body**
-
 
 | 参数 | 是否必选 | 类型 | 说明 |
 | --- | --- | --- | --- |
@@ -39,38 +29,31 @@
 | batchNo | 是 | String | 批次号。 |
 | codeList | 是 | List&lt;String&gt; | 券code列表。列表最大数量为200。每个元素最小长度为1，最大长度为32。 |
 
+#### 请求示例
 
-## 请求示例
-
-
-```json
+```ts
 POST api/merchantgrow/v1/merchantcoupon/couponbatch/codeupload HTTP/1.1
 PayMercAuth: {"callerId":"10132120***","traceId":"202305151026422776499","time":1684117602555,"authId":"120291744647139***","headerSign":"u+H1Oe3fXV9mGCES89XA7tSjp8+TELYgG4bKyECwrVGwwExHtdWTnKc4WvEpfjLzpzKE2/+KYaq1j*********************z0UcN9QrxXSeR8r6X46b7491N1jKg/lOG7eAFfwjEWJu5JyvY5KunSeE6DiKs=","bodySign":"yWDtXOBqDoItPgHmF57L6U5G7F/LhsILChu8YSpVV0HwRQCzdGAz53wDkCRLiAEVGDDu6E6KxPAHE0TI*********************vFexUasPj10iUIFeaszpiRT2aQDaqLGaxvta6J5UxIUmAp+wGdV/juGEvQ="}
 Content-Type: application/json
 {
-  "requestNo": "20000008",
-  "batchNo": "PV1202602041321081919089024***",
-  "codeList": ["C1", "C2", "C3", "C1"]
+    "requestNo": "20000008",
+    "batchNo": "PV1202602041321081919089024***",
+    "codeList": ["C1", "C2", "C3", "C1"]
 }
 ```
 
-
-## 响应参数
-
+#### 响应参数
 **Response Header**
-
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
 | Content-Type | 是 | String | 取值为：application/json; charset=UTF-8 |
 
-
 **Response Body**
-
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| resultCode | 是 | String | 返回码，"000000"表示成功，其他表示见错误码。 |
+| resultCode | 是 | String | 返回码，"000000"表示成功，其他表示异常，请参见[错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。 |
 | resultDesc | 是 | String | 结果描述。 |
 | subCode | 否 | String | 业务错误码。 |
 | subDesc | 否 | String | 业务错误描述信息。 |
@@ -83,45 +66,40 @@ Content-Type: application/json
 | successCodes | 否 | List&lt;String&gt; | 本次新增上传成功的code信息。 单个券code长度为【1，32】，条目个数限制为【1，200】。 |
 | successTime | 是 | String | 上传操作完成时间。格式为yyyy-MM-dd'T'HH:mm:ss.SSSZ，yyyy-MM-DD表示年月日，T出现在字符串中，表示time元素的开头，HH:mm:ss.SSS表示时分秒，Z为对应的时区。例如：2023-03-28T17:50:12.000+0800表示，北京时间2023年3月28日 17点50分12秒。注意：要使用必须传准确的UTC时间。 |
 | failCount | 否 | Integer | 本次上传操作上传失败的code数。 |
-| failCodes | 否 | List&lt;[UploadFailReason](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#uploadfailreason)&gt; | 本次导入失败的code信息，请参照错误信息，修改后重试。 |
+| failCodes | 否 | List<[UploadFailReason](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-model#uploadfailreason)> | 本次导入失败的code信息，请参照错误信息，修改后重试。 |
 | existCodes | 否 | List&lt;String&gt; | 历史已存在的code列表，本次不会重复导入。 说明：单个券code长度为【1，32】，条目个数限制为【1，200】。 |
 | duplicateCodes | 否 | List&lt;String&gt; | 本次重复导入的code会被自动过滤，仅保留一个做导入，如满足要求则成功。如不满足要求，则失败。请参照报错提示修改重试。 说明：单个券code长度为【1，32】，条目个数限制为【1，200】。 |
 
+#### 响应示例
 
-## 响应示例
-
-
-```json
+```ts
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 {
-  "resultCode": "000000",
-  "resultDesc": "Success.",
-  "sign":"MEQCIEIWzdpziRyTi8vhwWHFuDdxfsiw********************CHljer0YAMabeCgTDG77e+2XJItvq/ZkIcCN5/B20pQ==",
-  "batchNo": "PV12345",
-  "existCodes": [],
-  "failCount": 0,
-  "duplicateCodes": [
-  "C1"
-  ],
-  "totalCount": 3,
-  "successCodes": [
-  "C1",
-  "C2",
-  "C3"
-  ],
-  "successTime": "2024-03-23T16:26:20.318+0800",
-  "successCount": 3
+    "resultCode": "000000",
+"resultDesc": "Success.",
+"sign":"MEQCIEIWzdpziRyTi8vhwWHFuDdxfsiw********************CHljer0YAMabeCgTDG77e+2XJItvq/ZkIcCN5/B20pQ==",
+    "batchNo": "PV12345",
+    "existCodes": [],
+    "failCount": 0,
+    "duplicateCodes": [
+        "C1"
+    ],
+    "totalCount": 3,
+    "successCodes": [
+        "C1",
+        "C2",
+        "C3"
+    ],
+    "successTime": "2024-03-23T16:26:20.318+0800",
+    "successCount": 3
 }
 ```
 
-
-## 错误码
-
+#### 错误码
 **resultCode**非400000的错误码请看[公共错误码说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code-rest#公共错误码说明)。
 
-
-| 返回码 | 错误码 | 错误描述 | 解决方案 |
+| **返回码** | **错误码** | **错误描述** | **解决方案** |
 | --- | --- | --- | --- |
 | 400000 | UNKNOW_ERROR | 服务暂不可用, 请稍后重试 | 稍候重试。 |
 | 400000 | INVALID_ARGUMENTS | 参数不合法 | 检查请求参数。 |

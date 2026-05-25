@@ -1,16 +1,13 @@
 # arkweb_net_error_list.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-net-error-list-h
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
 
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
-## 概述
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 概述
 声明ArkWeb网络协议栈错误码。
-
 **引用文件：** <web/arkweb_net_error_list.h>
 
 **库：** libohweb.so
@@ -21,40 +18,25 @@
 
 **相关模块：** [Web](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web)
 
-
-## 汇总
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### 枚举
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 汇总
+#### 枚举
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | [ArkWeb_NetError](#arkweb_neterror) | ArkWeb_NetError | 定义ArkWeb网络协议栈错误码。 |
 
+#### 枚举类型说明
+#### ArkWeb_NetError
 
-## 枚举类型说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### ArkWeb_NetError
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-```text
+```ts
 enum ArkWeb_NetError
 ```
 
 **描述：**
-
 定义ArkWeb网络协议栈错误码。
-
 **系统能力：** SystemCapability.Web.Webview.Core
 
 **起始版本：** 12
-
 
 | 枚举项 | 描述 |
 | --- | --- |
@@ -215,7 +197,7 @@ enum ArkWeb_NetError
 | ARKWEB_ERR_PAC_NOT_IN_DHCP = -348 | 无法从DHCP检索PAC URL配置。这可能表明检索DHCP配置失败，或者在DHCP中没有配置PAC URL。 |
 | ARKWEB_ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION = -349 | HTTP响应包含多个Content-Disposition响应头。 |
 | ARKWEB_ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION = -350 | HTTP响应包含了多个Location响应头。 |
-| ARKWEB_ERR_HTTP2_SERVER_REFUSED_STREAM = -351 | HTTP/2服务器在未处理请求的情况下拒绝了请求，并发送了带有错误代码NO_ERROR和低于与请求对应的流ID的Last-Stream-ID的GOAWAY帧， |
+| ARKWEB_ERR_HTTP2_SERVER_REFUSED_STREAM = -351 | HTTP/2服务器在未处理请求的情况下拒绝了请求，并发送了带有错误代码NO_ERROR和低于与请求对应的流ID的Last-Stream-ID的GOAWAY帧。 |
 | ARKWEB_ERR_HTTP2_PING_FAILED = -352 | HTTP/2服务器未响应PING消息。 |
 | ARKWEB_ERR_CONTENT_LENGTH_MISMATCH = -354 | 当连接关闭时，HTTP响应主体传输的字节数少于Content-Length头中公布的字节数。 |
 | ARKWEB_ERR_INCOMPLETE_CHUNKED_ENCODING = -355 | HTTP响应体使用分块编码传输，但在连接关闭时，终止的零长度区块从未被发送。 |
@@ -234,7 +216,7 @@ enum ArkWeb_NetError
 | ARKWEB_ERR_CONTENT_DECODING_INIT_FAILED = -371 | 初始化内容解码失败。 |
 | ARKWEB_ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED = -372 | 收到带有NO_ERROR错误代码的HTTP/2 RST_STREAM帧。此错误应由HTTP/2代码内部处理，而不应超过SpdyStream层。 |
 | ARKWEB_ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE = -373 | 请求声明的推送流不再可用。 |
-| ARKWEB_ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374 | 已声明推送的流���随后服务器将其重置。发生这种情况时，应该重试请求。 |
+| ARKWEB_ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374 | 已声明推送的流，随后服务器将其重置。发生这种情况时，应该重试请求。 |
 | ARKWEB_ERR_TOO_MANY_RETRIES = -375 | 由于身份验证或证书无效，重试次数过多。 |
 | ARKWEB_ERR_HTTP2_STREAM_CLOSED = -376 | 在已关闭的流上收到一个HTTP/2帧。 |
 | ARKWEB_ERR_HTTP2_CLIENT_REFUSED_STREAM = -377 | 客户端拒绝了一个HTTP/2流。 |

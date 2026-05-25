@@ -1,30 +1,22 @@
 # TextTimer
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-05-18 03:44:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-texttimer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
+
+支持设备：Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过文本显示计时信息并控制其计时器状态的组件。
-
 组件不可见（非锁屏状态和应用后台状态）时，UI时间变动将停止（即该组件此时不会绘制），[onTimer](#ontimer)仍然会正常触发。
 
-
-> [!NOTE]
+> [!NOTE] 说明
 > 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
 
-
-## 子组件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 子组件
 无
 
-
-## 接口
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 接口
 TextTimer(options?: TextTimerOptions)
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -32,47 +24,32 @@ TextTimer(options?: TextTimerOptions)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | [TextTimerOptions](#texttimeroptions对象说明) | 否 | 通过文本显示计时信息并控制其计时器状态的组件参数。默认值继承[TextTimerOptions](#texttimeroptions对象说明) 。 |
 
-
-## TextTimerOptions对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### TextTimerOptions对象说明
 用于构建TextTimer组件的选项。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | isCountDown | boolean | 否 | 是 | 倒计时开关。 true：计时器开启倒计时，例如从30秒~0秒。 false：计时器开始计时，例如从0秒~30秒。 默认值：false |
-| count | number | 否 | 是 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0&lt;count&lt;86400000时，count值为计时器初始值。否则，使用默认值为计时器初始值。 默认值：60000 |
+| count | number | 否 | 是 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为计时器初始值。否则，使用默认值为计时器初始值。 默认值：60000 |
 | controller | [TextTimerController](#texttimercontroller) | 否 | 是 | TextTimer控制器。 |
 
-
-## 属性
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 属性
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
-
-### format
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### format
 format(value: string)
-
 设置自定义格式，需至少包含一个HH、mm、ss、SS中的关键字。使用yy、MM、dd等日期格式时，使用默认值。
-
 计时器更新频率按format最小单位处理，例如：format设置为'HH:mm'时，更新频率为一分钟。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -80,20 +57,14 @@ format(value: string)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | string | 是 | 自定义日期显示的格式。 默认值：'HH:mm:ss.SS' |
 
-
-### fontColor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fontColor
 fontColor(value: ResourceColor)
-
 设置字体颜色。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -101,20 +72,14 @@ fontColor(value: ResourceColor)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | [ResourceColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcecolor) | 是 | 字体颜色。 Wearable设备上默认值为：'#c5ffffff'，显示白色。 其他设备上默认值：'#e6182431'，显示黑色。 |
 
-
-### fontSize
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fontSize
 fontSize(value: Length)
-
 设置字体大小。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -122,20 +87,14 @@ fontSize(value: Length)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 字体大小。value为Length中的number类型时，单位为fp。字体大小默认为16fp。value为Length中的string类型时，设置值为非数��开头的字符串时，按0fp处理；设置值为数字开头的字符串时，如果数字后内容包含除[像素单位](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-pixel-units)外的字符（如字母、特殊符号等），则取值字符串开头的数字部分，单位为fp。例如设置值为"abc"时取值为0fp，设置值为"10vp"时取值为10vp，设置值为"10vp11abc"时取值为10fp。不支持设置百分比字符串。 |
+| value | [Length](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#length) | 是 | 字体大小。value为Length中的number类型时，单位为fp。字体大小默认为16fp。value为Length中的string类型时，设置值为非数字开头的字符串时，按0fp处理；设置值为数字开头的字符串时，如果数字后内容包含除[像素单位](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-pixel-units)外的字符（如字母、特殊符号等），则取值字符串开头的数字部分，单位为fp。例如设置值为"abc"时取值为0fp，设置值为"10vp"时取值为10vp，设置值为"10vp11abc"时取值为10fp。不支持设置百分比字符串。 |
 
-
-### fontStyle
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fontStyle
 fontStyle(value: FontStyle)
-
 设置字体样式。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -143,20 +102,14 @@ fontStyle(value: FontStyle)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | value | [FontStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontstyle) | 是 | 字体样式，例如斜体的字体样式。 默认值：FontStyle.Normal |
 
-
-### fontWeight
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fontWeight
 fontWeight(value: number | FontWeight | ResourceStr)
-
 设置文本的字体粗细，设置过大可能会导致不同字体下的文字出现截断。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -165,19 +118,13 @@ fontWeight(value: number | FontWeight | ResourceStr)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | number \| [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 文本的字体粗细，number类型取值范围为[100, 900]，取值间隔为100，取值越大，字体越粗。number类型取值范围外的默认值为400。[ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr)类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal  从API version 20开始，支持Resource类型。 |
+| value | number \| [FontWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fontweight) \| [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 文本的字体粗细，number类型取值范围为[100, 900]，取值间隔为100，取值越大，字体越粗。number类型取值范围外的默认值为400。ResourceStr类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。 默认值：FontWeight.Normal  从API version 20开始，支持Resource类型。 |
 
-
-### fontFamily
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### fontFamily
 fontFamily(value: ResourceStr)
-
 设置字体列表。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -186,22 +133,16 @@ fontFamily(value: ResourceStr)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 字体列表。默认字体为'HarmonyOS Sans'。 应用当前支持'HarmonyOS Sans'字体和[注册自定义字体](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-font)。 卡片当前仅支持'HarmonyOS Sans'字体。 |
+| value | [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr) | 是 | 字体列表。默认字体为'HarmonyOS Sans'。 应用当前支持'HarmonyOS Sans'字体和注册自定义字体。 卡片当前仅支持'HarmonyOS Sans'字体。 |
 
-
-### textShadow11+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-textShadow(value: ShadowOptions | Array<ShadowOptions>)
-
+#### textShadow11+
+textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 设置文字阴影效果。该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段, 不支持智能取色模式。
 
-
-> [!NOTE]
-> 从API version 12开始，该接口支持在[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)中调用。
+> [!NOTE] 说明
+> 从API version 12开始，该接口支持在attributeModifier中调用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -209,42 +150,27 @@ textShadow(value: ShadowOptions | Array<ShadowOptions>)
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | [ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明) \| Array&lt;[ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明)&gt; | 是 | 文字阴影效果的参数，包括颜色、模糊半径、偏移量。 |
+| value | [ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明) \| Array<[ShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-image-effect#shadowoptions对象说明)> | 是 | 文字阴影效果的参数，包括颜色、模糊半径、偏移量。 |
 
-
-### contentModifier12+
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-contentModifier(modifier: ContentModifier<TextTimerConfiguration>)
-
+#### contentModifier12+
+contentModifier(modifier: ContentModifier&lt;TextTimerConfiguration&gt;)
 定制TextTimer内容区的方法。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
 
-
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)[&lt;TextTimerConfiguration&gt;](#texttimerconfiguration12对象说明) | 是 | 在TextTimer组件上，定制内容区的方法。 modifier： 内容修改器，开发者需要自定义class实现ContentModifier接口。 |
+| modifier | [ContentModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#contentmodifiert)<[TextTimerConfiguration](#texttimerconfiguration12对象说明)> | 是 | 在TextTimer组件上，定制内容区的方法。 modifier： 内容修改器，开发者需要自定义class实现ContentModifier接口。 |
 
-
-## 事件
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### onTimer
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### 事件
+#### onTimer
 onTimer(event: (utc: number, elapsedTime: number) => void)
-
 时间文本发生变化时触发该事件。锁屏状态和应用后台状态下不会触发该事件。设置高精度的[format](#format)（SS）时，回调间隔可能会出现波动。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -252,118 +178,78 @@ onTimer(event: (utc: number, elapsedTime: number) => void)
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
 **参数：**
-
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | utc | number | 是 | Linux时间戳，即自1970年1月1日起经过的时间，单位为设置格式的最小单位。 |
 | elapsedTime | number | 是 | 计时器经过的时间，单位为设置格式的最小单位。 |
 
-
-## TextTimerController
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### TextTimerController
 TextTimer组件的控制器，用于控制文本计时器。一个TextTimer组件仅支持绑定一个控制器，组件创建完成后相关指令才能被调用。一个TextTimerController只能控制最后一个绑定此TextTimerController的TextTimer组件。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
-
-### 导入对象
-
+#### 导入对象
 
 ```ts
 textTimerController: TextTimerController = new TextTimerController();
 ```
 
-
-### constructor
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### constructor
 constructor()
-
 TextTimerController的构造函数。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
-### start
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### start
 start()
-
 计时开始。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
-### pause
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### pause
 pause()
-
 计时暂停。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
-### reset
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### reset
 reset()
-
 重置计时器。
-
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
-## TextTimerConfiguration12+对象说明
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
+#### TextTimerConfiguration12+对象说明
 ContentModifier接口使用的TextTimer配置。
-
 开发者需要自定义class实现ContentModifier接口。
-
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
-
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 否 | 否 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0&lt;count&lt;86400000时，count值为倒计时初始值。否则，使用默认值为倒计时初始值。  默认值：60000。 |
+| count | number | 否 | 否 | 计时器时间（isCountDown为true时生效），单位为毫秒。最长不超过86400000毫秒（24小时）。 0<count<86400000时，count值为倒计时初始值。否则，使用默认值为倒计时初始值。  默认值：60000。 |
 | isCountDown | boolean | 否 | 否 | 是否倒计时。 true：计时器开启倒计时，例如从30秒 ~ 0秒；false：计时器开始计时，例如从0秒 ~ 30秒。  默认值：false |
 | started | boolean | 否 | 否 | 是否已经开始了计时。 true：开始计时；false：未开始计时。 默认值：false |
 | elapsedTime | number | 否 | 否 | 计时器经过的时间，单位为设置格式的最小单位。 |
 
-
-## 示例
-**支持设备：** Phone / PC/2in1 / Tablet / Wearable / TV
-
-
-### 示例1（支持手动启停的文本计时器）
-
+#### 示例
+#### 示例1（支持手动启停的文本计时器）
 该示例展示了TextTimer组件的基本使用方法，通过[format](#format)属性设置计时器的文本显示格式。
-
 用户可以通过点击"start"、"pause"、"reset"按钮，开启、暂停、重置计时器。
-
 
 ```ts
 // xxx.ets
@@ -376,12 +262,12 @@ struct TextTimerExample {
   build() {
     Column() {
       TextTimer({ isCountDown: true, count: 30000, controller: this.textTimerController })
-      .format(this.format)
-      .fontColor(Color.Black)
-      .fontSize(50)
-      .onTimer((utc: number, elapsedTime: number) => {
-        console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
-      })
+        .format(this.format)
+        .fontColor(Color.Black)
+        .fontSize(50)
+        .onTimer((utc: number, elapsedTime: number) => {
+          console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+        })
       Row() {
         Button('start').onClick(() => {
           this.textTimerController.start();
@@ -398,13 +284,10 @@ struct TextTimerExample {
 }
 ```
 
-![](assets/TextTimer/file-20260514164100510-0.gif)
+![](assets/TextTimer/file-20260525091257747-001.gif)
 
-
-### 示例2（设定文本阴影样式）
-
+#### 示例2（设定文本阴影样式）
 该示例通过[textShadow](#textshadow11)属性设置计时器的文本阴影样式。
-
 
 ```ts
 // xxx.ets
@@ -446,13 +329,10 @@ struct TextTimerExample {
 }
 ```
 
-![](assets/TextTimer/file-20260514164100510-1.png)
+![](assets/TextTimer/file-20260525091257747-002.png)
 
-
-### 示例3（设定自定义内容区）
-
+#### 示例3（设定自定义内容区）
 该示例实现了两个简易秒表，使用浅灰色背景。计时器开始后，会实时显示时间变化。倒计时器开始后，背景会变成黑色，正计时器开始后，背景会变成灰色。
-
 
 ```ts
 // xxx.ets
@@ -470,15 +350,15 @@ function buildTextTimer(config: TextTimerConfiguration) {
   Column() {
     Stack({ alignContent: Alignment.Center }) {
       Circle({ width: 150, height: 150 })
-      .fill(config.started ? (config.isCountDown ? 0xFF232323 : 0xFF717171) : 0xFF929292)
+        .fill(config.started ? (config.isCountDown ? 0xFF232323 : 0xFF717171) : 0xFF929292)
       Column() {
         Text(config.isCountDown ? '倒计时' : '正计时').fontColor(Color.White)
         Text(
-        (config.isCountDown ? '剩余' : '已经过去了') + (config.isCountDown ?
-        (Math.max(config.count / 1000 - config.elapsedTime / 100, 0)).toFixed(1) + '/' +
-        (config.count / 1000).toFixed(0)
-        : ((config.elapsedTime / 100).toFixed(0))
-        ) + '秒'
+          (config.isCountDown ? '剩余' : '已经过去了') + (config.isCountDown ?
+            (Math.max(config.count / 1000 - config.elapsedTime / 100, 0)).toFixed(1) + '/' +
+            (config.count / 1000).toFixed(0)
+            : ((config.elapsedTime / 100).toFixed(0))
+          ) + '秒'
         ).fontColor(Color.White)
       }
     }
@@ -497,16 +377,16 @@ struct Index {
     Row() {
       Column() {
         TextTimer({ isCountDown: true, count: this.count, controller: this.countDownTextTimerController })
-        .contentModifier(this.myTimerModifier)
-        .onTimer((utc: number, elapsedTime: number) => {
-          console.info('textTimer onTimer utc is：' + utc + ', elapsedTime: ' + elapsedTime);
-        })
-        .margin(10)
+          .contentModifier(this.myTimerModifier)
+          .onTimer((utc: number, elapsedTime: number) => {
+            console.info('textTimer onTimer utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+          })
+          .margin(10)
         TextTimer({ isCountDown: false, controller: this.countUpTextTimerController })
-        .contentModifier(this.myTimerModifier)
-        .onTimer((utc: number, elapsedTime: number) => {
-          console.info('textTimer onTimer utc is：' + utc + ', elapsedTime: ' + elapsedTime);
-        })
+          .contentModifier(this.myTimerModifier)
+          .onTimer((utc: number, elapsedTime: number) => {
+            console.info('textTimer onTimer utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+          })
         Row() {
           Button('start').onClick(() => {
             this.countDownTextTimerController.start();
@@ -527,13 +407,10 @@ struct Index {
 }
 ```
 
-![](assets/TextTimer/file-20260514164100510-2.gif)
+![](assets/TextTimer/file-20260525091257747-003.gif)
 
-
-### 示例4（创建之后立即执行计时）
-
+#### 示例4（创建之后立即执行计时）
 该示例展示了TextTimer计时器如何在创建完成之后立即开始计时。
-
 
 ```ts
 // xxx.ets
@@ -546,17 +423,17 @@ struct TextTimerStart {
   build() {
     Column() {
       Scroll()
-      .height('20%')
+        .height('20%')
       TextTimer({ isCountDown: true, count: 30000, controller: this.textTimerController })
-      .format(this.format)
-      .fontColor(Color.Black)
-      .fontSize(50)
-      .onTimer((utc: number, elapsedTime: number) => {
-        console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
-      })
-      .onAppear(() => {
-        this.textTimerController.start();
-      })
+        .format(this.format)
+        .fontColor(Color.Black)
+        .fontSize(50)
+        .onTimer((utc: number, elapsedTime: number) => {
+          console.info('textTimer notCountDown utc is：' + utc + ', elapsedTime: ' + elapsedTime);
+        })
+        .onAppear(() => {
+          this.textTimerController.start();
+        })
     }
     .height('100%')
     .width('100%')
@@ -565,13 +442,10 @@ struct TextTimerStart {
 }
 ```
 
-![](assets/TextTimer/file-20260514164100510-3.gif)
+![](assets/TextTimer/file-20260525091257748-004.gif)
 
-
-### 示例5（设置文本样式）
-
+#### 示例5（设置文本样式）
 该示例通过[fontColor](#fontcolor)、[fontSize](#fontsize)、[fontStyle](#fontstyle)、[fontWeight](#fontweight)、[fontFamily](#fontfamily)属性展示了不同样式的文本效果。
-
 
 ```ts
 // xxx.ets
@@ -586,33 +460,33 @@ struct demo {
     Column({ space: 10 }) {
       Text('设置字体颜色').fontColor(0xCCCCCC)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontColor(Color.Blue)
+        .fontColor(Color.Blue)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontColor(Color.Gray)
+        .fontColor(Color.Gray)
 
       Text('设置字体大小').fontColor(0xCCCCCC)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontSize(10)
+        .fontSize(10)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontSize(30)
+        .fontSize(30)
 
       Text('设置字体样式').fontColor(0xCCCCCC)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontStyle(FontStyle.Normal)
+        .fontStyle(FontStyle.Normal)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontStyle(FontStyle.Italic)
+        .fontStyle(FontStyle.Italic)
 
       Text('设置字重').fontColor(0xCCCCCC)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontWeight(FontWeight.Lighter)
+        .fontWeight(FontWeight.Lighter)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontWeight(FontWeight.Bolder)
+        .fontWeight(FontWeight.Bolder)
 
       Text('设置字体族').fontColor(0xCCCCCC)
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontFamily('HMOS Color Emoji')
+        .fontFamily('HMOS Color Emoji')
       TextTimer({ isCountDown: true, count: this.countValue, controller: this.textTimerController })
-      .fontFamily('HarmonyOS Sans')
+        .fontFamily('HarmonyOS Sans')
     }
     .width('100%')
     .height('100%')
@@ -621,4 +495,4 @@ struct demo {
 }
 ```
 
-![](assets/TextTimer/file-20260514164100510-4.png)
+![](assets/TextTimer/file-20260525091257748-005.png)

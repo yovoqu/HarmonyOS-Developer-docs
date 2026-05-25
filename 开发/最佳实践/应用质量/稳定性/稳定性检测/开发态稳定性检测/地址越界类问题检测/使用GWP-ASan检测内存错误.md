@@ -1,57 +1,40 @@
 # 使用GWP-ASan检测内存错误
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-05-18 00:55:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-gwpasan-detection
 
-GWP-ASan的能力概述和检测原理可参看地址越界检测能力概述以及GWP-ASan检测原理，适用于运行态商用场景。
+GWP-ASan的能力概述和检测原理可参看[地址越界检测能力概述](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-overview)以及[GWP-ASan检测原理](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-address-sanitizer-principle#section555616291854)，适用于运行态商用场景。
 
-
-## 使用约束
-
-
+#### 使用约束
 ASan、TSan、UBSan、HWASan、GWP-ASan不能同时开启，五个只能开启其中一个。
 
+#### GWP-ASan使能
+可通过以下两种方式使能GWP-ASan。
 
-## GWP-ASan使能
-
-
+#### 方式一 修改app.json5配置文件
 在app.json5中添加"GWPAsanEnabled": true配置，如下图所示。
 
+![](assets/使用GWP-ASan检测内存错误/file-20260525085706138-001.png)
+开启GWP-ASan检测后，如果应用发生地址越界问题，且该问题正好被GWP-ASan采样监控，GWP-ASan会记录地址越界事件并且使进程崩溃，开发者可以通过订阅地址越界事件来获取相关信息，请参考：[地址越界事件介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-address-sanitizer-events)。
 
-![](assets/使用GWP-ASan检测内存错误/file-20260515115106766-0.png)
-
-
-开启GWP-ASan检测后，如果应用发生地址越界问题，且该问题正好被GWP-ASan采样监控，GWP-ASan会记录地址越界事件并且使进程崩溃，开发者可以通过订阅地址越界事件来获取相关信息，请参考：地址越界事件介绍。
-
-
-## 配置参数
-
-
+#### 方式二 调用hidebug接口
 从API 20开始，GWP-ASan可通过hidebug接口配置参数，可配置参数如下：
-
 
 | 名称 | 默认值 | 是否必填 | 说明 |
 | --- | --- | --- | --- |
-| alwaysEnabled | false | 否 | true：100%开启GWP-ASan，与app.json5中GWPAsanEnable标签功能一致。 false：1/128概率开启GWP-ASan，在应用冷启动时候会判断是否开启。 注意：若在app.json5中设置了 GWPAsanEnable，将会覆盖该参数。 |
+| alwaysEnabled | false | 否 | true：100%开启GWP-ASan，与app.json5中GWPAsanEnabled标签功能一致。 false：1/128概率开启GWP-ASan，在应用冷启动时候会判断是否开启。 注意：若在app.json5中设置了 GWPAsanEnabled，将会覆盖该参数。 |
 | sampleRate | 2500 | 否 | GWP-ASan采样频率。1/sampleRate的概率对分配的内存进行采样。 建议值：≥1000，默认参数下性能开销小于1%。采样频率过小会显著影响性能，若调整参数请开发者自行保证用户体验。 |
 | maxSimutaneousAllocations | 1000 | 否 | 最大分配的插槽数。当插槽用尽时，新分配的内存将不再受监控。释放已使用的内存后，其占用的插槽将自动复用，以便于后续内存的监控。 建议值：≤20000，每个插槽会额外占用约4.5KB内存，默认参数下约占4.5MB，过大可能导致VMA超限崩溃。 |
 
+接口具体使用方式，可查看[@ohos.hidebug (Debug调试)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug#hidebugenablegwpasangrayscale20)。
 
-
-接口具体使用方式，可查看@ohos.hidebug (Debug调试)。
-
-
-## GWP-ASan异常检测类型
-
-
+#### GWP-ASan异常检测类型
 下面给出异常检测码和相关日志
 
+#### double free
 
-### double free
-
-
-```text
+```ts
 *** GWP-ASan detected a memory error ***
 Double Free at 0x7f9c31efe0 (a 20-byte allocation) by thread 11725 here:
   #0 0x7f9c548958 (/lib/ld-musl-aarch64.so.1+0x1ea958)
@@ -80,11 +63,9 @@ Double Free at 0x7f9c31efe0 (a 20-byte allocation) by thread 11725 here:
 *** End GWP-ASan report ***
 ```
 
+#### use_after_free
 
-### use_after_free
-
-
-```text
+```ts
 *** GWP-ASan detected a memory error ***
 Use After Free at 0x7fa2ab6000 (0 bytes into a 10-byte allocation at 0x7fa2ab6000) by thread 3594 here:
   #0 0x7fa4781f18 (/lib/ld-musl-aarch64.so.1+0x1e9f18)
@@ -111,11 +92,9 @@ Use After Free at 0x7fa2ab6000 (0 bytes into a 10-byte allocation at 0x7fa2ab600
 *** End GWP-ASan report ***
 ```
 
+#### invalid free left
 
-### invalid free left
-
-
-```text
+```ts
 *** GWP-ASan detected a memory error ***
 Invalid (Wild) Free at 0x7f8551ffff (1 byte to the left of a 1-byte allocation at 0x7f85520000) by thread 11708 here:
   #0 0x7f856746b8 (/lib/ld-musl-aarch64.so.1+0x1286b8)
@@ -136,11 +115,9 @@ Invalid (Wild) Free at 0x7f8551ffff (1 byte to the left of a 1-byte allocation a
 *** End GWP-ASan report ***
 ```
 
+#### invalid free right
 
-### invalid free right
-
-
-```text
+```ts
 *** GWP-ASan detected a memory error ***
 Invalid (Wild) Free at 0x7fa4e96ff1 (1 byte to the right of a 1-byte allocation at 0x7fa4e96ff0) by thread 11852 here:
   #0 0x7fa4fec6b8 (/lib/ld-musl-aarch64.so.1+0x1286b8)
@@ -161,11 +138,9 @@ Invalid (Wild) Free at 0x7fa4e96ff1 (1 byte to the right of a 1-byte allocation 
 *** End GWP-ASan report ***
 ```
 
+#### buffer underflow
 
-### buffer underflow
-
-
-```text
+```ts
 *** GWP-ASan detected a memory error ***
 Buffer Underflow at 0x7f8db1aff1 (4063 bytes to the left of a 48-byte allocation at 0x7f8db1bfd0) by thread 12086 here:
   #0 0x7f8dc716b8 (/lib/ld-musl-aarch64.so.1+0x1286b8)
@@ -193,8 +168,5 @@ Buffer Underflow at 0x7f8db1aff1 (4063 bytes to the left of a 48-byte allocation
 *** End GWP-ASan report ***
 ```
 
-
-## 日志规格和日志获取方式
-
-
-请参看日志获取方式和GWP-ASan日志规格。
+#### 日志规格和日志获取方式
+请参看[日志获取方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines#日志获取方式)和[GWP-ASan日志规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/address-sanitizer-guidelines#gwp-asan日志规格)。
